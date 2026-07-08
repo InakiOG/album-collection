@@ -66,7 +66,7 @@ function render(list) {
   for (const r of list) {
     const wrap = document.createElement("div");
     wrap.className = "cover-wrap";
-    wrap.style.animationDuration = `${(5 + Math.random() * 4).toFixed(2)}s`;
+    wrap.style.animationDuration = `${(6 + Math.random() * 4.8).toFixed(2)}s`;
     wrap.style.animationDelay = `-${(Math.random() * 8).toFixed(2)}s`;
     for (let i = 1; i <= 4; i++) {
       wrap.style.setProperty(`--dx${i}`, `${(Math.random() * 16 - 8).toFixed(1)}px`);
