@@ -98,15 +98,21 @@ function render(list) {
 }
 
 async function loadCollection() {
+  const timeout = setTimeout(() => {
+    statusEl.textContent = "Still loading… this is taking longer than expected.";
+  }, 8000);
+
   try {
-    const res = await fetch("data/collection.json", { cache: "no-cache" });
+    const res = await fetch("data/collection.json");
     if (!res.ok) throw new Error(`Failed to load collection.json: ${res.status}`);
     const data = await res.json();
+    clearTimeout(timeout);
 
     render(sortReleases(data.releases));
     countEl.textContent = `${data.releases.length} albums`;
     statusEl.classList.add("hidden");
   } catch (err) {
+    clearTimeout(timeout);
     statusEl.textContent = `Couldn't load collection: ${err.message}`;
   }
 }
