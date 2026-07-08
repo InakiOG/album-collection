@@ -66,8 +66,13 @@ function render(list) {
   for (const r of list) {
     const wrap = document.createElement("div");
     wrap.className = "cover-wrap";
-    wrap.style.animationDuration = `${(4 + Math.random() * 2).toFixed(2)}s`;
-    wrap.style.animationDelay = `-${(Math.random() * 5).toFixed(2)}s`;
+    wrap.style.animationDuration = `${(5 + Math.random() * 4).toFixed(2)}s`;
+    wrap.style.animationDelay = `-${(Math.random() * 8).toFixed(2)}s`;
+    for (let i = 1; i <= 4; i++) {
+      wrap.style.setProperty(`--dx${i}`, `${(Math.random() * 16 - 8).toFixed(1)}px`);
+      wrap.style.setProperty(`--dy${i}`, `${(Math.random() * 16 - 8).toFixed(1)}px`);
+      wrap.style.setProperty(`--dr${i}`, `${(Math.random() * 4 - 2).toFixed(1)}deg`);
+    }
     wrap.addEventListener("click", () => openOverlay(r));
 
     if (r.cover) {

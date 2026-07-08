@@ -48,8 +48,11 @@ body {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-7px); }
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(var(--dx1, 5px), var(--dy1, -6px)) rotate(var(--dr1, 1deg)); }
+  40% { transform: translate(var(--dx2, -6px), var(--dy2, -3px)) rotate(var(--dr2, -1deg)); }
+  60% { transform: translate(var(--dx3, 6px), var(--dy3, 4px)) rotate(var(--dr3, 1deg)); }
+  80% { transform: translate(var(--dx4, -4px), var(--dy4, 5px)) rotate(var(--dr4, -1deg)); }
 }
 
 .cover {
