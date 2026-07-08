@@ -18,7 +18,8 @@ function openOverlay(r) {
   overlayImg.alt = r.title;
   overlayTitle.textContent = r.title;
   overlayArtist.textContent = r.artists.join(", ");
-  overlayMeta.textContent = [r.year, r.formats.join(", "), r.label].filter(Boolean).join(" · ");
+  const year = r.pressingYear ? `${r.year} (${r.pressingYear} pressing)` : r.year;
+  overlayMeta.textContent = [year, r.formats.join(", "), r.label].filter(Boolean).join(" · ");
   overlayGenres.textContent = [...r.genres, ...r.styles].join(", ");
   overlayLink.href = releaseUrl(r);
 
@@ -55,14 +56,26 @@ function render(list) {
   grid.innerHTML = "";
   const frag = document.createDocumentFragment();
   for (const r of list) {
+    const wrap = document.createElement("div");
+    wrap.className = "cover-wrap";
+    wrap.addEventListener("click", () => openOverlay(r));
+
     const img = document.createElement("img");
     img.className = "cover";
     img.src = r.cover;
     img.alt = r.title;
     img.loading = "lazy";
     img.referrerPolicy = "no-referrer";
-    img.addEventListener("click", () => openOverlay(r));
-    frag.appendChild(img);
+    wrap.appendChild(img);
+
+    if (r.formats.some(f => f.toUpperCase() === "CD")) {
+      const badge = document.createElement("span");
+      badge.className = "cd-badge";
+      badge.textContent = "CD";
+      wrap.appendChild(badge);
+    }
+
+    frag.appendChild(wrap);
   }
   grid.appendChild(frag);
 }

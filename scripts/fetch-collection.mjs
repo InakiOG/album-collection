@@ -2,13 +2,19 @@ import { writeFile, mkdir } from "node:fs/promises";
 
 const USERNAME = "InakiOG";
 const PER_PAGE = 100;
+const HEADERS = { "User-Agent": "album-collection-static-site/1.0" };
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 function slim(r) {
   const info = r.basic_information;
   return {
     id: info.id,
+    masterId: info.master_id || null,
     title: info.title,
-    year: info.year,
+    pressingYear: info.year,
     artists: (info.artists || []).map(a => a.name.replace(/\s\(\d+\)$/, "")),
     formats: (info.formats || []).map(f => f.name),
     label: (info.labels || [])[0]?.name || null,
@@ -26,7 +32,7 @@ async function fetchAll() {
   do {
     const res = await fetch(
       `https://api.discogs.com/users/${USERNAME}/collection/folders/0/releases?page=${page}&per_page=${PER_PAGE}&sort=artist&sort_order=asc`,
-      { headers: { "User-Agent": "album-collection-static-site/1.0" } }
+      { headers: HEADERS }
     );
     if (!res.ok) throw new Error(`Discogs API error: ${res.status} ${await res.text()}`);
     const data = await res.json();
@@ -36,6 +42,31 @@ async function fetchAll() {
 
     page++;
   } while (page <= totalPages);
+
+  return releases;
+}
+
+// The collection endpoint only gives the year of this specific pressing.
+// The master release holds the year the album was originally released,
+// which is what we actually want to sort by.
+async function attachOriginalYears(releases) {
+  const masterIds = [...new Set(releases.map(r => r.masterId).filter(Boolean))];
+  const yearByMaster = new Map();
+
+  for (const masterId of masterIds) {
+    const res = await fetch(`https://api.discogs.com/masters/${masterId}`, { headers: HEADERS });
+    if (res.ok) {
+      const data = await res.json();
+      if (data.year) yearByMaster.set(masterId, data.year);
+    }
+    const remaining = Number(res.headers.get("x-discogs-ratelimit-remaining") || "1");
+    await sleep(remaining <= 2 ? 3000 : 1100);
+  }
+
+  for (const r of releases) {
+    r.year = (r.masterId && yearByMaster.get(r.masterId)) || r.pressingYear;
+    if (r.year === r.pressingYear) delete r.pressingYear;
+  }
 
   return releases;
 }
@@ -52,7 +83,9 @@ function sortReleases(releases) {
   });
 }
 
-const releases = sortReleases(await fetchAll());
+const raw = await fetchAll();
+const withYears = await attachOriginalYears(raw);
+const releases = sortReleases(withYears);
 
 await mkdir(new URL("../data", import.meta.url), { recursive: true });
 await writeFile(
