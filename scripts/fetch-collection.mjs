@@ -40,7 +40,19 @@ async function fetchAll() {
   return releases;
 }
 
-const releases = await fetchAll();
+function sortKey(r) {
+  return (r.artists[0] || "").toLowerCase().replace(/^the\s+/, "");
+}
+
+function sortReleases(releases) {
+  return [...releases].sort((a, b) => {
+    const artistCmp = sortKey(a).localeCompare(sortKey(b));
+    if (artistCmp !== 0) return artistCmp;
+    return (a.year || 0) - (b.year || 0);
+  });
+}
+
+const releases = sortReleases(await fetchAll());
 
 await mkdir(new URL("../data", import.meta.url), { recursive: true });
 await writeFile(

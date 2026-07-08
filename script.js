@@ -39,6 +39,18 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeOverlay();
 });
 
+function sortKey(r) {
+  return (r.artists[0] || "").toLowerCase().replace(/^the\s+/, "");
+}
+
+function sortReleases(releases) {
+  return [...releases].sort((a, b) => {
+    const artistCmp = sortKey(a).localeCompare(sortKey(b));
+    if (artistCmp !== 0) return artistCmp;
+    return (a.year || 0) - (b.year || 0);
+  });
+}
+
 function render(list) {
   grid.innerHTML = "";
   const frag = document.createDocumentFragment();
@@ -61,7 +73,7 @@ async function loadCollection() {
     if (!res.ok) throw new Error(`Failed to load collection.json: ${res.status}`);
     const data = await res.json();
 
-    render(data.releases);
+    render(sortReleases(data.releases));
     statusEl.classList.add("hidden");
   } catch (err) {
     statusEl.textContent = `Couldn't load collection: ${err.message}`;

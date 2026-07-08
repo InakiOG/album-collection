@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-08T17:52:41.494Z",
+  "updatedAt": "2026-07-08T18:03:59.785Z",
   "releases": [
     {
       "id": 31419368,
@@ -108,28 +108,6 @@
       "cover": "https://i.discogs.com/d6_4RAwmQI8jbuE_O4IRmQJed-B_x9tpMqW78T0_FUk/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIyNjcw/MDE4LTE2NDk5ODk2/NjYtMTIzOC5qcGVn.jpeg"
     },
     {
-      "id": 27644166,
-      "title": "Come To Daddy",
-      "year": 2022,
-      "artists": [
-        "Aphex Twin"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Warp Records",
-      "genres": [
-        "Electronic"
-      ],
-      "styles": [
-        "Drum n Bass",
-        "Experimental",
-        "Abstract",
-        "Breaks"
-      ],
-      "cover": "https://i.discogs.com/JkJTQv9rKTESTkrr7P9DIM47vgYx2R4aeEoETA96hDQ/rs:fit/g:sm/q:90/h:593/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3NjQ0/MTY2LTE2OTI4MzEy/MzgtNDcyNy5qcGVn.jpeg"
-    },
-    {
       "id": 17164261,
       "title": "Selected Ambient Works 85-92",
       "year": 2021,
@@ -151,6 +129,28 @@
         "Ambient"
       ],
       "cover": "https://i.discogs.com/x3Q_ZhnFrM6PLhhNX1LE4qV25bIktt1grkYwVzP_RW4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE3MTY0/MjYxLTE3NDkzMzAy/MTEtMTExNC5wbmc.jpeg"
+    },
+    {
+      "id": 27644166,
+      "title": "Come To Daddy",
+      "year": 2022,
+      "artists": [
+        "Aphex Twin"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Warp Records",
+      "genres": [
+        "Electronic"
+      ],
+      "styles": [
+        "Drum n Bass",
+        "Experimental",
+        "Abstract",
+        "Breaks"
+      ],
+      "cover": "https://i.discogs.com/JkJTQv9rKTESTkrr7P9DIM47vgYx2R4aeEoETA96hDQ/rs:fit/g:sm/q:90/h:593/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3NjQ0/MTY2LTE2OTI4MzEy/MzgtNDcyNy5qcGVn.jpeg"
     },
     {
       "id": 35326933,
@@ -232,27 +232,6 @@
       "cover": "https://i.discogs.com/KnRR4MLVSePxIOjoA_b-ZA-L130XF4JqJXcm6Ngqp3M/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyODI3/MjQwLTE1NDMwNzAz/OTUtMzM4Ni5qcGVn.jpeg"
     },
     {
-      "id": 26706254,
-      "title": "Bloom",
-      "year": 2023,
-      "artists": [
-        "Beach House"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Sub Pop",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Indie Rock",
-        "Ethereal",
-        "Dream Pop"
-      ],
-      "cover": "https://i.discogs.com/WSP6i5vYeZYubAoPMDP39jIuF13X5CGqdh6mgZk-kXA/rs:fit/g:sm/q:90/h:575/w:575/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2NzA2/MjU0LTE2OTE1OTc2/ODktMjk1OS5qcGVn.jpeg"
-    },
-    {
       "id": 7396928,
       "title": "Depression Cherry ",
       "year": 2015,
@@ -297,6 +276,46 @@
       "cover": "https://i.discogs.com/p3d3zzzjGda8n-kB-WHfwQnVWM2T5vvaGIAm2AkGZtw/rs:fit/g:sm/q:90/h:592/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzMTMy/OTI0LTE2NTE4NDc2/MzItNjM0MC5qcGVn.jpeg"
     },
     {
+      "id": 26706254,
+      "title": "Bloom",
+      "year": 2023,
+      "artists": [
+        "Beach House"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Sub Pop",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Indie Rock",
+        "Ethereal",
+        "Dream Pop"
+      ],
+      "cover": "https://i.discogs.com/WSP6i5vYeZYubAoPMDP39jIuF13X5CGqdh6mgZk-kXA/rs:fit/g:sm/q:90/h:575/w:575/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2NzA2/MjU0LTE2OTE1OTc2/ODktMjk1OS5qcGVn.jpeg"
+    },
+    {
+      "id": 11092658,
+      "title": "Let It Be",
+      "year": 2017,
+      "artists": [
+        "The Beatles"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Apple Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Pop Rock"
+      ],
+      "cover": "https://i.discogs.com/qGv_yxNVEWq5jqNHzoU2qrVKmMsPR0aLMNOg8pGQHBs/rs:fit/g:sm/q:90/h:365/w:350/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExMDky/NjU4LTE1MDk3MjQ2/ODctODk1OC5qcGVn.jpeg"
+    },
+    {
       "id": 14578598,
       "title": "1",
       "year": 2018,
@@ -336,25 +355,6 @@
         "Pop Rock"
       ],
       "cover": "https://i.discogs.com/0kqC2JTWJ6hJExT7AFj-DV4Bw4aeRTxCP6GfzHMDWcw/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwODM0/MzQyLTE3MTcxNzM3/NzgtODc1Ny5qcGVn.jpeg"
-    },
-    {
-      "id": 11092658,
-      "title": "Let It Be",
-      "year": 2017,
-      "artists": [
-        "The Beatles"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Apple Records",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Pop Rock"
-      ],
-      "cover": "https://i.discogs.com/qGv_yxNVEWq5jqNHzoU2qrVKmMsPR0aLMNOg8pGQHBs/rs:fit/g:sm/q:90/h:365/w:350/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExMDky/NjU4LTE1MDk3MjQ2/ODctODk1OC5qcGVn.jpeg"
     },
     {
       "id": 11085529,
@@ -477,6 +477,31 @@
       "cover": "https://i.discogs.com/WEgG_TiRio-_tZWk09rhjhHSWOV4k8vLE26CEmYo4zc/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc2MzE5/MzEtMTcwNjQwNDQ3/MC00NzM1LmpwZWc.jpeg"
     },
     {
+      "id": 15764805,
+      "title": "Minecraft Volume Beta",
+      "year": 2020,
+      "artists": [
+        "C418"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Ghostly International",
+      "genres": [
+        "Electronic",
+        "Stage & Screen"
+      ],
+      "styles": [
+        "Ambient",
+        "Soundtrack",
+        "Chiptune",
+        "Video Game Music",
+        "IDM",
+        "Score"
+      ],
+      "cover": "https://i.discogs.com/hec8cpuOL523rYHtFto_OWWv23qrH9lPOKhVLouZBo4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1NzY0/ODA1LTE2NzE3MzE3/MjgtMjY5NC5qcGVn.jpeg"
+    },
+    {
       "id": 30580669,
       "title": "Minecraft Volume Alpha",
       "year": 2024,
@@ -503,29 +528,23 @@
       "cover": "https://i.discogs.com/aHgCqQy6ke1HGXo8dD1y0aV2BA4zk_y5iozv1Y0-6AM/rs:fit/g:sm/q:90/h:600/w:586/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNTgw/NjY5LTE3MTYwNjgw/NDUtNTIwOS5qcGVn.jpeg"
     },
     {
-      "id": 15764805,
-      "title": "Minecraft Volume Beta",
-      "year": 2020,
+      "id": 7856486,
+      "title": "Tell Me I'm Pretty",
+      "year": 2015,
       "artists": [
-        "C418"
+        "Cage The Elephant"
       ],
       "formats": [
         "Vinyl"
       ],
-      "label": "Ghostly International",
+      "label": "RCA",
       "genres": [
-        "Electronic",
-        "Stage & Screen"
+        "Rock"
       ],
       "styles": [
-        "Ambient",
-        "Soundtrack",
-        "Chiptune",
-        "Video Game Music",
-        "IDM",
-        "Score"
+        "Alternative Rock"
       ],
-      "cover": "https://i.discogs.com/hec8cpuOL523rYHtFto_OWWv23qrH9lPOKhVLouZBo4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1NzY0/ODA1LTE2NzE3MzE3/MjgtMjY5NC5qcGVn.jpeg"
+      "cover": "https://i.discogs.com/507xSZRyvQ3hUJLyeCUsf4zaAYjapDClvqhdUTuf58o/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc4NTY0/ODYtMTQ1MDI3MDM3/NS0xNTY0LmpwZWc.jpeg"
     },
     {
       "id": 28952755,
@@ -545,25 +564,6 @@
         "Alternative Rock"
       ],
       "cover": "https://i.discogs.com/FcA6dpAp0hZpRZWmOmHrgru2WIH__uQf5uIdYu6jCak/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4OTUy/NzU1LTE3MDAzMjYx/NTctMzc3NS5qcGVn.jpeg"
-    },
-    {
-      "id": 7856486,
-      "title": "Tell Me I'm Pretty",
-      "year": 2015,
-      "artists": [
-        "Cage The Elephant"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "RCA",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Alternative Rock"
-      ],
-      "cover": "https://i.discogs.com/507xSZRyvQ3hUJLyeCUsf4zaAYjapDClvqhdUTuf58o/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc4NTY0/ODYtMTQ1MDI3MDM3/NS0xNTY0LmpwZWc.jpeg"
     },
     {
       "id": 31833650,
@@ -607,6 +607,27 @@
       "cover": "https://i.discogs.com/jO96t7TMiGPwTEjiv61ssYL8Smp4nbfzprm_GOpBISQ/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzNDQ3/MzAwLTE1NTQzODg4/NzAtNjczOS5qcGVn.jpeg"
     },
     {
+      "id": 5876465,
+      "title": "Heaven Or Las Vegas",
+      "year": 2014,
+      "artists": [
+        "Cocteau Twins"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "4AD",
+      "genres": [
+        "Electronic",
+        "Rock"
+      ],
+      "styles": [
+        "Dream Pop",
+        "Ethereal"
+      ],
+      "cover": "https://i.discogs.com/4aoOARpeUF-cbEjniCDG7t2BafKYFCNcEaVW5d05OO8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU4NzY0/NjUtMTQwNTk0NzIz/Mi0zMTY4LmpwZWc.jpeg"
+    },
+    {
       "id": 29459938,
       "title": "Four-Calendar Café",
       "year": 2024,
@@ -630,27 +651,6 @@
       "cover": "https://i.discogs.com/kXTUTgVrLHtGteZPHH18IuHxc_5q5_EhbTSe9Em3uzY/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5NDU5/OTM4LTE3MDUwMzQ4/MTEtNDY0MS5qcGVn.jpeg"
     },
     {
-      "id": 5876465,
-      "title": "Heaven Or Las Vegas",
-      "year": 2014,
-      "artists": [
-        "Cocteau Twins"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "4AD",
-      "genres": [
-        "Electronic",
-        "Rock"
-      ],
-      "styles": [
-        "Dream Pop",
-        "Ethereal"
-      ],
-      "cover": "https://i.discogs.com/4aoOARpeUF-cbEjniCDG7t2BafKYFCNcEaVW5d05OO8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU4NzY0/NjUtMTQwNTk0NzIz/Mi0zMTY4LmpwZWc.jpeg"
-    },
-    {
       "id": 31728419,
       "title": "Parachutes",
       "year": 2024,
@@ -669,29 +669,6 @@
         "Pop Rock"
       ],
       "cover": "https://i.discogs.com/v2A5dL9aUz2GZ0QKvLp-xZ8ojWP4bhbiJrspDh7x1b8/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNzI4/NDE5LTE3Mjk3NTIy/NzQtNTU2OC5qcGVn.jpeg"
-    },
-    {
-      "id": 29889358,
-      "title": "(III)",
-      "year": 2024,
-      "artists": [
-        "Crystal Castles"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Casablanca",
-      "genres": [
-        "Electronic"
-      ],
-      "styles": [
-        "Experimental",
-        "Electro",
-        "Witch House",
-        "Synth-pop",
-        "Ethereal"
-      ],
-      "cover": "https://i.discogs.com/z5QsQV86uqiPivpOjNn2YZcNU6mIlcAEnGzhNanSxaU/rs:fit/g:sm/q:90/h:500/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5ODg5/MzU4LTE3MDg2Njg2/NTAtNjgxNi5qcGVn.jpeg"
     },
     {
       "id": 13839494,
@@ -716,25 +693,27 @@
       "cover": "https://i.discogs.com/LORCuYj86enoIl9XwsSMACEu-NLaiTAhwe-i2E8CHHk/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzODM5/NDk0LTE1NjIyOTY4/MDItNTI1Ny5qcGVn.jpeg"
     },
     {
-      "id": 17329675,
-      "title": "Disintegration ",
-      "year": 2020,
+      "id": 29889358,
+      "title": "(III)",
+      "year": 2024,
       "artists": [
-        "The Cure"
+        "Crystal Castles"
       ],
       "formats": [
         "Vinyl"
       ],
-      "label": "Elektra",
+      "label": "Casablanca",
       "genres": [
-        "Rock"
+        "Electronic"
       ],
       "styles": [
-        "Alternative Rock",
-        "New Wave",
-        "Goth Rock"
+        "Experimental",
+        "Electro",
+        "Witch House",
+        "Synth-pop",
+        "Ethereal"
       ],
-      "cover": "https://i.discogs.com/zmwuiUsmx7qnpPpCxl8HKMQqbYpggr5f4KNK1lnbb3M/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE3MzI5/Njc1LTE2MzE5MTY0/MzItMzAwMC5qcGVn.jpeg"
+      "cover": "https://i.discogs.com/z5QsQV86uqiPivpOjNn2YZcNU6mIlcAEnGzhNanSxaU/rs:fit/g:sm/q:90/h:500/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5ODg5/MzU4LTE3MDg2Njg2/NTAtNjgxNi5qcGVn.jpeg"
     },
     {
       "id": 9018165,
@@ -778,26 +757,47 @@
       "cover": "https://i.discogs.com/-bdUBW9Q79utQCXupoE16-jy329gksmQTQkBY0MVEkA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE5Mzc3/NDI3LTE2MjU0NDY3/NTYtMzM3Ny5qcGVn.jpeg"
     },
     {
-      "id": 29277010,
-      "title": "Discovery",
-      "year": 2023,
+      "id": 17329675,
+      "title": "Disintegration ",
+      "year": 2020,
       "artists": [
-        "Daft Punk"
+        "The Cure"
       ],
       "formats": [
         "Vinyl"
       ],
-      "label": "ADA (6)",
+      "label": "Elektra",
       "genres": [
-        "Electronic"
+        "Rock"
       ],
       "styles": [
-        "Disco",
-        "House",
-        "Electro",
-        "French House"
+        "Alternative Rock",
+        "New Wave",
+        "Goth Rock"
       ],
-      "cover": "https://i.discogs.com/9omVF7Ur_lP25cJS_AUeKEXhSWncOr_VllpR1UdVHV4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5Mjc3/MDEwLTE3MzMwODAz/ODEtMzE5Ni5qcGVn.jpeg"
+      "cover": "https://i.discogs.com/zmwuiUsmx7qnpPpCxl8HKMQqbYpggr5f4KNK1lnbb3M/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE3MzI5/Njc1LTE2MzE5MTY0/MzItMzAwMC5qcGVn.jpeg"
+    },
+    {
+      "id": 21098977,
+      "title": "TRON: El Legado (Soundtrack Original)",
+      "year": 2010,
+      "artists": [
+        "Daft Punk"
+      ],
+      "formats": [
+        "CD"
+      ],
+      "label": "Walt Disney Records",
+      "genres": [
+        "Electronic",
+        "Funk / Soul",
+        "Stage & Screen"
+      ],
+      "styles": [
+        "Soundtrack",
+        "Score"
+      ],
+      "cover": "https://i.discogs.com/7WN1WTo3CLgxE-lKtfb2qPnHy1uTwkaBV7gLCYa_I4Q/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIxMDk4/OTc3LTE2NDM3MDYy/OTUtODQ2Mi5qcGVn.jpeg"
     },
     {
       "id": 6657381,
@@ -845,26 +845,26 @@
       "cover": "https://i.discogs.com/yqa-5yyG0qMNoiEuoIr3i826YpWl-NwUXwg0EZ_6Y3k/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2NzI0/NTg0LTE2ODEyMTcx/MTMtMzIwOC5qcGVn.jpeg"
     },
     {
-      "id": 21098977,
-      "title": "TRON: El Legado (Soundtrack Original)",
-      "year": 2010,
+      "id": 29277010,
+      "title": "Discovery",
+      "year": 2023,
       "artists": [
         "Daft Punk"
       ],
       "formats": [
-        "CD"
+        "Vinyl"
       ],
-      "label": "Walt Disney Records",
+      "label": "ADA (6)",
       "genres": [
-        "Electronic",
-        "Funk / Soul",
-        "Stage & Screen"
+        "Electronic"
       ],
       "styles": [
-        "Soundtrack",
-        "Score"
+        "Disco",
+        "House",
+        "Electro",
+        "French House"
       ],
-      "cover": "https://i.discogs.com/7WN1WTo3CLgxE-lKtfb2qPnHy1uTwkaBV7gLCYa_I4Q/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIxMDk4/OTc3LTE2NDM3MDYy/OTUtODQ2Mi5qcGVn.jpeg"
+      "cover": "https://i.discogs.com/9omVF7Ur_lP25cJS_AUeKEXhSWncOr_VllpR1UdVHV4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5Mjc3/MDEwLTE3MzMwODAz/ODEtMzE5Ni5qcGVn.jpeg"
     },
     {
       "id": 2383925,
@@ -907,44 +907,6 @@
       "cover": "https://i.discogs.com/HI4C_20GA8PVmVrhpyEg6_WKE2DnhiP6F4ZIE7yU7dM/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2MTcw/MDYxLTE3MDIyNDU4/NzgtMzI1OS5qcGVn.jpeg"
     },
     {
-      "id": 15965839,
-      "title": "_Ohms",
-      "year": 2020,
-      "artists": [
-        "Deftones"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Reprise Records",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Art Rock"
-      ],
-      "cover": "https://i.discogs.com/TSEzVoGJy2YizyYuwf1mn7ApSAv1aUHI9hS55Jjnk5w/rs:fit/g:sm/q:90/h:600/w:592/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1OTY1/ODM5LTE2MDI5NzMx/OTAtNjIwMC5qcGVn.jpeg"
-    },
-    {
-      "id": 23162180,
-      "title": "Adrenaline",
-      "year": 2022,
-      "artists": [
-        "Deftones"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Maverick",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Nu Metal"
-      ],
-      "cover": "https://i.discogs.com/05ZKx1M5L74NIMWHab68Yh-zoFIA8W77rud3S-fB6_Q/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzMTYy/MTgwLTE3NjU1NTg5/MDMtNTA4MC5qcGVn.jpeg"
-    },
-    {
       "id": 2873079,
       "title": "Around The Fur",
       "year": 2011,
@@ -962,28 +924,6 @@
         "Nu Metal"
       ],
       "cover": "https://i.discogs.com/xHvabeA8Utori9_VlFa42eLpWpu-YNcKNL6aPZu7e74/rs:fit/g:sm/q:90/h:600/w:595/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4NzMw/NzktMTY0MDg4MTI2/NS03OTc3LmpwZWc.jpeg"
-    },
-    {
-      "id": 31678850,
-      "title": "B-Sides & Rarities",
-      "year": 2024,
-      "artists": [
-        "Deftones"
-      ],
-      "formats": [
-        "Vinyl",
-        "Vinyl",
-        "All Media"
-      ],
-      "label": "Reprise Records",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Alternative Metal",
-        "Post-Punk"
-      ],
-      "cover": "https://i.discogs.com/o8DB--drdUVF8bOf5hGk8OP1odohKnBfY6G7KDJSy-M/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNjc4/ODUwLTE3NDkyMjgy/NjktODQ1Ni5qcGVn.jpeg"
     },
     {
       "id": 16444497,
@@ -1007,24 +947,23 @@
       "cover": "https://i.discogs.com/bQs9UhkrPTuwz4Gqya8bfEkCU3mkDVYWPPk3qLCIowA/rs:fit/g:sm/q:90/h:592/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2NDQ0/NDk3LTE3NTg1NzYz/MzEtNjIyMC5qcGVn.jpeg"
     },
     {
-      "id": 27660165,
-      "title": "Deftones",
-      "year": 2023,
+      "id": 15965839,
+      "title": "_Ohms",
+      "year": 2020,
       "artists": [
         "Deftones"
       ],
       "formats": [
         "Vinyl"
       ],
-      "label": "Maverick",
+      "label": "Reprise Records",
       "genres": [
         "Rock"
       ],
       "styles": [
-        "Alternative Rock",
-        "Nu Metal"
+        "Art Rock"
       ],
-      "cover": "https://i.discogs.com/CqElSO-j1gLbV5A5uwCiTMAd-6-xHEh_kxm5Mj_h6ug/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3NjYw/MTY1LTE2ODkyNDc1/NDctNTc5Ny5qcGVn.jpeg"
+      "cover": "https://i.discogs.com/TSEzVoGJy2YizyYuwf1mn7ApSAv1aUHI9hS55Jjnk5w/rs:fit/g:sm/q:90/h:600/w:592/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1OTY1/ODM5LTE2MDI5NzMx/OTAtNjIwMC5qcGVn.jpeg"
     },
     {
       "id": 19829203,
@@ -1045,84 +984,6 @@
         "Nu Metal"
       ],
       "cover": "https://i.discogs.com/0dQDQK1aYpqkm3ZeQepOQ5qgVgxj-T8CqtsqDQfpvTY/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE5ODI5/MjAzLTE2Mjg3MjA2/NTktOTgyMy5qcGVn.jpeg"
-    },
-    {
-      "id": 23162270,
-      "title": "Koi No Yokan",
-      "year": 2022,
-      "artists": [
-        "Deftones"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Reprise Records",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Alternative Rock"
-      ],
-      "cover": "https://i.discogs.com/f2VzigTNvV9FVS5w5qEQQ6P14U8tZ2beIAhJxMJQJlI/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzMTYy/MjcwLTE2NTIyOTkx/MjctMzE3Ni5qcGVn.jpeg"
-    },
-    {
-      "id": 34873610,
-      "title": "Private Music",
-      "year": 2025,
-      "artists": [
-        "Deftones"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Reprise Records",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Alternative Metal"
-      ],
-      "cover": "https://i.discogs.com/_zazyGUsZUlgjk6jC1VtBZ87NdtGCkYK_cTHBn-qtdE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0ODcz/NjEwLTE3NjcxOTk2/NjctMzg2Mi5qcGVn.jpeg"
-    },
-    {
-      "id": 30322481,
-      "title": "Saturday Night Wrist",
-      "year": 2024,
-      "artists": [
-        "Deftones"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Maverick",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Alternative Rock",
-        "Hard Rock",
-        "Nu Metal"
-      ],
-      "cover": "https://i.discogs.com/DR_RN61fJ0cnSkLnazN1iSS9oA93vdnSWfEABHZzirw/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwMzIy/NDgxLTE3NzE2Nzc1/MDMtMzU0MC5qcGVn.jpeg"
-    },
-    {
-      "id": 27355728,
-      "title": "White Pony",
-      "year": 2023,
-      "artists": [
-        "Deftones"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Maverick",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Nu Metal"
-      ],
-      "cover": "https://i.discogs.com/YGL4fsCnz0r4ZHE-cQtI-o2JKtxxob_MOV1ee440thU/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3MzU1/NzI4LTE2ODY2ODcx/NDUtMzI1NC5qcGVn.jpeg"
     },
     {
       "id": 17384062,
@@ -1147,6 +1008,145 @@
         "Experimental"
       ],
       "cover": "https://i.discogs.com/Sgk5czUL_Ryipikpx5sTlERTOlTJNnErBMbmzS-F7xg/rs:fit/g:sm/q:90/h:588/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE3Mzg0/MDYyLTE2MTc3NjQ5/MjEtNTc2Ny5qcGVn.jpeg"
+    },
+    {
+      "id": 23162180,
+      "title": "Adrenaline",
+      "year": 2022,
+      "artists": [
+        "Deftones"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Maverick",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Nu Metal"
+      ],
+      "cover": "https://i.discogs.com/05ZKx1M5L74NIMWHab68Yh-zoFIA8W77rud3S-fB6_Q/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzMTYy/MTgwLTE3NjU1NTg5/MDMtNTA4MC5qcGVn.jpeg"
+    },
+    {
+      "id": 23162270,
+      "title": "Koi No Yokan",
+      "year": 2022,
+      "artists": [
+        "Deftones"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Reprise Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Alternative Rock"
+      ],
+      "cover": "https://i.discogs.com/f2VzigTNvV9FVS5w5qEQQ6P14U8tZ2beIAhJxMJQJlI/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzMTYy/MjcwLTE2NTIyOTkx/MjctMzE3Ni5qcGVn.jpeg"
+    },
+    {
+      "id": 27660165,
+      "title": "Deftones",
+      "year": 2023,
+      "artists": [
+        "Deftones"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Maverick",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Alternative Rock",
+        "Nu Metal"
+      ],
+      "cover": "https://i.discogs.com/CqElSO-j1gLbV5A5uwCiTMAd-6-xHEh_kxm5Mj_h6ug/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3NjYw/MTY1LTE2ODkyNDc1/NDctNTc5Ny5qcGVn.jpeg"
+    },
+    {
+      "id": 27355728,
+      "title": "White Pony",
+      "year": 2023,
+      "artists": [
+        "Deftones"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Maverick",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Nu Metal"
+      ],
+      "cover": "https://i.discogs.com/YGL4fsCnz0r4ZHE-cQtI-o2JKtxxob_MOV1ee440thU/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3MzU1/NzI4LTE2ODY2ODcx/NDUtMzI1NC5qcGVn.jpeg"
+    },
+    {
+      "id": 31678850,
+      "title": "B-Sides & Rarities",
+      "year": 2024,
+      "artists": [
+        "Deftones"
+      ],
+      "formats": [
+        "Vinyl",
+        "Vinyl",
+        "All Media"
+      ],
+      "label": "Reprise Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Alternative Metal",
+        "Post-Punk"
+      ],
+      "cover": "https://i.discogs.com/o8DB--drdUVF8bOf5hGk8OP1odohKnBfY6G7KDJSy-M/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNjc4/ODUwLTE3NDkyMjgy/NjktODQ1Ni5qcGVn.jpeg"
+    },
+    {
+      "id": 30322481,
+      "title": "Saturday Night Wrist",
+      "year": 2024,
+      "artists": [
+        "Deftones"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Maverick",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Alternative Rock",
+        "Hard Rock",
+        "Nu Metal"
+      ],
+      "cover": "https://i.discogs.com/DR_RN61fJ0cnSkLnazN1iSS9oA93vdnSWfEABHZzirw/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwMzIy/NDgxLTE3NzE2Nzc1/MDMtMzU0MC5qcGVn.jpeg"
+    },
+    {
+      "id": 34873610,
+      "title": "Private Music",
+      "year": 2025,
+      "artists": [
+        "Deftones"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Reprise Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Alternative Metal"
+      ],
+      "cover": "https://i.discogs.com/_zazyGUsZUlgjk6jC1VtBZ87NdtGCkYK_cTHBn-qtdE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0ODcz/NjEwLTE3NjcxOTk2/NjctMzg2Mi5qcGVn.jpeg"
     },
     {
       "id": 20686504,
@@ -1331,6 +1331,27 @@
       "cover": "https://i.discogs.com/olZ_Wjd_bWC53WNkGrjE57KAVo0gwQM04jVwZWKVjm4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNzcx/MTUzLTE3NTEyNDQ3/NDUtMjIwNC5qcGVn.jpeg"
     },
     {
+      "id": 23389007,
+      "title": "Skinty Fia",
+      "year": 2022,
+      "artists": [
+        "Fontaines D.C."
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Partisan Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Goth Rock",
+        "Post-Punk",
+        "Alternative Rock"
+      ],
+      "cover": "https://i.discogs.com/_AouFMVA1qRdEBr7eJg9llGwyHbH7vH6AFql8aAch-4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzMzg5/MDA3LTE2OTg0Njk2/ODYtNjk1My5qcGVn.jpeg"
+    },
+    {
       "id": 31541038,
       "title": "Romance",
       "year": 2024,
@@ -1351,27 +1372,6 @@
         "Post-Punk"
       ],
       "cover": "https://i.discogs.com/R9FyWMod4CmVozI5xWbVqbAHCQFl-Wd5PDsoy3oUxKk/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNTQx/MDM4LTE3MjY2ODM5/NDUtNjAyMi5qcGVn.jpeg"
-    },
-    {
-      "id": 23389007,
-      "title": "Skinty Fia",
-      "year": 2022,
-      "artists": [
-        "Fontaines D.C."
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Partisan Records",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Goth Rock",
-        "Post-Punk",
-        "Alternative Rock"
-      ],
-      "cover": "https://i.discogs.com/_AouFMVA1qRdEBr7eJg9llGwyHbH7vH6AFql8aAch-4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzMzg5/MDA3LTE2OTg0Njk2/ODYtNjk1My5qcGVn.jpeg"
     },
     {
       "id": 2900877,
@@ -1414,27 +1414,27 @@
       "cover": "https://i.discogs.com/Perfk-WHR0SvMsmvn4uvcU78eEqXxbx1fzL73dd8aM8/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzMDQw/MDktMTQ4NzE5MjE0/Ni03NzkxLmpwZWc.jpeg"
     },
     {
-      "id": 16827522,
-      "title": "D-Sides",
-      "year": 2015,
+      "id": 30325919,
+      "title": "The Singles Collection 2001-2011",
+      "year": 0,
       "artists": [
         "Gorillaz"
       ],
       "formats": [
         "CD"
       ],
-      "label": "Warner Music Mexico",
+      "label": "Parlophone",
       "genres": [
-        "Electronic",
         "Hip Hop",
         "Rock"
       ],
       "styles": [
-        "Leftfield",
-        "Pop Rap",
-        "Trip Hop"
+        "Alternative Rock",
+        "Lo-Fi",
+        "Trip Hop",
+        "Experimental"
       ],
-      "cover": "https://i.discogs.com/RZnmT9SJHdHiFfYiobB9iIVdDiWHUR43kQB67T4JSGk/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2ODI3/NTIyLTE2MTAwNjYz/MjktMTY3My5qcGVn.jpeg"
+      "cover": "https://i.discogs.com/ncLvpYMcgfHsF-umTsEjxSo9U4o5cm8QKNsxLQYXvqw/rs:fit/g:sm/q:90/h:501/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwMzI1/OTE5LTE3MTM5MTUx/ODAtNTE5Mi5qcGVn.jpeg"
     },
     {
       "id": 12738364,
@@ -1518,27 +1518,27 @@
       "cover": "https://i.discogs.com/O8cbeKl3X9vksRehHFiNJ8Ak0r-n8ntYe0eguyo7FrY/rs:fit/g:sm/q:90/h:580/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzcw/NjIwLTE1NDE2MTMy/NzgtMjgyMy5qcGVn.jpeg"
     },
     {
-      "id": 16074392,
-      "title": "Humanz",
-      "year": 2017,
+      "id": 16827522,
+      "title": "D-Sides",
+      "year": 2015,
       "artists": [
         "Gorillaz"
       ],
       "formats": [
         "CD"
       ],
-      "label": "Parlophone",
+      "label": "Warner Music Mexico",
       "genres": [
         "Electronic",
         "Hip Hop",
-        "Pop"
+        "Rock"
       ],
       "styles": [
+        "Leftfield",
         "Pop Rap",
-        "Dance-pop",
         "Trip Hop"
       ],
-      "cover": "https://i.discogs.com/97YVDUDONUuSoTvbkfh9ryXyXppphbBDNArJx76tltY/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2MDc0/MzkyLTE2MDI5Njk3/MDQtMjMzMC5qcGVn.jpeg"
+      "cover": "https://i.discogs.com/RZnmT9SJHdHiFfYiobB9iIVdDiWHUR43kQB67T4JSGk/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2ODI3/NTIyLTE2MTAwNjYz/MjktMTY3My5qcGVn.jpeg"
     },
     {
       "id": 12635776,
@@ -1564,9 +1564,9 @@
       "cover": "https://i.discogs.com/BySi07ON0tezzUi2DVSM1l8-Gerh8OfAmz75T0mJYUg/rs:fit/g:sm/q:90/h:550/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNjM1/Nzc2LTE1Mzk4ODY1/MjMtOTc5NC5qcGVn.jpeg"
     },
     {
-      "id": 30325919,
-      "title": "The Singles Collection 2001-2011",
-      "year": 0,
+      "id": 16074392,
+      "title": "Humanz",
+      "year": 2017,
       "artists": [
         "Gorillaz"
       ],
@@ -1575,16 +1575,16 @@
       ],
       "label": "Parlophone",
       "genres": [
+        "Electronic",
         "Hip Hop",
-        "Rock"
+        "Pop"
       ],
       "styles": [
-        "Alternative Rock",
-        "Lo-Fi",
-        "Trip Hop",
-        "Experimental"
+        "Pop Rap",
+        "Dance-pop",
+        "Trip Hop"
       ],
-      "cover": "https://i.discogs.com/ncLvpYMcgfHsF-umTsEjxSo9U4o5cm8QKNsxLQYXvqw/rs:fit/g:sm/q:90/h:501/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwMzI1/OTE5LTE3MTM5MTUx/ODAtNTE5Mi5qcGVn.jpeg"
+      "cover": "https://i.discogs.com/97YVDUDONUuSoTvbkfh9ryXyXppphbBDNArJx76tltY/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2MDc0/MzkyLTE2MDI5Njk3/MDQtMjMzMC5qcGVn.jpeg"
     },
     {
       "id": 34305388,
@@ -1761,26 +1761,6 @@
       "cover": "https://i.discogs.com/7oPH2NqkDbnyFASE3u45XxHWi2FPlQ-w-DNnmF2-tS0/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3MzYx/NjYyLTE2ODY1NjUw/MDgtMTM0Ny5qcGVn.jpeg"
     },
     {
-      "id": 30876984,
-      "title": "Love Will Tear Us Apart",
-      "year": 2024,
-      "artists": [
-        "Joy Division"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Cleopatra",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Post-Punk",
-        "New Wave"
-      ],
-      "cover": "https://i.discogs.com/yWRPHKY1wWJsht4oSP0JM70w-vN4FcvEwvo3he_EZVk/rs:fit/g:sm/q:90/h:600/w:597/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwODc2/OTg0LTE3MjA2Njk5/NTAtNzI4My5qcGVn.jpeg"
-    },
-    {
       "id": 7132498,
       "title": "Unknown Pleasures",
       "year": 2015,
@@ -1799,6 +1779,26 @@
         "Post-Punk"
       ],
       "cover": "https://i.discogs.com/tbxV7AJrDRFyeXBywKzNPABG40Gm7aLqEggPNpQ4it8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTcxMzI0/OTgtMTQ0MDU4OTM2/OC00OTcyLmpwZWc.jpeg"
+    },
+    {
+      "id": 30876984,
+      "title": "Love Will Tear Us Apart",
+      "year": 2024,
+      "artists": [
+        "Joy Division"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Cleopatra",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Post-Punk",
+        "New Wave"
+      ],
+      "cover": "https://i.discogs.com/yWRPHKY1wWJsht4oSP0JM70w-vN4FcvEwvo3he_EZVk/rs:fit/g:sm/q:90/h:600/w:597/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwODc2/OTg0LTE3MjA2Njk5/NTAtNzI4My5qcGVn.jpeg"
     },
     {
       "id": 14662264,
@@ -1863,26 +1863,6 @@
       "cover": "https://i.discogs.com/hd7IkodDF9qU1PKFNdCLEwAyVg-ijpl_eAkFgrbeiDo/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4NjQ0/NTQxLTE2OTc3NTY5/NjYtMzQxMC5qcGVn.jpeg"
     },
     {
-      "id": 19887778,
-      "title": "Led Zeppelin",
-      "year": 2020,
-      "artists": [
-        "Led Zeppelin"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Atlantic",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Blues Rock",
-        "Hard Rock"
-      ],
-      "cover": "https://i.discogs.com/GlWm3wwaPFeBa78mFMN0-H-kNubJo5jYTs62FdSU_1w/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE5ODg3/Nzc4LTE2MjkxNzM0/NjktNTU1My5qcGVn.jpeg"
-    },
-    {
       "id": 5734489,
       "title": "Led Zeppelin II",
       "year": 2014,
@@ -1928,6 +1908,26 @@
       "cover": "https://i.discogs.com/7b1yoLFRIO1c0sk_Hcf9YhQbXcEmkYn37dgc9Rq_IAQ/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU3NzA0/MzItMTYzNzI2MjQx/Mi04MzYwLnBuZw.jpeg"
     },
     {
+      "id": 19887778,
+      "title": "Led Zeppelin",
+      "year": 2020,
+      "artists": [
+        "Led Zeppelin"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Atlantic",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Blues Rock",
+        "Hard Rock"
+      ],
+      "cover": "https://i.discogs.com/GlWm3wwaPFeBa78mFMN0-H-kNubJo5jYTs62FdSU_1w/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE5ODg3/Nzc4LTE2MjkxNzM0/NjktNTU1My5qcGVn.jpeg"
+    },
+    {
       "id": 18861868,
       "title": "Untitled",
       "year": 2020,
@@ -1949,25 +1949,6 @@
       "cover": "https://i.discogs.com/ws5mrHtlAvVPt_DMeC8FVUHCXdZZsfdY9Io7mFhof04/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE4ODYx/ODY4LTE2MjE4NjQz/NjctNzE1NS5qcGVn.jpeg"
     },
     {
-      "id": 32312319,
-      "title": "From Zero",
-      "year": 2024,
-      "artists": [
-        "Linkin Park"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Warner Records",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Alternative Rock"
-      ],
-      "cover": "https://i.discogs.com/iY40RVOLm70Tr-wAZqxIF8Ea3KlMCkV2ZIAXvp-yt5A/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMyMzEy/MzE5LTE3NjQwMjQ5/NTItMjc3NC5qcGVn.jpeg"
-    },
-    {
       "id": 5150478,
       "title": "Hybrid Theory",
       "year": 2013,
@@ -1985,6 +1966,25 @@
         "Nu Metal"
       ],
       "cover": "https://i.discogs.com/Gim_sxSf5o5x_UEimkViAL5c3aU5vjrlLo99dSzEF_0/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTUxNTA0/NzgtMTY1NDY0ODUy/MC0xMzkwLmpwZWc.jpeg"
+    },
+    {
+      "id": 32312319,
+      "title": "From Zero",
+      "year": 2024,
+      "artists": [
+        "Linkin Park"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Warner Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Alternative Rock"
+      ],
+      "cover": "https://i.discogs.com/iY40RVOLm70Tr-wAZqxIF8Ea3KlMCkV2ZIAXvp-yt5A/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMyMzEy/MzE5LTE3NjQwMjQ5/NTItMjc3NC5qcGVn.jpeg"
     },
     {
       "id": 31311138,
@@ -2331,6 +2331,25 @@
       "cover": "https://i.discogs.com/X1q9W9A52xrr-BVYPf44NqsiyBrTlSuQiYtZGOiYO1o/rs:fit/g:sm/q:90/h:600/w:590/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIxNzM4/MzMtMTY0MDYwNzUx/Mi0zNTAxLmpwZWc.jpeg"
     },
     {
+      "id": 8243898,
+      "title": "Nirvana",
+      "year": 0,
+      "artists": [
+        "Nirvana"
+      ],
+      "formats": [
+        "CD"
+      ],
+      "label": "Geffen Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Grunge"
+      ],
+      "cover": "https://i.discogs.com/hdXB4VYoOlXJ6YLztqPRa3X6kzVnPfjLpV0Qkjx2hNg/rs:fit/g:sm/q:90/h:450/w:450/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyNDM4/OTgtMTQ1NzgzMzA3/My05MTExLmpwZWc.jpeg"
+    },
+    {
       "id": 22912757,
       "title": "In Utero",
       "year": 2015,
@@ -2349,27 +2368,6 @@
         "Alternative Rock"
       ],
       "cover": "https://i.discogs.com/dxrPYDontTrApoouv0-o1sMp-KJiIJZGRiv0clAyb-4/rs:fit/g:sm/q:90/h:592/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIyOTEy/NzU3LTE2OTQxMDgx/NDktMTcyOS5qcGVn.jpeg"
-    },
-    {
-      "id": 11400290,
-      "title": "MTV Unplugged In New York",
-      "year": 2017,
-      "artists": [
-        "Nirvana"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Geffen Records",
-      "genres": [
-        "Rock",
-        "Blues"
-      ],
-      "styles": [
-        "Acoustic",
-        "Grunge"
-      ],
-      "cover": "https://i.discogs.com/GCNPRSAsHiTRxtsZj1uTFk48NDTNSh3DRt7YrpHUmMc/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExNDAw/MjkwLTE1NTE1ODQ1/MzEtODczNi5qcGVn.jpeg"
     },
     {
       "id": 7097051,
@@ -2392,23 +2390,25 @@
       "cover": "https://i.discogs.com/uCeQtLv9OSNjC5_AjarCojZNepI9vqcnYeqsImnzXyg/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTcwOTcw/NTEtMTU1NjQ0NDE4/MC03NTA1LmpwZWc.jpeg"
     },
     {
-      "id": 8243898,
-      "title": "Nirvana",
-      "year": 0,
+      "id": 11400290,
+      "title": "MTV Unplugged In New York",
+      "year": 2017,
       "artists": [
         "Nirvana"
       ],
       "formats": [
-        "CD"
+        "Vinyl"
       ],
       "label": "Geffen Records",
       "genres": [
-        "Rock"
+        "Rock",
+        "Blues"
       ],
       "styles": [
+        "Acoustic",
         "Grunge"
       ],
-      "cover": "https://i.discogs.com/hdXB4VYoOlXJ6YLztqPRa3X6kzVnPfjLpV0Qkjx2hNg/rs:fit/g:sm/q:90/h:450/w:450/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyNDM4/OTgtMTQ1NzgzMzA3/My05MTExLmpwZWc.jpeg"
+      "cover": "https://i.discogs.com/GCNPRSAsHiTRxtsZj1uTFk48NDTNSh3DRt7YrpHUmMc/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExNDAw/MjkwLTE1NTE1ODQ1/MzEtODczNi5qcGVn.jpeg"
     },
     {
       "id": 36899652,
@@ -2620,6 +2620,26 @@
       "cover": "https://i.discogs.com/jT038nTOeosPd-2OCet_r_HC1kpZl0KEmS2aswPWywE/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTkwNjM5/MDgtMTQ3NDY1ODM3/Ni05MzkzLmpwZWc.jpeg"
     },
     {
+      "id": 8957729,
+      "title": "The Wall",
+      "year": 2016,
+      "artists": [
+        "Pink Floyd"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Pink Floyd Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Art Rock",
+        "Prog Rock"
+      ],
+      "cover": "https://i.discogs.com/o5B1ExlTGbrs0UC8BkCdSVt4XIOhxphrKQpDoiiZJAE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg5NTc3/MjktMTQ3NzIzNzMy/Ni04Nzg3LmpwZWc.jpeg"
+    },
+    {
       "id": 25676449,
       "title": "The Dark Side Of The Moon",
       "year": 2022,
@@ -2641,26 +2661,6 @@
       "cover": "https://i.discogs.com/JEDRMyT0Z9gk4NKKca6h-3OXRkKzGNHDnviYbtiirmY/rs:fit/g:sm/q:90/h:586/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI1Njc2/NDQ5LTE2NzI5NzQ5/MTAtNTIzMi5qcGVn.jpeg"
     },
     {
-      "id": 8957729,
-      "title": "The Wall",
-      "year": 2016,
-      "artists": [
-        "Pink Floyd"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Pink Floyd Records",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Art Rock",
-        "Prog Rock"
-      ],
-      "cover": "https://i.discogs.com/o5B1ExlTGbrs0UC8BkCdSVt4XIOhxphrKQpDoiiZJAE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg5NTc3/MjktMTQ3NzIzNzMy/Ni04Nzg3LmpwZWc.jpeg"
-    },
-    {
       "id": 35897536,
       "title": "Wish You Were Here",
       "year": 2025,
@@ -2680,25 +2680,6 @@
         "Prog Rock"
       ],
       "cover": "https://i.discogs.com/ml7JV0elC0v2zfwx6CHNAcI_2PWYb4j98c19fwjZaYA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM1ODk3/NTM2LTE3NzM4NzA5/ODctNzgyMS5qcGVn.jpeg"
-    },
-    {
-      "id": 10931589,
-      "title": "Bossanova",
-      "year": 2014,
-      "artists": [
-        "Pixies"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "4AD",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Indie Rock"
-      ],
-      "cover": "https://i.discogs.com/TjjaOLfLwJEkEy2yAyC4_2_a00SAg1Buh0H_kFG3zC4/rs:fit/g:sm/q:90/h:600/w:598/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwOTMx/NTg5LTE1MDY3MzI5/NzYtOTg1OS5qcGVn.jpeg"
     },
     {
       "id": 28590850,
@@ -2739,6 +2720,25 @@
         "Indie Rock"
       ],
       "cover": "https://i.discogs.com/W61BsCKCxoo5wnEruyZmVAyqbNd80e0b1DEazpwheYY/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIxMDk0/MTgtMTMwMzMwMzI3/Ny5qcGVn.jpeg"
+    },
+    {
+      "id": 10931589,
+      "title": "Bossanova",
+      "year": 2014,
+      "artists": [
+        "Pixies"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "4AD",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Indie Rock"
+      ],
+      "cover": "https://i.discogs.com/TjjaOLfLwJEkEy2yAyC4_2_a00SAg1Buh0H_kFG3zC4/rs:fit/g:sm/q:90/h:600/w:598/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwOTMx/NTg5LTE1MDY3MzI5/NzYtOTg1OS5qcGVn.jpeg"
     },
     {
       "id": 14420371,
@@ -2798,9 +2798,9 @@
       "cover": "https://i.discogs.com/iHeWrOy-pSOIUeXSRgFjm5BC7DfQb9OZL7848GZID6Y/rs:fit/g:sm/q:90/h:523/w:523/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzNzMw/MTg4LTE2NTY1MTA5/OTQtNzM5MC5qcGVn.jpeg"
     },
     {
-      "id": 26806592,
-      "title": "In Rainbows",
-      "year": 2023,
+      "id": 29987029,
+      "title": "The Bends",
+      "year": 0,
       "artists": [
         "Radiohead"
       ],
@@ -2809,16 +2809,32 @@
       ],
       "label": "XL Recordings",
       "genres": [
-        "Electronic",
+        "Rock"
+      ],
+      "styles": [
+        "Alternative Rock"
+      ],
+      "cover": "https://i.discogs.com/lw2LQGubgyTuN9YMJU8f_x8z4Y_qq0MQQrN8-GDoABk/rs:fit/g:sm/q:90/h:592/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5OTg3/MDI5LTE3MTAzNjUz/NTQtNDU4NS5qcGVn.jpeg"
+    },
+    {
+      "id": 22727822,
+      "title": "Pablo Honey",
+      "year": 2016,
+      "artists": [
+        "Radiohead"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "XL Recordings",
+      "genres": [
         "Rock"
       ],
       "styles": [
         "Alternative Rock",
-        "Art Rock",
-        "Experimental",
         "Indie Rock"
       ],
-      "cover": "https://i.discogs.com/0crZUSlBM_5XllrvYMMMUg2ZhYLbAQZh5u5r3kAk9bk/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2ODA2/NTkyLTE2ODE4NzM4/MTgtMjEzNi5qcGVn.jpeg"
+      "cover": "https://i.discogs.com/6xnd_UYfFcWBBTCHcoMoQYiiC0MhHNmsg7DlqQxHnhw/rs:fit/g:sm/q:90/h:600/w:590/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIyNzI3/ODIyLTE2NDg4NDUw/NDYtOTczNi5qcGVn.jpeg"
     },
     {
       "id": 10471009,
@@ -2844,9 +2860,9 @@
       "cover": "https://i.discogs.com/ORDOcW8gyxAoTrX-dhu3X6BFrgvBaVinTRQmITK1ym8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwNDcx/MDA5LTE0OTgxNDM1/NjYtMTEyNi5qcGVn.jpeg"
     },
     {
-      "id": 22727822,
-      "title": "Pablo Honey",
-      "year": 2016,
+      "id": 26806592,
+      "title": "In Rainbows",
+      "year": 2023,
       "artists": [
         "Radiohead"
       ],
@@ -2855,32 +2871,16 @@
       ],
       "label": "XL Recordings",
       "genres": [
+        "Electronic",
         "Rock"
       ],
       "styles": [
         "Alternative Rock",
+        "Art Rock",
+        "Experimental",
         "Indie Rock"
       ],
-      "cover": "https://i.discogs.com/6xnd_UYfFcWBBTCHcoMoQYiiC0MhHNmsg7DlqQxHnhw/rs:fit/g:sm/q:90/h:600/w:590/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIyNzI3/ODIyLTE2NDg4NDUw/NDYtOTczNi5qcGVn.jpeg"
-    },
-    {
-      "id": 29987029,
-      "title": "The Bends",
-      "year": 0,
-      "artists": [
-        "Radiohead"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "XL Recordings",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Alternative Rock"
-      ],
-      "cover": "https://i.discogs.com/lw2LQGubgyTuN9YMJU8f_x8z4Y_qq0MQQrN8-GDoABk/rs:fit/g:sm/q:90/h:592/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5OTg3/MDI5LTE3MTAzNjUz/NTQtNDU4NS5qcGVn.jpeg"
+      "cover": "https://i.discogs.com/0crZUSlBM_5XllrvYMMMUg2ZhYLbAQZh5u5r3kAk9bk/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2ODA2/NTkyLTE2ODE4NzM4/MTgtMjEzNi5qcGVn.jpeg"
     },
     {
       "id": 32478543,
@@ -3027,26 +3027,6 @@
       "cover": "https://i.discogs.com/EofuWUwBWnBSYy-_Ss9jolzVOE6YBzXL5YcNOqvQ3L0/rs:fit/g:sm/q:90/h:600/w:598/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMyNTU0/NzMtMTUxODgyNzk3/MS0xOTg3LmpwZWc.jpeg"
     },
     {
-      "id": 33167124,
-      "title": "Hatful Of Hollow",
-      "year": 2023,
-      "artists": [
-        "The Smiths"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Rhino Records (2)",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Indie Rock",
-        "Jangle Pop"
-      ],
-      "cover": "https://i.discogs.com/OprZRsCR_apMzF2Uwi9h_oXtFs42G9g7hwW6yeU6Bms/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzMTY3/MTI0LTE3Mzk4MDU3/NDYtNDA5NC5qcGVn.jpeg"
-    },
-    {
       "id": 4266995,
       "title": "Meat Is Murder",
       "year": 2012,
@@ -3067,6 +3047,26 @@
         "Alt-Pop"
       ],
       "cover": "https://i.discogs.com/tVMuB8SkHLR6ujOqAVPs_D0nHfLhH3SRy7joe5ANgEQ/rs:fit/g:sm/q:90/h:600/w:596/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQyNjY5/OTUtMTUyMTMwMTQz/OS0yMDk2LmpwZWc.jpeg"
+    },
+    {
+      "id": 33167124,
+      "title": "Hatful Of Hollow",
+      "year": 2023,
+      "artists": [
+        "The Smiths"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Rhino Records (2)",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Indie Rock",
+        "Jangle Pop"
+      ],
+      "cover": "https://i.discogs.com/OprZRsCR_apMzF2Uwi9h_oXtFs42G9g7hwW6yeU6Bms/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzMTY3/MTI0LTE3Mzk4MDU3/NDYtNDA5NC5qcGVn.jpeg"
     },
     {
       "id": 8169558,
@@ -3150,6 +3150,45 @@
       "cover": "https://i.discogs.com/vfZELT9zKyj4LRpCqVEGrvlLEW3MUm1A39kJPjY9qMk/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIwMzE5/MDYxLTE2MzIyNTI2/NzQtODUxOS5qcGVn.jpeg"
     },
     {
+      "id": 12609004,
+      "title": "Room On Fire",
+      "year": 2003,
+      "artists": [
+        "The Strokes"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "RCA",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Alternative Rock",
+        "Indie Rock"
+      ],
+      "cover": "https://i.discogs.com/1Qvt501gPyZ_nhhogzuDq9DycCo44hv1lUgrh04iouo/rs:fit/g:sm/q:90/h:595/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNjA5/MDA0LTE1Mzg1MTc2/NDItNDA0Mi5qcGVn.jpeg"
+    },
+    {
+      "id": 3275541,
+      "title": "First Impressions Of Earth",
+      "year": 2006,
+      "artists": [
+        "The Strokes"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "RCA",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Indie Rock"
+      ],
+      "cover": "https://i.discogs.com/p4FXtgL3lI3MSMerMS-Ql4-aH8mviG4jcNNdLfr-2vs/rs:fit/g:sm/q:90/h:595/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMyNzU1/NDEtMTQ5NDI5NTk0/OS0yNDU5LmpwZWc.jpeg"
+    },
+    {
       "id": 2782457,
       "title": "Angles",
       "year": 2011,
@@ -3189,25 +3228,6 @@
       "cover": "https://i.discogs.com/9JMnF-BwB1X2kxV1nukuIHONDF1-1_JawlCHP2o8BK4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQ0MTYx/MzMtMTM2NDMwMTMz/Mi01ODY2LmpwZWc.jpeg"
     },
     {
-      "id": 3275541,
-      "title": "First Impressions Of Earth",
-      "year": 2006,
-      "artists": [
-        "The Strokes"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "RCA",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Indie Rock"
-      ],
-      "cover": "https://i.discogs.com/p4FXtgL3lI3MSMerMS-Ql4-aH8mviG4jcNNdLfr-2vs/rs:fit/g:sm/q:90/h:595/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMyNzU1/NDEtMTQ5NDI5NTk0/OS0yNDU5LmpwZWc.jpeg"
-    },
-    {
       "id": 6925275,
       "title": "Is This It",
       "year": 2014,
@@ -3225,26 +3245,6 @@
         "Indie Rock"
       ],
       "cover": "https://i.discogs.com/dqMzMxFcpBqO744DwyIyi1m3-5vjbRaD5Bn1GbfVyio/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY5MjUy/NzUtMTQyOTYzODYw/Ni0xMDIwLmpwZWc.jpeg"
-    },
-    {
-      "id": 12609004,
-      "title": "Room On Fire",
-      "year": 2003,
-      "artists": [
-        "The Strokes"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "RCA",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Alternative Rock",
-        "Indie Rock"
-      ],
-      "cover": "https://i.discogs.com/1Qvt501gPyZ_nhhogzuDq9DycCo44hv1lUgrh04iouo/rs:fit/g:sm/q:90/h:595/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNjA5/MDA0LTE1Mzg1MTc2/NDItNDA0Mi5qcGVn.jpeg"
     },
     {
       "id": 15063478,
@@ -3347,6 +3347,25 @@
       "cover": "https://i.discogs.com/EwnZadPWc9YieJTEpu1kSYbkGViYrPDQWx6LHf_klPs/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2NDQ1/MTcyLTE2MDc3OTE4/MTUtMTU0NC5qcGVn.jpeg"
     },
     {
+      "id": 7966282,
+      "title": "Innerspeaker",
+      "year": 0,
+      "artists": [
+        "Tame Impala"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Modular Recordings",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Psychedelic Rock"
+      ],
+      "cover": "https://i.discogs.com/3Iq62yrD7gUlJUL7wLpyev1uz130rxkVxSn7onroHw4/rs:fit/g:sm/q:90/h:600/w:598/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc5NjYy/ODItMTU5MjI3NjYy/NS05MTI0LmpwZWc.jpeg"
+    },
+    {
       "id": 7252111,
       "title": "Currents",
       "year": 2015,
@@ -3369,23 +3388,24 @@
       "cover": "https://i.discogs.com/0m9adSJO-pWPRlWpwczRCUJfTokcREPbsmZMprEs1-o/rs:fit/g:sm/q:90/h:592/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTcyNTIx/MTEtMTY5NzM4MTkw/MS0yMjg3LmpwZWc.jpeg"
     },
     {
-      "id": 7966282,
-      "title": "Innerspeaker",
-      "year": 0,
+      "id": 2885498,
+      "title": "Shed",
+      "year": 2011,
       "artists": [
-        "Tame Impala"
+        "Title Fight"
       ],
       "formats": [
         "Vinyl"
       ],
-      "label": "Modular Recordings",
+      "label": "SideOneDummy Records",
       "genres": [
         "Rock"
       ],
       "styles": [
-        "Psychedelic Rock"
+        "Hardcore",
+        "Punk"
       ],
-      "cover": "https://i.discogs.com/3Iq62yrD7gUlJUL7wLpyev1uz130rxkVxSn7onroHw4/rs:fit/g:sm/q:90/h:600/w:598/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc5NjYy/ODItMTU5MjI3NjYy/NS05MTI0LmpwZWc.jpeg"
+      "cover": "https://i.discogs.com/rYP7HFVTtAGWvrxHYfZqaQV7dAMHjSUhWISQbo2JdLk/rs:fit/g:sm/q:90/h:593/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4ODU0/OTgtMTcxMzU4NjEy/MC01MjYxLmpwZWc.jpeg"
     },
     {
       "id": 4146204,
@@ -3407,26 +3427,6 @@
       "cover": "https://i.discogs.com/KFYMdXGRxBnajOlxwLuNT8n_b2Ax3osW03UDx-tzFa8/rs:fit/g:sm/q:90/h:593/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQxNDYy/MDQtMTc0OTQ4NzA5/OS02MDkwLmpwZWc.jpeg"
     },
     {
-      "id": 2885498,
-      "title": "Shed",
-      "year": 2011,
-      "artists": [
-        "Title Fight"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "SideOneDummy Records",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Hardcore",
-        "Punk"
-      ],
-      "cover": "https://i.discogs.com/rYP7HFVTtAGWvrxHYfZqaQV7dAMHjSUhWISQbo2JdLk/rs:fit/g:sm/q:90/h:593/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4ODU0/OTgtMTcxMzU4NjEy/MC01MjYxLmpwZWc.jpeg"
-    },
-    {
       "id": 7405248,
       "title": "The Last Thing You Forget",
       "year": 2015,
@@ -3445,6 +3445,27 @@
         "Indie Rock"
       ],
       "cover": "https://i.discogs.com/TIwdVFuC1oWaEmmsoWlFWLVVAE4N7G5sGMCCL62d6ww/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc0MDUy/NDgtMTQ0MDgwMDYw/My0zNDUxLmpwZWc.jpeg"
+    },
+    {
+      "id": 32292255,
+      "title": "Igor",
+      "year": 0,
+      "artists": [
+        "Tyler, The Creator"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Columbia",
+      "genres": [
+        "Hip Hop",
+        "Funk / Soul"
+      ],
+      "styles": [
+        "Contemporary R&B",
+        "Neo Soul"
+      ],
+      "cover": "https://i.discogs.com/I8y9HHAtpIejgV_CYHzPy06jRlJh1SnC86WoxqQUDwk/rs:fit/g:sm/q:90/h:588/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMyMjky/MjU1LTE3MzE2MzM1/NjEtMzM5Ni5qcGVn.jpeg"
     },
     {
       "id": 22786961,
@@ -3469,27 +3490,6 @@
         "Hardcore Hip-Hop"
       ],
       "cover": "https://i.discogs.com/FV4pY--w-zYmB_K6riDf1C22sSRMxX76ApApTS0iZrU/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIyNzg2/OTYxLTE2NDk5OTQ4/NTMtNzU1My5qcGVn.jpeg"
-    },
-    {
-      "id": 32292255,
-      "title": "Igor",
-      "year": 0,
-      "artists": [
-        "Tyler, The Creator"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Columbia",
-      "genres": [
-        "Hip Hop",
-        "Funk / Soul"
-      ],
-      "styles": [
-        "Contemporary R&B",
-        "Neo Soul"
-      ],
-      "cover": "https://i.discogs.com/I8y9HHAtpIejgV_CYHzPy06jRlJh1SnC86WoxqQUDwk/rs:fit/g:sm/q:90/h:588/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMyMjky/MjU1LTE3MzE2MzM1/NjEtMzM5Ni5qcGVn.jpeg"
     },
     {
       "id": 35428360,
@@ -3528,25 +3528,6 @@
       "cover": "https://i.discogs.com/eCz3seysdGIaUJk3-SyMkcweZTEWO_TL4PHzCbs7-W4/rs:fit/g:sm/q:90/h:509/w:508/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM2Njk4/NzE2LTE3NzI4MzQz/MTktOTc2Ny5qcGVn.jpeg"
     },
     {
-      "id": 8534448,
-      "title": "Little Miss Sunshine (Original Motion Picture Soundtrack)",
-      "year": 2015,
-      "artists": [
-        "Various"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Phineas Atwood Productions",
-      "genres": [
-        "Stage & Screen"
-      ],
-      "styles": [
-        "Soundtrack"
-      ],
-      "cover": "https://i.discogs.com/LzpslJ_xBF13zn0hAGS35kSBXoi0dmB9fUExJZmaylg/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg1MzQ0/NDgtMTQ4MjYzMjEw/MC04MTkyLmpwZWc.jpeg"
-    },
-    {
       "id": 5777037,
       "title": "Los 3 Grandes",
       "year": 1972,
@@ -3564,6 +3545,25 @@
         "Classic Rock"
       ],
       "cover": "https://i.discogs.com/Tu9IxZ01Q6yaK73NwRfnU-Pdb8kyozpXs32xRMgxci4/rs:fit/g:sm/q:90/h:442/w:438/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU3Nzcw/MzctMTUxMzYwNDkw/Mi05MjUxLmpwZWc.jpeg"
+    },
+    {
+      "id": 8534448,
+      "title": "Little Miss Sunshine (Original Motion Picture Soundtrack)",
+      "year": 2015,
+      "artists": [
+        "Various"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Phineas Atwood Productions",
+      "genres": [
+        "Stage & Screen"
+      ],
+      "styles": [
+        "Soundtrack"
+      ],
+      "cover": "https://i.discogs.com/LzpslJ_xBF13zn0hAGS35kSBXoi0dmB9fUExJZmaylg/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg1MzQ0/NDgtMTQ4MjYzMjEw/MC04MTkyLmpwZWc.jpeg"
     },
     {
       "id": 9513685,
@@ -3656,26 +3656,6 @@
       "cover": "https://i.discogs.com/0FSAWq-LCNfxWZ2IXzQozh8sYSMFbHwOKw-U7K0UmrU/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTkyNTg1/ODUtMTYzOTUwNDA2/Ny03MTg0LmpwZWc.jpeg"
     },
     {
-      "id": 35667808,
-      "title": "Weezer",
-      "year": 2024,
-      "artists": [
-        "Weezer"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Geffen Records",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Power Pop",
-        "Alternative Rock"
-      ],
-      "cover": "https://i.discogs.com/YU-clSn8xVOsO1-mISsfzwtceXRB5HvpXpJg8K6GEcs/rs:fit/g:sm/q:90/h:600/w:597/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM1NjY3/ODA4LTE3NjMxODg4/MTctMjU0Ny5qcGVn.jpeg"
-    },
-    {
       "id": 31980722,
       "title": "Weezer",
       "year": 2023,
@@ -3695,6 +3675,26 @@
         "Power Pop"
       ],
       "cover": "https://i.discogs.com/1y3HRNp3OHogtKpWxOlBWwn8etGj3Ts6UG00P08sAm8/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxOTgw/NzIyLTE3Mjg3NDY2/NTUtNTI3Ni5qcGVn.jpeg"
+    },
+    {
+      "id": 35667808,
+      "title": "Weezer",
+      "year": 2024,
+      "artists": [
+        "Weezer"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Geffen Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Power Pop",
+        "Alternative Rock"
+      ],
+      "cover": "https://i.discogs.com/YU-clSn8xVOsO1-mISsfzwtceXRB5HvpXpJg8K6GEcs/rs:fit/g:sm/q:90/h:600/w:597/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM1NjY3/ODA4LTE3NjMxODg4/MTctMjU0Ny5qcGVn.jpeg"
     },
     {
       "id": 13465435,
