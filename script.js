@@ -1,5 +1,6 @@
 const grid = document.getElementById("grid");
 const statusEl = document.getElementById("status");
+const countEl = document.getElementById("count");
 
 const overlay = document.getElementById("overlay");
 const overlayImg = document.getElementById("overlay-img");
@@ -87,6 +88,7 @@ async function loadCollection() {
     const data = await res.json();
 
     render(sortReleases(data.releases));
+    countEl.textContent = `${data.releases.length} albums`;
     statusEl.classList.add("hidden");
   } catch (err) {
     statusEl.textContent = `Couldn't load collection: ${err.message}`;
