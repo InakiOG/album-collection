@@ -1,6 +1,3 @@
-const USERNAME = "InakiOG";
-const PER_PAGE = 100;
-
 const grid = document.getElementById("grid");
 const statusEl = document.getElementById("status");
 
@@ -12,28 +9,17 @@ const overlayMeta = document.getElementById("overlay-meta");
 const overlayGenres = document.getElementById("overlay-genres");
 const overlayLink = document.getElementById("overlay-link");
 
-let releases = [];
-
 function releaseUrl(r) {
-  return `https://www.discogs.com/release/${r.basic_information.id}`;
-}
-
-function artistNames(info) {
-  return (info.artists || []).map(a => a.name.replace(/\s\(\d+\)$/, "")).join(", ");
+  return `https://www.discogs.com/release/${r.id}`;
 }
 
 function openOverlay(r) {
-  const info = r.basic_information;
-  overlayImg.src = info.cover_image || info.thumb;
-  overlayImg.alt = info.title;
-  overlayTitle.textContent = info.title;
-  overlayArtist.textContent = artistNames(info);
-
-  const format = (info.formats || []).map(f => f.name).join(", ");
-  const label = (info.labels || [])[0];
-  overlayMeta.textContent = [info.year, format, label && label.name].filter(Boolean).join(" · ");
-
-  overlayGenres.textContent = [...(info.genres || []), ...(info.styles || [])].join(", ");
+  overlayImg.src = r.cover;
+  overlayImg.alt = r.title;
+  overlayTitle.textContent = r.title;
+  overlayArtist.textContent = r.artists.join(", ");
+  overlayMeta.textContent = [r.year, r.formats.join(", "), r.label].filter(Boolean).join(" · ");
+  overlayGenres.textContent = [...r.genres, ...r.styles].join(", ");
   overlayLink.href = releaseUrl(r);
 
   overlay.classList.remove("hidden");
@@ -44,8 +30,8 @@ function closeOverlay() {
 }
 
 overlay.addEventListener("click", (e) => {
-  if (e.target.closest(".overlay-card") && e.target.tagName !== "A") return;
   if (e.target.tagName === "A") return;
+  if (e.target.closest(".overlay-card") && e.target !== e.currentTarget) return;
   closeOverlay();
 });
 
@@ -57,11 +43,10 @@ function render(list) {
   grid.innerHTML = "";
   const frag = document.createDocumentFragment();
   for (const r of list) {
-    const info = r.basic_information;
     const img = document.createElement("img");
     img.className = "cover";
-    img.src = info.cover_image || info.thumb;
-    img.alt = info.title;
+    img.src = r.cover;
+    img.alt = r.title;
     img.loading = "lazy";
     img.referrerPolicy = "no-referrer";
     img.addEventListener("click", () => openOverlay(r));
@@ -71,26 +56,12 @@ function render(list) {
 }
 
 async function loadCollection() {
-  let page = 1;
-  let totalPages = 1;
-
   try {
-    do {
-      const res = await fetch(
-        `https://api.discogs.com/users/${USERNAME}/collection/folders/0/releases?page=${page}&per_page=${PER_PAGE}&sort=artist&sort_order=asc`
-      );
-      if (!res.ok) throw new Error(`Discogs API error: ${res.status}`);
-      const data = await res.json();
+    const res = await fetch("data/collection.json", { cache: "no-cache" });
+    if (!res.ok) throw new Error(`Failed to load collection.json: ${res.status}`);
+    const data = await res.json();
 
-      totalPages = data.pagination.pages;
-      releases = releases.concat(data.releases);
-
-      statusEl.textContent = `Loaded ${releases.length} of ${data.pagination.items}…`;
-      render(releases);
-
-      page++;
-    } while (page <= totalPages);
-
+    render(data.releases);
     statusEl.classList.add("hidden");
   } catch (err) {
     statusEl.textContent = `Couldn't load collection: ${err.message}`;
