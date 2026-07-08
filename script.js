@@ -1,6 +1,9 @@
 const grid = document.getElementById("grid");
 const statusEl = document.getElementById("status");
 const countEl = document.getElementById("count");
+const shuffleBtn = document.getElementById("shuffle");
+
+let currentReleases = [];
 
 const overlay = document.getElementById("overlay");
 const overlayImg = document.getElementById("overlay-img");
@@ -39,6 +42,12 @@ overlay.addEventListener("click", (e) => {
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeOverlay();
+});
+
+shuffleBtn.addEventListener("click", () => {
+  if (!currentReleases.length) return;
+  const r = currentReleases[Math.floor(Math.random() * currentReleases.length)];
+  openOverlay(r);
 });
 
 function sortKey(r) {
@@ -89,8 +98,9 @@ async function loadCollection() {
     if (!res.ok) throw new Error(`Failed to load collection.json: ${res.status}`);
     const data = await res.json();
 
-    render(sortReleases(data.releases));
-    countEl.textContent = `${data.releases.length} albums`;
+    currentReleases = sortReleases(data.releases);
+    render(currentReleases);
+    countEl.textContent = `${currentReleases.length} albums`;
     statusEl.classList.add("hidden");
   } catch (err) {
     statusEl.textContent = `Couldn't load collection: ${err.message}`;
