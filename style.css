@@ -1,14 +1,14 @@
 :root {
   color-scheme: light dark;
-  --bg: #0f0f12;
+  --bg: #303038;
   --fg: #e8e8ea;
-  --muted: #9a9aa2;
-  --card: #1a1a1f;
+  --muted: #a8a8b0;
+  --card: #3d3d46;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg: #f2f2f4;
+    --bg: #fafafa;
     --fg: #17171a;
     --muted: #6b6b74;
     --card: #ffffff;
@@ -44,11 +44,12 @@ body {
 .cover-wrap {
   position: relative;
   cursor: pointer;
-  transition: transform 0.18s ease;
+  animation: float 5s ease-in-out infinite;
 }
 
-.cover-wrap:hover {
-  transform: translateY(-4px) scale(1.03);
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
 }
 
 .cover {
@@ -57,13 +58,18 @@ body {
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 4px 14px rgba(0,0,0,0.35);
-  transition: box-shadow 0.18s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
   background: color-mix(in srgb, var(--fg) 6%, transparent);
   display: block;
 }
 
 .cover-wrap:hover .cover {
+  transform: scale(1.05);
   box-shadow: 0 10px 24px rgba(0,0,0,0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-wrap { animation: none; }
 }
 
 .cd-badge {

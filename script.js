@@ -59,6 +59,8 @@ function render(list) {
   for (const r of list) {
     const wrap = document.createElement("div");
     wrap.className = "cover-wrap";
+    wrap.style.animationDuration = `${(4 + Math.random() * 2).toFixed(2)}s`;
+    wrap.style.animationDelay = `-${(Math.random() * 5).toFixed(2)}s`;
     wrap.addEventListener("click", () => openOverlay(r));
 
     const img = document.createElement("img");
