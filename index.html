@@ -7,18 +7,23 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Vinyl Collection</h1>
-    <p class="subtitle">
-      <a href="https://www.discogs.com/user/InakiOG/collection" target="_blank" rel="noopener">@InakiOG on Discogs</a>
-      <span id="count"></span>
-    </p>
-    <input id="search" type="search" placeholder="Search artist or title…" autocomplete="off">
-  </header>
-
   <main id="grid" class="grid"></main>
 
   <p id="status" class="status">Loading collection…</p>
+
+  <div id="overlay" class="overlay hidden">
+    <div class="overlay-backdrop"></div>
+    <div class="overlay-card">
+      <img id="overlay-img" src="" alt="">
+      <div class="overlay-info">
+        <h2 id="overlay-title"></h2>
+        <p id="overlay-artist"></p>
+        <p id="overlay-meta"></p>
+        <p id="overlay-genres"></p>
+        <a id="overlay-link" href="" target="_blank" rel="noopener">View on Discogs →</a>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

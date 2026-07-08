@@ -3,8 +3,14 @@ const PER_PAGE = 100;
 
 const grid = document.getElementById("grid");
 const statusEl = document.getElementById("status");
-const countEl = document.getElementById("count");
-const searchEl = document.getElementById("search");
+
+const overlay = document.getElementById("overlay");
+const overlayImg = document.getElementById("overlay-img");
+const overlayTitle = document.getElementById("overlay-title");
+const overlayArtist = document.getElementById("overlay-artist");
+const overlayMeta = document.getElementById("overlay-meta");
+const overlayGenres = document.getElementById("overlay-genres");
+const overlayLink = document.getElementById("overlay-link");
 
 let releases = [];
 
@@ -12,48 +18,57 @@ function releaseUrl(r) {
   return `https://www.discogs.com/release/${r.basic_information.id}`;
 }
 
+function artistNames(info) {
+  return (info.artists || []).map(a => a.name.replace(/\s\(\d+\)$/, "")).join(", ");
+}
+
+function openOverlay(r) {
+  const info = r.basic_information;
+  overlayImg.src = info.cover_image || info.thumb;
+  overlayImg.alt = info.title;
+  overlayTitle.textContent = info.title;
+  overlayArtist.textContent = artistNames(info);
+
+  const format = (info.formats || []).map(f => f.name).join(", ");
+  const label = (info.labels || [])[0];
+  overlayMeta.textContent = [info.year, format, label && label.name].filter(Boolean).join(" · ");
+
+  overlayGenres.textContent = [...(info.genres || []), ...(info.styles || [])].join(", ");
+  overlayLink.href = releaseUrl(r);
+
+  overlay.classList.remove("hidden");
+}
+
+function closeOverlay() {
+  overlay.classList.add("hidden");
+}
+
+overlay.addEventListener("click", (e) => {
+  if (e.target.closest(".overlay-card") && e.target.tagName !== "A") return;
+  if (e.target.tagName === "A") return;
+  closeOverlay();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeOverlay();
+});
+
 function render(list) {
   grid.innerHTML = "";
   const frag = document.createDocumentFragment();
   for (const r of list) {
     const info = r.basic_information;
-    const artist = (info.artists || []).map(a => a.name.replace(/\s\(\d+\)$/, "")).join(", ");
-    const img = info.cover_image || info.thumb;
-
-    const a = document.createElement("a");
-    a.className = "card";
-    a.href = releaseUrl(r);
-    a.target = "_blank";
-    a.rel = "noopener";
-
-    a.innerHTML = `
-      <img src="${img}" alt="${info.title}" loading="lazy" referrerpolicy="no-referrer">
-      <div class="card-body">
-        <p class="card-title">${info.title}</p>
-        <p class="card-artist">${artist}</p>
-        <p class="card-year">${info.year || ""}</p>
-      </div>
-    `;
-    frag.appendChild(a);
+    const img = document.createElement("img");
+    img.className = "cover";
+    img.src = info.cover_image || info.thumb;
+    img.alt = info.title;
+    img.loading = "lazy";
+    img.referrerPolicy = "no-referrer";
+    img.addEventListener("click", () => openOverlay(r));
+    frag.appendChild(img);
   }
   grid.appendChild(frag);
 }
-
-function applyFilter() {
-  const q = searchEl.value.trim().toLowerCase();
-  if (!q) {
-    render(releases);
-    return;
-  }
-  const filtered = releases.filter(r => {
-    const info = r.basic_information;
-    const artist = (info.artists || []).map(a => a.name).join(" ").toLowerCase();
-    return info.title.toLowerCase().includes(q) || artist.includes(q);
-  });
-  render(filtered);
-}
-
-searchEl.addEventListener("input", applyFilter);
 
 async function loadCollection() {
   let page = 1;
@@ -70,7 +85,6 @@ async function loadCollection() {
       totalPages = data.pagination.pages;
       releases = releases.concat(data.releases);
 
-      countEl.textContent = `— ${data.pagination.items} records`;
       statusEl.textContent = `Loaded ${releases.length} of ${data.pagination.items}…`;
       render(releases);
 
