@@ -72,6 +72,19 @@ body {
   .cover-wrap { animation: none; }
 }
 
+.cover-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.8rem;
+  background: color-mix(in srgb, var(--fg) 10%, var(--card));
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.3;
+  overflow: hidden;
+}
+
 .cd-badge {
   position: absolute;
   bottom: 6px;

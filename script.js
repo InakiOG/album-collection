@@ -53,6 +53,13 @@ function sortReleases(releases) {
   });
 }
 
+function buildFallbackCover(r) {
+  const div = document.createElement("div");
+  div.className = "cover cover-fallback";
+  div.textContent = `${r.artists.join(", ")} — ${r.title}`;
+  return div;
+}
+
 function render(list) {
   grid.innerHTML = "";
   const frag = document.createDocumentFragment();
@@ -63,13 +70,20 @@ function render(list) {
     wrap.style.animationDelay = `-${(Math.random() * 5).toFixed(2)}s`;
     wrap.addEventListener("click", () => openOverlay(r));
 
-    const img = document.createElement("img");
-    img.className = "cover";
-    img.src = r.cover;
-    img.alt = r.title;
-    img.loading = "lazy";
-    img.referrerPolicy = "no-referrer";
-    wrap.appendChild(img);
+    if (r.cover) {
+      const img = document.createElement("img");
+      img.className = "cover";
+      img.src = r.cover;
+      img.alt = r.title;
+      img.loading = "lazy";
+      img.referrerPolicy = "no-referrer";
+      img.addEventListener("error", () => {
+        img.replaceWith(buildFallbackCover(r));
+      });
+      wrap.appendChild(img);
+    } else {
+      wrap.appendChild(buildFallbackCover(r));
+    }
 
     if (r.formats.some(f => f.toUpperCase() === "CD")) {
       const badge = document.createElement("span");
