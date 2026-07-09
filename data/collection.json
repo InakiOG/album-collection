@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-08T18:14:39.101Z",
+  "updatedAt": "2026-07-09T10:00:33.964Z",
   "releases": [
     {
       "id": 31419368,
@@ -524,7 +524,6 @@
       "id": 15764805,
       "masterId": 955222,
       "title": "Minecraft Volume Beta",
-      "pressingYear": 2020,
       "artists": [
         "C418"
       ],
@@ -545,7 +544,7 @@
         "Score"
       ],
       "cover": "https://i.discogs.com/hec8cpuOL523rYHtFto_OWWv23qrH9lPOKhVLouZBo4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1NzY0/ODA1LTE2NzE3MzE3/MjgtMjY5NC5qcGVn.jpeg",
-      "year": 2013
+      "year": 2020
     },
     {
       "id": 30580669,
@@ -575,27 +574,6 @@
       "year": 2024
     },
     {
-      "id": 28952755,
-      "masterId": 605655,
-      "title": "Melophobia",
-      "pressingYear": 2023,
-      "artists": [
-        "Cage The Elephant"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "RCA",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Alternative Rock"
-      ],
-      "cover": "https://i.discogs.com/FcA6dpAp0hZpRZWmOmHrgru2WIH__uQf5uIdYu6jCak/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4OTUy/NzU1LTE3MDAzMjYx/NTctMzc3NS5qcGVn.jpeg",
-      "year": 2013
-    },
-    {
       "id": 7856486,
       "masterId": 929357,
       "title": "Tell Me I'm Pretty",
@@ -616,10 +594,29 @@
       "year": 2015
     },
     {
+      "id": 28952755,
+      "masterId": 605655,
+      "title": "Melophobia",
+      "artists": [
+        "Cage The Elephant"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "RCA",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Alternative Rock"
+      ],
+      "cover": "https://i.discogs.com/FcA6dpAp0hZpRZWmOmHrgru2WIH__uQf5uIdYu6jCak/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4OTUy/NzU1LTE3MDAzMjYx/NTctMzc3NS5qcGVn.jpeg",
+      "year": 2023
+    },
+    {
       "id": 31833650,
       "masterId": 3255691,
       "title": "The Rise & Fall Of A Midwest Princess",
-      "pressingYear": 2024,
       "artists": [
         "Chappell Roan"
       ],
@@ -636,7 +633,7 @@
         "Alt-Pop"
       ],
       "cover": "https://i.discogs.com/kcA9FQZYqbdjTXyaXtYr6XA7x_yVvFUW_f-whw41o3k/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxODMz/NjUwLTE3MjczNjIw/ODMtMjYwNC5qcGVn.jpeg",
-      "year": 2023
+      "year": 2024
     },
     {
       "id": 13447300,
@@ -663,7 +660,6 @@
       "id": 5876465,
       "masterId": 5104,
       "title": "Heaven Or Las Vegas",
-      "pressingYear": 2014,
       "artists": [
         "Cocteau Twins"
       ],
@@ -680,13 +676,12 @@
         "Ethereal"
       ],
       "cover": "https://i.discogs.com/4aoOARpeUF-cbEjniCDG7t2BafKYFCNcEaVW5d05OO8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU4NzY0/NjUtMTQwNTk0NzIz/Mi0zMTY4LmpwZWc.jpeg",
-      "year": 1990
+      "year": 2014
     },
     {
       "id": 29459938,
       "masterId": 5057,
       "title": "Four-Calendar Café",
-      "pressingYear": 2024,
       "artists": [
         "Cocteau Twins"
       ],
@@ -705,13 +700,12 @@
         "Ethereal"
       ],
       "cover": "https://i.discogs.com/kXTUTgVrLHtGteZPHH18IuHxc_5q5_EhbTSe9Em3uzY/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5NDU5/OTM4LTE3MDUwMzQ4/MTEtNDY0MS5qcGVn.jpeg",
-      "year": 1993
+      "year": 2024
     },
     {
       "id": 31728419,
       "masterId": 3334,
       "title": "Parachutes",
-      "pressingYear": 2024,
       "artists": [
         "Coldplay"
       ],
@@ -727,7 +721,7 @@
         "Pop Rock"
       ],
       "cover": "https://i.discogs.com/v2A5dL9aUz2GZ0QKvLp-xZ8ojWP4bhbiJrspDh7x1b8/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNzI4/NDE5LTE3Mjk3NTIy/NzQtNTU2OC5qcGVn.jpeg",
-      "year": 2000
+      "year": 2024
     },
     {
       "id": 13839494,
