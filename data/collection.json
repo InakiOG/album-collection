@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-15T08:34:47.517Z",
+  "updatedAt": "2026-07-16T08:32:59.297Z",
   "releases": [
     {
       "id": 31419368,
@@ -664,7 +664,6 @@
       "id": 5876465,
       "masterId": 5104,
       "title": "Heaven Or Las Vegas",
-      "pressingYear": 2014,
       "artists": [
         "Cocteau Twins"
       ],
@@ -681,13 +680,12 @@
         "Ethereal"
       ],
       "cover": "https://i.discogs.com/4aoOARpeUF-cbEjniCDG7t2BafKYFCNcEaVW5d05OO8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU4NzY0/NjUtMTQwNTk0NzIz/Mi0zMTY4LmpwZWc.jpeg",
-      "year": 1990
+      "year": 2014
     },
     {
       "id": 29459938,
       "masterId": 5057,
       "title": "Four-Calendar Café",
-      "pressingYear": 2024,
       "artists": [
         "Cocteau Twins"
       ],
@@ -706,13 +704,12 @@
         "Ethereal"
       ],
       "cover": "https://i.discogs.com/kXTUTgVrLHtGteZPHH18IuHxc_5q5_EhbTSe9Em3uzY/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5NDU5/OTM4LTE3MDUwMzQ4/MTEtNDY0MS5qcGVn.jpeg",
-      "year": 1993
+      "year": 2024
     },
     {
       "id": 31728419,
       "masterId": 3334,
       "title": "Parachutes",
-      "pressingYear": 2024,
       "artists": [
         "Coldplay"
       ],
@@ -728,13 +725,12 @@
         "Pop Rock"
       ],
       "cover": "https://i.discogs.com/v2A5dL9aUz2GZ0QKvLp-xZ8ojWP4bhbiJrspDh7x1b8/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNzI4/NDE5LTE3Mjk3NTIy/NzQtNTU2OC5qcGVn.jpeg",
-      "year": 2000
+      "year": 2024
     },
     {
       "id": 13839494,
       "masterId": 33450,
       "title": "Crystal Castles",
-      "pressingYear": 2017,
       "artists": [
         "Crystal Castles"
       ],
@@ -752,13 +748,12 @@
         "Electro"
       ],
       "cover": "https://i.discogs.com/LORCuYj86enoIl9XwsSMACEu-NLaiTAhwe-i2E8CHHk/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzODM5/NDk0LTE1NjIyOTY4/MDItNTI1Ny5qcGVn.jpeg",
-      "year": 2008
+      "year": 2017
     },
     {
       "id": 29889358,
       "masterId": 491967,
       "title": "(III)",
-      "pressingYear": 2024,
       "artists": [
         "Crystal Castles"
       ],
@@ -777,35 +772,12 @@
         "Ethereal"
       ],
       "cover": "https://i.discogs.com/z5QsQV86uqiPivpOjNn2YZcNU6mIlcAEnGzhNanSxaU/rs:fit/g:sm/q:90/h:500/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5ODg5/MzU4LTE3MDg2Njg2/NTAtNjgxNi5qcGVn.jpeg",
-      "year": 2012
-    },
-    {
-      "id": 19377427,
-      "masterId": 20319,
-      "title": "Three Imaginary Boys",
-      "pressingYear": 2018,
-      "artists": [
-        "The Cure"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Fiction Records",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "New Wave",
-        "Post-Punk"
-      ],
-      "cover": "https://i.discogs.com/-bdUBW9Q79utQCXupoE16-jy329gksmQTQkBY0MVEkA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE5Mzc3/NDI3LTE2MjU0NDY3/NTYtMzM3Ny5qcGVn.jpeg",
-      "year": 1979
+      "year": 2024
     },
     {
       "id": 9018165,
       "masterId": 20278,
       "title": "Seventeen Seconds",
-      "pressingYear": 2016,
       "artists": [
         "The Cure"
       ],
@@ -822,13 +794,33 @@
         "Synth-pop"
       ],
       "cover": "https://i.discogs.com/QBOejgZdZkSJO51Du-jhEw9dihcnB_GfKKhbRk1YXfg/rs:fit/g:sm/q:90/h:596/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTkwMTgx/NjUtMTUwNjY1Nzg1/Ny00MjE0LmpwZWc.jpeg",
-      "year": 1980
+      "year": 2016
+    },
+    {
+      "id": 19377427,
+      "masterId": 20319,
+      "title": "Three Imaginary Boys",
+      "artists": [
+        "The Cure"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Fiction Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "New Wave",
+        "Post-Punk"
+      ],
+      "cover": "https://i.discogs.com/-bdUBW9Q79utQCXupoE16-jy329gksmQTQkBY0MVEkA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE5Mzc3/NDI3LTE2MjU0NDY3/NTYtMzM3Ny5qcGVn.jpeg",
+      "year": 2018
     },
     {
       "id": 17329675,
       "masterId": 31755,
       "title": "Disintegration ",
-      "pressingYear": 2020,
       "artists": [
         "The Cure"
       ],
@@ -845,54 +837,7 @@
         "Goth Rock"
       ],
       "cover": "https://i.discogs.com/zmwuiUsmx7qnpPpCxl8HKMQqbYpggr5f4KNK1lnbb3M/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE3MzI5/Njc1LTE2MzE5MTY0/MzItMzAwMC5qcGVn.jpeg",
-      "year": 1989
-    },
-    {
-      "id": 29277010,
-      "masterId": 26647,
-      "title": "Discovery",
-      "pressingYear": 2023,
-      "artists": [
-        "Daft Punk"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "ADA (6)",
-      "genres": [
-        "Electronic"
-      ],
-      "styles": [
-        "Disco",
-        "House",
-        "Electro",
-        "French House"
-      ],
-      "cover": "https://i.discogs.com/9omVF7Ur_lP25cJS_AUeKEXhSWncOr_VllpR1UdVHV4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5Mjc3/MDEwLTE3MzMwODAz/ODEtMzE5Ni5qcGVn.jpeg",
-      "year": 2001
-    },
-    {
-      "id": 6657381,
-      "masterId": 26647,
-      "title": "Discovery",
-      "pressingYear": 2014,
-      "artists": [
-        "Daft Punk"
-      ],
-      "formats": [
-        "CD"
-      ],
-      "label": "Warner Music Mexico",
-      "genres": [
-        "Electronic"
-      ],
-      "styles": [
-        "House",
-        "Electro",
-        "Downtempo"
-      ],
-      "cover": "https://i.discogs.com/74iGaX83nY-C2a4rAlkOikPSK_2fhY--ot2W8WxtgCg/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY2NTcz/ODEtMTQyNDAxNjUy/MS02OTc0LmpwZWc.jpeg",
-      "year": 2001
+      "year": 2020
     },
     {
       "id": 21098977,
@@ -918,10 +863,31 @@
       "year": 2010
     },
     {
+      "id": 6657381,
+      "masterId": 26647,
+      "title": "Discovery",
+      "artists": [
+        "Daft Punk"
+      ],
+      "formats": [
+        "CD"
+      ],
+      "label": "Warner Music Mexico",
+      "genres": [
+        "Electronic"
+      ],
+      "styles": [
+        "House",
+        "Electro",
+        "Downtempo"
+      ],
+      "cover": "https://i.discogs.com/74iGaX83nY-C2a4rAlkOikPSK_2fhY--ot2W8WxtgCg/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY2NTcz/ODEtMTQyNDAxNjUy/MS02OTc0LmpwZWc.jpeg",
+      "year": 2014
+    },
+    {
       "id": 26724584,
       "masterId": 556257,
       "title": "Random Access Memories",
-      "pressingYear": 2021,
       "artists": [
         "Daft Punk"
       ],
@@ -941,13 +907,35 @@
         "Electro"
       ],
       "cover": "https://i.discogs.com/yqa-5yyG0qMNoiEuoIr3i826YpWl-NwUXwg0EZ_6Y3k/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2NzI0/NTg0LTE2ODEyMTcx/MTMtMzIwOC5qcGVn.jpeg",
-      "year": 2013
+      "year": 2021
+    },
+    {
+      "id": 29277010,
+      "masterId": 26647,
+      "title": "Discovery",
+      "artists": [
+        "Daft Punk"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "ADA (6)",
+      "genres": [
+        "Electronic"
+      ],
+      "styles": [
+        "Disco",
+        "House",
+        "Electro",
+        "French House"
+      ],
+      "cover": "https://i.discogs.com/9omVF7Ur_lP25cJS_AUeKEXhSWncOr_VllpR1UdVHV4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5Mjc3/MDEwLTE3MzMwODAz/ODEtMzE5Ni5qcGVn.jpeg",
+      "year": 2023
     },
     {
       "id": 2383925,
       "masterId": 34081,
       "title": "Time Out",
-      "pressingYear": 2010,
       "artists": [
         "The Dave Brubeck Quartet"
       ],
@@ -963,13 +951,12 @@
         "Hard Bop"
       ],
       "cover": "https://i.discogs.com/q9cKrtSlvGm61e0ekZ4anolEPScLsLyN2HaMbT18Mtk/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzODM5/MjUtMTU2NjIyNzQz/OC03MDc1LmpwZWc.jpeg",
-      "year": 1959
+      "year": 2010
     },
     {
       "id": 16170061,
       "masterId": 1561,
       "title": "The Rise And Fall Of Ziggy Stardust And The Spiders From Mars",
-      "pressingYear": 2020,
       "artists": [
         "David Bowie"
       ],
@@ -985,49 +972,7 @@
         "Art Rock"
       ],
       "cover": "https://i.discogs.com/HI4C_20GA8PVmVrhpyEg6_WKE2DnhiP6F4ZIE7yU7dM/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2MTcw/MDYxLTE3MDIyNDU4/NzgtMzI1OS5qcGVn.jpeg",
-      "year": 1972
-    },
-    {
-      "id": 23162180,
-      "masterId": 46554,
-      "title": "Adrenaline",
-      "pressingYear": 2022,
-      "artists": [
-        "Deftones"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Maverick",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Nu Metal"
-      ],
-      "cover": "https://i.discogs.com/05ZKx1M5L74NIMWHab68Yh-zoFIA8W77rud3S-fB6_Q/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzMTYy/MTgwLTE3NjU1NTg5/MDMtNTA4MC5qcGVn.jpeg",
-      "year": 1995
-    },
-    {
-      "id": 2873079,
-      "masterId": 46533,
-      "title": "Around The Fur",
-      "pressingYear": 2011,
-      "artists": [
-        "Deftones"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Maverick",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Nu Metal"
-      ],
-      "cover": "https://i.discogs.com/xHvabeA8Utori9_VlFa42eLpWpu-YNcKNL6aPZu7e74/rs:fit/g:sm/q:90/h:600/w:595/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4NzMw/NzktMTY0MDg4MTI2/NS03OTc3LmpwZWc.jpeg",
-      "year": 1997
+      "year": 2020
     },
     {
       "id": 27355728,
@@ -1099,30 +1044,6 @@
       "year": 2003
     },
     {
-      "id": 31678850,
-      "masterId": 435131,
-      "title": "B-Sides & Rarities",
-      "pressingYear": 2024,
-      "artists": [
-        "Deftones"
-      ],
-      "formats": [
-        "Vinyl",
-        "Vinyl",
-        "All Media"
-      ],
-      "label": "Reprise Records",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Alternative Metal",
-        "Post-Punk"
-      ],
-      "cover": "https://i.discogs.com/o8DB--drdUVF8bOf5hGk8OP1odohKnBfY6G7KDJSy-M/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNjc4/ODUwLTE3NDkyMjgy/NjktODQ1Ni5qcGVn.jpeg",
-      "year": 2005
-    },
-    {
       "id": 30322481,
       "masterId": 46848,
       "title": "Saturday Night Wrist",
@@ -1166,6 +1087,26 @@
       ],
       "cover": "https://i.discogs.com/0dQDQK1aYpqkm3ZeQepOQ5qgVgxj-T8CqtsqDQfpvTY/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE5ODI5/MjAzLTE2Mjg3MjA2/NTktOTgyMy5qcGVn.jpeg",
       "year": 2010
+    },
+    {
+      "id": 2873079,
+      "masterId": 46533,
+      "title": "Around The Fur",
+      "artists": [
+        "Deftones"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Maverick",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Nu Metal"
+      ],
+      "cover": "https://i.discogs.com/xHvabeA8Utori9_VlFa42eLpWpu-YNcKNL6aPZu7e74/rs:fit/g:sm/q:90/h:600/w:595/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4NzMw/NzktMTY0MDg4MTI2/NS03OTc3LmpwZWc.jpeg",
+      "year": 2011
     },
     {
       "id": 16444497,
@@ -1230,6 +1171,49 @@
       ],
       "cover": "https://i.discogs.com/TSEzVoGJy2YizyYuwf1mn7ApSAv1aUHI9hS55Jjnk5w/rs:fit/g:sm/q:90/h:600/w:592/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1OTY1/ODM5LTE2MDI5NzMx/OTAtNjIwMC5qcGVn.jpeg",
       "year": 2020
+    },
+    {
+      "id": 23162180,
+      "masterId": 46554,
+      "title": "Adrenaline",
+      "artists": [
+        "Deftones"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Maverick",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Nu Metal"
+      ],
+      "cover": "https://i.discogs.com/05ZKx1M5L74NIMWHab68Yh-zoFIA8W77rud3S-fB6_Q/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzMTYy/MTgwLTE3NjU1NTg5/MDMtNTA4MC5qcGVn.jpeg",
+      "year": 2022
+    },
+    {
+      "id": 31678850,
+      "masterId": 435131,
+      "title": "B-Sides & Rarities",
+      "artists": [
+        "Deftones"
+      ],
+      "formats": [
+        "Vinyl",
+        "Vinyl",
+        "All Media"
+      ],
+      "label": "Reprise Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Alternative Metal",
+        "Post-Punk"
+      ],
+      "cover": "https://i.discogs.com/o8DB--drdUVF8bOf5hGk8OP1odohKnBfY6G7KDJSy-M/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNjc4/ODUwLTE3NDkyMjgy/NjktODQ1Ni5qcGVn.jpeg",
+      "year": 2024
     },
     {
       "id": 34873610,
