@@ -45,11 +45,19 @@ function sortKey(r) {
   return (r.artists[0] || "").toLowerCase().replace(/^the\s+/, "");
 }
 
-function sortReleases(releases) {
+function sortAlphabetical(releases) {
   return [...releases].sort((a, b) => {
     const artistCmp = sortKey(a).localeCompare(sortKey(b));
     if (artistCmp !== 0) return artistCmp;
     return (a.year || 0) - (b.year || 0);
+  });
+}
+
+function sortRecent(releases) {
+  return [...releases].sort((a, b) => {
+    const dateCmp = new Date(b.dateAdded || 0) - new Date(a.dateAdded || 0);
+    if (dateCmp !== 0) return dateCmp;
+    return sortKey(a).localeCompare(sortKey(b));
   });
 }
 
@@ -102,6 +110,21 @@ function render(list) {
   grid.appendChild(frag);
 }
 
+const sortToggle = document.getElementById("sort-toggle");
+let currentReleases = [];
+let sortMode = "alphabetical";
+
+function applySort() {
+  const sorted = sortMode === "alphabetical" ? sortAlphabetical(currentReleases) : sortRecent(currentReleases);
+  render(sorted);
+}
+
+sortToggle.addEventListener("click", () => {
+  sortMode = sortMode === "alphabetical" ? "recent" : "alphabetical";
+  sortToggle.textContent = sortMode === "alphabetical" ? "Alphabetical" : "Recent";
+  applySort();
+});
+
 async function loadCollection() {
   const timeout = setTimeout(() => {
     statusEl.textContent = "Still loading… this is taking longer than expected.";
@@ -113,7 +136,8 @@ async function loadCollection() {
     const data = await res.json();
     clearTimeout(timeout);
 
-    render(sortReleases(data.releases));
+    currentReleases = data.releases;
+    applySort();
     countEl.textContent = `${data.releases.length} albums`;
     statusEl.classList.add("hidden");
   } catch (err) {

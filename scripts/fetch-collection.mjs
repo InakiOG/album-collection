@@ -21,6 +21,7 @@ function slim(r) {
     genres: info.genres || [],
     styles: info.styles || [],
     cover: info.cover_image || info.thumb,
+    dateAdded: r.date_added,
   };
 }
 
