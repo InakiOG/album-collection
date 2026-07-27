@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-26T08:43:34.450Z",
+  "updatedAt": "2026-07-27T10:11:35.243Z",
   "releases": [
     {
       "id": 31419368,
@@ -644,6 +644,7 @@
       "id": 31833650,
       "masterId": 3255691,
       "title": "The Rise & Fall Of A Midwest Princess",
+      "pressingYear": 2024,
       "artists": [
         "Chappell Roan"
       ],
@@ -661,7 +662,7 @@
       ],
       "cover": "https://i.discogs.com/kcA9FQZYqbdjTXyaXtYr6XA7x_yVvFUW_f-whw41o3k/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxODMz/NjUwLTE3MjczNjIw/ODMtMjYwNC5qcGVn.jpeg",
       "dateAdded": "2025-01-02T23:04:02-08:00",
-      "year": 2024
+      "year": 2023
     },
     {
       "id": 13447300,
@@ -713,6 +714,7 @@
       "id": 29459938,
       "masterId": 5057,
       "title": "Four-Calendar Café",
+      "pressingYear": 2024,
       "artists": [
         "Cocteau Twins"
       ],
@@ -732,7 +734,7 @@
       ],
       "cover": "https://i.discogs.com/kXTUTgVrLHtGteZPHH18IuHxc_5q5_EhbTSe9Em3uzY/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5NDU5/OTM4LTE3MDUwMzQ4/MTEtNDY0MS5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:52:32-07:00",
-      "year": 2024
+      "year": 1993
     },
     {
       "id": 31728419,
