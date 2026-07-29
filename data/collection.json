@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-28T08:53:05.132Z",
+  "updatedAt": "2026-07-29T08:58:39.550Z",
   "releases": [
     {
       "id": 31419368,
@@ -544,35 +544,6 @@
       "year": 1997
     },
     {
-      "id": 30580669,
-      "masterId": 801496,
-      "title": "Minecraft Volume Alpha",
-      "pressingYear": 2024,
-      "artists": [
-        "C418"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Ghostly International",
-      "genres": [
-        "Electronic",
-        "Stage & Screen"
-      ],
-      "styles": [
-        "Ambient",
-        "Video Game Music",
-        "IDM",
-        "Soundtrack",
-        "Score",
-        "Ambient House",
-        "Chiptune"
-      ],
-      "cover": "https://i.discogs.com/aHgCqQy6ke1HGXo8dD1y0aV2BA4zk_y5iozv1Y0-6AM/rs:fit/g:sm/q:90/h:600/w:586/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNTgw/NjY5LTE3MTYwNjgw/NDUtNTIwOS5qcGVn.jpeg",
-      "dateAdded": "2025-01-17T19:27:11-08:00",
-      "year": 2011
-    },
-    {
       "id": 15764805,
       "masterId": 955222,
       "title": "Minecraft Volume Beta",
@@ -599,6 +570,34 @@
       "cover": "https://i.discogs.com/hec8cpuOL523rYHtFto_OWWv23qrH9lPOKhVLouZBo4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1NzY0/ODA1LTE2NzE3MzE3/MjgtMjY5NC5qcGVn.jpeg",
       "dateAdded": "2026-05-09T11:59:52-07:00",
       "year": 2013
+    },
+    {
+      "id": 30580669,
+      "masterId": 801496,
+      "title": "Minecraft Volume Alpha",
+      "artists": [
+        "C418"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Ghostly International",
+      "genres": [
+        "Electronic",
+        "Stage & Screen"
+      ],
+      "styles": [
+        "Ambient",
+        "Video Game Music",
+        "IDM",
+        "Soundtrack",
+        "Score",
+        "Ambient House",
+        "Chiptune"
+      ],
+      "cover": "https://i.discogs.com/aHgCqQy6ke1HGXo8dD1y0aV2BA4zk_y5iozv1Y0-6AM/rs:fit/g:sm/q:90/h:600/w:586/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNTgw/NjY5LTE3MTYwNjgw/NDUtNTIwOS5qcGVn.jpeg",
+      "dateAdded": "2025-01-17T19:27:11-08:00",
+      "year": 2024
     },
     {
       "id": 28952755,
@@ -814,6 +813,29 @@
       "year": 2012
     },
     {
+      "id": 19377427,
+      "masterId": 20319,
+      "title": "Three Imaginary Boys",
+      "pressingYear": 2018,
+      "artists": [
+        "The Cure"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Fiction Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "New Wave",
+        "Post-Punk"
+      ],
+      "cover": "https://i.discogs.com/-bdUBW9Q79utQCXupoE16-jy329gksmQTQkBY0MVEkA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE5Mzc3/NDI3LTE2MjU0NDY3/NTYtMzM3Ny5qcGVn.jpeg",
+      "dateAdded": "2026-04-21T20:54:20-07:00",
+      "year": 1979
+    },
+    {
       "id": 9018165,
       "masterId": 20278,
       "title": "Seventeen Seconds",
@@ -862,26 +884,53 @@
       "year": 1989
     },
     {
-      "id": 19377427,
-      "masterId": 20319,
-      "title": "Three Imaginary Boys",
+      "id": 29277010,
+      "masterId": 26647,
+      "title": "Discovery",
+      "pressingYear": 2023,
       "artists": [
-        "The Cure"
+        "Daft Punk"
       ],
       "formats": [
         "Vinyl"
       ],
-      "label": "Fiction Records",
+      "label": "ADA (6)",
       "genres": [
-        "Rock"
+        "Electronic"
       ],
       "styles": [
-        "New Wave",
-        "Post-Punk"
+        "Disco",
+        "House",
+        "Electro",
+        "French House"
       ],
-      "cover": "https://i.discogs.com/-bdUBW9Q79utQCXupoE16-jy329gksmQTQkBY0MVEkA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE5Mzc3/NDI3LTE2MjU0NDY3/NTYtMzM3Ny5qcGVn.jpeg",
-      "dateAdded": "2026-04-21T20:54:20-07:00",
-      "year": 2018
+      "cover": "https://i.discogs.com/9omVF7Ur_lP25cJS_AUeKEXhSWncOr_VllpR1UdVHV4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5Mjc3/MDEwLTE3MzMwODAz/ODEtMzE5Ni5qcGVn.jpeg",
+      "dateAdded": "2025-01-02T23:11:44-08:00",
+      "year": 2001
+    },
+    {
+      "id": 6657381,
+      "masterId": 26647,
+      "title": "Discovery",
+      "pressingYear": 2014,
+      "artists": [
+        "Daft Punk"
+      ],
+      "formats": [
+        "CD"
+      ],
+      "label": "Warner Music Mexico",
+      "genres": [
+        "Electronic"
+      ],
+      "styles": [
+        "House",
+        "Electro",
+        "Downtempo"
+      ],
+      "cover": "https://i.discogs.com/74iGaX83nY-C2a4rAlkOikPSK_2fhY--ot2W8WxtgCg/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY2NTcz/ODEtMTQyNDAxNjUy/MS02OTc0LmpwZWc.jpeg",
+      "dateAdded": "2025-01-03T00:22:08-08:00",
+      "year": 2001
     },
     {
       "id": 21098977,
@@ -908,32 +957,10 @@
       "year": 2010
     },
     {
-      "id": 6657381,
-      "masterId": 26647,
-      "title": "Discovery",
-      "artists": [
-        "Daft Punk"
-      ],
-      "formats": [
-        "CD"
-      ],
-      "label": "Warner Music Mexico",
-      "genres": [
-        "Electronic"
-      ],
-      "styles": [
-        "House",
-        "Electro",
-        "Downtempo"
-      ],
-      "cover": "https://i.discogs.com/74iGaX83nY-C2a4rAlkOikPSK_2fhY--ot2W8WxtgCg/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY2NTcz/ODEtMTQyNDAxNjUy/MS02OTc0LmpwZWc.jpeg",
-      "dateAdded": "2025-01-03T00:22:08-08:00",
-      "year": 2014
-    },
-    {
       "id": 26724584,
       "masterId": 556257,
       "title": "Random Access Memories",
+      "pressingYear": 2021,
       "artists": [
         "Daft Punk"
       ],
@@ -954,36 +981,13 @@
       ],
       "cover": "https://i.discogs.com/yqa-5yyG0qMNoiEuoIr3i826YpWl-NwUXwg0EZ_6Y3k/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2NzI0/NTg0LTE2ODEyMTcx/MTMtMzIwOC5qcGVn.jpeg",
       "dateAdded": "2025-01-02T23:14:14-08:00",
-      "year": 2021
-    },
-    {
-      "id": 29277010,
-      "masterId": 26647,
-      "title": "Discovery",
-      "artists": [
-        "Daft Punk"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "ADA (6)",
-      "genres": [
-        "Electronic"
-      ],
-      "styles": [
-        "Disco",
-        "House",
-        "Electro",
-        "French House"
-      ],
-      "cover": "https://i.discogs.com/9omVF7Ur_lP25cJS_AUeKEXhSWncOr_VllpR1UdVHV4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5Mjc3/MDEwLTE3MzMwODAz/ODEtMzE5Ni5qcGVn.jpeg",
-      "dateAdded": "2025-01-02T23:11:44-08:00",
-      "year": 2023
+      "year": 2013
     },
     {
       "id": 2383925,
       "masterId": 34081,
       "title": "Time Out",
+      "pressingYear": 2010,
       "artists": [
         "The Dave Brubeck Quartet"
       ],
@@ -1000,12 +1004,13 @@
       ],
       "cover": "https://i.discogs.com/q9cKrtSlvGm61e0ekZ4anolEPScLsLyN2HaMbT18Mtk/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzODM5/MjUtMTU2NjIyNzQz/OC03MDc1LmpwZWc.jpeg",
       "dateAdded": "2026-04-21T20:55:08-07:00",
-      "year": 2010
+      "year": 1959
     },
     {
       "id": 16170061,
       "masterId": 1561,
       "title": "The Rise And Fall Of Ziggy Stardust And The Spiders From Mars",
+      "pressingYear": 2020,
       "artists": [
         "David Bowie"
       ],
@@ -1022,7 +1027,7 @@
       ],
       "cover": "https://i.discogs.com/HI4C_20GA8PVmVrhpyEg6_WKE2DnhiP6F4ZIE7yU7dM/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2MTcw/MDYxLTE3MDIyNDU4/NzgtMzI1OS5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:57:32-07:00",
-      "year": 2020
+      "year": 1972
     },
     {
       "id": 23162180,
@@ -2917,32 +2922,10 @@
       "year": 1981
     },
     {
-      "id": 9431705,
-      "masterId": 10370,
-      "title": "Animals",
-      "artists": [
-        "Pink Floyd"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Pink Floyd Records",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Prog Rock",
-        "Psychedelic Rock",
-        "Classic Rock"
-      ],
-      "cover": "https://i.discogs.com/T3dHh5EMgqD8zKGg2Viern-Oaba7xj89tAj76PXhOTw/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTk0MzE3/MDUtMTQ4MDQ1OTcw/NS05NTA2LmpwZWc.jpeg",
-      "dateAdded": "2026-04-21T22:22:17-07:00",
-      "year": 2016
-    },
-    {
       "id": 9063908,
       "masterId": 20649,
       "title": "Meddle",
+      "pressingYear": 2016,
       "artists": [
         "Pink Floyd"
       ],
@@ -2960,34 +2943,13 @@
       ],
       "cover": "https://i.discogs.com/jT038nTOeosPd-2OCet_r_HC1kpZl0KEmS2aswPWywE/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTkwNjM5/MDgtMTQ3NDY1ODM3/Ni05MzkzLmpwZWc.jpeg",
       "dateAdded": "2025-01-03T00:12:05-08:00",
-      "year": 2016
-    },
-    {
-      "id": 8957729,
-      "masterId": 11329,
-      "title": "The Wall",
-      "artists": [
-        "Pink Floyd"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Pink Floyd Records",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Art Rock",
-        "Prog Rock"
-      ],
-      "cover": "https://i.discogs.com/o5B1ExlTGbrs0UC8BkCdSVt4XIOhxphrKQpDoiiZJAE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg5NTc3/MjktMTQ3NzIzNzMy/Ni04Nzg3LmpwZWc.jpeg",
-      "dateAdded": "2026-04-21T22:22:37-07:00",
-      "year": 2016
+      "year": 1971
     },
     {
       "id": 25676449,
       "masterId": 10362,
       "title": "The Dark Side Of The Moon",
+      "pressingYear": 2022,
       "artists": [
         "Pink Floyd"
       ],
@@ -3005,12 +2967,13 @@
       ],
       "cover": "https://i.discogs.com/JEDRMyT0Z9gk4NKKca6h-3OXRkKzGNHDnviYbtiirmY/rs:fit/g:sm/q:90/h:586/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI1Njc2/NDQ5LTE2NzI5NzQ5/MTAtNTIzMi5qcGVn.jpeg",
       "dateAdded": "2025-01-03T00:11:15-08:00",
-      "year": 2022
+      "year": 1973
     },
     {
       "id": 35897536,
       "masterId": 11703,
       "title": "Wish You Were Here",
+      "pressingYear": 2025,
       "artists": [
         "Pink Floyd"
       ],
@@ -3028,34 +2991,60 @@
       ],
       "cover": "https://i.discogs.com/ml7JV0elC0v2zfwx6CHNAcI_2PWYb4j98c19fwjZaYA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM1ODk3/NTM2LTE3NzM4NzA5/ODctNzgyMS5qcGVn.jpeg",
       "dateAdded": "2026-04-21T22:21:57-07:00",
-      "year": 2025
+      "year": 1975
     },
     {
-      "id": 28590850,
-      "masterId": 16764,
-      "title": "Doolittle",
+      "id": 9431705,
+      "masterId": 10370,
+      "title": "Animals",
+      "pressingYear": 2016,
       "artists": [
-        "Pixies"
+        "Pink Floyd"
       ],
       "formats": [
         "Vinyl"
       ],
-      "label": "4AD",
+      "label": "Pink Floyd Records",
       "genres": [
         "Rock"
       ],
       "styles": [
-        "Indie Rock",
-        "Alternative Rock"
+        "Prog Rock",
+        "Psychedelic Rock",
+        "Classic Rock"
       ],
-      "cover": "https://i.discogs.com/Z1hx7Cf8wRpvMSh9KOaCIXECjIPlYMTnt81ckDWuU8A/rs:fit/g:sm/q:90/h:600/w:595/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4NTkw/ODUwLTE2OTcyOTE5/MDYtODA5OS5qcGVn.jpeg",
-      "dateAdded": "2025-01-03T00:13:19-08:00",
-      "year": 0
+      "cover": "https://i.discogs.com/T3dHh5EMgqD8zKGg2Viern-Oaba7xj89tAj76PXhOTw/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTk0MzE3/MDUtMTQ4MDQ1OTcw/NS05NTA2LmpwZWc.jpeg",
+      "dateAdded": "2026-04-21T22:22:17-07:00",
+      "year": 1977
+    },
+    {
+      "id": 8957729,
+      "masterId": 11329,
+      "title": "The Wall",
+      "pressingYear": 2016,
+      "artists": [
+        "Pink Floyd"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Pink Floyd Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Art Rock",
+        "Prog Rock"
+      ],
+      "cover": "https://i.discogs.com/o5B1ExlTGbrs0UC8BkCdSVt4XIOhxphrKQpDoiiZJAE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg5NTc3/MjktMTQ3NzIzNzMy/Ni04Nzg3LmpwZWc.jpeg",
+      "dateAdded": "2026-04-21T22:22:37-07:00",
+      "year": 1979
     },
     {
       "id": 2109418,
       "masterId": 16731,
       "title": "Surfer Rosa",
+      "pressingYear": 2004,
       "artists": [
         "Pixies"
       ],
@@ -3072,12 +3061,36 @@
       ],
       "cover": "https://i.discogs.com/W61BsCKCxoo5wnEruyZmVAyqbNd80e0b1DEazpwheYY/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIxMDk0/MTgtMTMwMzMwMzI3/Ny5qcGVn.jpeg",
       "dateAdded": "2026-04-21T22:23:17-07:00",
-      "year": 2004
+      "year": 1988
+    },
+    {
+      "id": 28590850,
+      "masterId": 16764,
+      "title": "Doolittle",
+      "pressingYear": 0,
+      "artists": [
+        "Pixies"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "4AD",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Indie Rock",
+        "Alternative Rock"
+      ],
+      "cover": "https://i.discogs.com/Z1hx7Cf8wRpvMSh9KOaCIXECjIPlYMTnt81ckDWuU8A/rs:fit/g:sm/q:90/h:600/w:595/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4NTkw/ODUwLTE2OTcyOTE5/MDYtODA5OS5qcGVn.jpeg",
+      "dateAdded": "2025-01-03T00:13:19-08:00",
+      "year": 1989
     },
     {
       "id": 10931589,
       "masterId": 16787,
       "title": "Bossanova",
+      "pressingYear": 2014,
       "artists": [
         "Pixies"
       ],
@@ -3093,12 +3106,13 @@
       ],
       "cover": "https://i.discogs.com/TjjaOLfLwJEkEy2yAyC4_2_a00SAg1Buh0H_kFG3zC4/rs:fit/g:sm/q:90/h:600/w:598/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwOTMx/NTg5LTE1MDY3MzI5/NzYtOTg1OS5qcGVn.jpeg",
       "dateAdded": "2026-04-21T22:23:33-07:00",
-      "year": 2014
+      "year": 1990
     },
     {
       "id": 14420371,
       "masterId": 39199,
       "title": "Reggatta De Blanc",
+      "pressingYear": 2019,
       "artists": [
         "The Police"
       ],
@@ -3113,12 +3127,13 @@
       "styles": [],
       "cover": "https://i.discogs.com/KYDd_ZNK_Yoopf6F-3JuV0I6UUX30b1Zz4kltME4UtE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0NDIw/MzcxLTE1NzQxNzU0/MTQtNDMzMy5qcGVn.jpeg",
       "dateAdded": "2026-04-21T22:23:49-07:00",
-      "year": 2019
+      "year": 1979
     },
     {
       "id": 15820,
       "masterId": 5542,
       "title": "Dummy",
+      "pressingYear": 0,
       "artists": [
         "Portishead"
       ],
@@ -3134,12 +3149,13 @@
       ],
       "cover": "https://i.discogs.com/_nP5mmhtK-6W0qOF4xC0c-K8oktyqmZ4PkACUz-KLQk/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1ODIw/LTEyNTc0MDYyODEu/anBlZw.jpeg",
       "dateAdded": "2025-01-03T00:23:12-08:00",
-      "year": 0
+      "year": 1994
     },
     {
       "id": 23730188,
       "masterId": 5542,
       "title": "Dummy",
+      "pressingYear": 2014,
       "artists": [
         "Portishead"
       ],
@@ -3156,33 +3172,13 @@
       ],
       "cover": "https://i.discogs.com/iHeWrOy-pSOIUeXSRgFjm5BC7DfQb9OZL7848GZID6Y/rs:fit/g:sm/q:90/h:523/w:523/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzNzMw/MTg4LTE2NTY1MTA5/OTQtNzM5MC5qcGVn.jpeg",
       "dateAdded": "2026-04-21T22:24:24-07:00",
-      "year": 2014
-    },
-    {
-      "id": 29987029,
-      "masterId": 17008,
-      "title": "The Bends",
-      "artists": [
-        "Radiohead"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "XL Recordings",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Alternative Rock"
-      ],
-      "cover": "https://i.discogs.com/lw2LQGubgyTuN9YMJU8f_x8z4Y_qq0MQQrN8-GDoABk/rs:fit/g:sm/q:90/h:592/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5OTg3/MDI5LTE3MTAzNjUz/NTQtNDU4NS5qcGVn.jpeg",
-      "dateAdded": "2026-04-21T22:25:51-07:00",
-      "year": 0
+      "year": 1994
     },
     {
       "id": 22727822,
       "masterId": 13344,
       "title": "Pablo Honey",
+      "pressingYear": 2016,
       "artists": [
         "Radiohead"
       ],
@@ -3199,12 +3195,35 @@
       ],
       "cover": "https://i.discogs.com/6xnd_UYfFcWBBTCHcoMoQYiiC0MhHNmsg7DlqQxHnhw/rs:fit/g:sm/q:90/h:600/w:590/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIyNzI3/ODIyLTE2NDg4NDUw/NDYtOTczNi5qcGVn.jpeg",
       "dateAdded": "2026-04-21T22:24:39-07:00",
-      "year": 2016
+      "year": 1993
+    },
+    {
+      "id": 29987029,
+      "masterId": 17008,
+      "title": "The Bends",
+      "pressingYear": 0,
+      "artists": [
+        "Radiohead"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "XL Recordings",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Alternative Rock"
+      ],
+      "cover": "https://i.discogs.com/lw2LQGubgyTuN9YMJU8f_x8z4Y_qq0MQQrN8-GDoABk/rs:fit/g:sm/q:90/h:592/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5OTg3/MDI5LTE3MTAzNjUz/NTQtNDU4NS5qcGVn.jpeg",
+      "dateAdded": "2026-04-21T22:25:51-07:00",
+      "year": 1995
     },
     {
       "id": 10471009,
       "masterId": 21491,
       "title": "OK Computer OKNOTOK 1997 2017",
+      "pressingYear": 2017,
       "artists": [
         "Radiohead"
       ],
@@ -3224,12 +3243,13 @@
       ],
       "cover": "https://i.discogs.com/ORDOcW8gyxAoTrX-dhu3X6BFrgvBaVinTRQmITK1ym8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwNDcx/MDA5LTE0OTgxNDM1/NjYtMTEyNi5qcGVn.jpeg",
       "dateAdded": "2026-05-04T16:35:43-07:00",
-      "year": 2017
+      "year": 1997
     },
     {
       "id": 26806592,
       "masterId": 21520,
       "title": "In Rainbows",
+      "pressingYear": 2023,
       "artists": [
         "Radiohead"
       ],
@@ -3249,12 +3269,13 @@
       ],
       "cover": "https://i.discogs.com/0crZUSlBM_5XllrvYMMMUg2ZhYLbAQZh5u5r3kAk9bk/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2ODA2/NTkyLTE2ODE4NzM4/MTgtMjEzNi5qcGVn.jpeg",
       "dateAdded": "2026-04-21T22:26:15-07:00",
-      "year": 2023
+      "year": 2007
     },
     {
       "id": 32478543,
       "masterId": 311832,
       "title": "The King Of Limbs",
+      "pressingYear": 2024,
       "artists": [
         "Radiohead"
       ],
@@ -3273,12 +3294,13 @@
       ],
       "cover": "https://i.discogs.com/JWW8-qHC-INkKhyMurE_UH6Tn92Qm_o1lN72bVuWHg4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMyNDc4/NTQzLTE3MzMzNzU1/ODktMzMxNi5qcGVn.jpeg",
       "dateAdded": "2026-04-21T22:26:46-07:00",
-      "year": 2024
+      "year": 2011
     },
     {
       "id": 394418,
       "masterId": 39341,
       "title": "Ramones",
+      "pressingYear": 2001,
       "artists": [
         "Ramones"
       ],
@@ -3295,12 +3317,13 @@
       ],
       "cover": "https://i.discogs.com/7ps2ZirII9fRAdBTX8RN_gwJTWYfkEX6MUoBPPRYsAw/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM5NDQx/OC0xMTYzNjQxODEx/LmpwZWc.jpeg",
       "dateAdded": "2026-05-17T12:55:57-07:00",
-      "year": 2001
+      "year": 1976
     },
     {
       "id": 31323387,
       "masterId": 42546,
       "title": "Californication",
+      "pressingYear": 2024,
       "artists": [
         "Red Hot Chili Peppers"
       ],
@@ -3318,12 +3341,13 @@
       ],
       "cover": "https://i.discogs.com/SiusdncTDQXaiEpawdKGDh0N6ijri_v_cPvXR5KU-2k/rs:fit/g:sm/q:90/h:595/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxMzIz/Mzg3LTE3MjIwMDU2/NTktMTU5OC5qcGVn.jpeg",
       "dateAdded": "2025-01-03T00:00:49-08:00",
-      "year": 2024
+      "year": 1999
     },
     {
       "id": 17651677,
       "masterId": 439197,
       "title": "One Fine Day = Un Día Fino",
+      "pressingYear": 1982,
       "artists": [
         "Ronnie Aldrich"
       ],
@@ -3340,12 +3364,13 @@
       ],
       "cover": "https://i.discogs.com/c8Viql8r1HKAwi3FkoDK7VrB4b-3HFvy_rythV0DpxU/rs:fit/g:sm/q:90/h:589/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE3NjUx/Njc3LTE3MDU5OTY1/MzgtNjI1OS5qcGVn.jpeg",
       "dateAdded": "2025-01-03T00:01:27-08:00",
-      "year": 1982
+      "year": 1981
     },
     {
       "id": 8131475,
       "masterId": 110951,
       "title": "The Best Of Sade",
+      "pressingYear": 2016,
       "artists": [
         "Sade"
       ],
@@ -3363,7 +3388,7 @@
       ],
       "cover": "https://i.discogs.com/AT-5QmxgN_dzeuigTUBzbWhT5MSrn23kYiXHvrlExt0/rs:fit/g:sm/q:90/h:599/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgxMzE0/NzUtMTczNTgzNTAz/OC05MTcwLnBuZw.jpeg",
       "dateAdded": "2026-04-21T22:27:43-07:00",
-      "year": 2016
+      "year": 1994
     },
     {
       "id": 27316986,
