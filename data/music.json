@@ -1,0 +1,52 @@
+{
+  "tracks": [
+    {
+      "title": "5 cuartos",
+      "file": "music/5 cuartos.mp3"
+    },
+    {
+      "title": "basic beat",
+      "file": "music/basic beat.mp3"
+    },
+    {
+      "title": "calmada",
+      "file": "music/calmada.mp3"
+    },
+    {
+      "title": "Indie",
+      "file": "music/Indie.mp3"
+    },
+    {
+      "title": "main",
+      "file": "music/main.mp3"
+    },
+    {
+      "title": "mochis",
+      "file": "music/mochis.mp3"
+    },
+    {
+      "title": "otro",
+      "file": "music/otro.mp3"
+    },
+    {
+      "title": "piano",
+      "file": "music/piano.mp3"
+    },
+    {
+      "title": "sin titulo",
+      "file": "music/sin titulo.mp3"
+    },
+    {
+      "title": "Ska",
+      "file": "music/Ska.mp3"
+    },
+    {
+      "title": "test",
+      "file": "music/test.mp3"
+    },
+    {
+      "title": "Triste",
+      "file": "music/Triste.mp3"
+    }
+  ]
+}

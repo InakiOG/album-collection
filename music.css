@@ -1,0 +1,70 @@
+.page-title {
+  text-align: center;
+  padding: 1.1rem 1rem 0;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+}
+
+.track-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 640px;
+  margin: 1.4rem auto;
+  padding: 0 1.4rem 6rem;
+}
+
+.track {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--card);
+  color: var(--fg);
+  border: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.track:hover {
+  background: color-mix(in srgb, var(--fg) 8%, var(--card));
+}
+
+.track.playing {
+  border-color: var(--fg);
+  font-weight: 600;
+}
+
+.player-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background: var(--card);
+  border-top: 1px solid color-mix(in srgb, var(--fg) 15%, transparent);
+  padding: 0.8rem 1.4rem;
+}
+
+.player-info {
+  min-width: 0;
+}
+
+.now-playing {
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-bar audio {
+  flex: 1;
+  min-width: 200px;
+}

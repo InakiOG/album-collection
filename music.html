@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music — InakiOG's Vinyl Collection</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="music.css">
+</head>
+<body>
+  <a href="index.html" class="nav-button back-button">← Back</a>
+
+  <h1 class="page-title">Music</h1>
+
+  <main id="track-list" class="track-list"></main>
+
+  <p id="status" class="status">Loading tracks…</p>
+
+  <div id="player-bar" class="player-bar hidden">
+    <div class="player-info">
+      <span id="now-playing" class="now-playing"></span>
+    </div>
+    <audio id="audio" controls></audio>
+  </div>
+
+  <script src="music.js"></script>
+</body>
+</html>
