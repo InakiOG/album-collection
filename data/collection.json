@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-04T08:57:11.408Z",
+  "updatedAt": "2026-08-05T08:54:11.816Z",
   "releases": [
     {
       "id": 31419368,
@@ -601,6 +601,28 @@
       "year": 2013
     },
     {
+      "id": 28952755,
+      "masterId": 605655,
+      "title": "Melophobia",
+      "pressingYear": 2023,
+      "artists": [
+        "Cage The Elephant"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "RCA",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Alternative Rock"
+      ],
+      "cover": "https://i.discogs.com/FcA6dpAp0hZpRZWmOmHrgru2WIH__uQf5uIdYu6jCak/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4OTUy/NzU1LTE3MDAzMjYx/NTctMzc3NS5qcGVn.jpeg",
+      "dateAdded": "2025-01-02T23:02:36-08:00",
+      "year": 2013
+    },
+    {
       "id": 7856486,
       "masterId": 929357,
       "title": "Tell Me I'm Pretty",
@@ -620,27 +642,6 @@
       "cover": "https://i.discogs.com/507xSZRyvQ3hUJLyeCUsf4zaAYjapDClvqhdUTuf58o/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc4NTY0/ODYtMTQ1MDI3MDM3/NS0xNTY0LmpwZWc.jpeg",
       "dateAdded": "2026-04-26T18:18:25-07:00",
       "year": 2015
-    },
-    {
-      "id": 28952755,
-      "masterId": 605655,
-      "title": "Melophobia",
-      "artists": [
-        "Cage The Elephant"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "RCA",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Alternative Rock"
-      ],
-      "cover": "https://i.discogs.com/FcA6dpAp0hZpRZWmOmHrgru2WIH__uQf5uIdYu6jCak/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4OTUy/NzU1LTE3MDAzMjYx/NTctMzc3NS5qcGVn.jpeg",
-      "dateAdded": "2025-01-02T23:02:36-08:00",
-      "year": 2023
     },
     {
       "id": 31833650,
