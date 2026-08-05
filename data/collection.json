@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-05T08:54:11.816Z",
+  "updatedAt": "2026-08-05T23:15:45.466Z",
   "releases": [
     {
       "id": 31419368,
@@ -195,6 +195,29 @@
       "cover": "https://i.discogs.com/JkJTQv9rKTESTkrr7P9DIM47vgYx2R4aeEoETA96hDQ/rs:fit/g:sm/q:90/h:593/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3NjQ0/MTY2LTE2OTI4MzEy/MzgtNDcyNy5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:32:58-07:00",
       "year": 1997
+    },
+    {
+      "id": 36610048,
+      "masterId": 76279,
+      "title": "Whatever People Say I Am, That's What I'm Not",
+      "pressingYear": 2026,
+      "artists": [
+        "Arctic Monkeys"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Domino",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Indie Rock",
+        "Garage Rock"
+      ],
+      "cover": "https://i.discogs.com/IiNXGF18BEF7jBO65pzmvoqPy79syk2eu42FBgrZ2M4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM2NjEw/MDQ4LTE3NzIwMzcy/MjUtNjAxMi5qcGVn.jpeg",
+      "dateAdded": "2026-08-05T15:56:19-07:00",
+      "year": 2006
     },
     {
       "id": 4329406,
@@ -519,7 +542,6 @@
       "id": 7631931,
       "masterId": 64210,
       "title": "Buena Vista Social Club",
-      "pressingYear": 2015,
       "artists": [
         "Buena Vista Social Club"
       ],
@@ -541,7 +563,7 @@
       ],
       "cover": "https://i.discogs.com/WEgG_TiRio-_tZWk09rhjhHSWOV4k8vLE26CEmYo4zc/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc2MzE5/MzEtMTcwNjQwNDQ3/MC00NzM1LmpwZWc.jpeg",
       "dateAdded": "2026-04-21T20:45:27-07:00",
-      "year": 1997
+      "year": 2015
     },
     {
       "id": 30580669,
@@ -1292,6 +1314,28 @@
       "year": 2025
     },
     {
+      "id": 27599772,
+      "masterId": 23759,
+      "title": "Dire Straits",
+      "pressingYear": 2024,
+      "artists": [
+        "Dire Straits"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Mercury",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Classic Rock"
+      ],
+      "cover": "https://i.discogs.com/ouaecE4MEXe-lmJaumWjGlu2TLbMmLormFrwtcQgofU/rs:fit/g:sm/q:90/h:586/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3NTk5/NzcyLTE3MzU3MTk0/NTgtNzc4OC5qcGVn.jpeg",
+      "dateAdded": "2026-08-05T15:55:07-07:00",
+      "year": 1978
+    },
+    {
       "id": 31262722,
       "masterId": 79632,
       "title": "Rio",
@@ -1588,6 +1632,31 @@
       "cover": "https://i.discogs.com/Perfk-WHR0SvMsmvn4uvcU78eEqXxbx1fzL73dd8aM8/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzMDQw/MDktMTQ4NzE5MjE0/Ni03NzkxLmpwZWc.jpeg",
       "dateAdded": "2025-01-02T23:38:40-08:00",
       "year": 1982
+    },
+    {
+      "id": 22474262,
+      "masterId": 168639,
+      "title": "Fugazi",
+      "pressingYear": 2022,
+      "artists": [
+        "Fugazi"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Dischord Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Alternative Rock",
+        "Hardcore",
+        "Punk",
+        "Post-Hardcore"
+      ],
+      "cover": "https://i.discogs.com/JzF4ZDG1nPjmRG9QhoTm0pWuDX4qOYgUuhcP7NWIL3s/rs:fit/g:sm/q:90/h:300/w:298/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIyNDc0/MjYyLTE2NDcwMjg0/NzQtOTUzMi5qcGVn.jpeg",
+      "dateAdded": "2026-08-05T15:58:18-07:00",
+      "year": 1988
     },
     {
       "id": 34305388,

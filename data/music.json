@@ -1,16 +1,16 @@
 {
   "tracks": [
     {
-      "title": "5 cuartos",
-      "file": "music/5 cuartos.mp3"
-    },
-    {
-      "title": "basic beat",
-      "file": "music/basic beat.mp3"
+      "title": "beat",
+      "file": "music/beat.mp3"
     },
     {
       "title": "calmada",
       "file": "music/calmada.mp3"
+    },
+    {
+      "title": "grunge",
+      "file": "music/grunge.mp3"
     },
     {
       "title": "Indie",
@@ -19,10 +19,6 @@
     {
       "title": "main",
       "file": "music/main.mp3"
-    },
-    {
-      "title": "mochis",
-      "file": "music/mochis.mp3"
     },
     {
       "title": "otro",
