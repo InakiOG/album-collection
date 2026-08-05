@@ -112,7 +112,7 @@ function render(list) {
 
 const sortToggle = document.getElementById("sort-toggle");
 let currentReleases = [];
-let sortMode = "alphabetical";
+let sortMode = "recent";
 
 function applySort() {
   const sorted = sortMode === "alphabetical" ? sortAlphabetical(currentReleases) : sortRecent(currentReleases);
