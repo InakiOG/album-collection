@@ -5,6 +5,10 @@
       "file": "music/beat.mp3"
     },
     {
+      "title": "buen tune",
+      "file": "music/buen tune.mp3"
+    },
+    {
       "title": "calmada",
       "file": "music/calmada.mp3"
     },
@@ -15,6 +19,10 @@
     {
       "title": "Indie",
       "file": "music/Indie.mp3"
+    },
+    {
+      "title": "indie 2",
+      "file": "music/indie 2.mp3"
     },
     {
       "title": "main",
