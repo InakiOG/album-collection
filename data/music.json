@@ -17,6 +17,10 @@
       "file": "music/grunge.mp3"
     },
     {
+      "title": "grunge true",
+      "file": "music/grunge true.mp3"
+    },
+    {
       "title": "Indie",
       "file": "music/Indie.mp3"
     },
@@ -51,6 +55,10 @@
     {
       "title": "Triste",
       "file": "music/Triste.mp3"
+    },
+    {
+      "title": "weezer de tlajomulco",
+      "file": "music/weezer de tlajomulco.mp3"
     }
   ]
 }
