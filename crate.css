@@ -1,0 +1,249 @@
+/* Record crate view — records stacked front-to-back, pinned to the bottom
+   of the viewport; the page itself never scrolls */
+
+body {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.crate-row {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-end;
+  gap: 1.2rem;
+  max-width: 100vw;
+}
+
+.crate {
+  --card-size: 441px;
+  --stack-step: 25px;
+  --crate-w: 1024.5px;
+  --layers: 7;
+
+  width: min(80vw, 756px);
+  flex: 0 0 auto;
+}
+
+/* smaller, dimmed crates flanking the active one — click to bring one
+   to the middle and browse its 30 albums */
+.crate-side {
+  position: relative;
+  flex: 0 0 auto;
+  width: min(13vw, 180px);
+  aspect-ratio: 2048 / 1120;
+  align-self: flex-end;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.crate-side:hover { opacity: 0.85; transform: translateY(-4px); }
+.crate-side:disabled { visibility: hidden; }
+
+.crate-side-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* plain layout container — no visible box, just holds the stack + nav */
+.crate-track {
+  position: relative;
+  height: calc(var(--card-size) + (var(--layers) - 1) * var(--stack-step) + 1.2rem);
+  padding: 1.2rem 1.2rem 0;
+  overflow: visible;
+}
+
+.crate-shelf {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: var(--card-size);
+  height: var(--card-size);
+  transform: translateX(-50%);
+  perspective: 900px;
+  perspective-origin: 50% 15%;
+  /* z-index:auto would otherwise paint this whole stacking context behind
+     any positively-z-indexed sibling (even crate-back's z:1) — give it an
+     explicit level so the album stack sits between crate-back and crate-front */
+  z-index: 250;
+}
+
+/* the physical crate, photographed at the same front-top angle as the
+   stack's perspective. crate-back (the box body/interior) sits behind the
+   resting pile; crate-front (just the front lattice wall) sits in front of
+   it, so the albums look like they're inside the crate. The raised album
+   still rises above both, through the crate's open top. */
+.crate-box {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: var(--crate-w);
+  aspect-ratio: 2048 / 1120;
+  transform: translateX(-50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.crate-back { z-index: 1; }
+.crate-front { z-index: 500; }
+
+.stack-card {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--card);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+  transform-origin: 50% 100%;
+  transition: none;
+}
+
+/* transitions only turn on after the initial stack has painted once,
+   so the pile appears in place instead of animating in on load */
+.crate-shelf.ready .stack-card {
+  transition: transform 0.34s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease, filter 0.32s ease,
+    left 0.34s ease, width 0.34s ease, height 0.34s ease, border-radius 0.34s ease, box-shadow 0.34s ease;
+}
+
+.stack-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+/* the expanded state: the tapped card itself grows into a full info card,
+   instead of a separate element appearing */
+.stack-card.expanded {
+  left: 50%;
+  bottom: 1.2rem;
+  width: 260px;
+  height: auto;
+  transform: translateX(-50%) translateY(0) scale(1) rotate(-1.2deg) !important;
+  border-radius: 10px;
+  box-shadow: 0 26px 48px rgba(0, 0, 0, 0.55);
+  opacity: 1 !important;
+  filter: none !important;
+  z-index: 1000 !important;
+  cursor: default;
+}
+
+.card-info {
+  max-height: 0;
+  opacity: 0;
+  padding: 0 1rem;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.22s ease, padding 0.3s ease;
+}
+
+.stack-card.expanded .card-info {
+  max-height: 240px;
+  opacity: 1;
+  padding: 0.85rem 1rem 1.05rem;
+}
+
+.card-info h3 {
+  margin: 0 0 0.2rem;
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+}
+
+.card-info p {
+  margin: 0.1rem 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.card-info a {
+  display: inline-block;
+  margin-top: 0.6rem;
+  color: var(--fg);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.8rem;
+  border-bottom: 1px solid var(--muted);
+}
+
+.card-info a:hover { opacity: 0.75; }
+
+.record-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.6rem;
+  background: color-mix(in srgb, var(--fg) 10%, var(--card));
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.25;
+}
+
+/* prev/next controls */
+.crate-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--fg) 20%, transparent);
+  background: var(--card);
+  color: var(--fg);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.crate-nav:hover { background: color-mix(in srgb, var(--fg) 10%, var(--card)); }
+.crate-nav:disabled { opacity: 0.3; cursor: default; }
+.crate-nav-prev { left: 0.6rem; }
+.crate-nav-next { right: 0.6rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .crate-shelf.ready .stack-card { transition: none; }
+}
+
+@media (max-width: 480px) {
+  .crate-row {
+    gap: 0.4rem;
+  }
+  .crate {
+    --card-size: 341px;
+    --stack-step: 20px;
+    --crate-w: 791.7px;
+    width: 68vw;
+    bottom: 0;
+  }
+  .crate-side {
+    width: 13vw;
+  }
+  .stack-card.expanded {
+    width: 210px;
+  }
+  .card-info h3 { font-size: 0.9rem; }
+}
