@@ -4,6 +4,7 @@
 body {
   overflow: hidden;
   height: 100vh;
+  background: var(--bg);
 }
 
 .crate-row {
@@ -66,9 +67,9 @@ body {
 .crate-shelf {
   position: absolute;
   left: 50%;
-  bottom: 0;
-  width: var(--card-size);
-  height: var(--card-size);
+  bottom: calc(var(--card-size) * 0.133);
+  width: calc(var(--card-size) * 0.76);
+  height: calc(var(--card-size) * 1.25);
   transform: translateX(-50%);
   perspective: 900px;
   perspective-origin: 50% 15%;
@@ -122,11 +123,16 @@ body {
 .stack-card img {
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 100%;
   object-fit: cover;
   pointer-events: none;
   user-select: none;
   flex-shrink: 0;
+}
+
+.stack-card.expanded img {
+  height: auto;
+  aspect-ratio: 1 / 1;
 }
 
 /* the expanded state: the tapped card itself grows into a full info card,

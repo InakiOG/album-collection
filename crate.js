@@ -9,10 +9,10 @@ const statusEl = document.getElementById("status");
 const countEl = document.getElementById("count");
 const sortToggle = document.getElementById("sort-toggle");
 
-const PEEK_STEP = 4;
+const PEEK_STEP = 5.52;
 const SCALE_STEP = 0.006;
-const LIFT_FRACTION = 0.4;
-const TILT_DEG = -42;
+const LIFT_FRACTION = 0.48;
+const TILT_DEG = -50;
 const BOX_SIZE = 30;
 
 let sortedReleases = []; // full collection
