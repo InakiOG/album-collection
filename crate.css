@@ -67,9 +67,9 @@ body {
 .crate-shelf {
   position: absolute;
   left: 50%;
-  bottom: calc(var(--card-size) * 0.133);
-  width: calc(var(--card-size) * 0.76);
-  height: calc(var(--card-size) * 1.25);
+  bottom: calc(var(--card-size) * 0.016);
+  width: var(--card-size);
+  height: var(--card-size);
   transform: translateX(-50%);
   perspective: 900px;
   perspective-origin: 50% 15%;
