@@ -609,6 +609,27 @@ window.addEventListener("orientationchange", updateRowSpacing);
 // crate before sliding out to reclaim its spot. Wraps around indefinitely
 // at both ends.
 const SHIFT_ANIM_MS = 360;
+
+// if an album is currently raised/selected, play its "lower back down"
+// animation first and let it finish before switching crates, instead of
+// yanking it away mid-transition. Runs for clicks, swipes, and drags alike
+// since they all funnel through here.
+let deselecting = false;
+function collapseSelectionThen(fn) {
+  if (deselecting || shifting) return;
+  collapseExpanded();
+  if (hasInteracted) {
+    deselecting = true;
+    hasInteracted = false;
+    updatePositions();
+    setTimeout(() => {
+      deselecting = false;
+      fn();
+    }, 340); // matches .crate-shelf.ready .stack-card's own transition duration
+  } else {
+    fn();
+  }
+}
 let shifting = false;
 
 function slotStepPx() {
@@ -876,14 +897,12 @@ function animateShiftToNext(targetIndex) {
 
 prevSlotEl.addEventListener("click", (e) => {
   e.stopPropagation();
-  collapseExpanded();
-  animateShiftToPrev((currentBoxIndex - 1 + boxes.length) % boxes.length);
+  collapseSelectionThen(() => animateShiftToPrev((currentBoxIndex - 1 + boxes.length) % boxes.length));
 });
 
 nextSlotEl.addEventListener("click", (e) => {
   e.stopPropagation();
-  collapseExpanded();
-  animateShiftToNext((currentBoxIndex + 1) % boxes.length);
+  collapseSelectionThen(() => animateShiftToNext((currentBoxIndex + 1) % boxes.length));
 });
 
 let wheelLocked = false;
@@ -919,10 +938,12 @@ const SWIPE_THRESHOLD = 40;
 let suppressNextClick = false;
 
 function shiftFromSwipe(dx) {
-  if (shifting) return;
+  if (shifting || deselecting) return;
   suppressNextClick = true;
-  if (dx < 0) animateShiftToNext((currentBoxIndex + 1) % boxes.length);
-  else animateShiftToPrev((currentBoxIndex - 1 + boxes.length) % boxes.length);
+  collapseSelectionThen(() => {
+    if (dx < 0) animateShiftToNext((currentBoxIndex + 1) % boxes.length);
+    else animateShiftToPrev((currentBoxIndex - 1 + boxes.length) % boxes.length);
+  });
 }
 
 // a card's own click listener runs in the bubble phase — catching this one
