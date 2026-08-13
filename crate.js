@@ -1,15 +1,13 @@
 const crate = document.getElementById("crate-shelf");
 const crateEl = document.getElementById("crate");
 const crateTrack = document.getElementById("crate-track");
-const prevSideBtn = document.getElementById("crate-side-prev");
-const nextSideBtn = document.getElementById("crate-side-next");
 const statusEl = document.getElementById("status");
 const countEl = document.getElementById("count");
 const sortToggle = document.getElementById("sort-toggle");
 
 const crateBoxImgs = crateTrack.querySelectorAll(".crate-box");
 
-const PEEK_STEP = 5.52;
+const PEEK_STEP_RATIO = 5.52 / 441; // fraction of the card size, so the stack scales with it
 const SCALE_STEP = 0.006;
 const LIFT_FRACTION = 0.48;
 const TILT_DEG = -28;
@@ -25,13 +23,6 @@ function applyHue(imgs, boxIndex) {
   const deg = hueForBox(boxIndex);
   const filter = deg ? `hue-rotate(${deg}deg)` : "";
   imgs.forEach((img) => (img.style.filter = filter));
-}
-
-const DOT_BASE_HUE = 32; // warm wood tone, matching box 0's unrotated crate photo
-
-function dotColorForBox(boxIndex) {
-  const hue = (DOT_BASE_HUE + hueForBox(boxIndex)) % 360;
-  return `hsl(${hue}, 55%, 50%)`;
 }
 
 let sortedReleases = []; // full collection
@@ -112,7 +103,7 @@ function styleCard(el, idx) {
   // every card keeps a fixed spot based on its own position in the box —
   // scrolling never reflows the pile, it only lifts the active card
   const isActive = idx === currentIndex && hasInteracted;
-  const baseY = -idx * PEEK_STEP;
+  const baseY = -idx * cardSizePx() * PEEK_STEP_RATIO;
   const scale = Math.max(1 - idx * SCALE_STEP, 0.4);
   const lift = isActive ? cardSizePx() * LIFT_FRACTION : 0;
   const dist = Math.abs(idx - currentIndex);
@@ -136,9 +127,9 @@ function createCard(idx, r) {
 
   if (r.cover) {
     const img = document.createElement("img");
+    img.decoding = "async"; // don't block the main thread decoding it
     img.src = r.cover;
     img.alt = r.title;
-    img.loading = "lazy";
     img.referrerPolicy = "no-referrer";
     img.addEventListener("error", () => {
       img.replaceWith(buildFallbackArt(r));
@@ -166,7 +157,7 @@ function createCard(idx, r) {
 }
 
 function riseTransform(idx) {
-  const baseY = -idx * PEEK_STEP;
+  const baseY = -idx * cardSizePx() * PEEK_STEP_RATIO;
   const scale = Math.max(1 - idx * SCALE_STEP, 0.4);
   const fullLift = cardSizePx() * 0.85;
   return `translateY(${baseY - fullLift}px) scale(${scale}) rotateX(${TILT_DEG}deg)`;
@@ -232,23 +223,67 @@ function goTo(index) {
   updatePositions();
 }
 
+// mounting all 30 cards' images at once is enough DOM/decode work to cause
+// a visible stall right when the switch animation ends — mount the
+// front-most, visually dominant cards first and let the rest (mostly
+// hidden behind them anyway) follow a frame later
+const FIRST_MOUNT_BATCH = 8;
+
+// cards start collapsed into a single flat pile at the front, then — once
+// transitions are on — get sent to their real fanned-out positions, so a
+// crate switch reads as the albums moving into place rather than popping in
+function collapsedTransform() {
+  return `translateY(0px) scale(1) rotateX(${TILT_DEG}deg)`;
+}
+
+// set by animateShiftTo — the first album of the incoming box, already
+// riding along inside the crate that just slid into the middle. Reused
+// as-is for idx 0 instead of being torn down and recreated.
+let travelingCard = null;
+
+function mountCard(idx, r, container) {
+  if (idx === 0 && travelingCard) {
+    const card = travelingCard;
+    travelingCard = null;
+    card.style.transform = collapsedTransform();
+    card.style.zIndex = String(Math.max(2, 490 - idx));
+    card.style.pointerEvents = "";
+    container.appendChild(card);
+    mounted.set(idx, card);
+    return;
+  }
+
+  const card = createCard(idx, r);
+  card.style.transform = collapsedTransform();
+  card.style.zIndex = String(Math.max(2, 490 - idx));
+  card.style.opacity = "1";
+  card.style.pointerEvents = "";
+  container.appendChild(card);
+  mounted.set(idx, card);
+}
+
 function mountAll() {
   crate.innerHTML = "";
   crate.classList.remove("ready");
   mounted.clear();
+
   const frag = document.createDocumentFragment();
-  activeBoxReleases.forEach((r, idx) => {
-    const card = createCard(idx, r);
-    styleCard(card, idx);
-    frag.appendChild(card);
-    mounted.set(idx, card);
-  });
+  activeBoxReleases.slice(0, FIRST_MOUNT_BATCH).forEach((r, idx) => mountCard(idx, r, frag));
   crate.appendChild(frag);
 
-  // let the initial (untransitioned) layout paint once, then turn on
-  // transitions so the pile appears in place instead of animating in
   requestAnimationFrame(() => {
-    requestAnimationFrame(() => crate.classList.add("ready"));
+    const rest = document.createDocumentFragment();
+    activeBoxReleases
+      .slice(FIRST_MOUNT_BATCH)
+      .forEach((r, i) => mountCard(FIRST_MOUNT_BATCH + i, r, rest));
+    crate.appendChild(rest);
+
+    // let the collapsed pile paint once, then turn on transitions and send
+    // every card to its real position — that's the "moving into place" step
+    requestAnimationFrame(() => {
+      crate.classList.add("ready");
+      updatePositions();
+    });
   });
 }
 
@@ -266,12 +301,20 @@ function computeBoxes() {
   }
 }
 
-function updateSideBoxes() {
-  prevSideBtn.disabled = currentBoxIndex <= 0;
-  nextSideBtn.disabled = currentBoxIndex >= boxes.length - 1;
-  applyHue(crateBoxImgs, currentBoxIndex);
-  prevSideBtn.style.background = dotColorForBox(currentBoxIndex - 1);
-  nextSideBtn.style.background = dotColorForBox(currentBoxIndex + 1);
+// silently fetches a box's cover art ahead of time so switching to it
+// later doesn't have to wait on the network
+const preloadedCovers = new Set();
+
+function preloadBoxCovers(boxIndex) {
+  const releases = boxes[boxIndex];
+  if (!releases) return;
+  releases.forEach((r) => {
+    if (!r.cover || preloadedCovers.has(r.cover)) return;
+    preloadedCovers.add(r.cover);
+    const img = new Image();
+    img.referrerPolicy = "no-referrer";
+    img.src = r.cover;
+  });
 }
 
 function loadBox(boxIndex) {
@@ -279,17 +322,140 @@ function loadBox(boxIndex) {
   currentBoxIndex = clamped;
   activeBoxReleases = boxes[currentBoxIndex] || [];
   resetStack();
-  updateSideBoxes();
+  applyHue(crateBoxImgs, currentBoxIndex);
+  refreshSideSlots();
+  updateRowSpacing();
+  preloadBoxCovers((currentBoxIndex - 1 + boxes.length) % boxes.length);
+  preloadBoxCovers((currentBoxIndex + 1) % boxes.length);
 }
 
-prevSideBtn.addEventListener("click", (e) => {
+// the crates flanking the active one are full-size, just the empty crate
+// tinted to match its own box color — no album peek
+const crateRowEl = document.getElementById("crate-row");
+const prevSlotEl = document.getElementById("crate-slot-prev");
+const nextSlotEl = document.getElementById("crate-slot-next");
+
+function renderMiniCrate(slotEl, boxIndex) {
+  applyHue(slotEl.querySelectorAll(".crate-box"), boxIndex);
+}
+
+function refreshSideSlots() {
+  if (!boxes.length) return;
+  renderMiniCrate(prevSlotEl, (currentBoxIndex - 1 + boxes.length) % boxes.length);
+  renderMiniCrate(nextSlotEl, (currentBoxIndex + 1) % boxes.length);
+}
+
+// the gap between crates is computed so that only a sliver — the crate's
+// own border — shows at each screen edge, no matter the viewport size.
+// landscape screens (desktop, tablets/phones sideways) have width to
+// spare, so the sliver can be generous; portrait screens are width-scarce,
+// so it stays modest and scales down on narrow phones.
+function updateRowSpacing() {
+  const crateWidth = crateEl.getBoundingClientRect().width;
+  if (!crateWidth) return;
+  // the crate photo can deliberately bleed past its own container for a
+  // photographic effect (landscape) or be clamped to it (portrait) — measure
+  // the side crate's own photo so the gap accounts for whichever applies
+  const sidePhoto = nextSlotEl.querySelector(".crate-box");
+  const photoWidth = sidePhoto ? sidePhoto.getBoundingClientRect().width : crateWidth;
+  const overflow = Math.max(0, (photoWidth - crateWidth) / 2);
+  // match the same feature the CSS breakpoints use, so this never disagrees
+  // with which .crate-box sizing rule is actually in effect
+  const isLandscape = !window.matchMedia("(orientation: portrait)").matches;
+  const peek = isLandscape
+    ? Math.max(8, Math.min(19, window.innerWidth * 0.0092))
+    // side crates keep their full size on phone too — the overflow term
+    // above already pulls the gap in to compensate for that, so this only
+    // needs to be a small corner-sized sliver on top of it
+    : Math.max(12, Math.min(30, window.innerWidth * 0.04));
+  const gap = Math.max(0, window.innerWidth / 2 - crateWidth / 2 - overflow - peek);
+  crateRowEl.style.gap = `${gap}px`;
+}
+
+window.addEventListener("resize", updateRowSpacing);
+window.addEventListener("orientationchange", updateRowSpacing);
+
+// clicking a side crate slides the whole row sideways — like a conveyor
+// belt — carrying it into the middle, then swaps the underlying box data
+// and snaps back to neutral. Wraps around indefinitely at both ends.
+const SHIFT_ANIM_MS = 360;
+let shifting = false;
+
+function slotStepPx() {
+  const gap = parseFloat(getComputedStyle(crateRowEl).columnGap) || 0;
+  return crateEl.getBoundingClientRect().width + gap;
+}
+
+function animateShiftTo(targetIndex, toward) {
+  // toward: "prev" slides the row right to bring the left crate to center;
+  // "next" slides it left to bring the right crate to center
+  if (shifting || !boxes.length || targetIndex === currentBoxIndex) return;
+  shifting = true;
+
+  const step = slotStepPx();
+  const offset = toward === "prev" ? step : -step;
+  const sideEl = toward === "prev" ? prevSlotEl : nextSlotEl;
+
+  // the first album of the box being switched to rides along inside the
+  // crate as it slides to the middle, instead of the crate arriving empty
+  const sideShelf = sideEl.querySelector(".crate-shelf");
+  const firstRelease = (boxes[targetIndex] || [])[0];
+  if (sideShelf && firstRelease) {
+    const card = createCard(0, firstRelease);
+    card.style.transform = collapsedTransform();
+    card.style.zIndex = "490";
+    card.style.opacity = "1";
+    sideShelf.appendChild(card);
+    travelingCard = card;
+  }
+
+  // on desktop the side crates sit lower than the main one (see the
+  // landscape translateY(10%) rule) — animate that height difference away
+  // in sync with the horizontal slide, so the clicked crate rises into
+  // place while the outgoing main crate sinks down to the side height
+  const isLandscape = !window.matchMedia("(orientation: portrait)").matches;
+  const vertTransition = "transform 0.36s cubic-bezier(0.2, 0.8, 0.2, 1)";
+
+  crateRowEl.style.transition = vertTransition;
+  crateRowEl.style.transform = `translateX(calc(-50% + ${offset}px))`;
+
+  if (isLandscape) {
+    sideEl.style.transition = vertTransition;
+    sideEl.style.transform = "translateY(0%)";
+    crateEl.style.transition = vertTransition;
+    crateEl.style.transform = "translateY(10%)";
+  }
+
+  setTimeout(() => {
+    // snap back instantly with transitions off, then swap the content in
+    // while nobody's watching, so it reads as one continuous belt
+    crateRowEl.style.transition = "none";
+    crateRowEl.style.transform = "translateX(-50%)";
+    if (isLandscape) {
+      sideEl.style.transition = "none";
+      sideEl.style.transform = "";
+      crateEl.style.transition = "none";
+      crateEl.style.transform = "";
+    }
+    loadBox(targetIndex);
+    void crateRowEl.offsetWidth; // flush the snap before re-enabling transitions
+    crateRowEl.style.transition = "";
+    if (isLandscape) {
+      sideEl.style.transition = "";
+      crateEl.style.transition = "";
+    }
+    shifting = false;
+  }, SHIFT_ANIM_MS);
+}
+
+prevSlotEl.addEventListener("click", (e) => {
   e.stopPropagation();
-  loadBox(currentBoxIndex - 1);
+  animateShiftTo((currentBoxIndex - 1 + boxes.length) % boxes.length, "prev");
 });
 
-nextSideBtn.addEventListener("click", (e) => {
+nextSlotEl.addEventListener("click", (e) => {
   e.stopPropagation();
-  loadBox(currentBoxIndex + 1);
+  animateShiftTo((currentBoxIndex + 1) % boxes.length, "next");
 });
 
 let wheelLocked = false;

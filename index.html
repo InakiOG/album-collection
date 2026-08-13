@@ -20,13 +20,19 @@
   <h1 class="site-title">Colección de Iñaki</h1>
   <div id="count" class="count"></div>
 
-  <a href="grid.html" class="nav-button back-button">Grid</a>
+  <a href="grid.html" class="nav-button grid-button">Grid view</a>
   <a href="music.html" class="nav-button music-button" style="left: 6.5rem;">Music</a>
 
   <button id="sort-toggle" class="sort-toggle" type="button">Recent</button>
 
   <div id="crate-row" class="crate-row">
-    <button id="crate-side-prev" class="crate-dot" type="button" aria-label="Previous box"></button>
+    <button id="crate-slot-prev" class="crate-slot-side crate" type="button" aria-label="Previous crate">
+      <div class="crate-track">
+        <img class="crate-box crate-back" src="assets/crate.png" alt="" aria-hidden="true">
+        <div class="crate-shelf"></div>
+        <img class="crate-box crate-front" src="assets/crate-front.png" alt="" aria-hidden="true">
+      </div>
+    </button>
 
     <div id="crate" class="crate">
       <div id="crate-track" class="crate-track">
@@ -36,7 +42,13 @@
       </div>
     </div>
 
-    <button id="crate-side-next" class="crate-dot" type="button" aria-label="Next box"></button>
+    <button id="crate-slot-next" class="crate-slot-side crate" type="button" aria-label="Next crate">
+      <div class="crate-track">
+        <img class="crate-box crate-back" src="assets/crate.png" alt="" aria-hidden="true">
+        <div class="crate-shelf"></div>
+        <img class="crate-box crate-front" src="assets/crate-front.png" alt="" aria-hidden="true">
+      </div>
+    </button>
   </div>
 
   <p id="status" class="status">Loading collection…</p>
