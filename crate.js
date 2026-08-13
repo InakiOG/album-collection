@@ -677,26 +677,90 @@ crateTrack.addEventListener(
   { passive: false }
 );
 
-let touchStartY = null;
-crateTrack.addEventListener(
+// the crate-front photo is deliberately much wider than crate-track's own
+// box (it bleeds out to look photographic) and has pointer-events: none so
+// clicks pass through to the album cards behind it. That means a
+// press/touch over the visible image, outside crate-track's actual layout
+// box, never reaches crate-track as an event target at all — it falls
+// through to whatever's behind the crate entirely. So gesture tracking
+// listens on the document and checks the image's real painted geometry
+// (getBoundingClientRect) instead of relying on e.target.
+const crateFrontEl = crateTrack.querySelector(".crate-front");
+
+function isOverCrateFront(x, y) {
+  const r = crateFrontEl.getBoundingClientRect();
+  return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom;
+}
+
+const SWIPE_THRESHOLD = 40;
+let suppressNextClick = false;
+
+function shiftFromSwipe(dx) {
+  if (shifting) return;
+  suppressNextClick = true;
+  if (dx < 0) animateShiftToNext((currentBoxIndex + 1) % boxes.length);
+  else animateShiftToPrev((currentBoxIndex - 1 + boxes.length) % boxes.length);
+}
+
+// a card's own click listener runs in the bubble phase — catching this one
+// in the capture phase on an ancestor lets us cancel it before it fires,
+// so a drag that just switched crates doesn't also expand/select a card
+document.addEventListener(
+  "click",
+  (e) => {
+    if (!suppressNextClick) return;
+    suppressNextClick = false;
+    e.stopPropagation();
+    e.preventDefault();
+  },
+  true
+);
+
+crateTrack.addEventListener("dragstart", (e) => e.preventDefault());
+
+let touchStart = null; // {x, y} — vertical swipes flip albums, horizontal ones switch crates
+document.addEventListener(
   "touchstart",
   (e) => {
-    touchStartY = e.touches[0].clientY;
+    const t = e.touches[0];
+    touchStart = isOverCrateFront(t.clientX, t.clientY) ? { x: t.clientX, y: t.clientY } : null;
   },
   { passive: true }
 );
-crateTrack.addEventListener(
+document.addEventListener(
   "touchend",
   (e) => {
-    if (touchStartY === null) return;
-    const dy = touchStartY - e.changedTouches[0].clientY;
-    touchStartY = null;
-    if (Math.abs(dy) < 28) return;
-    if (dy > 0) goTo(currentIndex + 1);
-    else goTo(currentIndex - 1);
+    if (touchStart === null) return;
+    const dx = e.changedTouches[0].clientX - touchStart.x;
+    const dy = touchStart.y - e.changedTouches[0].clientY;
+    touchStart = null;
+    if (Math.abs(dx) > Math.abs(dy)) {
+      if (Math.abs(dx) >= SWIPE_THRESHOLD) shiftFromSwipe(dx);
+    } else {
+      if (Math.abs(dy) < 28) return;
+      if (dy > 0) goTo(currentIndex + 1);
+      else goTo(currentIndex - 1);
+    }
   },
   { passive: true }
 );
+
+// horizontal drag with the mouse (desktop) does the same thing a side-crate
+// click does — swipe left/right to switch crates. Vertical motion is left
+// alone since that's the wheel's job on desktop.
+let mouseDragStart = null; // {x, y} while a mouse drag is in progress
+document.addEventListener("mousedown", (e) => {
+  mouseDragStart = isOverCrateFront(e.clientX, e.clientY) ? { x: e.clientX, y: e.clientY } : null;
+});
+window.addEventListener("mouseup", (e) => {
+  if (!mouseDragStart) return;
+  const dx = e.clientX - mouseDragStart.x;
+  const dy = e.clientY - mouseDragStart.y;
+  mouseDragStart = null;
+  if (Math.abs(dx) >= SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy)) {
+    shiftFromSwipe(dx);
+  }
+});
 
 document.addEventListener("click", (e) => {
   if (expandedIdx !== null) {
