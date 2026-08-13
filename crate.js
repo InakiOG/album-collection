@@ -390,7 +390,23 @@ let shifting = false;
 
 function slotStepPx() {
   const gap = parseFloat(getComputedStyle(crateRowEl).columnGap) || 0;
-  return crateEl.getBoundingClientRect().width + gap;
+  // the center-to-center distance between adjacent flex items depends on
+  // both their layout widths, not just the main crate's — #crate is bigger
+  // than the side crates on phone, so assuming equal widths is wrong.
+  // offsetWidth (not getBoundingClientRect, which reflects the side
+  // crates' scale(0.7) transform) gives the actual untransformed layout
+  // size flexbox uses to position siblings.
+  return crateEl.offsetWidth / 2 + gap + prevSlotEl.offsetWidth / 2;
+}
+
+// #crate is bigger than the flanking .crate-slot-side crates on phone —
+// growing a side crate to transform:none only reaches its own (smaller)
+// size, causing a visible pop when it hands off to the actually-bigger
+// main crate at the swap. Scale up by the size ratio instead.
+function growScaleFor(sideEl) {
+  const crateSize = parseFloat(getComputedStyle(crateEl).getPropertyValue("--card-size"));
+  const sideSize = parseFloat(getComputedStyle(sideEl).getPropertyValue("--card-size"));
+  return sideSize ? crateSize / sideSize : 1;
 }
 
 // mounts the target box's first album riding inside the given slot, ready
@@ -456,10 +472,11 @@ function animateShiftToPrev(targetIndex) {
   crateRowEl.style.transition = t;
   crateRowEl.style.transform = `translateX(calc(-50% + ${step}px))`;
 
-  // the clicked crate grows into the middle, in front of everything
+  // the clicked crate grows into the middle, in front of everything —
+  // scaled up to match #crate's actual size, not just its own
   prevSlotEl.style.zIndex = "20";
   prevSlotEl.style.transition = t;
-  prevSlotEl.style.transform = "none";
+  prevSlotEl.style.transform = `scale(${growScaleFor(prevSlotEl)})`;
 
   crateEl.style.transition = t;
   if (isPortrait) {
@@ -504,15 +521,13 @@ function animateShiftToPrev(targetIndex) {
     }
 
     // phone: prevSlotEl keeps the same slot role but now shows a brand-new
-    // box further out — it stays right at its resting spot (just invisible
-    // + behind) and fades in, then the other side follows
+    // box further out — both it and nextSlotEl (which was pushed behind)
+    // hide at their own resting spot, ready to fade in together
     prevSlotEl.style.transition = "none";
     prevSlotEl.style.transform = "";
     prevSlotEl.style.opacity = "0";
     prevSlotEl.style.zIndex = "0";
 
-    // nextSlotEl (the crate that was pushed behind) also hides at its own
-    // resting spot, ready to fade in after prevSlotEl does
     nextSlotEl.style.transition = "none";
     nextSlotEl.style.opacity = "0";
     nextSlotEl.style.zIndex = "0";
@@ -522,29 +537,24 @@ function animateShiftToPrev(targetIndex) {
     crateRowEl.style.transition = "";
     crateEl.style.transition = "";
 
-    // reveal the new side crate from behind the middle
+    // reveal both side crates from behind the middle at the same time
     requestAnimationFrame(() => {
       prevSlotEl.style.transition = "opacity 0.36s ease";
       prevSlotEl.style.opacity = "";
+      nextSlotEl.style.transition = "opacity 0.36s ease";
+      nextSlotEl.style.opacity = "";
 
       setTimeout(() => {
         prevSlotEl.style.transition = "";
         prevSlotEl.style.zIndex = "";
+        nextSlotEl.style.transition = "";
+        nextSlotEl.style.zIndex = "";
         // updateRowSpacing measures nextSlotEl's crate photo — recompute
         // now that everything's back to its normal resting transform,
         // since the mid-animation call in loadBox() could've measured a
         // side crate while its transform (and thus scale) was overridden
         updateRowSpacing();
-
-        // then fade in the other side, after the first one's done
-        nextSlotEl.style.transition = "opacity 0.36s ease";
-        nextSlotEl.style.opacity = "";
-
-        setTimeout(() => {
-          nextSlotEl.style.transition = "";
-          nextSlotEl.style.zIndex = "";
-          shifting = false;
-        }, SHIFT_ANIM_MS);
+        shifting = false;
       }, SHIFT_ANIM_MS);
     });
   }, SHIFT_ANIM_MS);
@@ -574,7 +584,7 @@ function animateShiftToNext(targetIndex) {
 
   nextSlotEl.style.zIndex = "20";
   nextSlotEl.style.transition = t;
-  nextSlotEl.style.transform = "none";
+  nextSlotEl.style.transform = `scale(${growScaleFor(nextSlotEl)})`;
 
   crateEl.style.transition = t;
   if (isPortrait) {
@@ -622,23 +632,20 @@ function animateShiftToNext(targetIndex) {
     crateRowEl.style.transition = "";
     crateEl.style.transition = "";
 
+    // reveal both side crates from behind the middle at the same time
     requestAnimationFrame(() => {
       nextSlotEl.style.transition = "opacity 0.36s ease";
       nextSlotEl.style.opacity = "";
+      prevSlotEl.style.transition = "opacity 0.36s ease";
+      prevSlotEl.style.opacity = "";
 
       setTimeout(() => {
         nextSlotEl.style.transition = "";
         nextSlotEl.style.zIndex = "";
+        prevSlotEl.style.transition = "";
+        prevSlotEl.style.zIndex = "";
         updateRowSpacing();
-
-        prevSlotEl.style.transition = "opacity 0.36s ease";
-        prevSlotEl.style.opacity = "";
-
-        setTimeout(() => {
-          prevSlotEl.style.transition = "";
-          prevSlotEl.style.zIndex = "";
-          shifting = false;
-        }, SHIFT_ANIM_MS);
+        shifting = false;
       }, SHIFT_ANIM_MS);
     });
   }, SHIFT_ANIM_MS);
