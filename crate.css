@@ -4,7 +4,50 @@
 body {
   overflow: hidden;
   height: 100vh;
-  background: var(--bg);
+  background: #e6e6e6 url("assets/background.png") center 75% / cover fixed no-repeat;
+}
+
+.site-title {
+  margin: 1.4rem 0 0;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #000;
+}
+
+.site-title + .count {
+  padding-top: 0.3rem;
+}
+
+/* posters scattered on the wall behind the crate — fixed, out of the way
+   of clicks, and painted first so everything else stacks on top */
+.posters {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.poster {
+  position: absolute;
+  height: auto;
+  border-radius: 3px;
+  opacity: 0.9;
+}
+
+.poster-1 { top: 6%;  left: 3%;   width: 150px; transform: rotate(-7deg); }
+.poster-2 { top: 46%; left: 4%;   width: 130px; transform: rotate(4deg); }
+.poster-3 { top: 6%;  right: 3%;  width: 150px; transform: rotate(6deg); }
+.poster-4 { top: 46%; right: 4%;  width: 130px; transform: rotate(-5deg); }
+.poster-5 { top: 6%;  left: 30%;  width: 110px; transform: rotate(3deg); }
+.poster-6 { top: 6%;  right: 30%; width: 110px; transform: rotate(-8deg); }
+
+@media (max-width: 900px) {
+  .poster-4, .poster-5, .poster-6 { display: none; }
+  .poster-1 { width: 110px; }
+  .poster-2 { width: 90px; }
+  .poster-3 { width: 110px; }
 }
 
 .crate-row {
@@ -28,33 +71,25 @@ body {
   flex: 0 0 auto;
 }
 
-/* smaller, dimmed crates flanking the active one — click to bring one
-   to the middle and browse its 30 albums */
-.crate-side {
-  position: relative;
+/* small dots flanking the active crate, tinted to match each neighboring
+   box's color — click to bring one to the middle and browse its 30 albums */
+.crate-dot {
   flex: 0 0 auto;
-  width: min(13vw, 180px);
-  aspect-ratio: 2048 / 1120;
-  align-self: flex-end;
+  align-self: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
   padding: 0;
   border: none;
-  background: none;
+  background: var(--muted);
   cursor: pointer;
-  opacity: 0.55;
+  opacity: 0.7;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.crate-side:hover { opacity: 0.85; transform: translateY(-4px); }
-.crate-side:disabled { visibility: hidden; }
-
-.crate-side-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  user-select: none;
-}
+.crate-dot:hover { opacity: 1; transform: scale(1.15); }
+.crate-dot:disabled { visibility: hidden; }
 
 /* plain layout container — no visible box, just holds the stack + nav */
 .crate-track {
@@ -136,13 +171,16 @@ body {
 }
 
 /* the expanded state: the tapped card itself grows into a full info card,
-   instead of a separate element appearing */
+   instead of a separate element appearing. Fixed to the viewport so it
+   lands dead-center on screen regardless of where the crate sits. */
 .stack-card.expanded {
+  position: fixed;
   left: 50%;
-  bottom: 1.2rem;
-  width: 260px;
+  top: 15%;
+  bottom: auto;
+  width: min(95vw, 546px);
   height: auto;
-  transform: translateX(-50%) translateY(0) scale(1) rotate(-1.2deg) !important;
+  transform: translate(-50%, -50%) scale(1) rotate(-1.2deg) !important;
   border-radius: 10px;
   box-shadow: 0 26px 48px rgba(0, 0, 0, 0.55);
   opacity: 1 !important;
@@ -204,32 +242,6 @@ body {
   line-height: 1.25;
 }
 
-/* prev/next controls */
-.crate-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 30;
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--fg) 20%, transparent);
-  background: var(--card);
-  color: var(--fg);
-  font-size: 1.2rem;
-  line-height: 1;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.15s ease, opacity 0.15s ease;
-}
-
-.crate-nav:hover { background: color-mix(in srgb, var(--fg) 10%, var(--card)); }
-.crate-nav:disabled { opacity: 0.3; cursor: default; }
-.crate-nav-prev { left: 0.6rem; }
-.crate-nav-next { right: 0.6rem; }
-
 @media (prefers-reduced-motion: reduce) {
   .crate-shelf.ready .stack-card { transition: none; }
 }
@@ -249,7 +261,7 @@ body {
     width: 13vw;
   }
   .stack-card.expanded {
-    width: 210px;
+    width: min(95vw, 416px);
   }
   .card-info h3 { font-size: 0.9rem; }
 }

@@ -1,19 +1,38 @@
 const crate = document.getElementById("crate-shelf");
 const crateEl = document.getElementById("crate");
 const crateTrack = document.getElementById("crate-track");
-const prevBtn = document.getElementById("crate-prev");
-const nextBtn = document.getElementById("crate-next");
 const prevSideBtn = document.getElementById("crate-side-prev");
 const nextSideBtn = document.getElementById("crate-side-next");
 const statusEl = document.getElementById("status");
 const countEl = document.getElementById("count");
 const sortToggle = document.getElementById("sort-toggle");
 
+const crateBoxImgs = crateTrack.querySelectorAll(".crate-box");
+
 const PEEK_STEP = 5.52;
 const SCALE_STEP = 0.006;
 const LIFT_FRACTION = 0.48;
 const TILT_DEG = -28;
 const BOX_SIZE = 30;
+const RISE_MS = 340; // matches the .stack-card transform transition duration
+const HUE_STEP = 55; // degrees between each box's crate color, spread around the wheel
+
+function hueForBox(boxIndex) {
+  return boxIndex === 0 ? 0 : (boxIndex * HUE_STEP) % 360; // box 0 keeps the original color
+}
+
+function applyHue(imgs, boxIndex) {
+  const deg = hueForBox(boxIndex);
+  const filter = deg ? `hue-rotate(${deg}deg)` : "";
+  imgs.forEach((img) => (img.style.filter = filter));
+}
+
+const DOT_BASE_HUE = 32; // warm wood tone, matching box 0's unrotated crate photo
+
+function dotColorForBox(boxIndex) {
+  const hue = (DOT_BASE_HUE + hueForBox(boxIndex)) % 360;
+  return `hsl(${hue}, 55%, 50%)`;
+}
 
 let sortedReleases = []; // full collection
 let boxes = []; // sortedReleases chunked into BOX_SIZE-album crates
@@ -87,22 +106,26 @@ function fillInfo(infoEl, r) {
   infoEl.appendChild(link);
 }
 
-function styleCard(el, k) {
+function styleCard(el, idx) {
   if (el.dataset.idx == expandedIdx) return; // expanded card manages its own styles
 
-  const isActive = k === 0 && hasInteracted;
-  const baseY = -k * PEEK_STEP;
-  const scale = Math.max(1 - k * SCALE_STEP, 0.4);
+  // every card keeps a fixed spot based on its own position in the box —
+  // scrolling never reflows the pile, it only lifts the active card
+  const isActive = idx === currentIndex && hasInteracted;
+  const baseY = -idx * PEEK_STEP;
+  const scale = Math.max(1 - idx * SCALE_STEP, 0.4);
   const lift = isActive ? cardSizePx() * LIFT_FRACTION : 0;
-  const parked = k < 0; // already flipped past
+  const dist = Math.abs(idx - currentIndex);
 
   el.style.transform = `translateY(${baseY - lift}px) scale(${scale}) rotateX(${TILT_DEG}deg)`;
   // all resting/raised cards stay between crate-back (z:1) and crate-front
-  // (z:500) — in front of the box body, behind the front lattice wall
-  el.style.zIndex = isActive ? "450" : String(Math.max(2, 490 - k));
-  el.style.opacity = parked ? "0" : "1";
-  el.style.pointerEvents = parked ? "none" : "";
-  el.style.filter = isActive ? "none" : `brightness(${1 - Math.min(k, 10) * 0.05})`;
+  // (z:500) — in front of the box body, behind the front lattice wall.
+  // depth order always follows each card's own place in the stack, so a
+  // raised card still rises up from — not in front of — albums ahead of it
+  el.style.zIndex = String(Math.max(2, 490 - idx));
+  el.style.opacity = "1";
+  el.style.pointerEvents = "";
+  el.style.filter = isActive ? "none" : `brightness(${1 - Math.min(dist, 10) * 0.05})`;
   el.classList.toggle("front", isActive);
 }
 
@@ -142,16 +165,31 @@ function createCard(idx, r) {
   return card;
 }
 
+function riseTransform(idx) {
+  const baseY = -idx * PEEK_STEP;
+  const scale = Math.max(1 - idx * SCALE_STEP, 0.4);
+  const fullLift = cardSizePx() * 0.85;
+  return `translateY(${baseY - fullLift}px) scale(${scale}) rotateX(${TILT_DEG}deg)`;
+}
+
 function expandCard(idx) {
   const el = mounted.get(idx);
   if (!el) return;
   expandedIdx = idx;
   fillInfo(el.querySelector(".card-info"), activeBoxReleases[idx]);
-  el.classList.add("expanded");
-  // crate-shelf has its own stacking context (perspective/transform), so an
-  // inline z-index here can't outrank the crate-front image sibling — lift
-  // the card out to the top level while it's open
-  crateEl.appendChild(el);
+
+  // step 1: rise straight up, still in its place in the stack
+  el.style.transform = riseTransform(idx);
+
+  setTimeout(() => {
+    if (expandedIdx !== idx) return; // collapsed again before the rise finished
+    // step 2: jump to the front, centered, on top of everything else.
+    // crate-shelf has its own stacking context (perspective/transform), so
+    // an inline z-index here can't outrank the crate-front image sibling —
+    // lift the card out to the top level while it's open
+    crateEl.appendChild(el);
+    el.classList.add("expanded");
+  }, RISE_MS);
 }
 
 function collapseExpanded() {
@@ -159,20 +197,25 @@ function collapseExpanded() {
   const el = mounted.get(expandedIdx);
   const idx = expandedIdx;
   expandedIdx = null;
-  if (el) {
-    el.classList.remove("expanded");
-    crate.appendChild(el);
-    styleCard(el, idx - currentIndex);
-  }
+  if (!el) return;
+
+  // step 1 (reverse): drop out of the expanded card back to the risen,
+  // in-place position
+  el.classList.remove("expanded");
+  crate.appendChild(el);
+  el.style.transform = riseTransform(idx);
+
+  setTimeout(() => {
+    if (expandedIdx !== null) return; // re-expanded before the settle finished
+    // step 2 (reverse): settle back down into its place in the stack
+    styleCard(el, idx);
+  }, RISE_MS);
 }
 
 function updatePositions() {
   for (const [idx, el] of mounted.entries()) {
-    styleCard(el, idx - currentIndex);
+    styleCard(el, idx);
   }
-
-  prevBtn.disabled = currentIndex <= 0;
-  nextBtn.disabled = currentIndex >= activeBoxReleases.length - 1;
 }
 
 function goTo(index) {
@@ -196,7 +239,7 @@ function mountAll() {
   const frag = document.createDocumentFragment();
   activeBoxReleases.forEach((r, idx) => {
     const card = createCard(idx, r);
-    styleCard(card, idx - currentIndex);
+    styleCard(card, idx);
     frag.appendChild(card);
     mounted.set(idx, card);
   });
@@ -226,6 +269,9 @@ function computeBoxes() {
 function updateSideBoxes() {
   prevSideBtn.disabled = currentBoxIndex <= 0;
   nextSideBtn.disabled = currentBoxIndex >= boxes.length - 1;
+  applyHue(crateBoxImgs, currentBoxIndex);
+  prevSideBtn.style.background = dotColorForBox(currentBoxIndex - 1);
+  nextSideBtn.style.background = dotColorForBox(currentBoxIndex + 1);
 }
 
 function loadBox(boxIndex) {
@@ -244,16 +290,6 @@ prevSideBtn.addEventListener("click", (e) => {
 nextSideBtn.addEventListener("click", (e) => {
   e.stopPropagation();
   loadBox(currentBoxIndex + 1);
-});
-
-prevBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  goTo(currentIndex - 1);
-});
-
-nextBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  goTo(currentIndex + 1);
 });
 
 let wheelLocked = false;
