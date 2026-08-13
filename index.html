@@ -25,6 +25,8 @@
 
   <button id="sort-toggle" class="sort-toggle" type="button">Recent</button>
 
+  <div id="cd-pile" class="cd-pile" aria-hidden="true"></div>
+
   <div id="crate-row" class="crate-row">
     <button id="crate-slot-prev" class="crate-slot-side crate" type="button" aria-label="Previous crate">
       <div class="crate-track">
@@ -51,14 +53,14 @@
     </button>
   </div>
 
-  <div id="cd-pile" class="cd-pile" aria-hidden="true"></div>
-
   <p id="status" class="status">Loading collection…</p>
 
   <div id="overlay" class="overlay hidden">
     <div class="overlay-backdrop"></div>
     <div class="overlay-card">
-      <img id="overlay-img" src="" alt="">
+      <div class="jewel-case">
+        <img id="overlay-img" src="" alt="">
+      </div>
       <div class="overlay-info">
         <span class="info-tab-label">Info</span>
         <h2 id="overlay-title"></h2>

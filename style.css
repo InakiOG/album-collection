@@ -180,15 +180,73 @@ body {
   to { transform: scale(1); opacity: 1; }
 }
 
-.overlay-card img {
+/* the CD sits in a plastic jewel case — a translucent frame around the
+   cover art, with the case's black spine showing down the left side and a
+   soft rainbow glare across the art like it's under a plastic sleeve */
+.jewel-case {
   position: relative;
   z-index: 2;
+  /* sized to its content (the square photo) plus the spine — the case
+     ends up a touch wider than the photo is tall, a true rectangle,
+     instead of forcing the spine to eat into a fixed square and squeeze
+     the art */
+  display: inline-block;
+  width: fit-content;
+  padding: 6px 6px 6px 43px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.12));
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  /* centered on screen by default (12.5% of its own width makes up the
+     20% gap left for the paper); .info-open shifts it back to the left
+     edge to make room once the paper actually opens */
+  transform: translateX(12.5%);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.overlay-card.info-open .jewel-case {
+  transform: translateX(0);
+}
+
+.jewel-case::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  width: 34.5px;
+  background: rgba(12, 12, 12, 0.88);
+  border-radius: 3px 0 0 3px;
+}
+
+.jewel-case::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 43px;
+  right: 6px;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 0, 128, 0.16) 0%,
+    rgba(255, 200, 0, 0.14) 22%,
+    rgba(80, 255, 140, 0.12) 42%,
+    rgba(0, 200, 255, 0.15) 62%,
+    rgba(150, 60, 255, 0.14) 82%,
+    rgba(255, 0, 128, 0.1) 100%
+  );
+  mix-blend-mode: screen;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.jewel-case img {
   display: block;
-  width: 80%;
+  width: min(480px, 64vw);
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 6px;
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18);
 }
 
 /* a sheet of paper tucked behind the cover, peeking out on the right at a
@@ -205,7 +263,7 @@ body {
   /* positioned near the cover's right edge (cover is 80% wide) so the small
      tab actually pokes out — the wide 62% position only makes sense once
      .info-open makes the paper wide enough to reach past the cover again */
-  left: 80%;
+  left: 98%;
   width: 3.6rem;
   height: 3.6rem;
   overflow: hidden;
@@ -223,7 +281,7 @@ body {
 }
 
 .overlay-info.info-open {
-  left: 68%;
+  left: 79%;
   width: 56%;
   height: auto;
   overflow: visible;
@@ -288,19 +346,28 @@ body {
 
 @media (max-width: 560px) {
   .overlay-card { width: min(360px, 92vw); }
-  .overlay-card img { width: 76%; }
+  .jewel-case { transform: none; padding-left: 39px; }
+  .jewel-case::before { width: 31px; }
+  .jewel-case::after { left: 39px; }
+  .jewel-case img { width: min(220px, 58vw); }
+  /* on phones the paper sits centered on top of the cover (not tucked
+     behind it) and peeks down from the top edge instead of in from the
+     side — same treatment as the vinyl crate's expanded view */
   .overlay-info {
-    top: 3%;
-    left: 74%;
+    top: -8%;
+    left: 50%;
+    z-index: 3;
     width: 3.2rem;
-    height: 3.2rem;
-    padding: 0.75rem 0.6rem;
-    transform: rotate(5deg);
+    height: 1.4rem;
+    padding: 0.26rem 0.5rem;
+    text-align: center;
+    box-shadow: none;
+    transform-origin: center top;
   }
   .overlay-info.info-open {
-    left: 64%;
-    width: 60%;
-    padding: 3rem 0.9rem 3rem 18%;
+    left: 50%;
+    width: 88%;
+    padding: 1rem 1rem 1.3rem;
   }
   .overlay-info h2 { font-size: 1.05rem; }
   .overlay-info p { font-size: 0.8rem; }

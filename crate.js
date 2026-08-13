@@ -10,6 +10,7 @@ const crateBoxImgs = crateTrack.querySelectorAll(".crate-box");
 const cdPileEl = document.getElementById("cd-pile");
 const overlayEl = document.getElementById("overlay");
 const overlayImgEl = document.getElementById("overlay-img");
+const overlayCaseEl = overlayEl.querySelector(".jewel-case");
 const overlayTitleEl = document.getElementById("overlay-title");
 const overlayArtistEl = document.getElementById("overlay-artist");
 const overlayMetaEl = document.getElementById("overlay-meta");
@@ -63,10 +64,17 @@ function openOverlay(r, sourceEl) {
   const card = overlayEl.querySelector(".overlay-card");
   const paper = overlayEl.querySelector(".overlay-info");
   paper.classList.remove("info-open"); // each CD opens back to the small "Info" tab
-  const paperRestTransform = "rotate(6deg) translate(0, 0) scale(1)";
+  card.classList.remove("info-open"); // cover starts centered
+  // on phones the paper sits on top of the cover and peeks down from the
+  // top edge instead of sliding in from behind the side — same treatment
+  // as the vinyl crate's expanded view at this size
+  const isPhone = window.matchMedia("(max-width: 560px)").matches;
+  const paperRestTransform = isPhone ? "translate(-50%, 0)" : "rotate(6deg) translate(0, 0) scale(1)";
   // tucked almost entirely behind the cover — % is relative to the paper's
   // own width, so it retreats fully out of sight before sliding out
-  const paperTuckedTransform = "rotate(6deg) translate(-72%, 10px) scale(0.94)";
+  const paperTuckedTransform = isPhone
+    ? "translate(-50%, -100%)"
+    : "rotate(6deg) translate(-72%, 10px) scale(0.94)";
 
   if (sourceEl) {
     // grow the cover out from the clicked case (FLIP: measure start/end,
@@ -74,41 +82,43 @@ function openOverlay(r, sourceEl) {
     const startRect = sourceEl.getBoundingClientRect();
     card.style.animation = "none";
     overlayEl.classList.remove("hidden");
-    const endRect = overlayImgEl.getBoundingClientRect();
+    const endRect = overlayCaseEl.getBoundingClientRect();
 
     const dx = startRect.left + startRect.width / 2 - (endRect.left + endRect.width / 2);
     const dy = startRect.top + startRect.height / 2 - (endRect.top + endRect.height / 2);
     const scaleX = startRect.width / endRect.width;
     const scaleY = startRect.height / endRect.height;
 
-    overlayImgEl.style.transition = "none";
-    overlayImgEl.style.transform = `translate(${dx}px, ${dy}px) scale(${scaleX}, ${scaleY})`;
+    // animate the whole case (spine, glare and photo together, since
+    // they're all part of this one element) rather than just the photo
+    overlayCaseEl.style.transition = "none";
+    overlayCaseEl.style.transform = `translate(${dx}px, ${dy}px) scale(${scaleX}, ${scaleY})`;
     paper.style.transition = "none";
     paper.style.opacity = "0";
     paper.style.transform = paperTuckedTransform;
 
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        overlayImgEl.style.transition = "transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1)";
-        overlayImgEl.style.transform = "translate(0, 0) scale(1, 1)";
+        overlayCaseEl.style.transition = "transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1)";
+        overlayCaseEl.style.transform = "translate(0, 0) scale(1, 1)";
         paper.style.transition = "transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.12s, opacity 0.4s ease 0.12s";
         paper.style.opacity = "1";
         paper.style.transform = paperRestTransform;
       });
     });
 
-    overlayImgEl.addEventListener(
+    overlayCaseEl.addEventListener(
       "transitionend",
       () => {
-        overlayImgEl.style.transition = "";
-        overlayImgEl.style.transform = "";
+        overlayCaseEl.style.transition = "";
+        overlayCaseEl.style.transform = "";
       },
       { once: true }
     );
   } else {
     card.style.animation = "";
-    overlayImgEl.style.transition = "";
-    overlayImgEl.style.transform = "";
+    overlayCaseEl.style.transition = "";
+    overlayCaseEl.style.transform = "";
     paper.style.transition = "";
     paper.style.opacity = "";
     paper.style.transform = "";
@@ -121,14 +131,17 @@ function closeOverlay() {
 
   const card = overlayEl.querySelector(".overlay-card");
   const paper = overlayEl.querySelector(".overlay-info");
-  const paperTuckedTransform = "rotate(6deg) translate(-72%, 10px) scale(0.94)";
+  const isPhone = window.matchMedia("(max-width: 560px)").matches;
+  const paperTuckedTransform = isPhone
+    ? "translate(-50%, -100%)"
+    : "rotate(6deg) translate(-72%, 10px) scale(0.94)";
   const targetEl = overlaySourceEl && document.body.contains(overlaySourceEl) ? overlaySourceEl : null;
   overlaySourceEl = null;
 
   const reset = () => {
     card.style.animation = "";
-    overlayImgEl.style.transition = "";
-    overlayImgEl.style.transform = "";
+    overlayCaseEl.style.transition = "";
+    overlayCaseEl.style.transform = "";
     paper.style.transition = "";
     paper.style.opacity = "";
     paper.style.transform = "";
@@ -140,9 +153,9 @@ function closeOverlay() {
     return;
   }
 
-  // shrink the cover back down into the case it was opened from, while
-  // the paper tucks back behind it — the inverse of openOverlay
-  const startRect = overlayImgEl.getBoundingClientRect();
+  // shrink the whole case back down into the case it was opened from,
+  // while the paper tucks back behind it — the inverse of openOverlay
+  const startRect = overlayCaseEl.getBoundingClientRect();
   const endRect = targetEl.getBoundingClientRect();
   const dx = endRect.left + endRect.width / 2 - (startRect.left + startRect.width / 2);
   const dy = endRect.top + endRect.height / 2 - (startRect.top + startRect.height / 2);
@@ -153,8 +166,8 @@ function closeOverlay() {
   paper.style.transition = "transform 0.3s cubic-bezier(0.4, 0, 0.6, 1), opacity 0.26s ease";
   paper.style.opacity = "0";
   paper.style.transform = paperTuckedTransform;
-  overlayImgEl.style.transition = "transform 0.3s cubic-bezier(0.4, 0, 0.6, 1) 0.08s";
-  overlayImgEl.style.transform = `translate(${dx}px, ${dy}px) scale(${scaleX}, ${scaleY})`;
+  overlayCaseEl.style.transition = "transform 0.3s cubic-bezier(0.4, 0, 0.6, 1) 0.08s";
+  overlayCaseEl.style.transform = `translate(${dx}px, ${dy}px) scale(${scaleX}, ${scaleY})`;
 
   let done = false;
   const finish = () => {
@@ -163,13 +176,22 @@ function closeOverlay() {
     overlayEl.classList.add("hidden");
     reset();
   };
-  overlayImgEl.addEventListener("transitionend", finish, { once: true });
+  overlayCaseEl.addEventListener("transitionend", finish, { once: true });
   setTimeout(finish, 420); // fallback in case transitionend doesn't fire
 }
 
 overlayEl.addEventListener("click", (e) => {
   if (e.target.tagName === "A") return;
-  if (e.target.closest(".overlay-card") && e.target !== e.currentTarget) return;
+  if (e.target.closest(".overlay-card") && e.target !== e.currentTarget) {
+    // clicked inside the card but outside the open info paper — tuck it
+    // back down to the small "Info" tab instead of closing the overlay
+    const info = overlayEl.querySelector(".overlay-info");
+    if (info.classList.contains("info-open") && !info.contains(e.target)) {
+      info.classList.remove("info-open");
+      overlayEl.querySelector(".overlay-card").classList.remove("info-open");
+    }
+    return;
+  }
   closeOverlay();
 });
 
@@ -177,6 +199,7 @@ overlayEl.querySelector(".overlay-info").addEventListener("click", (e) => {
   e.stopPropagation();
   if (e.target.tagName === "A") return; // let the Discogs link work normally
   e.currentTarget.classList.add("info-open");
+  overlayEl.querySelector(".overlay-card").classList.add("info-open"); // shifts the cover left to make room
 });
 
 // stacks CD cases directly on top of one another, flat and square, each one
@@ -326,6 +349,7 @@ function createCard(idx, r) {
     e.stopPropagation();
     if (e.target.tagName === "A") return; // let the Discogs link work normally
     info.classList.add("info-open");
+    card.classList.add("info-open"); // shifts the cover left to make room, desktop only
   });
   card.appendChild(info);
 
@@ -362,6 +386,7 @@ function expandCard(idx) {
   const el = mounted.get(idx);
   if (!el) return;
   expandedIdx = idx;
+  el.classList.remove("info-open"); // each album opens with the cover centered, info tucked to a tab
   fillInfo(el.querySelector(".card-info"), activeBoxReleases[idx]);
 
   // step 1: rise straight up, still in its place in the stack
@@ -963,7 +988,17 @@ window.addEventListener("mouseup", (e) => {
 document.addEventListener("click", (e) => {
   if (expandedIdx !== null) {
     const expandedEl = mounted.get(expandedIdx);
-    if (expandedEl && !expandedEl.contains(e.target)) collapseExpanded();
+    if (expandedEl && !expandedEl.contains(e.target)) {
+      collapseExpanded();
+      return;
+    }
+    // clicked inside the expanded card but outside the open info paper —
+    // tuck it back down to the small "Info" tab instead of closing the album
+    const info = expandedEl && expandedEl.querySelector(".card-info");
+    if (info && info.classList.contains("info-open") && !info.contains(e.target)) {
+      info.classList.remove("info-open");
+      expandedEl.classList.remove("info-open");
+    }
     return;
   }
   // no card expanded, but the current one is still raised — tapping

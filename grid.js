@@ -10,6 +10,7 @@ const overlayMeta = document.getElementById("overlay-meta");
 const overlayGenres = document.getElementById("overlay-genres");
 const overlayLink = document.getElementById("overlay-link");
 const overlayInfo = document.querySelector(".overlay-info");
+const overlayCard = document.querySelector(".overlay-card");
 
 function releaseUrl(r) {
   return `https://www.discogs.com/release/${r.id}`;
@@ -17,6 +18,7 @@ function releaseUrl(r) {
 
 function openOverlay(r) {
   overlayInfo.classList.remove("info-open"); // each album opens back to the small "Info" tab
+  overlayCard.classList.remove("info-open"); // cover starts centered
   overlayImg.src = r.cover;
   overlayImg.alt = r.title;
   overlayTitle.textContent = r.title;
@@ -35,7 +37,15 @@ function closeOverlay() {
 
 overlay.addEventListener("click", (e) => {
   if (e.target.tagName === "A") return;
-  if (e.target.closest(".overlay-card") && e.target !== e.currentTarget) return;
+  if (e.target.closest(".overlay-card") && e.target !== e.currentTarget) {
+    // clicked inside the card but outside the open info paper — tuck it
+    // back down to the small "Info" tab instead of closing the overlay
+    if (overlayInfo.classList.contains("info-open") && !overlayInfo.contains(e.target)) {
+      overlayInfo.classList.remove("info-open");
+      overlayCard.classList.remove("info-open");
+    }
+    return;
+  }
   closeOverlay();
 });
 
@@ -43,6 +53,7 @@ overlayInfo.addEventListener("click", (e) => {
   e.stopPropagation();
   if (e.target.tagName === "A") return; // let the Discogs link work normally
   e.currentTarget.classList.add("info-open");
+  overlayCard.classList.add("info-open"); // shifts the cover left to make room
 });
 
 document.addEventListener("keydown", (e) => {

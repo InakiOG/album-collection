@@ -36,18 +36,18 @@ body {
   opacity: 0.9;
 }
 
-.poster-1 { top: 6%;  left: 3%;   width: 150px; transform: rotate(-7deg); }
-.poster-2 { top: 46%; left: 4%;   width: 130px; transform: rotate(4deg); }
-.poster-3 { top: 6%;  right: 3%;  width: 150px; transform: rotate(6deg); }
-.poster-4 { top: 46%; right: 4%;  width: 130px; transform: rotate(-5deg); }
-.poster-5 { top: 6%;  left: 30%;  width: 110px; transform: rotate(3deg); }
-.poster-6 { top: 6%;  right: 30%; width: 110px; transform: rotate(-8deg); }
+.poster-1 { top: 3%; left: 3%;   width: 130px; transform: rotate(-7deg); }
+.poster-2 { top: 8%; left: 15%;  width: 85px;  transform: rotate(4deg); }
+.poster-3 { top: 3%; right: 3%;  width: 130px; transform: rotate(6deg); }
+.poster-4 { top: 8%; right: 15%; width: 85px;  transform: rotate(-5deg); }
+.poster-5 { top: 4%; left: 31%;  width: 90px;  transform: rotate(3deg); }
+.poster-6 { top: 4%; right: 31%; width: 90px;  transform: rotate(-8deg); }
 
 @media (max-width: 900px) {
   .poster-4, .poster-5, .poster-6 { display: none; }
-  .poster-1 { width: 110px; }
-  .poster-2 { width: 90px; }
-  .poster-3 { width: 110px; }
+  .poster-1 { width: 100px; }
+  .poster-2 { width: 70px; }
+  .poster-3 { width: 100px; }
 }
 
 /* CDs excluded from the crate, stacked into a vertical pile on the table —
@@ -55,10 +55,13 @@ body {
 .cd-pile {
   position: fixed;
   left: 16%;
-  bottom: calc(0.6rem + 30vh);
+  bottom: calc(0.6rem + 28vh);
   width: 1px;
   height: 1px;
-  z-index: 1;
+  /* .crate-row is also position:fixed, creating its own stacking context
+     at level 0 (z-index:auto) — same level as this. At equal level, paint
+     order follows DOM order, so this element now comes *before* the crate
+     row in the markup, painting it behind naturally, no z-index tricks */
   perspective: 420px;
 }
 
@@ -84,10 +87,6 @@ body {
   z-index: 999 !important;
 }
 
-@media (max-width: 700px) {
-  .cd-pile { display: none; }
-}
-
 .crate-row {
   position: fixed;
   left: 50%;
@@ -99,6 +98,16 @@ body {
   /* the flanking crates are full-size, so the row runs wider than the
      viewport on purpose — being position: fixed, it's naturally clipped
      to the window bounds rather than needing its own overflow rule */
+  /* this row's own box is an ordinary (fully clickable) div, wider than
+     the viewport, sitting above the CD pile — without this, its empty
+     space (flex gaps, anything not actually covered by a crate) swallows
+     clicks meant for whatever's behind it. #crate re-enables interaction
+     for the real, clickable crate content inside */
+  pointer-events: none;
+}
+
+#crate {
+  pointer-events: auto;
 }
 
 .crate {
@@ -187,6 +196,36 @@ body {
   border: none;
   background: none;
   cursor: pointer;
+  /* the button's own box is bigger than the crate art actually drawn
+     inside it (crate-track lets the image overflow) — without this, that
+     empty margin still swallows clicks meant for whatever sits behind it,
+     like the CD pile. Re-enabling it on just the crate image keeps the
+     button clickable exactly where the crate is actually visible. */
+  pointer-events: none;
+}
+
+.crate-slot-side .crate-box {
+  pointer-events: auto;
+}
+
+/* the crate photos have large transparent margins on both sides — clip-path
+   tightens the clickable/visible region horizontally to roughly the crate
+   pixels themselves, so clicking the gap between crates no longer counts
+   as clicking one. Left uncropped vertically on crate-back: this same
+   element is scaled way up when it becomes the new main crate mid-
+   animation, and even a small top/bottom crop turns into a very visible
+   gap at that size */
+.crate-slot-side .crate-back {
+  clip-path: inset(0 17% 0 15%);
+}
+
+.crate-slot-side .crate-front {
+  /* crate-front.png is blank across its top ~58% (just the lower lattice
+     wall) — safe to clip out too since there's no visible pixel there to
+     lose, unlike crate-back, so this doesn't cause a grow-animation gap.
+     Without it, that blank-but-still-in-bounds area stays clickable and
+     was swallowing clicks meant for the CD pile behind it */
+  clip-path: inset(58% 17% 0 15%);
 }
 
 .crate-slot-side:hover .crate-box { filter: brightness(1.08); }
@@ -272,6 +311,15 @@ body {
   aspect-ratio: 1 / 1;
   border-radius: 0;
   box-shadow: 0 26px 48px rgba(0, 0, 0, 0.55);
+  /* centered on screen by default (12.5% of its own width makes up the
+     20% gap left for the paper); .info-open shifts it back to the left
+     edge to make room once the paper actually opens */
+  transform: translateX(12.5%);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stack-card.expanded.info-open img {
+  transform: translateX(0);
 }
 
 /* the expanded state: the tapped card itself grows into a full info card,
@@ -309,7 +357,7 @@ body {
   /* positioned near the cover's right edge (cover is 80% wide) so the small
      tab actually pokes out — the wide 62% position only makes sense once
      .info-open makes the paper wide enough to reach past the cover again */
-  left: 80%;
+  left: 90%;
   width: 3.4rem;
   height: 3.4rem;
   overflow: hidden;
@@ -340,7 +388,7 @@ body {
 }
 
 .stack-card.expanded .card-info.info-open {
-  left: 68%;
+  left: 71%;
   width: 56%;
   height: auto;
   overflow: visible;
@@ -437,23 +485,37 @@ body {
     width: min(88vw, 340px);
   }
   .stack-card.expanded img {
-    width: 76%;
+    /* full width and truly centered — the paper sits on top now, so the
+       cover no longer needs to leave room to its side for it to peek out */
+    width: 100%;
+    transform: none;
   }
+  /* on phones the paper sits centered on top of the cover (not tucked
+     behind it) and peeks down from the top edge instead of in from the
+     side — simpler to read at this size than the angled desktop version */
   .card-info {
-    top: 3%;
-    left: 74%;
-    width: 3rem;
-    height: 3rem;
-    padding: 0.7rem 0.55rem;
-    transform: rotate(5deg) translate(-14px, 6px) scale(0.9);
+    top: -8%;
+    left: 50%;
+    z-index: 3;
+    width: 3.6rem;
+    height: 1.5rem;
+    padding: 0.28rem 0.5rem;
+    text-align: center;
+    box-shadow: none;
+    transform-origin: center top;
+    transform: translate(-50%, -100%);
+    transition: transform 0.32s cubic-bezier(0.4, 0, 0.6, 1), opacity 0.28s ease,
+      width 0.32s cubic-bezier(0.22, 1, 0.36, 1), height 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+      padding 0.32s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .stack-card.expanded .card-info {
-    transform: rotate(5deg) translate(0, 0) scale(1);
+    transform: translate(-50%, 0);
   }
   .stack-card.expanded .card-info.info-open {
-    left: 64%;
-    width: 60%;
-    padding: 3rem 0.8rem 3rem 18%;
+    left: 50%;
+    width: 88%;
+    padding: 1rem 1rem 1.3rem;
+    transform: translate(-50%, 0);
   }
   .card-info h3 { font-size: 0.9rem; }
 }
