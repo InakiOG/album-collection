@@ -167,16 +167,11 @@ body {
 .overlay-card {
   position: relative;
   z-index: 1;
-  background: var(--card);
-  border-radius: 14px;
-  overflow: hidden;
-  max-width: 640px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+  max-width: 720px;
+  width: min(600px, 88vw);
   animation: pop 0.18s ease;
 }
 
@@ -186,37 +181,130 @@ body {
 }
 
 .overlay-card img {
-  width: 100%;
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 80%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.5);
 }
 
+/* a sheet of paper tucked behind the cover, peeking out on the right at a
+   slight angle — the overlapping left portion hides under the cover (lower
+   z-index), only the right portion shows. By default it's just a small
+   corner tab labeled "Info"; clicking it grows the paper out to reveal
+   everything. Generous top/bottom padding (not a percentage height, once
+   open) stretches it close to the cover's own height regardless of text */
 .overlay-info {
-  padding: 1.25rem 1.5rem 1.6rem;
+  position: absolute;
+  z-index: 1;
+  box-sizing: border-box;
+  top: 3%;
+  /* positioned near the cover's right edge (cover is 80% wide) so the small
+     tab actually pokes out — the wide 62% position only makes sense once
+     .info-open makes the paper wide enough to reach past the cover again */
+  left: 80%;
+  width: 3.6rem;
+  height: 3.6rem;
+  overflow: hidden;
+  background: #ffffff;
+  color: #222222;
+  padding: 0.9rem 0.7rem;
+  border-radius: 2px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  transform: rotate(6deg);
+  transform-origin: top left;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease,
+    left 0.32s cubic-bezier(0.22, 1, 0.36, 1), width 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.32s cubic-bezier(0.22, 1, 0.36, 1), padding 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.overlay-info.info-open {
+  left: 68%;
+  width: 56%;
+  height: auto;
+  overflow: visible;
+  padding: 5.1rem 1.3rem 5.1rem 18%;
+  cursor: default;
+}
+
+.info-tab-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.18s ease;
+}
+
+.overlay-info.info-open .info-tab-label {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.overlay-info h2,
+.overlay-info p,
+.overlay-info a {
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+.overlay-info.info-open h2,
+.overlay-info.info-open p,
+.overlay-info.info-open a {
+  opacity: 1;
+  transition-delay: 0.16s;
 }
 
 .overlay-info h2 {
-  margin: 0 0 0.3rem;
+  margin: 0 0 0.35rem;
   font-size: 1.4rem;
   letter-spacing: -0.01em;
+  color: #141414;
 }
 
 .overlay-info p {
-  margin: 0.15rem 0;
-  color: var(--muted);
-  font-size: 0.95rem;
+  margin: 0.2rem 0;
+  color: #666666;
+  font-size: 0.98rem;
 }
 
 .overlay-info a {
   display: inline-block;
   margin-top: 0.9rem;
-  color: var(--fg);
+  color: #141414;
   text-decoration: none;
   font-weight: 600;
-  border-bottom: 1px solid var(--muted);
+  border-bottom: 1px solid #b5b5b5;
 }
 
-.overlay-info a:hover { opacity: 0.8; }
+.overlay-info a:hover { opacity: 0.7; }
+
+@media (max-width: 560px) {
+  .overlay-card { width: min(360px, 92vw); }
+  .overlay-card img { width: 76%; }
+  .overlay-info {
+    top: 3%;
+    left: 74%;
+    width: 3.2rem;
+    height: 3.2rem;
+    padding: 0.75rem 0.6rem;
+    transform: rotate(5deg);
+  }
+  .overlay-info.info-open {
+    left: 64%;
+    width: 60%;
+    padding: 3rem 0.9rem 3rem 18%;
+  }
+  .overlay-info h2 { font-size: 1.05rem; }
+  .overlay-info p { font-size: 0.8rem; }
+}
 
 @media (max-width: 480px) {
   .grid {

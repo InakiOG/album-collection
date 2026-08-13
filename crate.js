@@ -7,6 +7,15 @@ const sortToggle = document.getElementById("sort-toggle");
 
 const crateBoxImgs = crateTrack.querySelectorAll(".crate-box");
 
+const cdPileEl = document.getElementById("cd-pile");
+const overlayEl = document.getElementById("overlay");
+const overlayImgEl = document.getElementById("overlay-img");
+const overlayTitleEl = document.getElementById("overlay-title");
+const overlayArtistEl = document.getElementById("overlay-artist");
+const overlayMetaEl = document.getElementById("overlay-meta");
+const overlayGenresEl = document.getElementById("overlay-genres");
+const overlayLinkEl = document.getElementById("overlay-link");
+
 const PEEK_STEP_RATIO = 5.52 / 441; // fraction of the card size, so the stack scales with it
 const SCALE_STEP = 0.006;
 const LIFT_FRACTION = 0.48;
@@ -36,6 +45,170 @@ const mounted = new Map(); // absolute index -> element
 
 function releaseUrl(r) {
   return `https://www.discogs.com/release/${r.id}`;
+}
+
+let overlaySourceEl = null;
+
+function openOverlay(r, sourceEl) {
+  overlaySourceEl = sourceEl || null;
+  overlayImgEl.src = r.cover;
+  overlayImgEl.alt = r.title;
+  overlayTitleEl.textContent = r.title;
+  overlayArtistEl.textContent = r.artists.join(", ");
+  const year = r.pressingYear ? `${r.year} (${r.pressingYear} pressing)` : r.year;
+  overlayMetaEl.textContent = [year, r.formats.join(", "), r.label].filter(Boolean).join(" · ");
+  overlayGenresEl.textContent = [...r.genres, ...r.styles].join(", ");
+  overlayLinkEl.href = releaseUrl(r);
+
+  const card = overlayEl.querySelector(".overlay-card");
+  const paper = overlayEl.querySelector(".overlay-info");
+  paper.classList.remove("info-open"); // each CD opens back to the small "Info" tab
+  const paperRestTransform = "rotate(6deg) translate(0, 0) scale(1)";
+  // tucked almost entirely behind the cover — % is relative to the paper's
+  // own width, so it retreats fully out of sight before sliding out
+  const paperTuckedTransform = "rotate(6deg) translate(-72%, 10px) scale(0.94)";
+
+  if (sourceEl) {
+    // grow the cover out from the clicked case (FLIP: measure start/end,
+    // then transition between), while the paper slides out from behind it
+    const startRect = sourceEl.getBoundingClientRect();
+    card.style.animation = "none";
+    overlayEl.classList.remove("hidden");
+    const endRect = overlayImgEl.getBoundingClientRect();
+
+    const dx = startRect.left + startRect.width / 2 - (endRect.left + endRect.width / 2);
+    const dy = startRect.top + startRect.height / 2 - (endRect.top + endRect.height / 2);
+    const scaleX = startRect.width / endRect.width;
+    const scaleY = startRect.height / endRect.height;
+
+    overlayImgEl.style.transition = "none";
+    overlayImgEl.style.transform = `translate(${dx}px, ${dy}px) scale(${scaleX}, ${scaleY})`;
+    paper.style.transition = "none";
+    paper.style.opacity = "0";
+    paper.style.transform = paperTuckedTransform;
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        overlayImgEl.style.transition = "transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1)";
+        overlayImgEl.style.transform = "translate(0, 0) scale(1, 1)";
+        paper.style.transition = "transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.12s, opacity 0.4s ease 0.12s";
+        paper.style.opacity = "1";
+        paper.style.transform = paperRestTransform;
+      });
+    });
+
+    overlayImgEl.addEventListener(
+      "transitionend",
+      () => {
+        overlayImgEl.style.transition = "";
+        overlayImgEl.style.transform = "";
+      },
+      { once: true }
+    );
+  } else {
+    card.style.animation = "";
+    overlayImgEl.style.transition = "";
+    overlayImgEl.style.transform = "";
+    paper.style.transition = "";
+    paper.style.opacity = "";
+    paper.style.transform = "";
+    overlayEl.classList.remove("hidden");
+  }
+}
+
+function closeOverlay() {
+  if (overlayEl.classList.contains("hidden")) return;
+
+  const card = overlayEl.querySelector(".overlay-card");
+  const paper = overlayEl.querySelector(".overlay-info");
+  const paperTuckedTransform = "rotate(6deg) translate(-72%, 10px) scale(0.94)";
+  const targetEl = overlaySourceEl && document.body.contains(overlaySourceEl) ? overlaySourceEl : null;
+  overlaySourceEl = null;
+
+  const reset = () => {
+    card.style.animation = "";
+    overlayImgEl.style.transition = "";
+    overlayImgEl.style.transform = "";
+    paper.style.transition = "";
+    paper.style.opacity = "";
+    paper.style.transform = "";
+  };
+
+  if (!targetEl) {
+    overlayEl.classList.add("hidden");
+    reset();
+    return;
+  }
+
+  // shrink the cover back down into the case it was opened from, while
+  // the paper tucks back behind it — the inverse of openOverlay
+  const startRect = overlayImgEl.getBoundingClientRect();
+  const endRect = targetEl.getBoundingClientRect();
+  const dx = endRect.left + endRect.width / 2 - (startRect.left + startRect.width / 2);
+  const dy = endRect.top + endRect.height / 2 - (startRect.top + startRect.height / 2);
+  const scaleX = endRect.width / startRect.width;
+  const scaleY = endRect.height / startRect.height;
+
+  card.style.animation = "none";
+  paper.style.transition = "transform 0.3s cubic-bezier(0.4, 0, 0.6, 1), opacity 0.26s ease";
+  paper.style.opacity = "0";
+  paper.style.transform = paperTuckedTransform;
+  overlayImgEl.style.transition = "transform 0.3s cubic-bezier(0.4, 0, 0.6, 1) 0.08s";
+  overlayImgEl.style.transform = `translate(${dx}px, ${dy}px) scale(${scaleX}, ${scaleY})`;
+
+  let done = false;
+  const finish = () => {
+    if (done) return;
+    done = true;
+    overlayEl.classList.add("hidden");
+    reset();
+  };
+  overlayImgEl.addEventListener("transitionend", finish, { once: true });
+  setTimeout(finish, 420); // fallback in case transitionend doesn't fire
+}
+
+overlayEl.addEventListener("click", (e) => {
+  if (e.target.tagName === "A") return;
+  if (e.target.closest(".overlay-card") && e.target !== e.currentTarget) return;
+  closeOverlay();
+});
+
+overlayEl.querySelector(".overlay-info").addEventListener("click", (e) => {
+  e.stopPropagation();
+  if (e.target.tagName === "A") return; // let the Discogs link work normally
+  e.currentTarget.classList.add("info-open");
+});
+
+// stacks CD cases directly on top of one another, flat and square, each one
+// offset just enough to peek out from under the case above it
+function renderCdPile(cdReleases) {
+  cdPileEl.innerHTML = "";
+  const n = cdReleases.length;
+  if (!n) return;
+
+  const caseSize = 78;
+  const peek = 6; // how much of each case shows below the one stacked on top of it (before foreshortening)
+
+  cdReleases.forEach((r, i) => {
+    const wrap = document.createElement("div");
+    wrap.className = "cd-disc-wrap";
+    wrap.style.bottom = `${(i * peek).toFixed(1)}px`;
+    wrap.style.zIndex = String(i);
+
+    const img = document.createElement("img");
+    img.className = "cd-disc";
+    img.style.width = `${caseSize}px`;
+    img.style.height = `${caseSize}px`;
+    img.src = r.cover;
+    img.alt = r.title;
+    img.loading = "lazy";
+    img.referrerPolicy = "no-referrer";
+    img.title = `${r.artists.join(", ")} — ${r.title}`;
+    img.addEventListener("click", (e) => openOverlay(r, e.currentTarget));
+
+    wrap.appendChild(img);
+    cdPileEl.appendChild(wrap);
+  });
 }
 
 function sortKey(r) {
@@ -72,6 +245,12 @@ function cardSizePx() {
 function fillInfo(infoEl, r) {
   const year = r.pressingYear ? `${r.year} (${r.pressingYear} pressing)` : r.year;
   infoEl.innerHTML = "";
+  infoEl.classList.remove("info-open");
+
+  const tab = document.createElement("span");
+  tab.className = "info-tab-label";
+  tab.textContent = "Info";
+  infoEl.appendChild(tab);
 
   const h3 = document.createElement("h3");
   h3.textContent = r.title;
@@ -105,10 +284,12 @@ function styleCard(el, idx) {
   const isActive = idx === currentIndex && hasInteracted;
   const baseY = -idx * cardSizePx() * PEEK_STEP_RATIO;
   const scale = Math.max(1 - idx * SCALE_STEP, 0.4);
+  // the peeking album reads wider — 10% on desktop, 3% on phones (matches crate.css's own 480px breakpoint)
+  const peekWidthBoost = window.matchMedia("(max-width: 480px)").matches ? 1.03 : 1.1;
+  const scaleX = isActive ? scale * peekWidthBoost : scale;
   const lift = isActive ? cardSizePx() * LIFT_FRACTION : 0;
-  const dist = Math.abs(idx - currentIndex);
 
-  el.style.transform = `translateY(${baseY - lift}px) scale(${scale}) rotateX(${TILT_DEG}deg)`;
+  el.style.transform = `translateY(${baseY - lift}px) scale(${scaleX}, ${scale}) rotateX(${TILT_DEG}deg)`;
   // all resting/raised cards stay between crate-back (z:1) and crate-front
   // (z:500) — in front of the box body, behind the front lattice wall.
   // depth order always follows each card's own place in the stack, so a
@@ -116,7 +297,7 @@ function styleCard(el, idx) {
   el.style.zIndex = String(Math.max(2, 490 - idx));
   el.style.opacity = "1";
   el.style.pointerEvents = "";
-  el.style.filter = isActive ? "none" : `brightness(${1 - Math.min(dist, 10) * 0.05})`;
+  el.style.filter = "none";
   el.classList.toggle("front", isActive);
 }
 
@@ -141,15 +322,29 @@ function createCard(idx, r) {
 
   const info = document.createElement("div");
   info.className = "card-info";
+  info.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (e.target.tagName === "A") return; // let the Discogs link work normally
+    info.classList.add("info-open");
+  });
   card.appendChild(info);
 
   card.addEventListener("click", (e) => {
     e.stopPropagation();
     if (expandedIdx === idx) return;
+    collapseExpanded();
     if (idx === currentIndex) {
+      // clicking the album that's already peeking opens the full view
       expandCard(idx);
     } else {
-      goTo(idx);
+      // clicking any other album just peeks it — set state directly
+      // instead of going through goTo(), which only navigates on repeat
+      // interactions (its very-first-gesture guard was leaving clicks on a
+      // fresh/reset stack with nowhere to go, always landing back on
+      // whatever was last expanded)
+      currentIndex = idx;
+      hasInteracted = true;
+      updatePositions();
     }
   });
 
@@ -735,7 +930,7 @@ document.addEventListener(
   (e) => {
     if (touchStart === null) return;
     const dx = e.changedTouches[0].clientX - touchStart.x;
-    const dy = touchStart.y - e.changedTouches[0].clientY;
+    const dy = e.changedTouches[0].clientY - touchStart.y; // positive = swiped down
     touchStart = null;
     if (Math.abs(dx) > Math.abs(dy)) {
       if (Math.abs(dx) >= SWIPE_THRESHOLD) shiftFromSwipe(dx);
@@ -780,7 +975,10 @@ document.addEventListener("click", (e) => {
 });
 
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") collapseExpanded();
+  if (e.key === "Escape") {
+    collapseExpanded();
+    closeOverlay();
+  }
   if (e.key === "ArrowRight" || e.key === "ArrowDown") goTo(currentIndex + 1);
   if (e.key === "ArrowLeft" || e.key === "ArrowUp") goTo(currentIndex - 1);
 });
@@ -814,7 +1012,11 @@ async function loadCollection() {
     currentReleases = data.releases.filter(
       (r) => !r.formats.some((f) => f.toUpperCase() === "CD")
     );
+    const cdReleases = data.releases.filter(
+      (r) => r.formats.some((f) => f.toUpperCase() === "CD")
+    );
     applySort();
+    renderCdPile(cdReleases);
     countEl.textContent = `${currentReleases.length} albums`;
     statusEl.classList.add("hidden");
   } catch (err) {

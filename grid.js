@@ -9,12 +9,14 @@ const overlayArtist = document.getElementById("overlay-artist");
 const overlayMeta = document.getElementById("overlay-meta");
 const overlayGenres = document.getElementById("overlay-genres");
 const overlayLink = document.getElementById("overlay-link");
+const overlayInfo = document.querySelector(".overlay-info");
 
 function releaseUrl(r) {
   return `https://www.discogs.com/release/${r.id}`;
 }
 
 function openOverlay(r) {
+  overlayInfo.classList.remove("info-open"); // each album opens back to the small "Info" tab
   overlayImg.src = r.cover;
   overlayImg.alt = r.title;
   overlayTitle.textContent = r.title;
@@ -35,6 +37,12 @@ overlay.addEventListener("click", (e) => {
   if (e.target.tagName === "A") return;
   if (e.target.closest(".overlay-card") && e.target !== e.currentTarget) return;
   closeOverlay();
+});
+
+overlayInfo.addEventListener("click", (e) => {
+  e.stopPropagation();
+  if (e.target.tagName === "A") return; // let the Discogs link work normally
+  e.currentTarget.classList.add("info-open");
 });
 
 document.addEventListener("keydown", (e) => {

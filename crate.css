@@ -50,6 +50,44 @@ body {
   .poster-3 { width: 110px; }
 }
 
+/* CDs excluded from the crate, stacked into a vertical pile on the table —
+   sits low in a front corner so it never fights the crate for attention */
+.cd-pile {
+  position: fixed;
+  left: 16%;
+  bottom: calc(0.6rem + 30vh);
+  width: 1px;
+  height: 1px;
+  z-index: 1;
+  perspective: 420px;
+}
+
+.cd-disc-wrap {
+  position: absolute;
+  left: 0;
+  transform-origin: 50% 100%;
+  transform: rotateX(62deg);
+}
+
+.cd-disc {
+  display: block;
+  border-radius: 3px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4), inset 0 0 0 2px rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cd-disc:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5), inset 0 0 0 2px rgba(255, 255, 255, 0.85);
+  z-index: 999 !important;
+}
+
+@media (max-width: 700px) {
+  .cd-pile { display: none; }
+}
+
 .crate-row {
   position: fixed;
   left: 50%;
@@ -227,64 +265,131 @@ body {
 }
 
 .stack-card.expanded img {
+  position: relative;
+  z-index: 2;
+  width: 80%;
   height: auto;
   aspect-ratio: 1 / 1;
+  border-radius: 0;
+  box-shadow: 0 26px 48px rgba(0, 0, 0, 0.55);
 }
 
 /* the expanded state: the tapped card itself grows into a full info card,
    instead of a separate element appearing. Fixed to the viewport so it
-   lands dead-center on screen regardless of where the crate sits. */
+   lands dead-center on screen regardless of where the crate sits. The box
+   itself is just a positioning frame now — background/shadow live on the
+   image and paper so there's no leftover fill showing through beside them */
 .stack-card.expanded {
   position: fixed;
   left: 50%;
   top: 15%;
   bottom: auto;
-  width: min(95vw, 546px);
+  width: min(95vw, 682px);
   height: auto;
   transform: translate(-50%, -50%) scale(1) rotate(-1.2deg) !important;
-  border-radius: 10px;
-  box-shadow: 0 26px 48px rgba(0, 0, 0, 0.55);
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
   opacity: 1 !important;
   filter: none !important;
   z-index: 1000 !important;
   cursor: default;
 }
 
+/* a sheet of paper tucked behind the cover, peeking out on the right at a
+   slight angle — same treatment as the CD-pile overlay's info panel. By
+   default it's just a small corner tab labeled "Info"; clicking it grows
+   the paper out to reveal everything. */
 .card-info {
-  max-height: 0;
-  opacity: 0;
-  padding: 0 1rem;
+  position: absolute;
+  z-index: 1;
+  box-sizing: border-box;
+  top: 3%;
+  /* positioned near the cover's right edge (cover is 80% wide) so the small
+     tab actually pokes out — the wide 62% position only makes sense once
+     .info-open makes the paper wide enough to reach past the cover again */
+  left: 80%;
+  width: 3.4rem;
+  height: 3.4rem;
   overflow: hidden;
-  transition: max-height 0.3s ease, opacity 0.22s ease, padding 0.3s ease;
+  background: #f4ecd8;
+  color: #2b2620;
+  padding: 0.85rem 0.65rem;
+  border-radius: 2px;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  cursor: pointer;
+  transform-origin: top left;
+  /* tucked almost entirely behind the cover — translate is a % of the
+     paper's own width, so it retreats fully out of sight before sliding out */
+  transform: rotate(6deg) translate(-72%, 10px) scale(0.94);
+  /* peeking back out (this rule applies once .expanded is removed) — quick, no overshoot */
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.6, 1), opacity 0.28s ease;
 }
 
 .stack-card.expanded .card-info {
-  max-height: 240px;
   opacity: 1;
-  padding: 0.85rem 1rem 1.05rem;
+  pointer-events: auto;
+  transform: rotate(6deg) translate(0, 0) scale(1);
+  /* peeking in — a touch of overshoot so it feels like it's sliding out from behind the cover */
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.08s, opacity 0.4s ease 0.08s,
+    left 0.32s cubic-bezier(0.22, 1, 0.36, 1), width 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.32s cubic-bezier(0.22, 1, 0.36, 1), padding 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stack-card.expanded .card-info.info-open {
+  left: 68%;
+  width: 56%;
+  height: auto;
+  overflow: visible;
+  padding: 5.1rem 1.2rem 5.1rem 18%;
+  cursor: default;
+}
+
+.card-info.info-open .info-tab-label {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.card-info h3,
+.card-info p,
+.card-info a {
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+.card-info.info-open h3,
+.card-info.info-open p,
+.card-info.info-open a {
+  opacity: 1;
+  transition-delay: 0.16s;
 }
 
 .card-info h3 {
-  margin: 0 0 0.2rem;
-  font-size: 1.02rem;
+  margin: 0 0 0.3rem;
+  font-size: 1.18rem;
   letter-spacing: -0.01em;
+  color: #201c16;
 }
 
 .card-info p {
-  margin: 0.1rem 0;
-  color: var(--muted);
-  font-size: 0.78rem;
-  line-height: 1.35;
+  margin: 0.18rem 0;
+  color: #5a5346;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 .card-info a {
   display: inline-block;
-  margin-top: 0.6rem;
-  color: var(--fg);
+  margin-top: 0.7rem;
+  color: #201c16;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.8rem;
-  border-bottom: 1px solid var(--muted);
+  font-size: 0.88rem;
+  border-bottom: 1px solid #a89a7c;
 }
 
 .card-info a:hover { opacity: 0.75; }
@@ -329,7 +434,26 @@ body {
     width: 43.64vw;
   }
   .stack-card.expanded {
-    width: min(57vw, 250px);
+    width: min(88vw, 340px);
+  }
+  .stack-card.expanded img {
+    width: 76%;
+  }
+  .card-info {
+    top: 3%;
+    left: 74%;
+    width: 3rem;
+    height: 3rem;
+    padding: 0.7rem 0.55rem;
+    transform: rotate(5deg) translate(-14px, 6px) scale(0.9);
+  }
+  .stack-card.expanded .card-info {
+    transform: rotate(5deg) translate(0, 0) scale(1);
+  }
+  .stack-card.expanded .card-info.info-open {
+    left: 64%;
+    width: 60%;
+    padding: 3rem 0.8rem 3rem 18%;
   }
   .card-info h3 { font-size: 0.9rem; }
 }
