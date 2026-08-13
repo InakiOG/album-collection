@@ -251,14 +251,12 @@ body {
     gap: 0.4rem;
   }
   .crate {
-    --card-size: 341px;
-    --stack-step: 20px;
-    --crate-w: 791.7px;
-    width: 68vw;
+    /* 40% smaller than the previous mobile size, same proportions/behavior */
+    --card-size: 205px;
+    --stack-step: 12px;
+    --crate-w: 475px;
+    width: 41vw;
     bottom: 0;
-  }
-  .crate-side {
-    width: 13vw;
   }
   .stack-card.expanded {
     width: min(95vw, 416px);
