@@ -135,6 +135,7 @@ body {
 
 .music-button::before { content: "♪"; }
 .back-button::before { content: "←"; }
+.crate-button::before { content: "▤"; }
 
 .status {
   text-align: center;

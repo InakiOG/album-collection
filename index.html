@@ -3,34 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>InakiOG's Vinyl Collection</title>
+<title>InakiOG's Vinyl Collection — Crate</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="crate.css">
 </head>
 <body>
+  <div class="posters" aria-hidden="true">
+    <img class="poster poster-1" src="assets/posters/18a17b11dd3da174b54a2cf555411933.jpg" alt="">
+    <img class="poster poster-2" src="assets/posters/24d6e909a1632abe3050ae84486d7371.jpg" alt="">
+    <img class="poster poster-3" src="assets/posters/39f727aa98ea526a08c3387cddd20531.jpg" alt="">
+    <img class="poster poster-4" src="assets/posters/94d5ac05d26d5141b6457cbd5e55dbcc.jpg" alt="">
+    <img class="poster poster-5" src="assets/posters/cb3b7a39799536380db1a797591a2da1.jpg" alt="">
+    <img class="poster poster-6" src="assets/posters/f34a9dfd8b07da140b7501cdbdd137fd.jpg" alt="">
+  </div>
+
+  <h1 class="site-title">Colección de Iñaki</h1>
   <div id="count" class="count"></div>
 
-  <a href="music.html" class="nav-button music-button">Music</a>
+  <a href="grid.html" class="nav-button back-button">Grid</a>
+  <a href="music.html" class="nav-button music-button" style="left: 6.5rem;">Music</a>
 
   <button id="sort-toggle" class="sort-toggle" type="button">Recent</button>
 
-  <main id="grid" class="grid"></main>
+  <div id="crate-row" class="crate-row">
+    <button id="crate-side-prev" class="crate-dot" type="button" aria-label="Previous box"></button>
+
+    <div id="crate" class="crate">
+      <div id="crate-track" class="crate-track">
+        <img class="crate-box crate-back" src="assets/crate.png" alt="" aria-hidden="true">
+        <div id="crate-shelf" class="crate-shelf"></div>
+        <img class="crate-box crate-front" src="assets/crate-front.png" alt="" aria-hidden="true">
+      </div>
+    </div>
+
+    <button id="crate-side-next" class="crate-dot" type="button" aria-label="Next box"></button>
+  </div>
 
   <p id="status" class="status">Loading collection…</p>
 
-  <div id="overlay" class="overlay hidden">
-    <div class="overlay-backdrop"></div>
-    <div class="overlay-card">
-      <img id="overlay-img" src="" alt="">
-      <div class="overlay-info">
-        <h2 id="overlay-title"></h2>
-        <p id="overlay-artist"></p>
-        <p id="overlay-meta"></p>
-        <p id="overlay-genres"></p>
-        <a id="overlay-link" href="" target="_blank" rel="noopener">View on Discogs →</a>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  <script src="crate.js"></script>
 </body>
 </html>
