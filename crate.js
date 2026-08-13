@@ -212,12 +212,15 @@ function updatePositions() {
 function goTo(index) {
   const wasInteracted = hasInteracted;
   hasInteracted = true;
-  const max = activeBoxReleases.length - 1;
-  const clamped = Math.max(0, Math.min(index, max));
-  if (clamped === currentIndex) {
-    if (!wasInteracted) updatePositions(); // first gesture still raises the current album
+  if (!wasInteracted) {
+    // the very first gesture (either direction) only raises album 0 —
+    // otherwise it jumps straight to index 1 and album 0 is never seen raised
+    updatePositions();
     return;
   }
+  const max = activeBoxReleases.length - 1;
+  const clamped = Math.max(0, Math.min(index, max));
+  if (clamped === currentIndex) return;
   currentIndex = clamped;
   collapseExpanded();
   updatePositions();
