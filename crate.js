@@ -236,7 +236,7 @@ function collapsedTransform() {
   return `translateY(0px) scale(1) rotateX(${TILT_DEG}deg)`;
 }
 
-// set by animateShiftTo — the first album of the incoming box, already
+// set by mountTravelingCard — the first album of the incoming box, already
 // riding along inside the crate that just slid into the middle. Reused
 // as-is for idx 0 instead of being torn down and recreated.
 let travelingCard = null;
@@ -365,9 +365,10 @@ function updateRowSpacing() {
   const peek = isLandscape
     ? Math.max(8, Math.min(19, window.innerWidth * 0.0092))
     // side crates keep their full size on phone too — the overflow term
-    // above already pulls the gap in to compensate for that, so this only
-    // needs to be a small corner-sized sliver on top of it
-    : Math.max(12, Math.min(30, window.innerWidth * 0.04));
+    // above already pulls the gap in to compensate for that. Keep this
+    // small so the gap stays large and the side crates sit farther off
+    // to the edges, mostly out of view
+    : Math.max(4, Math.min(12, window.innerWidth * 0.015));
   const gap = Math.max(0, window.innerWidth / 2 - crateWidth / 2 - overflow - peek);
   crateRowEl.style.gap = `${gap}px`;
 }
@@ -375,9 +376,15 @@ function updateRowSpacing() {
 window.addEventListener("resize", updateRowSpacing);
 window.addEventListener("orientationchange", updateRowSpacing);
 
-// clicking a side crate slides the whole row sideways — like a conveyor
-// belt — carrying it into the middle, then swaps the underlying box data
-// and snaps back to neutral. Wraps around indefinitely at both ends.
+// clicking a side crate: it grows into the middle, in front of everything.
+// The outgoing main crate slides into the exact spot the crate on that
+// same side currently rests at (visually becoming the new left/right
+// crate), while that displaced crate moves in behind the middle and
+// disappears — the two hand off at the same coordinates so it reads as
+// one continuous crate arriving. The clicked crate then also switches to a
+// brand-new box further out, so it briefly ducks behind the new middle
+// crate before sliding out to reclaim its spot. Wraps around indefinitely
+// at both ends.
 const SHIFT_ANIM_MS = 360;
 let shifting = false;
 
@@ -386,76 +393,153 @@ function slotStepPx() {
   return crateEl.getBoundingClientRect().width + gap;
 }
 
-function animateShiftTo(targetIndex, toward) {
-  // toward: "prev" slides the row right to bring the left crate to center;
-  // "next" slides it left to bring the right crate to center
+// mounts the target box's first album riding inside the given slot, ready
+// to travel with it as it slides to the middle
+function mountTravelingCard(slotEl, targetIndex) {
+  const sideShelf = slotEl.querySelector(".crate-shelf");
+  const firstRelease = (boxes[targetIndex] || [])[0];
+  if (!sideShelf || !firstRelease) return;
+  const card = createCard(0, firstRelease);
+  card.style.transform = collapsedTransform();
+  card.style.zIndex = "490";
+  card.style.opacity = "1";
+  sideShelf.appendChild(card);
+  travelingCard = card;
+}
+
+function animateShiftToPrev(targetIndex) {
   if (shifting || !boxes.length || targetIndex === currentBoxIndex) return;
   shifting = true;
 
   const step = slotStepPx();
-  const offset = toward === "prev" ? step : -step;
-  const sideEl = toward === "prev" ? prevSlotEl : nextSlotEl;
+  const t = "transform 0.36s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.36s ease";
 
-  // the first album of the box being switched to rides along inside the
-  // crate as it slides to the middle, instead of the crate arriving empty
-  const sideShelf = sideEl.querySelector(".crate-shelf");
-  const firstRelease = (boxes[targetIndex] || [])[0];
-  if (sideShelf && firstRelease) {
-    const card = createCard(0, firstRelease);
-    card.style.transform = collapsedTransform();
-    card.style.zIndex = "490";
-    card.style.opacity = "1";
-    sideShelf.appendChild(card);
-    travelingCard = card;
-  }
+  mountTravelingCard(prevSlotEl, targetIndex);
 
-  // on desktop the side crates sit lower than the main one (see the
-  // landscape translateY(10%) rule) — animate that height difference away
-  // in sync with the horizontal slide, so the clicked crate rises into
-  // place while the outgoing main crate sinks down to the side height
-  const isLandscape = !window.matchMedia("(orientation: portrait)").matches;
-  const vertTransition = "transform 0.36s cubic-bezier(0.2, 0.8, 0.2, 1)";
+  // crateEl needs to land exactly where nextSlotEl currently rests — that's
+  // the slot it's visually taking over
+  const nextRestingTransform = getComputedStyle(nextSlotEl).transform;
 
-  crateRowEl.style.transition = vertTransition;
-  crateRowEl.style.transform = `translateX(calc(-50% + ${offset}px))`;
+  crateRowEl.style.transition = t;
+  crateRowEl.style.transform = `translateX(calc(-50% + ${step}px))`;
 
-  if (isLandscape) {
-    sideEl.style.transition = vertTransition;
-    sideEl.style.transform = "translateY(0%)";
-    crateEl.style.transition = vertTransition;
-    crateEl.style.transform = "translateY(10%)";
-  }
+  // the clicked crate grows into the middle, in front of everything
+  prevSlotEl.style.zIndex = "20";
+  prevSlotEl.style.transition = t;
+  prevSlotEl.style.transform = "none";
+
+  // the outgoing main crate slides into the vacated slot, arriving on top
+  // of (#crate's z-index is already above .crate-slot-side's) the crate
+  // that was already there — nextSlotEl doesn't need to move or animate
+  // at all, it just gets covered
+  crateEl.style.transition = t;
+  crateEl.style.transform = nextRestingTransform;
 
   setTimeout(() => {
-    // snap back instantly with transitions off, then swap the content in
-    // while nobody's watching, so it reads as one continuous belt
+    // snap everything back instantly while nobody's watching: crateEl
+    // hands off to nextSlotEl (now carrying the matching data, revealed
+    // the moment crateEl uncovers it), and the main crate resets to the
+    // freshly clicked box
     crateRowEl.style.transition = "none";
     crateRowEl.style.transform = "translateX(-50%)";
-    if (isLandscape) {
-      sideEl.style.transition = "none";
-      sideEl.style.transform = "";
-      crateEl.style.transition = "none";
-      crateEl.style.transform = "";
-    }
+    crateEl.style.transition = "none";
+    crateEl.style.transform = "";
+
+    // prevSlotEl keeps the same slot role but now shows a brand-new box
+    // further out — tuck it behind the new middle crate first
+    prevSlotEl.style.transition = "none";
+    prevSlotEl.style.transform = `translateX(${step}px)`;
+    prevSlotEl.style.opacity = "0";
+    prevSlotEl.style.zIndex = "0";
+
     loadBox(targetIndex);
-    void crateRowEl.offsetWidth; // flush the snap before re-enabling transitions
+    void crateRowEl.offsetWidth; // flush the snap before animating the reveal
     crateRowEl.style.transition = "";
-    if (isLandscape) {
-      sideEl.style.transition = "";
-      crateEl.style.transition = "";
-    }
-    shifting = false;
+    crateEl.style.transition = "";
+
+    // reveal the new side crate from behind the middle
+    requestAnimationFrame(() => {
+      prevSlotEl.style.transition = t;
+      prevSlotEl.style.transform = "";
+      prevSlotEl.style.opacity = "";
+
+      setTimeout(() => {
+        prevSlotEl.style.transition = "";
+        prevSlotEl.style.zIndex = "";
+        // updateRowSpacing measures nextSlotEl's crate photo — recompute
+        // now that everything's back to its normal resting transform,
+        // since the mid-animation call in loadBox() could've measured a
+        // side crate while its transform (and thus scale) was overridden
+        updateRowSpacing();
+        shifting = false;
+      }, SHIFT_ANIM_MS);
+    });
+  }, SHIFT_ANIM_MS);
+}
+
+// exact mirror of animateShiftToPrev, with prev/next and left/right swapped
+function animateShiftToNext(targetIndex) {
+  if (shifting || !boxes.length || targetIndex === currentBoxIndex) return;
+  shifting = true;
+
+  const step = slotStepPx();
+  const t = "transform 0.36s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.36s ease";
+
+  mountTravelingCard(nextSlotEl, targetIndex);
+
+  const prevRestingTransform = getComputedStyle(prevSlotEl).transform;
+
+  crateRowEl.style.transition = t;
+  crateRowEl.style.transform = `translateX(calc(-50% - ${step}px))`;
+
+  nextSlotEl.style.zIndex = "20";
+  nextSlotEl.style.transition = t;
+  nextSlotEl.style.transform = "none";
+
+  crateEl.style.transition = t;
+  crateEl.style.transform = prevRestingTransform;
+
+  setTimeout(() => {
+    crateRowEl.style.transition = "none";
+    crateRowEl.style.transform = "translateX(-50%)";
+    crateEl.style.transition = "none";
+    crateEl.style.transform = "";
+
+    nextSlotEl.style.transition = "none";
+    nextSlotEl.style.transform = `translateX(${-step}px)`;
+    nextSlotEl.style.opacity = "0";
+    nextSlotEl.style.zIndex = "0";
+
+    loadBox(targetIndex);
+    void crateRowEl.offsetWidth;
+    crateRowEl.style.transition = "";
+    crateEl.style.transition = "";
+
+    requestAnimationFrame(() => {
+      nextSlotEl.style.transition = t;
+      nextSlotEl.style.transform = "";
+      nextSlotEl.style.opacity = "";
+
+      setTimeout(() => {
+        nextSlotEl.style.transition = "";
+        nextSlotEl.style.zIndex = "";
+        updateRowSpacing();
+        shifting = false;
+      }, SHIFT_ANIM_MS);
+    });
   }, SHIFT_ANIM_MS);
 }
 
 prevSlotEl.addEventListener("click", (e) => {
   e.stopPropagation();
-  animateShiftTo((currentBoxIndex - 1 + boxes.length) % boxes.length, "prev");
+  collapseExpanded();
+  animateShiftToPrev((currentBoxIndex - 1 + boxes.length) % boxes.length);
 });
 
 nextSlotEl.addEventListener("click", (e) => {
   e.stopPropagation();
-  animateShiftTo((currentBoxIndex + 1) % boxes.length, "next");
+  collapseExpanded();
+  animateShiftToNext((currentBoxIndex + 1) % boxes.length);
 });
 
 let wheelLocked = false;
@@ -494,9 +578,17 @@ crateTrack.addEventListener(
 );
 
 document.addEventListener("click", (e) => {
-  if (expandedIdx === null) return;
-  const expandedEl = mounted.get(expandedIdx);
-  if (expandedEl && !expandedEl.contains(e.target)) collapseExpanded();
+  if (expandedIdx !== null) {
+    const expandedEl = mounted.get(expandedIdx);
+    if (expandedEl && !expandedEl.contains(e.target)) collapseExpanded();
+    return;
+  }
+  // no card expanded, but the current one is still raised — tapping
+  // anywhere outside the stack lowers it back down
+  if (hasInteracted && !crateTrack.contains(e.target)) {
+    hasInteracted = false;
+    updatePositions();
+  }
 });
 
 document.addEventListener("keydown", (e) => {

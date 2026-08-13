@@ -73,6 +73,12 @@ body {
   flex: 0 0 auto;
 }
 
+/* the main crate always paints above the flanking ones */
+#crate {
+  position: relative;
+  z-index: 10;
+}
+
 /* wider-than-tall screens (desktop, tablets/phones in landscape) — the
    crate is sized off viewport width, with plenty of width budget left
    over on either side for the flanking crates to peek in */
@@ -97,6 +103,29 @@ body {
     --crate-w: 475px;
     width: 46vw;
   }
+
+  /* 15% bigger than the flanking crates, then another 15% on top of that */
+  #crate {
+    --card-size: 271.11px;
+    --crate-w: 628.19px;
+    width: 60.84vw;
+  }
+
+  /* smaller and pulled in behind the main crate — scaling from the bottom
+     edge keeps it flush with the screen bottom (matching the main crate's
+     own baseline) instead of floating at an offset; only the corners that
+     stick out past the main crate peek into view */
+  .crate-slot-side {
+    transform-origin: bottom center;
+  }
+
+  #crate-slot-prev {
+    transform: scale(0.7) translateX(88%);
+  }
+
+  #crate-slot-next {
+    transform: scale(0.7) translateX(-88%);
+  }
 }
 
 /* plain layout container — no visible box, just holds the stack + nav */
@@ -114,6 +143,8 @@ body {
    bring it to the middle — always 3 crates on screen, wrapping around at
    both ends. */
 .crate-slot-side {
+  position: relative;
+  z-index: 1;
   padding: 0;
   border: none;
   background: none;
@@ -284,8 +315,14 @@ body {
     width: 33vw;
     bottom: 0;
   }
+
+  #crate {
+    --card-size: 216.89px;
+    --crate-w: 502.55px;
+    width: 43.64vw;
+  }
   .stack-card.expanded {
-    width: min(95vw, 416px);
+    width: min(57vw, 250px);
   }
   .card-info h3 { font-size: 0.9rem; }
 }
