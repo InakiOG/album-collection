@@ -407,18 +407,51 @@ function mountTravelingCard(slotEl, targetIndex) {
   travelingCard = card;
 }
 
+// a lightweight stand-in crate, pinned at referenceEl's current on-screen
+// spot. Used on desktop so the slot a clicked crate is leaving shows its
+// next box immediately, instead of sitting empty until the clicked crate
+// finishes traveling to the middle and the real element can take over.
+function spawnGhostCrate(referenceEl, boxIndex) {
+  const rect = referenceEl.getBoundingClientRect();
+  const ghost = document.createElement("div");
+  ghost.className = "crate crate-ghost";
+  ghost.style.position = "fixed";
+  ghost.style.left = `${rect.left}px`;
+  ghost.style.top = `${rect.top}px`;
+  ghost.style.width = `${rect.width}px`;
+  ghost.style.height = `${rect.height}px`;
+
+  const track = document.createElement("div");
+  track.className = "crate-track";
+  track.innerHTML =
+    '<img class="crate-box crate-back" src="assets/crate.png" alt="" aria-hidden="true">' +
+    '<img class="crate-box crate-front" src="assets/crate-front.png" alt="" aria-hidden="true">';
+  ghost.appendChild(track);
+  applyHue(ghost.querySelectorAll(".crate-box"), boxIndex);
+
+  document.body.appendChild(ghost);
+  return ghost;
+}
+
 function animateShiftToPrev(targetIndex) {
   if (shifting || !boxes.length || targetIndex === currentBoxIndex) return;
   shifting = true;
 
   const step = slotStepPx();
   const t = "transform 0.36s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.36s ease";
+  // on phone the reveal is a plain fade in place, not a slide
+  const isPortrait = window.matchMedia("(orientation: portrait)").matches;
 
   mountTravelingCard(prevSlotEl, targetIndex);
 
-  // crateEl needs to land exactly where nextSlotEl currently rests — that's
-  // the slot it's visually taking over
-  const nextRestingTransform = getComputedStyle(nextSlotEl).transform;
+  // desktop: prevSlotEl is about to leave its slot to travel to the
+  // middle — pin a stand-in crate right where it's sitting now, already
+  // showing the next box that'll live there, so the slot never looks
+  // empty while the real element is busy
+  let ghost = null;
+  if (!isPortrait) {
+    ghost = spawnGhostCrate(prevSlotEl, (targetIndex - 1 + boxes.length) % boxes.length);
+  }
 
   crateRowEl.style.transition = t;
   crateRowEl.style.transform = `translateX(calc(-50% + ${step}px))`;
@@ -428,29 +461,61 @@ function animateShiftToPrev(targetIndex) {
   prevSlotEl.style.transition = t;
   prevSlotEl.style.transform = "none";
 
-  // the outgoing main crate slides into the vacated slot, arriving on top
-  // of (#crate's z-index is already above .crate-slot-side's) the crate
-  // that was already there — nextSlotEl doesn't need to move or animate
-  // at all, it just gets covered
   crateEl.style.transition = t;
-  crateEl.style.transform = nextRestingTransform;
+  if (isPortrait) {
+    // the outgoing main crate is pushed behind the new middle crate: it
+    // cancels the row's own shift so it stays put at center, where the
+    // growing crate (higher z-index) covers it
+    crateEl.style.transform = `translateX(${-step}px)`;
+  } else {
+    // desktop: it visibly travels to the other side, arriving on top of
+    // (#crate's z-index is already above .crate-slot-side's) the crate
+    // that was already there — nextSlotEl doesn't need to move, it just
+    // gets covered until the handoff at the swap
+    crateEl.style.transform = getComputedStyle(nextSlotEl).transform;
+  }
 
   setTimeout(() => {
-    // snap everything back instantly while nobody's watching: crateEl
-    // hands off to nextSlotEl (now carrying the matching data, revealed
-    // the moment crateEl uncovers it), and the main crate resets to the
-    // freshly clicked box
+    // snap everything back instantly while nobody's watching, then swap
+    // in the new box data
     crateRowEl.style.transition = "none";
     crateRowEl.style.transform = "translateX(-50%)";
     crateEl.style.transition = "none";
     crateEl.style.transform = "";
 
-    // prevSlotEl keeps the same slot role but now shows a brand-new box
-    // further out — tuck it behind the new middle crate first
+    if (!isPortrait) {
+      // desktop: everything's already in its final position from the row
+      // slide — snap prevSlotEl back to its own resting look (it was
+      // "none" while grown to center), remove the stand-in now that the
+      // real element can take over, then swap the main crate's content
+      // in, no extra post-swap animation
+      prevSlotEl.style.transition = "none";
+      prevSlotEl.style.transform = "";
+      prevSlotEl.style.zIndex = "";
+      if (ghost) ghost.remove();
+      loadBox(targetIndex);
+      void crateRowEl.offsetWidth; // flush the snap before re-enabling transitions
+      crateRowEl.style.transition = "";
+      crateEl.style.transition = "";
+      prevSlotEl.style.transition = "";
+      updateRowSpacing();
+      shifting = false;
+      return;
+    }
+
+    // phone: prevSlotEl keeps the same slot role but now shows a brand-new
+    // box further out — it stays right at its resting spot (just invisible
+    // + behind) and fades in, then the other side follows
     prevSlotEl.style.transition = "none";
-    prevSlotEl.style.transform = `translateX(${step}px)`;
+    prevSlotEl.style.transform = "";
     prevSlotEl.style.opacity = "0";
     prevSlotEl.style.zIndex = "0";
+
+    // nextSlotEl (the crate that was pushed behind) also hides at its own
+    // resting spot, ready to fade in after prevSlotEl does
+    nextSlotEl.style.transition = "none";
+    nextSlotEl.style.opacity = "0";
+    nextSlotEl.style.zIndex = "0";
 
     loadBox(targetIndex);
     void crateRowEl.offsetWidth; // flush the snap before animating the reveal
@@ -459,8 +524,7 @@ function animateShiftToPrev(targetIndex) {
 
     // reveal the new side crate from behind the middle
     requestAnimationFrame(() => {
-      prevSlotEl.style.transition = t;
-      prevSlotEl.style.transform = "";
+      prevSlotEl.style.transition = "opacity 0.36s ease";
       prevSlotEl.style.opacity = "";
 
       setTimeout(() => {
@@ -471,7 +535,16 @@ function animateShiftToPrev(targetIndex) {
         // since the mid-animation call in loadBox() could've measured a
         // side crate while its transform (and thus scale) was overridden
         updateRowSpacing();
-        shifting = false;
+
+        // then fade in the other side, after the first one's done
+        nextSlotEl.style.transition = "opacity 0.36s ease";
+        nextSlotEl.style.opacity = "";
+
+        setTimeout(() => {
+          nextSlotEl.style.transition = "";
+          nextSlotEl.style.zIndex = "";
+          shifting = false;
+        }, SHIFT_ANIM_MS);
       }, SHIFT_ANIM_MS);
     });
   }, SHIFT_ANIM_MS);
@@ -484,10 +557,17 @@ function animateShiftToNext(targetIndex) {
 
   const step = slotStepPx();
   const t = "transform 0.36s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.36s ease";
+  const isPortrait = window.matchMedia("(orientation: portrait)").matches;
 
   mountTravelingCard(nextSlotEl, targetIndex);
 
-  const prevRestingTransform = getComputedStyle(prevSlotEl).transform;
+  // desktop: nextSlotEl is about to leave its slot to travel to the
+  // middle — pin a stand-in crate right where it's sitting now, already
+  // showing the next box that'll live there
+  let ghost = null;
+  if (!isPortrait) {
+    ghost = spawnGhostCrate(nextSlotEl, (targetIndex + 1) % boxes.length);
+  }
 
   crateRowEl.style.transition = t;
   crateRowEl.style.transform = `translateX(calc(-50% - ${step}px))`;
@@ -497,7 +577,11 @@ function animateShiftToNext(targetIndex) {
   nextSlotEl.style.transform = "none";
 
   crateEl.style.transition = t;
-  crateEl.style.transform = prevRestingTransform;
+  if (isPortrait) {
+    crateEl.style.transform = `translateX(${step}px)`;
+  } else {
+    crateEl.style.transform = getComputedStyle(prevSlotEl).transform;
+  }
 
   setTimeout(() => {
     crateRowEl.style.transition = "none";
@@ -505,10 +589,33 @@ function animateShiftToNext(targetIndex) {
     crateEl.style.transition = "none";
     crateEl.style.transform = "";
 
+    if (!isPortrait) {
+      // desktop: everything's already in its final position from the row
+      // slide — snap nextSlotEl back to its own resting look, remove the
+      // stand-in now that the real element can take over, then swap the
+      // main crate's content in
+      nextSlotEl.style.transition = "none";
+      nextSlotEl.style.transform = "";
+      nextSlotEl.style.zIndex = "";
+      if (ghost) ghost.remove();
+      loadBox(targetIndex);
+      void crateRowEl.offsetWidth; // flush the snap before re-enabling transitions
+      crateRowEl.style.transition = "";
+      crateEl.style.transition = "";
+      nextSlotEl.style.transition = "";
+      updateRowSpacing();
+      shifting = false;
+      return;
+    }
+
     nextSlotEl.style.transition = "none";
-    nextSlotEl.style.transform = `translateX(${-step}px)`;
+    nextSlotEl.style.transform = "";
     nextSlotEl.style.opacity = "0";
     nextSlotEl.style.zIndex = "0";
+
+    prevSlotEl.style.transition = "none";
+    prevSlotEl.style.opacity = "0";
+    prevSlotEl.style.zIndex = "0";
 
     loadBox(targetIndex);
     void crateRowEl.offsetWidth;
@@ -516,15 +623,22 @@ function animateShiftToNext(targetIndex) {
     crateEl.style.transition = "";
 
     requestAnimationFrame(() => {
-      nextSlotEl.style.transition = t;
-      nextSlotEl.style.transform = "";
+      nextSlotEl.style.transition = "opacity 0.36s ease";
       nextSlotEl.style.opacity = "";
 
       setTimeout(() => {
         nextSlotEl.style.transition = "";
         nextSlotEl.style.zIndex = "";
         updateRowSpacing();
-        shifting = false;
+
+        prevSlotEl.style.transition = "opacity 0.36s ease";
+        prevSlotEl.style.opacity = "";
+
+        setTimeout(() => {
+          prevSlotEl.style.transition = "";
+          prevSlotEl.style.zIndex = "";
+          shifting = false;
+        }, SHIFT_ANIM_MS);
       }, SHIFT_ANIM_MS);
     });
   }, SHIFT_ANIM_MS);

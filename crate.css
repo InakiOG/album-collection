@@ -153,6 +153,13 @@ body {
 
 .crate-slot-side:hover .crate-box { filter: brightness(1.08); }
 
+/* a stand-in crate pinned exactly where a clicked crate used to sit, shown
+   while the real element is busy traveling to the middle */
+.crate-ghost {
+  z-index: 1;
+  pointer-events: none;
+}
+
 .crate-shelf {
   position: absolute;
   left: 50%;
