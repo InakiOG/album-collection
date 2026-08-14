@@ -88,7 +88,10 @@ body {
 .cd-pile {
   position: fixed;
   left: 16%;
-  bottom: calc(0.6rem + 28vh);
+  /* --table-edge (set in crate.js) tracks the table's front edge in the
+     background photo across any viewport, so this stays anchored to the
+     table surface instead of drifting into a float on some aspect ratios */
+  bottom: calc(var(--table-edge, 28vh) - 27px);
   width: 1px;
   height: 1px;
   /* .crate-row is also position:fixed, creating its own stacking context
@@ -132,7 +135,10 @@ body {
 .tape-recorder {
   position: fixed;
   right: 16%;
-  bottom: calc(0.6rem + 23vh);
+  /* see .cd-pile — same table-edge tracking, offset a bit further down
+     since the recorder's own art needs more clearance to read as sitting
+     on the table rather than the wall */
+  bottom: calc(var(--table-edge, 28vh) - 80px);
   width: 165px;
   cursor: pointer;
 }
@@ -271,6 +277,10 @@ body {
   border: none;
   background: none;
   cursor: pointer;
+  /* mobile browsers paint a translucent tap-highlight rectangle over the
+     whole button on touch, which reads as a stray box during the grow
+     animation since this element scales way up right after the tap */
+  -webkit-tap-highlight-color: transparent;
   /* the button's own box is bigger than the crate art actually drawn
      inside it (crate-track lets the image overflow) — without this, that
      empty margin still swallows clicks meant for whatever sits behind it,

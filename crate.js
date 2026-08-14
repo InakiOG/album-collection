@@ -27,6 +27,34 @@ const BOX_SIZE = 30;
 const RISE_MS = 340; // matches the .stack-card transform transition duration
 const HUE_STEP = 55; // degrees between each box's crate color, spread around the wheel
 
+// body's background.png (the wall+table photo) is sized with
+// background-size:cover and background-position:"center 75%" — where its
+// front table edge actually lands on screen shifts with the viewport's
+// aspect ratio, since "cover" crops a different slice of the (fixed 4:3)
+// photo depending on whether width or height is the binding dimension.
+// Reproduces that same cover/position math here so --table-edge always
+// lands exactly on the photo's table line, in px up from the viewport
+// bottom, no matter the device — fixed vh offsets drift off the line and
+// end up floating the CD pile/tape recorder above the table on some
+// aspect ratios.
+const TABLE_IMG_W = 6000;
+const TABLE_IMG_H = 4500;
+const TABLE_EDGE_FRAC = 0.7025; // measured: fraction down background.png where the table front edge sits
+const TABLE_POS_Y = 0.75; // must match body's `background-position: center 75%`
+
+function updateTableAnchor() {
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const scale = Math.max(vw / TABLE_IMG_W, vh / TABLE_IMG_H);
+  const edgeFromTop = TABLE_POS_Y * vh - (TABLE_POS_Y - TABLE_EDGE_FRAC) * TABLE_IMG_H * scale;
+  const edgeFromBottom = vh - edgeFromTop;
+  document.documentElement.style.setProperty("--table-edge", `${edgeFromBottom}px`);
+}
+
+updateTableAnchor();
+window.addEventListener("resize", updateTableAnchor);
+window.addEventListener("orientationchange", updateTableAnchor);
+
 function hueForBox(boxIndex) {
   return boxIndex === 0 ? 0 : (boxIndex * HUE_STEP) % 360; // box 0 keeps the original color
 }
@@ -857,6 +885,13 @@ function spawnGhostCrate(referenceEl, boxIndex) {
 function animateShiftToPrev(targetIndex) {
   if (shifting || !boxes.length || targetIndex === currentBoxIndex) return;
   shifting = true;
+  // the outgoing center crate's own albums shouldn't ride along as it
+  // slides off — clear them the instant the swap starts instead of letting
+  // them travel with the crate for the whole animation. (Fading the shelf
+  // via opacity instead of clearing it left a translucent rectangle on
+  // phone, since .crate-shelf sits in its own perspective/transform
+  // stacking context and doesn't composite a bare opacity change cleanly.)
+  crate.innerHTML = "";
 
   const step = slotStepPx();
   const t = "transform 0.36s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.36s ease";
@@ -972,6 +1007,13 @@ function animateShiftToPrev(targetIndex) {
 function animateShiftToNext(targetIndex) {
   if (shifting || !boxes.length || targetIndex === currentBoxIndex) return;
   shifting = true;
+  // the outgoing center crate's own albums shouldn't ride along as it
+  // slides off — clear them the instant the swap starts instead of letting
+  // them travel with the crate for the whole animation. (Fading the shelf
+  // via opacity instead of clearing it left a translucent rectangle on
+  // phone, since .crate-shelf sits in its own perspective/transform
+  // stacking context and doesn't composite a bare opacity change cleanly.)
+  crate.innerHTML = "";
 
   const step = slotStepPx();
   const t = "transform 0.36s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.36s ease";
@@ -1173,10 +1215,48 @@ window.addEventListener("mouseup", (e) => {
   }
 });
 
-// clicking the tape recorder on the table opens the music page
+// clicking the tape recorder plays it flying up into a big front-on view
+// (like walking up to it on the table) before handing off to the music page
+const TAPE_FLY_MS = 560;
+let tapeFlying = false;
+
 tapeEl.addEventListener("click", (e) => {
   e.stopPropagation();
-  window.location.href = "music.html";
+  if (tapeFlying) return;
+  tapeFlying = true;
+
+  const rect = tapeEl.getBoundingClientRect();
+  const clone = tapeEl.cloneNode(true);
+  clone.removeAttribute("id");
+  clone.style.position = "fixed";
+  clone.style.left = `${rect.left}px`;
+  clone.style.top = `${rect.top}px`;
+  clone.style.width = `${rect.width}px`;
+  clone.style.height = `${rect.height}px`;
+  clone.style.margin = "0";
+  clone.style.zIndex = "1500";
+  clone.style.cursor = "default";
+  clone.style.transition = `transform ${TAPE_FLY_MS}ms cubic-bezier(0.2, 0.8, 0.2, 1)`;
+  document.body.appendChild(clone);
+  // hide the resting recorder immediately so it doesn't show through/behind
+  // the clone while the clone travels
+  tapeEl.style.visibility = "hidden";
+
+  // grow it toward the viewer until its front panel fills most of the
+  // screen, centered, same "clone at current rect, then transform" approach
+  // the crate-switch animation uses
+  const targetScale =
+    Math.min(window.innerWidth / rect.width, window.innerHeight / rect.height) * 0.85;
+  const dx = window.innerWidth / 2 - (rect.left + rect.width / 2);
+  const dy = window.innerHeight / 2 - (rect.top + rect.height / 2);
+
+  requestAnimationFrame(() => {
+    clone.style.transform = `translate(${dx}px, ${dy}px) scale(${targetScale})`;
+  });
+
+  setTimeout(() => {
+    window.location.href = "music.html";
+  }, TAPE_FLY_MS);
 });
 
 document.addEventListener("click", (e) => {
