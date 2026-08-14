@@ -235,6 +235,18 @@ function buildCdBrowserCard(r) {
   const genres = document.createElement("p");
   genres.textContent = [...r.genres, ...r.styles].join(", ");
   info.appendChild(genres);
+
+  const preview = document.createElement("p");
+  preview.className = "card-preview-status cd-preview-status";
+  preview.textContent = "";
+  preview.addEventListener("click", (e) => {
+    e.stopPropagation();
+    // manual retry — covers the browser refusing the initial autoplay
+    if (!previewPlaylist.length) return;
+    previewAudio.play().then(() => setPreviewStatus("♪ Playing preview…")).catch(() => {});
+  });
+  info.appendChild(preview);
+
   const link = document.createElement("a");
   link.href = releaseUrl(r);
   link.target = "_blank";
@@ -263,6 +275,7 @@ function openCdBrowser() {
   cdCardEls.forEach((el, i) => styleCdCard(el, i));
   void cdBrowserStackEl.offsetWidth; // flush the snap
   cdCardEls.forEach((el) => (el.style.transition = ""));
+  syncPreviewToSelection();
 
   const topDisc = cdPileEl.querySelector(".cd-disc-wrap:last-child");
   const startRect = (topDisc || cdPileEl).getBoundingClientRect();
@@ -292,6 +305,7 @@ function openCdBrowser() {
 function closeCdBrowser() {
   if (!cdBrowsing) return;
   cdBrowsing = false;
+  syncPreviewToSelection(); // falls back to whatever's selected in the crate, if anything
 
   const topDisc = cdPileEl.querySelector(".cd-disc-wrap:last-child");
   const endRect = (topDisc || cdPileEl).getBoundingClientRect();
@@ -334,6 +348,7 @@ function shiftCdBrowser(dir) {
     const info = departing.querySelector(".cd-browser-info");
     if (info) info.classList.remove("info-open");
     cdOrder.push(cdOrder.shift());
+    syncPreviewToSelection();
     const newFront = cdCardEls[0];
 
     // beat 1: straight up, above everything
@@ -374,6 +389,7 @@ function shiftCdBrowser(dir) {
   } else {
     const incoming = cdCardEls.pop();
     cdOrder.unshift(cdOrder.pop());
+    syncPreviewToSelection();
 
     // beat 1 (reverse of beat 3): rise up out of its resting spot at the
     // back, growing and lifting clear above the rest of the deck
@@ -559,6 +575,142 @@ function cardSizePx() {
   return crate.getBoundingClientRect().width || 220;
 }
 
+// 30s song previews, sourced from the iTunes Search API (no key needed, CORS-
+// open) since Discogs data has no track-level audio. Plays for as long as an
+// album is selected — peeking or expanded — cycling through that album's
+// tracks back-to-back so something is always playing. Keyed by release id so
+// re-selecting an already-looked-up album doesn't refetch.
+const previewAudio = new Audio();
+previewAudio.preload = "none";
+const previewCache = new Map(); // release.id -> previewUrl[] (empty array = no matches found)
+let previewToken = 0; // bumped on every stop/start so a slow, now-stale fetch can't act after the fact
+let previewSelectionId = null; // release.id the playlist below belongs to
+let previewPlaylist = [];
+let previewTrackIdx = 0;
+let previewStatusText = ""; // mirrored into the currently-visible Info paper's status line
+
+// whichever Info paper is currently showing the selected album — the CD
+// browser's front case takes priority since it visually covers the crate
+// while it's open
+function currentPreviewStatusEl() {
+  if (cdBrowsing) {
+    const front = cdCardEls[0];
+    return front && front.querySelector(".cd-preview-status");
+  }
+  const el = mounted.get(currentIndex);
+  return el && el.querySelector(".card-preview-status");
+}
+
+function renderPreviewStatus() {
+  const statusEl = currentPreviewStatusEl();
+  if (statusEl) statusEl.textContent = previewStatusText;
+}
+
+function setPreviewStatus(text) {
+  previewStatusText = text;
+  renderPreviewStatus();
+}
+
+async function fetchPreviewPlaylist(r) {
+  if (previewCache.has(r.id)) return previewCache.get(r.id);
+  const term = `${r.artists[0] || ""} ${r.title}`.trim();
+  const url = `https://itunes.apple.com/search?term=${encodeURIComponent(term)}&entity=song&limit=25`;
+  let playlist = [];
+  try {
+    const res = await fetch(url);
+    if (res.ok) {
+      const data = await res.json();
+      const artistLower = (r.artists[0] || "").toLowerCase();
+      const titleLower = r.title.toLowerCase();
+      const sameAlbum = data.results.filter(
+        (t) => t.previewUrl && t.collectionName?.toLowerCase() === titleLower && t.artistName?.toLowerCase().includes(artistLower)
+      );
+      // fall back to any preview by that artist if we can't line up the exact album (reissues/compilations rename titles a lot)
+      const pool = sameAlbum.length
+        ? sameAlbum
+        : data.results.filter((t) => t.previewUrl && t.artistName?.toLowerCase().includes(artistLower));
+      const seen = new Set();
+      for (const t of pool) {
+        if (!seen.has(t.previewUrl)) {
+          seen.add(t.previewUrl);
+          playlist.push(t.previewUrl);
+        }
+      }
+    }
+  } catch {
+    playlist = [];
+  }
+  previewCache.set(r.id, playlist);
+  return playlist;
+}
+
+function stopPreview() {
+  previewToken++;
+  previewSelectionId = null;
+  previewPlaylist = [];
+  previewTrackIdx = 0;
+  previewAudio.pause();
+  previewAudio.removeAttribute("src");
+  setPreviewStatus("");
+}
+
+function playPreviewTrack() {
+  if (!previewPlaylist.length) return;
+  previewAudio.src = previewPlaylist[previewTrackIdx];
+  previewAudio.currentTime = 0;
+  previewAudio
+    .play()
+    .then(() => setPreviewStatus("♪ Playing preview…"))
+    .catch(() => setPreviewStatus("Tap ♪ to play preview"));
+}
+
+// advances to the next track the instant one preview clip ends, so there's
+// always something playing while the album stays selected
+previewAudio.addEventListener("ended", () => {
+  if (!previewPlaylist.length) return;
+  previewTrackIdx = (previewTrackIdx + 1) % previewPlaylist.length;
+  playPreviewTrack();
+});
+
+async function startPreviewFor(r) {
+  if (previewSelectionId === r.id) return; // already the selected album — playlist keeps cycling as-is
+  const token = ++previewToken;
+  previewSelectionId = r.id;
+  previewPlaylist = [];
+  previewTrackIdx = 0;
+  previewAudio.pause();
+  previewAudio.removeAttribute("src");
+  setPreviewStatus("♪ Loading preview…");
+  const playlist = await fetchPreviewPlaylist(r);
+  if (token !== previewToken || previewSelectionId !== r.id) return; // selection moved on while we were fetching
+  previewPlaylist = playlist;
+  previewTrackIdx = 0;
+  if (!playlist.length) {
+    setPreviewStatus("No preview available");
+    return;
+  }
+  playPreviewTrack();
+}
+
+// keeps the preview in sync with whatever album is currently selected
+// (peeking or fully expanded) — call after any change to currentIndex/hasInteracted
+// keeps the preview in sync with whatever's currently selected — the CD
+// browser's front-most case if that's open, otherwise the crate's
+// peeking/expanded album, otherwise nothing (and the music stops)
+function syncPreviewToSelection() {
+  let r = null;
+  if (cdBrowsing && cdOrder.length) {
+    r = cdOrder[0];
+  } else if (hasInteracted) {
+    r = activeBoxReleases[currentIndex];
+  }
+  if (!r) {
+    stopPreview();
+    return;
+  }
+  startPreviewFor(r);
+}
+
 function fillInfo(infoEl, r) {
   const year = r.pressingYear ? `${r.year} (${r.pressingYear} pressing)` : r.year;
   infoEl.innerHTML = "";
@@ -584,6 +736,16 @@ function fillInfo(infoEl, r) {
   const genres = document.createElement("p");
   genres.textContent = [...r.genres, ...r.styles].join(", ");
   infoEl.appendChild(genres);
+
+  const preview = document.createElement("p");
+  preview.className = "card-preview-status";
+  preview.textContent = "";
+  preview.addEventListener("click", () => {
+    // manual retry — covers the browser refusing the initial autoplay
+    if (!previewPlaylist.length) return;
+    previewAudio.play().then(() => setPreviewStatus("♪ Playing preview…")).catch(() => {});
+  });
+  infoEl.appendChild(preview);
 
   const link = document.createElement("a");
   link.href = releaseUrl(r);
@@ -725,6 +887,7 @@ function createCard(idx, r, tabInfoOverride) {
       currentIndex = idx;
       hasInteracted = true;
       updatePositions();
+      syncPreviewToSelection();
     }
   });
 
@@ -744,6 +907,7 @@ function expandCard(idx) {
   expandedIdx = idx;
   el.classList.remove("info-open"); // each album opens with the cover centered, info tucked to a tab
   fillInfo(el.querySelector(".card-info"), activeBoxReleases[idx]);
+  renderPreviewStatus(); // preview is already playing from when this album was peeked — just reflect its status
 
   // step 1: rise straight up, still in its place in the stack
   el.style.transform = riseTransform(idx);
@@ -774,6 +938,7 @@ function collapseExpanded() {
   const idx = expandedIdx;
   expandedIdx = null;
   expandBackdropEl.classList.remove("active");
+  // preview keeps playing — the album is still selected/peeking, just not expanded
   if (!el) return;
 
   // step 1 (reverse): drop out of the expanded card back to the risen,
@@ -807,6 +972,7 @@ function goTo(index) {
     // the very first gesture (either direction) only raises album 0 —
     // otherwise it jumps straight to index 1 and album 0 is never seen raised
     updatePositions();
+    syncPreviewToSelection();
     return;
   }
   const max = activeBoxReleases.length - 1;
@@ -815,6 +981,7 @@ function goTo(index) {
   currentIndex = clamped;
   collapseExpanded();
   updatePositions();
+  syncPreviewToSelection();
 }
 
 // mounting all 30 cards' images at once is enough DOM/decode work to cause
@@ -888,6 +1055,7 @@ function resetStack() {
   currentIndex = 0;
   expandedIdx = null;
   hasInteracted = false;
+  stopPreview();
   mountAll();
 }
 
@@ -995,6 +1163,7 @@ function collapseSelectionThen(fn) {
   if (hasInteracted) {
     deselecting = true;
     hasInteracted = false;
+    stopPreview();
     updatePositions();
     setTimeout(() => {
       deselecting = false;
@@ -1480,6 +1649,7 @@ document.addEventListener("click", (e) => {
   // anywhere outside the stack lowers it back down
   if (hasInteracted && !crateTrack.contains(e.target)) {
     hasInteracted = false;
+    stopPreview();
     updatePositions();
   }
 });
