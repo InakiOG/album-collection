@@ -735,6 +735,18 @@ body {
 
 .card-info a:hover { opacity: 0.75; }
 
+/* a personal note — just another paragraph inside the same Info paper
+   (.card-info p above already handles its open/close fade), set apart with
+   a divider and italics so it doesn't read as ordinary metadata. Qualified
+   with the .card-info ancestor so this outranks the plain .card-info p
+   margin rule above without needing !important */
+.card-info .card-note {
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(43, 38, 32, 0.15);
+  font-style: italic;
+}
+
 .record-fallback {
   width: 100%;
   height: 100%;

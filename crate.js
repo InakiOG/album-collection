@@ -73,6 +73,56 @@ function releaseUrl(r) {
   return `https://www.discogs.com/release/${r.id}`;
 }
 
+// per-record personal notes, shown inside the Info paper (see fillInfo)
+const RECORD_NOTES = {
+  30712517: "hello world", // Social Cues — Cage The Elephant
+
+  28644541: "Este álbum es de los favoritos de Alex y Sam", // Ultraviolence — Lana Del Rey
+  29588590: "De los favs de Alex", // Mezzanine — Massive Attack
+
+  // Duster
+  28426747: "Siempre que lo escucho me acuerdo de ti", // Stratosphere
+  13803601: "Siempre que lo escucho me acuerdo de ti", // Contemporary Movement
+
+  30832662: "El álbum de Mar", // Submarine — The Marías
+  32301257: "Rita me lo enseñó :)", // Alvvays
+  36698716: "Para Alex", // Peek! — Unperro Andaluz
+  35667808: "La primera canción que me aprendí en batería en la banda con Diego y Sam fue say aint so", // Blue Album — Weezer
+  26806592: "Este álbum siempre va a ser de nosotros", // In Rainbows — Radiohead
+  7097051: "Te extraño Nelly", // Nevermind — Nirvana
+  10658192: "De los favoritos de mi papá", // Hopes And Fears — Keane
+  22727822: "Me lo regaló mi papá :)", // Pablo Honey — Radiohead
+  13839494: "Marcó mi adolescencia", // Crystal Castles
+
+  // Parachutes (Coldplay) y Currents (Tame Impala)
+  31728419: "Me lo regalaron Pé y Arce :)",
+  7252111: "Me lo regalaron Pé y Arce :)",
+
+  // Abbey Road y Let It Be — The Beatles
+  30834342: "Me los regaló Abi",
+  11092658: "Me los regaló Abi",
+
+  9063908: "Me lo regaló mi abuelo :)", // Meddle — Pink Floyd
+  25676449: "Mi primer álbum en vinilo", // The Dark Side Of The Moon — Pink Floyd
+  32292255: "Me lo regaló Dani por mi cumpleaños", // Igor — Tyler, The Creator
+  22786961: "Me lo regaló Dani :)", // Call Me If You Get Lost — Tyler, The Creator
+  26724584: "Me lo regaló Dani por navidad!", // Random Access Memories (RAM) — Daft Punk
+  27361662: "Me lo regaló Dani!!", // Ponyo — Joe Hisaishi
+  5777037: "Me lo compró Dani en un bazar", // Los 3 Grandes — Various
+
+  // Greatest Hits (Elton John) y Fun And Games (Chuck Mangione)
+  5918431: "Me lo regaló el papá de Dani",
+  13447300: "Me lo regaló el papá de Dani",
+
+  29277010: "Me lo regalaron Pe y Arce", // Discovery — Daft Punk
+  14662264: "Se lo cambié a Marieli por un tocadiscos viejo", // Point Of Know Return — Kansas
+  10036282: "Me lo regaló Dani :)", // Eye In The Sky — The Alan Parsons Project
+};
+
+function noteFor(r) {
+  return RECORD_NOTES[r.id] || null;
+}
+
 // stacks CD cases directly on top of one another, flat and square, each one
 // offset just enough to peek out from under the case above it. Clicking
 // anywhere on the resting pile opens the full-screen browser (see below)
@@ -541,6 +591,19 @@ function fillInfo(infoEl, r) {
   link.rel = "noopener";
   link.textContent = "View on Discogs →";
   infoEl.appendChild(link);
+
+  // a personal note — only present on records that have one (see
+  // RECORD_NOTES) — shown inside this same Info paper, not a separate tab
+  const noteText = noteFor(r);
+  if (noteText) {
+    const note = document.createElement("p");
+    note.className = "card-note";
+    const label = document.createElement("strong");
+    label.textContent = "Notas: ";
+    note.appendChild(label);
+    note.appendChild(document.createTextNode(noteText));
+    infoEl.appendChild(note);
+  }
 }
 
 function styleCard(el, idx) {
@@ -646,8 +709,12 @@ function createCard(idx, r, tabInfoOverride) {
       return;
     }
     collapseExpanded();
-    if (idx === currentIndex) {
-      // clicking the album that's already peeking opens the full view
+    if (idx === currentIndex && hasInteracted) {
+      // clicking the album that's already peeking opens the full view —
+      // gated on hasInteracted too, since idx 0 is also currentIndex's
+      // default value before anything's been peeked yet; without this, the
+      // very first click on album 0 would skip straight to the full view
+      // instead of just raising it like every other album's first click does
       expandCard(idx);
     } else {
       // clicking any other album just peeks it — set state directly
