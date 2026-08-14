@@ -43,6 +43,9 @@ let currentIndex = 0;
 let expandedIdx = null;
 let hasInteracted = false; // no album rises until the user scrolls/swipes/navigates
 const mounted = new Map(); // absolute index -> element
+// absolute index -> { letter, i, total, isYear } divider-tab info for the
+// month/letter group that starts there (isYear: label is a year, not a month)
+let letterBreaksByIdx = new Map();
 
 function releaseUrl(r) {
   return `https://www.discogs.com/release/${r.id}`;
@@ -254,6 +257,72 @@ function sortRecent(releases) {
   });
 }
 
+// the letter this release files under, for the alphabetical-sort divider tabs
+function letterFor(r) {
+  const ch = (sortKey(r).match(/[a-z0-9]/) || ["#"])[0];
+  return ch.toUpperCase();
+}
+
+// the month this release was added, for the recent-sort divider tabs
+function monthFor(r) {
+  const d = new Date(r.dateAdded || 0);
+  const abbr = d.toLocaleString("es-ES", { month: "short" }).replace(".", "");
+  return abbr.charAt(0).toUpperCase() + abbr.slice(1);
+}
+
+// the year this release was added, for the recent-sort divider tabs
+function yearFor(r) {
+  return String(new Date(r.dateAdded || 0).getFullYear());
+}
+
+// whichever divider label applies to the current sort mode — recent mode
+// shows the month, except on a January break, where the year replaces it
+function tabLabelFor(r) {
+  if (sortMode === "alphabetical") return letterFor(r);
+  const month = monthFor(r);
+  return month === "Ene" ? yearFor(r) : month;
+}
+
+// the key that decides whether this release starts a new divider group —
+// letter mode groups by letter alone; recent mode groups by month AND year,
+// so two Januaries a year apart don't collapse into a single, misleading tab
+function tabGroupKeyFor(r) {
+  return sortMode === "alphabetical" ? letterFor(r) : `${monthFor(r)}|${yearFor(r)}`;
+}
+
+// one entry per spot in the box where the divider group changes — each
+// becomes a small tab poking out just ahead of that album, showing the
+// month/letter (or the year, on a January break — see tabLabelFor).
+// seedRelease is the previous box's last album, so a box that opens
+// mid-group doesn't repeat a tab its predecessor just showed.
+function computeLabelBreaks(releases, seedRelease = null) {
+  const breaks = [];
+  let prevKey = seedRelease ? tabGroupKeyFor(seedRelease) : null;
+  releases.forEach((r, idx) => {
+    const key = tabGroupKeyFor(r);
+    if (key !== prevKey) {
+      breaks.push({ idx, label: tabLabelFor(r), isYear: sortMode !== "alphabetical" && monthFor(r) === "Ene" });
+      prevKey = key;
+    }
+  });
+  return breaks;
+}
+
+// a box's breaks, seeded with whatever the previous box left off on
+function computeBoxLabelBreaks(boxIndex) {
+  const releases = boxes[boxIndex] || [];
+  const prevBox = boxes[boxIndex - 1];
+  const seedRelease = prevBox && prevBox.length ? prevBox[prevBox.length - 1] : null;
+  return computeLabelBreaks(releases, seedRelease);
+}
+
+// turns a flat breaks list into the lookup map createCard reads
+function buildTabMap(breaks) {
+  return new Map(
+    breaks.map(({ idx, label, isYear }, i) => [idx, { letter: label, i, total: breaks.length, isYear }])
+  );
+}
+
 function buildFallbackArt(r) {
   const div = document.createElement("div");
   div.className = "record-fallback";
@@ -324,7 +393,33 @@ function styleCard(el, idx) {
   el.classList.toggle("front", isActive);
 }
 
-function createCard(idx, r) {
+// the divider info this card should show a tab for, or null — looked up from
+// the active box's precomputed breaks (see mountAll). idx 0 is only a break
+// when its own label actually differs from the previous box's last album.
+function letterTabFor(idx) {
+  return letterBreaksByIdx.get(idx) || null;
+}
+
+// spreads each divider tab across its own left/right slot, left to right in
+// filing order, so tabs never land in the same horizontal spot and overlap
+function letterTabLeftPercent(i, total) {
+  const MIN = 4;
+  const MAX = 90;
+  if (total <= 1) return MIN;
+  return MIN + ((MAX - MIN) * i) / (total - 1);
+}
+
+// narrows the tabs as more of them have to share the same row, so a box
+// with many letter breaks doesn't overlap its own dividers
+function letterTabWidthPercent(total) {
+  return Math.max(4, Math.min(10, 80 / Math.max(total, 1)));
+}
+
+// tabInfoOverride lets mountTravelingCard supply idx 0's tab info ahead of
+// time, computed against the target box it's traveling into — that box
+// isn't the active one yet, so the normal letterBreaksByIdx lookup (built
+// for whatever box is currently active) doesn't apply to it
+function createCard(idx, r, tabInfoOverride) {
   const card = document.createElement("div");
   card.className = "stack-card";
   card.dataset.idx = String(idx);
@@ -341,6 +436,17 @@ function createCard(idx, r) {
     card.appendChild(img);
   } else {
     card.appendChild(buildFallbackArt(r));
+  }
+
+  const tabInfo = tabInfoOverride !== undefined ? tabInfoOverride : letterTabFor(idx);
+  if (tabInfo) {
+    const tab = document.createElement("span");
+    tab.className = tabInfo.isYear ? "letter-tab year-tab" : "letter-tab";
+    tab.textContent = tabInfo.letter;
+    tab.setAttribute("aria-hidden", "true");
+    tab.style.left = `${letterTabLeftPercent(tabInfo.i, tabInfo.total)}%`;
+    tab.style.width = `${letterTabWidthPercent(tabInfo.total)}%`;
+    card.appendChild(tab);
   }
 
   const info = document.createElement("div");
@@ -489,6 +595,9 @@ function mountAll() {
   crate.innerHTML = "";
   crate.classList.remove("ready");
   mounted.clear();
+  // computed before any card is created — createCard reads this per idx to
+  // decide whether that card carries a divider tab
+  letterBreaksByIdx = buildTabMap(computeBoxLabelBreaks(currentBoxIndex));
 
   const frag = document.createDocumentFragment();
   activeBoxReleases.slice(0, FIRST_MOUNT_BATCH).forEach((r, idx) => mountCard(idx, r, frag));
@@ -659,7 +768,8 @@ function mountTravelingCard(slotEl, targetIndex) {
   const sideShelf = slotEl.querySelector(".crate-shelf");
   const firstRelease = (boxes[targetIndex] || [])[0];
   if (!sideShelf || !firstRelease) return;
-  const card = createCard(0, firstRelease);
+  const tabInfo = buildTabMap(computeBoxLabelBreaks(targetIndex)).get(0) || null;
+  const card = createCard(0, firstRelease, tabInfo);
   card.style.transform = collapsedTransform();
   card.style.zIndex = "490";
   card.style.opacity = "1";

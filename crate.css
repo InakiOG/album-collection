@@ -282,7 +282,10 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 6px;
-  overflow: hidden;
+  /* visible, not hidden — the letter-divider tab (a child of this card) pokes
+     up above the top edge and needs to actually show there. The cover art's
+     own rounded corners now live on the <img> itself, below */
+  overflow: visible;
   cursor: pointer;
   background: var(--card);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
@@ -297,10 +300,48 @@ body {
     left 0.34s ease, width 0.34s ease, height 0.34s ease, border-radius 0.34s ease, box-shadow 0.34s ease;
 }
 
+/* alphabetical-sort divider tab — a small paper-label rectangle poking out
+   above the first album under each letter, like a record-store crate
+   divider card. It's a plain child of that .stack-card, not a separately
+   positioned element — riding the exact same transform (and therefore the
+   same depth ordering against every other card) as the album it marks,
+   with no transform/z-index math of its own to keep in sync. */
+.letter-tab {
+  position: absolute;
+  /* left and width are set inline per tab (see letterTabLeftPercent /
+     letterTabWidthPercent in crate.js) — spread left to right in filing
+     order across the box so no two tabs land in the same horizontal spot */
+  top: -12%;
+  height: 12%;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(165deg, #fdfdfa, #e6e2d6);
+  color: #2a2a2a;
+  font-weight: 700;
+  font-size: clamp(0.6rem, 1.8vw, 0.82rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* the year tab (recent sort, January breaks only) — replaces the month text
+   with the year, in the same slot, just colored differently to stand out */
+.year-tab {
+  background: linear-gradient(165deg, #f3d98c, #c9a13d);
+  color: #2b2005;
+}
+
 .stack-card img {
   display: block;
   width: 100%;
   height: 100%;
+  border-radius: 6px;
   object-fit: cover;
   pointer-events: none;
   user-select: none;
