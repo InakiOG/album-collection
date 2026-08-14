@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-12T07:50:09.689Z",
+  "updatedAt": "2026-08-14T07:50:01.943Z",
   "releases": [
     {
       "id": 31419368,
@@ -688,6 +688,29 @@
       "cover": "https://i.discogs.com/507xSZRyvQ3hUJLyeCUsf4zaAYjapDClvqhdUTuf58o/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc4NTY0/ODYtMTQ1MDI3MDM3/NS0xNTY0LmpwZWc.jpeg",
       "dateAdded": "2026-04-26T18:18:25-07:00",
       "year": 2015
+    },
+    {
+      "id": 30712517,
+      "masterId": 1534634,
+      "title": "Social Cues",
+      "pressingYear": 0,
+      "artists": [
+        "Cage The Elephant"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "RCA",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Indie Rock",
+        "Post-Punk"
+      ],
+      "cover": "https://i.discogs.com/QTI_XLrahrDXOE6POlU2_J2eZL5pDs5eevre0mnmWaE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNzEy/NTE3LTE3MTYwNDIz/ODUtNDk5Ny5qcGVn.jpeg",
+      "dateAdded": "2026-08-13T18:58:35-07:00",
+      "year": 2019
     },
     {
       "id": 13447300,
