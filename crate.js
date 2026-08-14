@@ -762,6 +762,21 @@ function growScaleFor(sideEl) {
   return sideSize ? crateSize / sideSize : 1;
 }
 
+// .crate-slot-side .crate-front normally clips off its own blank top ~58%
+// so that dead space can't swallow clicks meant for the CD pile behind it.
+// That clip sits right at the crate's actual top rim, though — fine at rest,
+// but once this element scales way up to become the new main crate, the
+// same sliver turns into a visible gap at the rim, and the traveling album
+// card (which pokes slightly above its own resting spot) shows through the
+// now-missing paint instead of staying hidden behind the front wall. Lift
+// the clip for the duration of the grow animation and restore it once the
+// element settles back into being an ordinary resting side crate.
+function setGrowingClip(slotEl, growing) {
+  const front = slotEl.querySelector(".crate-front");
+  if (!front) return;
+  front.style.clipPath = growing ? "inset(0 17% 0 15%)" : "";
+}
+
 // mounts the target box's first album riding inside the given slot, ready
 // to travel with it as it slides to the middle
 function mountTravelingCard(slotEl, targetIndex) {
@@ -831,6 +846,7 @@ function animateShiftToPrev(targetIndex) {
   prevSlotEl.style.zIndex = "20";
   prevSlotEl.style.transition = t;
   prevSlotEl.style.transform = `scale(${growScaleFor(prevSlotEl)})`;
+  setGrowingClip(prevSlotEl, true);
 
   crateEl.style.transition = t;
   if (isPortrait) {
@@ -863,6 +879,7 @@ function animateShiftToPrev(targetIndex) {
       prevSlotEl.style.transition = "none";
       prevSlotEl.style.transform = "";
       prevSlotEl.style.zIndex = "";
+      setGrowingClip(prevSlotEl, false);
       if (ghost) ghost.remove();
       loadBox(targetIndex);
       void crateRowEl.offsetWidth; // flush the snap before re-enabling transitions
@@ -881,6 +898,7 @@ function animateShiftToPrev(targetIndex) {
     prevSlotEl.style.transform = "";
     prevSlotEl.style.opacity = "0";
     prevSlotEl.style.zIndex = "0";
+    setGrowingClip(prevSlotEl, false);
 
     nextSlotEl.style.transition = "none";
     nextSlotEl.style.opacity = "0";
@@ -939,6 +957,7 @@ function animateShiftToNext(targetIndex) {
   nextSlotEl.style.zIndex = "20";
   nextSlotEl.style.transition = t;
   nextSlotEl.style.transform = `scale(${growScaleFor(nextSlotEl)})`;
+  setGrowingClip(nextSlotEl, true);
 
   crateEl.style.transition = t;
   if (isPortrait) {
@@ -961,6 +980,7 @@ function animateShiftToNext(targetIndex) {
       nextSlotEl.style.transition = "none";
       nextSlotEl.style.transform = "";
       nextSlotEl.style.zIndex = "";
+      setGrowingClip(nextSlotEl, false);
       if (ghost) ghost.remove();
       loadBox(targetIndex);
       void crateRowEl.offsetWidth; // flush the snap before re-enabling transitions
@@ -976,6 +996,7 @@ function animateShiftToNext(targetIndex) {
     nextSlotEl.style.transform = "";
     nextSlotEl.style.opacity = "0";
     nextSlotEl.style.zIndex = "0";
+    setGrowingClip(nextSlotEl, false);
 
     prevSlotEl.style.transition = "none";
     prevSlotEl.style.opacity = "0";
