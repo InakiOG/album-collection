@@ -26,11 +26,12 @@
   </div>
 
   <a href="grid.html" class="nav-button grid-button">Grid view</a>
-  <a href="music.html" class="nav-button music-button" style="left: 6.5rem;">Music</a>
 
   <button id="sort-toggle" class="sort-toggle" type="button">Recent</button>
 
   <div id="cd-pile" class="cd-pile" aria-hidden="true"></div>
+
+  <img id="tape-recorder" class="tape-recorder" src="assets/tape recorder.png" alt="" aria-hidden="true">
 
   <div id="crate-row" class="crate-row">
     <button id="crate-slot-prev" class="crate-slot-side crate" type="button" aria-label="Previous crate">
@@ -42,6 +43,7 @@
     </button>
 
     <div id="crate" class="crate">
+      <div id="expand-backdrop" class="expand-backdrop" aria-hidden="true"></div>
       <div id="crate-track" class="crate-track">
         <img class="crate-box crate-back" src="assets/crate.png" alt="" aria-hidden="true">
         <div id="crate-shelf" class="crate-shelf"></div>

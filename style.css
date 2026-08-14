@@ -171,7 +171,7 @@ body {
   box-shadow: none;
   overflow: visible;
   max-width: 720px;
-  width: min(600px, 88vw);
+  width: min(680px, 88vw);
   animation: pop 0.18s ease;
 }
 
@@ -197,10 +197,10 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 6px;
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(0, 0, 0, 0.08);
-  /* centered on screen by default (12.5% of its own width makes up the
-     20% gap left for the paper); .info-open shifts it back to the left
-     edge to make room once the paper actually opens */
-  transform: translateX(12.5%);
+  /* sits in the same spot whether or not the info paper is open — no
+     shift on open/close, since .overlay-card.info-open .jewel-case below
+     uses this same translateX(0) */
+  transform: translateX(0);
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -242,7 +242,7 @@ body {
 
 .jewel-case img {
   display: block;
-  width: min(480px, 64vw);
+  width: min(560px, 74vw);
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 2px;
@@ -346,10 +346,10 @@ body {
 
 @media (max-width: 560px) {
   .overlay-card { width: min(360px, 92vw); }
-  .jewel-case { transform: none; padding-left: 39px; }
+  .jewel-case { transform: translateX(0); padding-left: 39px; }
   .jewel-case::before { width: 31px; }
   .jewel-case::after { left: 39px; }
-  .jewel-case img { width: min(220px, 58vw); }
+  .jewel-case img { width: min(264px, 70vw); }
   /* on phones the paper sits centered on top of the cover (not tucked
      behind it) and peeks down from the top edge instead of in from the
      side — same treatment as the vinyl crate's expanded view */
@@ -363,10 +363,14 @@ body {
     text-align: center;
     box-shadow: none;
     transform-origin: center top;
+    /* no little peeking tab on phone at all — tapping the cover itself
+       (see crate.js) reveals the info instead */
+    display: none;
   }
   .overlay-info.info-open {
+    display: block;
     left: 50%;
-    width: 88%;
+    width: 70%;
     padding: 1rem 1rem 1.3rem;
   }
   .overlay-info h2 { font-size: 1.05rem; }

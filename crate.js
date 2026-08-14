@@ -8,6 +8,8 @@ const sortToggle = document.getElementById("sort-toggle");
 const crateBoxImgs = crateTrack.querySelectorAll(".crate-box");
 
 const cdPileEl = document.getElementById("cd-pile");
+const tapeEl = document.getElementById("tape-recorder");
+const expandBackdropEl = document.getElementById("expand-backdrop");
 const overlayEl = document.getElementById("overlay");
 const overlayImgEl = document.getElementById("overlay-img");
 const overlayCaseEl = overlayEl.querySelector(".jewel-case");
@@ -203,6 +205,17 @@ overlayEl.querySelector(".overlay-info").addEventListener("click", (e) => {
   if (e.target.tagName === "A") return; // let the Discogs link work normally
   e.currentTarget.classList.add("info-open");
   overlayEl.querySelector(".overlay-card").classList.add("info-open"); // shifts the cover left to make room
+});
+
+// on phone there's no little peeking info tab to tap — tapping the CD case
+// itself reveals the info instead
+overlayCaseEl.addEventListener("click", (e) => {
+  if (!window.matchMedia("(max-width: 560px)").matches) return;
+  e.stopPropagation();
+  const info = overlayEl.querySelector(".overlay-info");
+  if (info.classList.contains("info-open")) return;
+  info.classList.add("info-open");
+  overlayEl.querySelector(".overlay-card").classList.add("info-open");
 });
 
 // stacks CD cases directly on top of one another, flat and square, each one
@@ -461,7 +474,15 @@ function createCard(idx, r, tabInfoOverride) {
 
   card.addEventListener("click", (e) => {
     e.stopPropagation();
-    if (expandedIdx === idx) return;
+    if (expandedIdx === idx) {
+      // on phone there's no little peeking info tab to tap — tapping the
+      // cover itself while it's already expanded reveals the info instead
+      if (window.matchMedia("(max-width: 480px)").matches && !info.classList.contains("info-open")) {
+        info.classList.add("info-open");
+        card.classList.add("info-open");
+      }
+      return;
+    }
     collapseExpanded();
     if (idx === currentIndex) {
       // clicking the album that's already peeking opens the full view
@@ -503,9 +524,18 @@ function expandCard(idx) {
     // step 2: jump to the front, centered, on top of everything else.
     // crate-shelf has its own stacking context (perspective/transform), so
     // an inline z-index here can't outrank the crate-front image sibling —
-    // lift the card out to the top level while it's open
+    // lift the card out to the top level while it's open. #crate-row is
+    // itself position:fixed with a transform, which is *also* the
+    // containing block position:fixed descendants resolve against — moving
+    // the card any further out (e.g. straight to <body>) would escape that
+    // and throw off its tuned top/left values, so it only moves as far as
+    // #crate. #expand-backdrop lives inside #crate too (see index.html) for
+    // exactly the same reason: its z-index only needs to outrank this
+    // card's un-expanded siblings (crate-track, at effectively z:0) within
+    // that same local context, not compete globally.
     crateEl.appendChild(el);
     el.classList.add("expanded");
+    expandBackdropEl.classList.add("active");
   }, RISE_MS);
 }
 
@@ -514,6 +544,7 @@ function collapseExpanded() {
   const el = mounted.get(expandedIdx);
   const idx = expandedIdx;
   expandedIdx = null;
+  expandBackdropEl.classList.remove("active");
   if (!el) return;
 
   // step 1 (reverse): drop out of the expanded card back to the risen,
@@ -528,6 +559,11 @@ function collapseExpanded() {
     styleCard(el, idx);
   }, RISE_MS);
 }
+
+expandBackdropEl.addEventListener("click", (e) => {
+  e.stopPropagation();
+  collapseExpanded();
+});
 
 function updatePositions() {
   for (const [idx, el] of mounted.entries()) {
@@ -1135,6 +1171,12 @@ window.addEventListener("mouseup", (e) => {
   if (Math.abs(dx) >= SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy)) {
     shiftFromSwipe(dx);
   }
+});
+
+// clicking the tape recorder on the table opens the music page
+tapeEl.addEventListener("click", (e) => {
+  e.stopPropagation();
+  window.location.href = "music.html";
 });
 
 document.addEventListener("click", (e) => {

@@ -4,20 +4,13 @@
 body {
   overflow: hidden;
   height: 100vh;
-  /* a CSS brick wall (mortar base color + four offset gradients forming
-     the staggered brick courses), layered behind the table photo — shows
-     through wherever the photo doesn't cover, e.g. above the table */
-  background-color: #5c2a20;
-  background-image:
-    url("assets/background.png"),
-    linear-gradient(335deg, #8a3b2a 23px, transparent 23px),
-    linear-gradient(155deg, #8a3b2a 23px, transparent 23px),
-    linear-gradient(335deg, #8a3b2a 23px, transparent 23px),
-    linear-gradient(155deg, #8a3b2a 23px, transparent 23px);
-  background-size: cover, 58px 58px, 58px 58px, 58px 58px, 58px 58px;
-  background-position: center 75%, 0 2px, 4px 35px, 29px 31px, 34px 6px;
-  background-repeat: no-repeat, repeat, repeat, repeat, repeat;
-  background-attachment: fixed, scroll, scroll, scroll, scroll;
+  /* the wall photo, layered behind the table photo — shows through
+     wherever the table doesn't cover, e.g. above the table */
+  background-image: url("assets/background.png"), url("assets/wall.jpg");
+  background-size: cover, cover;
+  background-position: center 75%, center;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed, fixed;
 }
 
 /* the title, styled and placed like the other posters on the wall — a
@@ -26,12 +19,15 @@ body {
   position: fixed;
   top: 3%;
   left: 50%;
-  z-index: 1;
+  /* no explicit z-index — position:fixed still makes this its own stacking
+     context, but with an implicit level (0) equal to .crate-row's, so paint
+     order falls back to DOM order. It comes before .crate-row in the
+     markup, so it stays behind the album stack (and the expanded view,
+     fixed at z:1000) instead of an explicit z-index outranking them outright */
   transform: translateX(-50%) rotate(-2deg);
   background: #f4ecd8;
   padding: 0.55rem 1.5rem 0.7rem;
   border-radius: 3px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
   text-align: center;
 }
 
@@ -79,10 +75,12 @@ body {
      in the open band between the Colección poster and the CD pile (which
      starts around 72vh down) */
   .poster-5, .poster-6 { display: none; }
-  .poster-1 { top: 26%; left: 3%;   width: 70px; }
-  .poster-2 { top: 26%; left: 27%;  width: 70px; }
-  .poster-4 { top: 26%; right: 27%; width: 70px; }
-  .poster-3 { top: 26%; right: 3%;  width: 70px; }
+  /* the outer two bleed slightly past the edge for a scattered, less
+     boxed-in feel */
+  .poster-1 { top: 26%; left: -3%;  width: 77px; }
+  .poster-2 { top: 26%; left: 27%;  width: 77px; }
+  .poster-4 { top: 26%; right: 27%; width: 77px; }
+  .poster-3 { top: 26%; right: -3%; width: 77px; }
 }
 
 /* CDs excluded from the crate, stacked into a vertical pile on the table —
@@ -98,6 +96,12 @@ body {
      order follows DOM order, so this element now comes *before* the crate
      row in the markup, painting it behind naturally, no z-index tricks */
   perspective: 420px;
+}
+
+@media (max-width: 900px) {
+  .cd-pile {
+    left: 7%;
+  }
 }
 
 .cd-disc-wrap {
@@ -120,6 +124,42 @@ body {
   transform: scale(1.1);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5), inset 0 0 0 2px rgba(255, 255, 255, 0.85);
   z-index: 999 !important;
+}
+
+/* an old tape recorder on the table, mirroring the CD pile's spot on the
+   opposite side — same DOM-order reasoning as .cd-pile keeps it behind the
+   album stack without an explicit z-index. Clicking it opens music.html */
+.tape-recorder {
+  position: fixed;
+  right: 16%;
+  bottom: calc(0.6rem + 23vh);
+  width: 165px;
+  cursor: pointer;
+}
+
+/* while an album is expanded, this sits behind the expanded card (z:1000)
+   but above literally everything else — the tape recorder, CD pile, other
+   crate cards, nav buttons — so a stray tap can't accidentally trigger any
+   of them and instead just closes the expanded view, the same as tapping
+   any other empty space would. Fully transparent — purely a click-catcher,
+   not a visual dimming layer. */
+.expand-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: transparent;
+  pointer-events: none;
+}
+
+.expand-backdrop.active {
+  pointer-events: auto;
+}
+
+@media (max-width: 900px) {
+  .tape-recorder {
+    right: 0%;
+    width: 133px;
+  }
 }
 
 .crate-row {
@@ -545,7 +585,7 @@ body {
 
 @media (max-width: 480px) {
   body {
-    background-position: center 85%, 0 2px, 4px 35px, 29px 31px, 34px 6px;
+    background-position: center 85%, center;
   }
   .crate-row {
     gap: 0.4rem;
@@ -565,6 +605,7 @@ body {
     width: 43.64vw;
   }
   .stack-card.expanded {
+    top: -65%;
     width: min(88vw, 340px);
   }
   .stack-card.expanded img {
@@ -585,6 +626,9 @@ body {
     padding: 0.28rem 0.5rem;
     text-align: center;
     box-shadow: none;
+    /* no little peeking tab on phone at all — tapping the cover itself
+       (see crate.js) reveals the info instead */
+    display: none;
     transform-origin: center top;
     transform: translate(-50%, -100%);
     transition: transform 0.32s cubic-bezier(0.4, 0, 0.6, 1), opacity 0.28s ease,
@@ -595,6 +639,7 @@ body {
     transform: translate(-50%, 0);
   }
   .stack-card.expanded .card-info.info-open {
+    display: block;
     left: 50%;
     width: 88%;
     padding: 1rem 1rem 1.3rem;
