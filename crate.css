@@ -129,6 +129,166 @@ body {
   z-index: 999 !important;
 }
 
+/* the full-screen "browsing" view the CD pile flies into on click — top
+   case front and center (already styled like an opened jewel case, not a
+   separate expanded overlay), the rest peeking behind it, each one also
+   carrying the case's own black spine bar and rainbow glare */
+.cd-browser {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.28s ease;
+}
+
+.cd-browser.hidden {
+  display: none;
+}
+
+/* kept a separate class from .hidden (display:none, applied only once the
+   fly-back-down animation finishes) so the fade itself has something to
+   transition — toggling display can't be animated */
+.cd-browser:not(.active) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cd-browser-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.cd-browser-stack {
+  position: relative;
+  /* the case is a rectangle, not a square: the hinge sticks out to the
+     left of the (square) cover art rather than overlapping it, so the
+     stack's own box has to be wider than the cover to make room for it.
+     --cd-img is the cover's own side length; the rest is derived from it,
+     in real units (not %) so it scales cleanly with --cd-img alone */
+  --cd-img: min(40vw, 270px);
+  --cd-spine: calc(var(--cd-img) * 0.0972);
+  --cd-margin: calc(var(--cd-img) * 0.045);
+  width: calc(var(--cd-img) + var(--cd-spine) + var(--cd-margin) * 2);
+  height: calc(var(--cd-img) + var(--cd-margin) * 2);
+}
+
+.cd-browser-card {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.32s ease;
+}
+
+/* the case face is its own clipped box (rounded corners, drop shadow) —
+   kept separate from .cd-browser-card itself so the info paper (a sibling,
+   below) can still overflow past its right edge instead of being clipped
+   along with the spine/glare. The translucent white wash + border reads as
+   the case's own plastic shell around the cover art underneath it. Padding
+   reserves the hinge's width on the left (plus a thin margin all round) so
+   the cover art sits entirely to the right of it, never under it */
+.cd-case-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  overflow: hidden;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.12));
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  padding: var(--cd-margin) var(--cd-margin) var(--cd-margin) calc(var(--cd-spine) + var(--cd-margin));
+}
+
+.cd-case-face img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* the jewel case's own hinge — a solid black bar filling that reserved left
+   gutter, beside the cover art rather than over it — plus the rainbow glare
+   across the art itself (same treatment the old full-screen CD overlay
+   used), painted directly on every case in the stack so it reads as a real
+   case — front and back — not just a flat cover photo, including mid-swipe */
+.cd-case-face::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: calc(var(--cd-spine) + var(--cd-margin));
+  background: #000000;
+  z-index: 2;
+}
+
+.cd-case-face::after {
+  content: "";
+  position: absolute;
+  top: var(--cd-margin);
+  bottom: var(--cd-margin);
+  left: calc(var(--cd-spine) + var(--cd-margin));
+  right: var(--cd-margin);
+  background: linear-gradient(
+    120deg,
+    rgba(255, 0, 128, 0.16) 0%,
+    rgba(255, 200, 0, 0.14) 22%,
+    rgba(80, 255, 140, 0.12) 42%,
+    rgba(0, 200, 255, 0.15) 62%,
+    rgba(150, 60, 255, 0.14) 82%,
+    rgba(255, 0, 128, 0.1) 100%
+  );
+  mix-blend-mode: screen;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cd-browser-card--front .cd-case-face {
+  cursor: pointer;
+}
+
+/* the info paper — a plain white sheet tucked entirely out of sight behind
+   the case until the whole case is clicked (see the cdBrowserEl click
+   handler in crate.js), then it slides out from behind. No little peeking
+   "Info" tab at rest — the whole cover is the click target, so there's
+   nothing to advertise separately. Reuses the CD overlay's old look
+   (.overlay-info in style.css) but sized for the browser's smaller case,
+   and qualified with the .cd-browser-card ancestor so these sizes always
+   beat style.css's own bare .overlay-info rules — including its phone media
+   query — regardless of file order */
+.cd-browser-card .cd-browser-info {
+  display: block;
+  z-index: 3;
+  top: 4%;
+  left: 60%;
+  width: 60%;
+  height: auto;
+  padding: 2.8rem 0.8rem 2.8rem 12%;
+  background: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+  transform: rotate(6deg) translate(-72%, 10px) scale(0.94);
+}
+
+.cd-browser-card .cd-browser-info.info-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: rotate(6deg) translate(0, 0) scale(1);
+}
+
+.cd-browser-info h2 { font-size: 1rem; }
+.cd-browser-info p { font-size: 0.78rem; }
+
+@media (max-width: 560px) {
+  .cd-browser-stack {
+    --cd-img: min(62vw, 270px);
+  }
+}
+
 /* an old tape recorder on the table, mirroring the CD pile's spot on the
    opposite side — same DOM-order reasoning as .cd-pile keeps it behind the
    album stack without an explicit z-index. Clicking it opens music.html */

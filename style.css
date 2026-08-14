@@ -145,109 +145,9 @@ body {
 
 .hidden { display: none !important; }
 
-/* overlay */
-
-.overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-}
-
-.overlay-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(6px);
-}
-
-.overlay-card {
-  position: relative;
-  z-index: 1;
-  background: transparent;
-  box-shadow: none;
-  overflow: visible;
-  max-width: 720px;
-  width: min(680px, 88vw);
-  animation: pop 0.18s ease;
-}
-
-@keyframes pop {
-  from { transform: scale(0.92); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-/* the CD sits in a plastic jewel case — a translucent frame around the
-   cover art, with the case's black spine showing down the left side and a
-   soft rainbow glare across the art like it's under a plastic sleeve */
-.jewel-case {
-  position: relative;
-  z-index: 2;
-  /* sized to its content (the square photo) plus the spine — the case
-     ends up a touch wider than the photo is tall, a true rectangle,
-     instead of forcing the spine to eat into a fixed square and squeeze
-     the art */
-  display: inline-block;
-  width: fit-content;
-  padding: 6px 6px 6px 43px;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.12));
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 6px;
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(0, 0, 0, 0.08);
-  /* sits in the same spot whether or not the info paper is open — no
-     shift on open/close, since .overlay-card.info-open .jewel-case below
-     uses this same translateX(0) */
-  transform: translateX(0);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.overlay-card.info-open .jewel-case {
-  transform: translateX(0);
-}
-
-.jewel-case::before {
-  content: "";
-  position: absolute;
-  top: 6px;
-  bottom: 6px;
-  left: 6px;
-  width: 34.5px;
-  background: rgba(12, 12, 12, 0.88);
-  border-radius: 3px 0 0 3px;
-}
-
-.jewel-case::after {
-  content: "";
-  position: absolute;
-  top: 6px;
-  bottom: 6px;
-  left: 43px;
-  right: 6px;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 0, 128, 0.16) 0%,
-    rgba(255, 200, 0, 0.14) 22%,
-    rgba(80, 255, 140, 0.12) 42%,
-    rgba(0, 200, 255, 0.15) 62%,
-    rgba(150, 60, 255, 0.14) 82%,
-    rgba(255, 0, 128, 0.1) 100%
-  );
-  mix-blend-mode: screen;
-  border-radius: 2px;
-  pointer-events: none;
-}
-
-.jewel-case img {
-  display: block;
-  width: min(560px, 74vw);
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 2px;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18);
-}
+/* CD info paper — the jewel-case-styled cases live in the CD browser stack
+   now (crate.css), not a separate full-screen overlay, but this panel's own
+   look (tucked paper peeking out, "Info" tab) is still shared from here */
 
 /* a sheet of paper tucked behind the cover, peeking out on the right at a
    slight angle — the overlapping left portion hides under the cover (lower
@@ -300,12 +200,6 @@ body {
   transition: opacity 0.18s ease;
 }
 
-.overlay-info.info-open .info-tab-label {
-  opacity: 0;
-  position: absolute;
-  pointer-events: none;
-}
-
 .overlay-info h2,
 .overlay-info p,
 .overlay-info a {
@@ -345,11 +239,6 @@ body {
 .overlay-info a:hover { opacity: 0.7; }
 
 @media (max-width: 560px) {
-  .overlay-card { width: min(360px, 92vw); }
-  .jewel-case { transform: translateX(0); padding-left: 39px; }
-  .jewel-case::before { width: 31px; }
-  .jewel-case::after { left: 39px; }
-  .jewel-case img { width: min(264px, 70vw); }
   /* on phones the paper sits centered on top of the cover (not tucked
      behind it) and peeks down from the top edge instead of in from the
      side — same treatment as the vinyl crate's expanded view */

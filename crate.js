@@ -10,14 +10,6 @@ const crateBoxImgs = crateTrack.querySelectorAll(".crate-box");
 const cdPileEl = document.getElementById("cd-pile");
 const tapeEl = document.getElementById("tape-recorder");
 const expandBackdropEl = document.getElementById("expand-backdrop");
-const overlayEl = document.getElementById("overlay");
-const overlayImgEl = document.getElementById("overlay-img");
-const overlayCaseEl = overlayEl.querySelector(".jewel-case");
-const overlayTitleEl = document.getElementById("overlay-title");
-const overlayArtistEl = document.getElementById("overlay-artist");
-const overlayMetaEl = document.getElementById("overlay-meta");
-const overlayGenresEl = document.getElementById("overlay-genres");
-const overlayLinkEl = document.getElementById("overlay-link");
 
 const PEEK_STEP_RATIO = 5.52 / 441; // fraction of the card size, so the stack scales with it
 const SCALE_STEP = 0.006;
@@ -81,173 +73,11 @@ function releaseUrl(r) {
   return `https://www.discogs.com/release/${r.id}`;
 }
 
-let overlaySourceEl = null;
-
-function openOverlay(r, sourceEl) {
-  overlaySourceEl = sourceEl || null;
-  overlayImgEl.src = r.cover;
-  overlayImgEl.alt = r.title;
-  overlayTitleEl.textContent = r.title;
-  overlayArtistEl.textContent = r.artists.join(", ");
-  const year = r.pressingYear ? `${r.year} (${r.pressingYear} pressing)` : r.year;
-  overlayMetaEl.textContent = [year, r.formats.join(", "), r.label].filter(Boolean).join(" · ");
-  overlayGenresEl.textContent = [...r.genres, ...r.styles].join(", ");
-  overlayLinkEl.href = releaseUrl(r);
-
-  const card = overlayEl.querySelector(".overlay-card");
-  const paper = overlayEl.querySelector(".overlay-info");
-  paper.classList.remove("info-open"); // each CD opens back to the small "Info" tab
-  card.classList.remove("info-open"); // cover starts centered
-  // on phones the paper sits on top of the cover and peeks down from the
-  // top edge instead of sliding in from behind the side — same treatment
-  // as the vinyl crate's expanded view at this size
-  const isPhone = window.matchMedia("(max-width: 560px)").matches;
-  const paperRestTransform = isPhone ? "translate(-50%, 0)" : "rotate(6deg) translate(0, 0) scale(1)";
-  // tucked almost entirely behind the cover — % is relative to the paper's
-  // own width, so it retreats fully out of sight before sliding out
-  const paperTuckedTransform = isPhone
-    ? "translate(-50%, -100%)"
-    : "rotate(6deg) translate(-72%, 10px) scale(0.94)";
-
-  if (sourceEl) {
-    // grow the cover out from the clicked case (FLIP: measure start/end,
-    // then transition between), while the paper slides out from behind it
-    const startRect = sourceEl.getBoundingClientRect();
-    card.style.animation = "none";
-    overlayEl.classList.remove("hidden");
-    const endRect = overlayCaseEl.getBoundingClientRect();
-
-    const dx = startRect.left + startRect.width / 2 - (endRect.left + endRect.width / 2);
-    const dy = startRect.top + startRect.height / 2 - (endRect.top + endRect.height / 2);
-    const scaleX = startRect.width / endRect.width;
-    const scaleY = startRect.height / endRect.height;
-
-    // animate the whole case (spine, glare and photo together, since
-    // they're all part of this one element) rather than just the photo
-    overlayCaseEl.style.transition = "none";
-    overlayCaseEl.style.transform = `translate(${dx}px, ${dy}px) scale(${scaleX}, ${scaleY})`;
-    paper.style.transition = "none";
-    paper.style.opacity = "0";
-    paper.style.transform = paperTuckedTransform;
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        overlayCaseEl.style.transition = "transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1)";
-        overlayCaseEl.style.transform = "translate(0, 0) scale(1, 1)";
-        paper.style.transition = "transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.12s, opacity 0.4s ease 0.12s";
-        paper.style.opacity = "1";
-        paper.style.transform = paperRestTransform;
-      });
-    });
-
-    overlayCaseEl.addEventListener(
-      "transitionend",
-      () => {
-        overlayCaseEl.style.transition = "";
-        overlayCaseEl.style.transform = "";
-      },
-      { once: true }
-    );
-  } else {
-    card.style.animation = "";
-    overlayCaseEl.style.transition = "";
-    overlayCaseEl.style.transform = "";
-    paper.style.transition = "";
-    paper.style.opacity = "";
-    paper.style.transform = "";
-    overlayEl.classList.remove("hidden");
-  }
-}
-
-function closeOverlay() {
-  if (overlayEl.classList.contains("hidden")) return;
-
-  const card = overlayEl.querySelector(".overlay-card");
-  const paper = overlayEl.querySelector(".overlay-info");
-  const isPhone = window.matchMedia("(max-width: 560px)").matches;
-  const paperTuckedTransform = isPhone
-    ? "translate(-50%, -100%)"
-    : "rotate(6deg) translate(-72%, 10px) scale(0.94)";
-  const targetEl = overlaySourceEl && document.body.contains(overlaySourceEl) ? overlaySourceEl : null;
-  overlaySourceEl = null;
-
-  const reset = () => {
-    card.style.animation = "";
-    overlayCaseEl.style.transition = "";
-    overlayCaseEl.style.transform = "";
-    paper.style.transition = "";
-    paper.style.opacity = "";
-    paper.style.transform = "";
-  };
-
-  if (!targetEl) {
-    overlayEl.classList.add("hidden");
-    reset();
-    return;
-  }
-
-  // shrink the whole case back down into the case it was opened from,
-  // while the paper tucks back behind it — the inverse of openOverlay
-  const startRect = overlayCaseEl.getBoundingClientRect();
-  const endRect = targetEl.getBoundingClientRect();
-  const dx = endRect.left + endRect.width / 2 - (startRect.left + startRect.width / 2);
-  const dy = endRect.top + endRect.height / 2 - (startRect.top + startRect.height / 2);
-  const scaleX = endRect.width / startRect.width;
-  const scaleY = endRect.height / startRect.height;
-
-  card.style.animation = "none";
-  paper.style.transition = "transform 0.3s cubic-bezier(0.4, 0, 0.6, 1), opacity 0.26s ease";
-  paper.style.opacity = "0";
-  paper.style.transform = paperTuckedTransform;
-  overlayCaseEl.style.transition = "transform 0.3s cubic-bezier(0.4, 0, 0.6, 1) 0.08s";
-  overlayCaseEl.style.transform = `translate(${dx}px, ${dy}px) scale(${scaleX}, ${scaleY})`;
-
-  let done = false;
-  const finish = () => {
-    if (done) return;
-    done = true;
-    overlayEl.classList.add("hidden");
-    reset();
-  };
-  overlayCaseEl.addEventListener("transitionend", finish, { once: true });
-  setTimeout(finish, 420); // fallback in case transitionend doesn't fire
-}
-
-overlayEl.addEventListener("click", (e) => {
-  if (e.target.tagName === "A") return;
-  if (e.target.closest(".overlay-card") && e.target !== e.currentTarget) {
-    // clicked inside the card but outside the open info paper — tuck it
-    // back down to the small "Info" tab instead of closing the overlay
-    const info = overlayEl.querySelector(".overlay-info");
-    if (info.classList.contains("info-open") && !info.contains(e.target)) {
-      info.classList.remove("info-open");
-      overlayEl.querySelector(".overlay-card").classList.remove("info-open");
-    }
-    return;
-  }
-  closeOverlay();
-});
-
-overlayEl.querySelector(".overlay-info").addEventListener("click", (e) => {
-  e.stopPropagation();
-  if (e.target.tagName === "A") return; // let the Discogs link work normally
-  e.currentTarget.classList.add("info-open");
-  overlayEl.querySelector(".overlay-card").classList.add("info-open"); // shifts the cover left to make room
-});
-
-// on phone there's no little peeking info tab to tap — tapping the CD case
-// itself reveals the info instead
-overlayCaseEl.addEventListener("click", (e) => {
-  if (!window.matchMedia("(max-width: 560px)").matches) return;
-  e.stopPropagation();
-  const info = overlayEl.querySelector(".overlay-info");
-  if (info.classList.contains("info-open")) return;
-  info.classList.add("info-open");
-  overlayEl.querySelector(".overlay-card").classList.add("info-open");
-});
-
 // stacks CD cases directly on top of one another, flat and square, each one
-// offset just enough to peek out from under the case above it
+// offset just enough to peek out from under the case above it. Clicking
+// anywhere on the resting pile opens the full-screen browser (see below)
+// instead of any one case directly — the individual cases here are just a
+// preview, not independently clickable.
 function renderCdPile(cdReleases) {
   cdPileEl.innerHTML = "";
   const n = cdReleases.length;
@@ -271,12 +101,316 @@ function renderCdPile(cdReleases) {
     img.loading = "lazy";
     img.referrerPolicy = "no-referrer";
     img.title = `${r.artists.join(", ")} — ${r.title}`;
-    img.addEventListener("click", (e) => openOverlay(r, e.currentTarget));
 
     wrap.appendChild(img);
     cdPileEl.appendChild(wrap);
   });
 }
+
+// --- CD browser: clicking the resting pile brings the CDs front-and-center,
+// top case foremost, each one already styled like an opened jewel case
+// (black spine bar, rainbow glare) rather than a flat cover photo. Scrolling
+// or swiping sends the front case flying to the back and promotes the next
+// one; the whole front case is clickable — tapping it reveals a white info
+// paper sliding out from behind it. Clicking anywhere else (the backdrop, or
+// a peeking case behind the front one) returns to the resting pile.
+const cdBrowserEl = document.getElementById("cd-browser");
+const cdBrowserStackEl = document.getElementById("cd-browser-stack");
+const CD_SHIFT_MS = 320;
+// the shuffle animation's own z-index tiers — well clear of the resting
+// stack's own 44-50 range (see cdRestDepth) so ordering between a card
+// mid-shuffle and the resting deck is never ambiguous
+const CD_Z_FRONT = 100; // the card currently claiming the front slot
+const CD_Z_LIFT = 90; // a card mid-shuffle, elevated above the resting deck
+const CD_LIFT_Y = "-70%"; // how far up a card rises during the shuffle
+const CD_LIFT_SCALE = 0.9;
+const CD_PHASE_MS = 150; // duration of the lift/front-claim beats
+const CD_SETTLE_MS = 220; // duration of the drop-and-shrink beat into/out of the back
+let allCdReleases = [];
+let cdOrder = []; // release objects, front-to-back
+let cdCardEls = []; // parallel to cdOrder — persistent elements, reordered rather than recreated
+let cdBrowsing = false;
+let cdShifting = false;
+
+// depth is capped — beyond it, cards are fully stacked/hidden together
+// rather than spreading out indefinitely
+function cdRestDepth(i) {
+  return Math.min(i, 6);
+}
+
+function styleCdCard(el, i) {
+  const depth = cdRestDepth(i);
+  const offset = depth * 10;
+  const scale = Math.max(1 - depth * 0.05, 0.7);
+  el.style.transform = `translate(${offset}px, ${offset}px) scale(${scale})`;
+  el.style.zIndex = String(50 - depth);
+  el.style.opacity = depth < 6 ? "1" : "0";
+  el.style.pointerEvents = i === 0 ? "auto" : "none";
+  // cards are reordered in the cdCardEls array, not in the actual DOM (the
+  // elements themselves never move) — a real DOM-order selector like
+  // :first-child would keep pointing at whichever element was created
+  // first, so "which one is the front" is tracked with this class instead
+  el.classList.toggle("cd-browser-card--front", i === 0);
+}
+
+// builds one case: cover art (clipped, with the spine/glare painted via
+// crate.css's ::before/::after) plus its own tucked info paper — same
+// fields the old CD overlay showed, reusing style.css's .overlay-info look
+function buildCdBrowserCard(r) {
+  const card = document.createElement("div");
+  card.className = "cd-browser-card";
+
+  const face = document.createElement("div");
+  face.className = "cd-case-face";
+  const img = document.createElement("img");
+  img.src = r.cover;
+  img.alt = r.title;
+  img.referrerPolicy = "no-referrer";
+  img.loading = "lazy";
+  face.appendChild(img);
+  card.appendChild(face);
+
+  const info = document.createElement("div");
+  info.className = "overlay-info cd-browser-info";
+  const h2 = document.createElement("h2");
+  h2.textContent = r.title;
+  info.appendChild(h2);
+  const artist = document.createElement("p");
+  artist.textContent = r.artists.join(", ");
+  info.appendChild(artist);
+  const year = r.pressingYear ? `${r.year} (${r.pressingYear} pressing)` : r.year;
+  const meta = document.createElement("p");
+  meta.textContent = [year, r.formats.join(", "), r.label].filter(Boolean).join(" · ");
+  info.appendChild(meta);
+  const genres = document.createElement("p");
+  genres.textContent = [...r.genres, ...r.styles].join(", ");
+  info.appendChild(genres);
+  const link = document.createElement("a");
+  link.href = releaseUrl(r);
+  link.target = "_blank";
+  link.rel = "noopener";
+  link.textContent = "View on Discogs →";
+  info.appendChild(link);
+  card.appendChild(info);
+
+  return card;
+}
+
+function openCdBrowser() {
+  if (cdBrowsing || cdShifting || !allCdReleases.length) return;
+  cdBrowsing = true;
+
+  // topmost case in the resting pile (last child — highest z-index/offset)
+  // becomes the front of the browser
+  cdOrder = [...allCdReleases].reverse();
+  cdBrowserStackEl.innerHTML = "";
+  cdCardEls = cdOrder.map((r) => {
+    const card = buildCdBrowserCard(r);
+    card.style.transition = "none"; // land in the fanned-out formation instantly, before the container's own FLIP grow-in plays
+    cdBrowserStackEl.appendChild(card);
+    return card;
+  });
+  cdCardEls.forEach((el, i) => styleCdCard(el, i));
+  void cdBrowserStackEl.offsetWidth; // flush the snap
+  cdCardEls.forEach((el) => (el.style.transition = ""));
+
+  const topDisc = cdPileEl.querySelector(".cd-disc-wrap:last-child");
+  const startRect = (topDisc || cdPileEl).getBoundingClientRect();
+
+  cdBrowserEl.classList.remove("hidden");
+  cdPileEl.style.visibility = "hidden";
+
+  // FLIP: pin the whole stack at the resting pile's on-screen spot, then
+  // let it transition out to its real centered/full size
+  const endRect = cdBrowserStackEl.getBoundingClientRect();
+  const dx = startRect.left + startRect.width / 2 - (endRect.left + endRect.width / 2);
+  const dy = startRect.top + startRect.height / 2 - (endRect.top + endRect.height / 2);
+  const scale = startRect.width / endRect.width;
+
+  cdBrowserStackEl.style.transition = "none";
+  cdBrowserStackEl.style.transform = `translate(${dx}px, ${dy}px) scale(${scale})`;
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      cdBrowserEl.classList.add("active");
+      cdBrowserStackEl.style.transition = "transform 0.38s cubic-bezier(0.2, 0.8, 0.2, 1)";
+      cdBrowserStackEl.style.transform = "translate(0, 0) scale(1)";
+    });
+  });
+}
+
+function closeCdBrowser() {
+  if (!cdBrowsing) return;
+  cdBrowsing = false;
+
+  const topDisc = cdPileEl.querySelector(".cd-disc-wrap:last-child");
+  const endRect = (topDisc || cdPileEl).getBoundingClientRect();
+  const startRect = cdBrowserStackEl.getBoundingClientRect();
+  const dx = endRect.left + endRect.width / 2 - (startRect.left + startRect.width / 2);
+  const dy = endRect.top + endRect.height / 2 - (startRect.top + startRect.height / 2);
+  const scale = endRect.width / startRect.width;
+
+  const frontInfo = cdCardEls[0] && cdCardEls[0].querySelector(".cd-browser-info");
+  if (frontInfo) frontInfo.classList.remove("info-open");
+
+  cdBrowserEl.classList.remove("active");
+  cdBrowserStackEl.style.transition = "transform 0.3s cubic-bezier(0.4, 0, 0.6, 1)";
+  cdBrowserStackEl.style.transform = `translate(${dx}px, ${dy}px) scale(${scale})`;
+
+  setTimeout(() => {
+    cdBrowserEl.classList.add("hidden");
+    cdBrowserStackEl.style.transition = "";
+    cdBrowserStackEl.style.transform = "";
+    cdBrowserStackEl.innerHTML = "";
+    cdCardEls = [];
+    cdPileEl.style.visibility = "";
+  }, CD_SHIFT_MS);
+}
+
+// dir > 0 — the front case is pulled and dealt to the back of the deck, in
+// three beats:
+//   1. it rises straight up
+//   2. the next case steps into the now-empty front slot, in front of it
+//   3. it drops down and shrinks into its resting spot at the very back,
+//      disappearing behind the rest of the deck (now all in front of it)
+// dir < 0 plays the same three beats in reverse, pulling the back-most case
+// out from behind and dealing it into the front slot.
+function shiftCdBrowser(dir) {
+  if (!cdBrowsing || cdShifting || cdCardEls.length < 2) return;
+  cdShifting = true;
+
+  if (dir > 0) {
+    const departing = cdCardEls.shift();
+    const info = departing.querySelector(".cd-browser-info");
+    if (info) info.classList.remove("info-open");
+    cdOrder.push(cdOrder.shift());
+    const newFront = cdCardEls[0];
+
+    // beat 1: straight up, above everything
+    departing.style.pointerEvents = "none";
+    departing.style.transition = `transform ${CD_PHASE_MS}ms cubic-bezier(0.3, 0, 0.6, 1)`;
+    departing.style.zIndex = String(CD_Z_LIFT);
+    departing.style.transform = `translate(0, ${CD_LIFT_Y}) scale(${CD_LIFT_SCALE})`;
+
+    setTimeout(() => {
+      // beat 2: the next case claims the front, stepping in ahead of it —
+      // and every other case behind it shifts forward a slot too, same as
+      // it always does on a plain restyle
+      cdCardEls.forEach((el, i) => styleCdCard(el, i));
+      if (newFront) newFront.style.zIndex = String(CD_Z_FRONT); // outrank the still-elevated departing case
+
+      setTimeout(() => {
+        // beat 3: drop down and shrink into its real resting spot at the
+        // back, disappearing behind everything now in front of it. Once the
+        // deck's deeper than the visible-depth cap, that resting spot's own
+        // opacity is 0 — transitioning opacity too (not just transform)
+        // means it visibly shrinks away first instead of instantly
+        // vanishing the moment this phase starts
+        cdCardEls.push(departing);
+        departing.style.transition = `transform ${CD_SETTLE_MS}ms cubic-bezier(0.4, 0, 0.7, 1), opacity ${CD_SETTLE_MS}ms ease`;
+        styleCdCard(departing, cdCardEls.length - 1);
+
+        setTimeout(() => {
+          departing.style.transition = "";
+          // departing has settled at its own low resting z-index now, so
+          // the front no longer needs the elevated tier that was only
+          // there to outrank it while it was still up — back to its normal
+          // resting z-index (everything else about it is unchanged)
+          if (newFront) styleCdCard(newFront, 0);
+          cdShifting = false;
+        }, CD_SETTLE_MS);
+      }, CD_PHASE_MS);
+    }, CD_PHASE_MS);
+  } else {
+    const incoming = cdCardEls.pop();
+    cdOrder.unshift(cdOrder.pop());
+
+    // beat 1 (reverse of beat 3): rise up out of its resting spot at the
+    // back, growing and lifting clear above the rest of the deck
+    incoming.style.transition = `transform ${CD_SETTLE_MS}ms cubic-bezier(0.3, 0, 0.6, 1)`;
+    incoming.style.zIndex = String(CD_Z_LIFT);
+    incoming.style.opacity = "1";
+    incoming.style.pointerEvents = "none";
+    incoming.style.transform = `translate(0, ${CD_LIFT_Y}) scale(${CD_LIFT_SCALE})`;
+
+    setTimeout(() => {
+      // beat 2 (reverse of beat 2): the rest of the deck steps back a slot
+      // to make room (the array doesn't have `incoming` back in it yet, so
+      // index j's real final slot is j + 1)
+      cdCardEls.forEach((el, j) => styleCdCard(el, j + 1));
+
+      setTimeout(() => {
+        // beat 3 (reverse of beat 1): drop down into the front slot
+        cdCardEls.unshift(incoming);
+        incoming.style.transition = `transform ${CD_PHASE_MS}ms cubic-bezier(0.4, 0, 0.7, 1)`;
+        styleCdCard(incoming, 0);
+
+        setTimeout(() => {
+          incoming.style.transition = "";
+          cdShifting = false;
+        }, CD_PHASE_MS);
+      }, CD_SETTLE_MS);
+    }, CD_PHASE_MS);
+  }
+}
+
+cdPileEl.addEventListener("click", (e) => {
+  e.stopPropagation();
+  openCdBrowser();
+});
+
+cdBrowserEl.addEventListener("click", (e) => {
+  if (!cdBrowsing) return;
+  if (e.target.tagName === "A") return; // let the Discogs link work normally
+  const front = cdCardEls[0];
+  if (front && front.contains(e.target)) {
+    e.stopPropagation();
+    const info = front.querySelector(".cd-browser-info");
+    if (info.classList.contains("info-open")) {
+      // clicked the case itself (outside the open paper) — tuck it back
+      if (!info.contains(e.target)) info.classList.remove("info-open");
+    } else {
+      info.classList.add("info-open");
+    }
+    return;
+  }
+  closeCdBrowser();
+});
+
+cdBrowserEl.addEventListener(
+  "wheel",
+  (e) => {
+    if (!cdBrowsing) return;
+    e.preventDefault();
+    if (e.deltaY > 0) shiftCdBrowser(1);
+    else if (e.deltaY < 0) shiftCdBrowser(-1);
+  },
+  { passive: false }
+);
+
+let cdTouchStart = null;
+cdBrowserEl.addEventListener(
+  "touchstart",
+  (e) => {
+    if (!cdBrowsing) return;
+    const t = e.touches[0];
+    cdTouchStart = { x: t.clientX, y: t.clientY };
+  },
+  { passive: true }
+);
+cdBrowserEl.addEventListener(
+  "touchend",
+  (e) => {
+    if (!cdBrowsing || !cdTouchStart) return;
+    const dx = e.changedTouches[0].clientX - cdTouchStart.x;
+    const dy = e.changedTouches[0].clientY - cdTouchStart.y;
+    cdTouchStart = null;
+    if (Math.max(Math.abs(dx), Math.abs(dy)) < SWIPE_THRESHOLD) return;
+    if (Math.abs(dx) > Math.abs(dy)) shiftCdBrowser(dx < 0 ? 1 : -1);
+    else shiftCdBrowser(dy < 0 ? 1 : -1);
+  },
+  { passive: true }
+);
 
 function sortKey(r) {
   return (r.artists[0] || "").toLowerCase().replace(/^the\s+/, "");
@@ -1176,7 +1310,7 @@ document.addEventListener(
   "touchstart",
   (e) => {
     const t = e.touches[0];
-    touchStart = isOverCrateFront(t.clientX, t.clientY) ? { x: t.clientX, y: t.clientY } : null;
+    touchStart = !cdBrowsing && isOverCrateFront(t.clientX, t.clientY) ? { x: t.clientX, y: t.clientY } : null;
   },
   { passive: true }
 );
@@ -1203,7 +1337,7 @@ document.addEventListener(
 // alone since that's the wheel's job on desktop.
 let mouseDragStart = null; // {x, y} while a mouse drag is in progress
 document.addEventListener("mousedown", (e) => {
-  mouseDragStart = isOverCrateFront(e.clientX, e.clientY) ? { x: e.clientX, y: e.clientY } : null;
+  mouseDragStart = !cdBrowsing && isOverCrateFront(e.clientX, e.clientY) ? { x: e.clientX, y: e.clientY } : null;
 });
 window.addEventListener("mouseup", (e) => {
   if (!mouseDragStart) return;
@@ -1286,8 +1420,9 @@ document.addEventListener("click", (e) => {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     collapseExpanded();
-    closeOverlay();
+    closeCdBrowser();
   }
+  if (cdBrowsing) return; // the CD browser only navigates via scroll/swipe, not arrow keys
   if (e.key === "ArrowRight" || e.key === "ArrowDown") goTo(currentIndex + 1);
   if (e.key === "ArrowLeft" || e.key === "ArrowUp") goTo(currentIndex - 1);
 });
@@ -1324,6 +1459,7 @@ async function loadCollection() {
     const cdReleases = data.releases.filter(
       (r) => r.formats.some((f) => f.toUpperCase() === "CD")
     );
+    allCdReleases = cdReleases;
     applySort();
     renderCdPile(cdReleases);
     countEl.textContent = `${currentReleases.length} albums`;

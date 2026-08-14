@@ -31,6 +31,11 @@
 
   <div id="cd-pile" class="cd-pile" aria-hidden="true"></div>
 
+  <div id="cd-browser" class="cd-browser hidden" aria-hidden="true">
+    <div class="cd-browser-backdrop"></div>
+    <div id="cd-browser-stack" class="cd-browser-stack"></div>
+  </div>
+
   <img id="tape-recorder" class="tape-recorder" src="assets/tape recorder.png" alt="" aria-hidden="true">
 
   <div id="crate-row" class="crate-row">
@@ -61,23 +66,6 @@
   </div>
 
   <p id="status" class="status">Loading collection…</p>
-
-  <div id="overlay" class="overlay hidden">
-    <div class="overlay-backdrop"></div>
-    <div class="overlay-card">
-      <div class="jewel-case">
-        <img id="overlay-img" src="" alt="">
-      </div>
-      <div class="overlay-info">
-        <span class="info-tab-label">Info</span>
-        <h2 id="overlay-title"></h2>
-        <p id="overlay-artist"></p>
-        <p id="overlay-meta"></p>
-        <p id="overlay-genres"></p>
-        <a id="overlay-link" href="" target="_blank" rel="noopener">View on Discogs →</a>
-      </div>
-    </div>
-  </div>
 
   <script src="crate.js"></script>
 </body>
