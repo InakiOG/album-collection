@@ -236,17 +236,6 @@ function buildCdBrowserCard(r) {
   genres.textContent = [...r.genres, ...r.styles].join(", ");
   info.appendChild(genres);
 
-  const preview = document.createElement("p");
-  preview.className = "card-preview-status cd-preview-status";
-  preview.textContent = "";
-  preview.addEventListener("click", (e) => {
-    e.stopPropagation();
-    // manual retry — covers the browser refusing the initial autoplay
-    if (!previewPlaylist.length) return;
-    previewAudio.play().then(() => setPreviewStatus("♪ Playing preview…")).catch(() => {});
-  });
-  info.appendChild(preview);
-
   const link = document.createElement("a");
   link.href = releaseUrl(r);
   link.target = "_blank";
@@ -575,6 +564,63 @@ function cardSizePx() {
   return crate.getBoundingClientRect().width || 220;
 }
 
+// the fuggler's speech bubble — pops up naming whatever track is currently
+// playing (any preview, not just its own random picks), and tucks away the
+// instant nothing's playing
+const fugglerBubbleEl = document.getElementById("fuggler-bubble");
+const fugglerBubbleTextEl = document.getElementById("fuggler-bubble-text");
+const fugglerSkipEl = document.getElementById("fuggler-skip");
+
+function showFugglerBubble(trackName) {
+  fugglerBubbleTextEl.textContent = trackName;
+  fugglerBubbleEl.classList.add("visible");
+  // the skip button only makes sense while an actual album is selected/
+  // expanded (previewIsSelection) — the fuggler's own random pick has
+  // nothing sensible to "skip to" within
+  fugglerBubbleEl.classList.toggle("has-skip", previewIsSelection);
+  setFugglerPlaying(true);
+}
+
+function hideFugglerBubble() {
+  fugglerBubbleEl.classList.remove("visible", "has-skip");
+  setFugglerPlaying(false);
+}
+
+// whenever any preview is actually playing, move the fuggler (and its
+// bubble, nested inside it) to the crate's top-left corner, tilted, via a
+// flat CSS class — see .fuggler-wrap.playing in crate.css. No per-album
+// measurement: it's the same fixed spot regardless of which card (if any)
+// is selected.
+// same breakpoint the bookshelf/posters switch layout at
+function fugglerIsMobile() {
+  return window.matchMedia("(max-width: 900px)").matches;
+}
+
+function setFugglerPlaying(isPlaying) {
+  if (isPlaying && !fugglerIsMobile()) {
+    // only move it the instant playback actually starts (not already
+    // "playing") — every subsequent track/album change while still
+    // playing calls this again too (via showFugglerBubble), but since the
+    // corner position doesn't depend on which track/album it is, skipping
+    // the recompute here avoids snapping back to the shelf and re-animating
+    // out on every single change
+    if (!fugglerWrapEl.classList.contains("playing")) {
+      positionFugglerAtCrateCorner();
+    }
+  } else {
+    // on phone this never ran in the first place (stays on the shelf,
+    // untouched) — on desktop this only fires once nothing is selected and
+    // nothing is playing (see stopPreview)
+    fugglerWrapEl.classList.remove("playing");
+    fugglerWrapEl.style.transform = "";
+  }
+}
+
+fugglerSkipEl.addEventListener("click", (e) => {
+  e.stopPropagation();
+  skipPreviewTrack();
+});
+
 // 30s song previews, sourced from the iTunes Search API (no key needed, CORS-
 // open) since Discogs data has no track-level audio. Plays for as long as an
 // album is selected — peeking or expanded — cycling through that album's
@@ -587,29 +633,10 @@ let previewToken = 0; // bumped on every stop/start so a slow, now-stale fetch c
 let previewSelectionId = null; // release.id the playlist below belongs to
 let previewPlaylist = [];
 let previewTrackIdx = 0;
-let previewStatusText = ""; // mirrored into the currently-visible Info paper's status line
-
-// whichever Info paper is currently showing the selected album — the CD
-// browser's front case takes priority since it visually covers the crate
-// while it's open
-function currentPreviewStatusEl() {
-  if (cdBrowsing) {
-    const front = cdCardEls[0];
-    return front && front.querySelector(".cd-preview-status");
-  }
-  const el = mounted.get(currentIndex);
-  return el && el.querySelector(".card-preview-status");
-}
-
-function renderPreviewStatus() {
-  const statusEl = currentPreviewStatusEl();
-  if (statusEl) statusEl.textContent = previewStatusText;
-}
-
-function setPreviewStatus(text) {
-  previewStatusText = text;
-  renderPreviewStatus();
-}
+// true while the playlist above belongs to an album actually selected in the
+// crate/CD browser (startPreviewFor) rather than the fuggler's own random
+// pick (playFugglerPick) — gates the skip button in the speech bubble
+let previewIsSelection = false;
 
 async function fetchPreviewPlaylist(r) {
   if (previewCache.has(r.id)) return previewCache.get(r.id);
@@ -633,7 +660,7 @@ async function fetchPreviewPlaylist(r) {
       for (const t of pool) {
         if (!seen.has(t.previewUrl)) {
           seen.add(t.previewUrl);
-          playlist.push(t.previewUrl);
+          playlist.push({ url: t.previewUrl, name: t.trackName || r.title });
         }
       }
     }
@@ -649,19 +676,29 @@ function stopPreview() {
   previewSelectionId = null;
   previewPlaylist = [];
   previewTrackIdx = 0;
+  previewIsSelection = false;
   previewAudio.pause();
   previewAudio.removeAttribute("src");
-  setPreviewStatus("");
+  hideFugglerBubble();
 }
 
 function playPreviewTrack() {
   if (!previewPlaylist.length) return;
-  previewAudio.src = previewPlaylist[previewTrackIdx];
+  const track = previewPlaylist[previewTrackIdx];
+  previewAudio.src = track.url;
   previewAudio.currentTime = 0;
   previewAudio
     .play()
-    .then(() => setPreviewStatus("♪ Playing preview…"))
-    .catch(() => setPreviewStatus("Tap ♪ to play preview"));
+    .then(() => showFugglerBubble(track.name))
+    .catch(() => {}); // autoplay can be blocked; nothing to fall back to since there's no manual control
+}
+
+// manual "skip to another song" — same as the auto-advance on 'ended'
+// below, just triggered early by the bubble's skip button
+function skipPreviewTrack() {
+  if (!previewPlaylist.length) return;
+  previewTrackIdx = (previewTrackIdx + 1) % previewPlaylist.length;
+  playPreviewTrack();
 }
 
 // advances to the next track the instant one preview clip ends, so there's
@@ -673,27 +710,22 @@ previewAudio.addEventListener("ended", () => {
 });
 
 async function startPreviewFor(r) {
-  if (previewSelectionId === r.id) return; // already the selected album — playlist keeps cycling as-is
+  if (previewSelectionId === r.id && previewIsSelection) return; // already the selected album — playlist keeps cycling as-is
   const token = ++previewToken;
   previewSelectionId = r.id;
   previewPlaylist = [];
   previewTrackIdx = 0;
+  previewIsSelection = true;
   previewAudio.pause();
   previewAudio.removeAttribute("src");
-  setPreviewStatus("♪ Loading preview…");
   const playlist = await fetchPreviewPlaylist(r);
   if (token !== previewToken || previewSelectionId !== r.id) return; // selection moved on while we were fetching
   previewPlaylist = playlist;
   previewTrackIdx = 0;
-  if (!playlist.length) {
-    setPreviewStatus("No preview available");
-    return;
-  }
+  if (!playlist.length) return;
   playPreviewTrack();
 }
 
-// keeps the preview in sync with whatever album is currently selected
-// (peeking or fully expanded) — call after any change to currentIndex/hasInteracted
 // keeps the preview in sync with whatever's currently selected — the CD
 // browser's front-most case if that's open, otherwise the crate's
 // peeking/expanded album, otherwise nothing (and the music stops)
@@ -710,6 +742,99 @@ function syncPreviewToSelection() {
   }
   startPreviewFor(r);
 }
+
+const FUGGLER_CLIP_MS = 5000;
+
+// the fuggler on the bookshelf — plays a 5-second taste of one random
+// track from a random album anywhere in the whole collection, independent
+// of whatever's selected in the crate. Tries a handful of albums in case
+// the first few picks have no iTunes match, rather than giving up on the
+// first miss.
+async function playFugglerPick() {
+  if (!sortedReleases.length) return;
+  const token = ++previewToken;
+  const pool = [...sortedReleases];
+  for (let attempts = 0; attempts < 8 && pool.length; attempts++) {
+    const i = Math.floor(Math.random() * pool.length);
+    const r = pool.splice(i, 1)[0];
+    const playlist = await fetchPreviewPlaylist(r);
+    if (token !== previewToken) return; // superseded by another click/selection while fetching
+    if (playlist.length) {
+      previewSelectionId = r.id;
+      previewPlaylist = playlist;
+      previewTrackIdx = Math.floor(Math.random() * playlist.length);
+      previewIsSelection = false;
+      playPreviewTrack();
+      setTimeout(() => {
+        if (token === previewToken) stopPreview(); // still this same clip — cut it off; otherwise something else took over, leave it alone
+      }, FUGGLER_CLIP_MS);
+      return;
+    }
+  }
+}
+
+const fugglerWrapEl = document.querySelector(".fuggler-wrap");
+const fugglerEl = document.getElementById("fuggler");
+fugglerEl.addEventListener("click", (e) => {
+  e.stopPropagation();
+  playFugglerPick();
+});
+
+// the crate's own visible footprint — #crate is the container the crate
+// art is framed in (the crate-back/crate-front <img>s are themselves much
+// wider than this, bleeding past both edges for a perspective effect, so
+// they're not a reliable "where does the crate actually start" reference).
+// Its on-screen top-left corner is the anchor positionFugglerAtCrateCorner
+// moves the fuggler to.
+const crateBoxEl = document.getElementById("crate");
+
+// #crate's own box edge still lands a bit before the crate art's actual
+// opaque pixels (crate-back/crate-front have some transparent padding
+// before the drawn walls start) — these push the anchor INWARD, past that
+// padding, so the fuggler lands under real (opaque) crate artwork instead
+// of the see-through margin around it.
+const FUGGLER_CORNER_OFFSET_X = 70; // px right of the crate box's own left edge
+const FUGGLER_CORNER_OFFSET_Y = 50; // px below the crate box's own top edge
+const FUGGLER_CORNER_TILT_DEG = -80;
+
+// moves the fuggler (and its bubble, nested inside it) to sit just inside
+// the crate box artwork's actual top-left corner, tilted, so it reads as
+// peeking out from behind it — computed fresh each time from real on-screen
+// positions rather than a guessed CSS offset. Transition/transform are
+// briefly disabled while measuring the resting position so the read can't
+// be caught mid-animation (see the same pattern used elsewhere in this
+// file), then restored before the real move animates.
+function positionFugglerAtCrateCorner() {
+  const prevTransition = fugglerWrapEl.style.transition;
+  fugglerWrapEl.style.transition = "none";
+  fugglerWrapEl.classList.remove("playing");
+  fugglerWrapEl.style.transform = "";
+  const naturalRect = fugglerWrapEl.getBoundingClientRect();
+  void fugglerWrapEl.offsetWidth; // flush before restoring
+  fugglerWrapEl.style.transition = prevTransition;
+
+  const crateRect = crateBoxEl.getBoundingClientRect();
+  const targetLeft = crateRect.left + FUGGLER_CORNER_OFFSET_X - window.innerWidth * 0.02;
+  const targetTop = crateRect.top + FUGGLER_CORNER_OFFSET_Y;
+  const dx = targetLeft - naturalRect.left;
+  const dy = targetTop - naturalRect.top;
+
+  fugglerWrapEl.classList.add("playing");
+  fugglerWrapEl.style.transform = `translate(${dx}px, ${dy}px) rotate(${FUGGLER_CORNER_TILT_DEG}deg) scale(1.1)`;
+}
+
+// the crate box's own on-screen position shifts with the viewport, and
+// resizing can also cross the mobile breakpoint mid-playback (rotating a
+// phone, opening dev tools) — keep the fuggler correctly pinned to the
+// corner (desktop) or snap it back to the shelf (phone) either way
+window.addEventListener("resize", () => {
+  if (fugglerIsMobile()) {
+    fugglerWrapEl.classList.remove("playing");
+    fugglerWrapEl.style.transform = "";
+  } else if (fugglerWrapEl.classList.contains("playing")) {
+    positionFugglerAtCrateCorner();
+  }
+});
 
 function fillInfo(infoEl, r) {
   const year = r.pressingYear ? `${r.year} (${r.pressingYear} pressing)` : r.year;
@@ -736,16 +861,6 @@ function fillInfo(infoEl, r) {
   const genres = document.createElement("p");
   genres.textContent = [...r.genres, ...r.styles].join(", ");
   infoEl.appendChild(genres);
-
-  const preview = document.createElement("p");
-  preview.className = "card-preview-status";
-  preview.textContent = "";
-  preview.addEventListener("click", () => {
-    // manual retry — covers the browser refusing the initial autoplay
-    if (!previewPlaylist.length) return;
-    previewAudio.play().then(() => setPreviewStatus("♪ Playing preview…")).catch(() => {});
-  });
-  infoEl.appendChild(preview);
 
   const link = document.createElement("a");
   link.href = releaseUrl(r);
@@ -907,7 +1022,6 @@ function expandCard(idx) {
   expandedIdx = idx;
   el.classList.remove("info-open"); // each album opens with the cover centered, info tucked to a tab
   fillInfo(el.querySelector(".card-info"), activeBoxReleases[idx]);
-  renderPreviewStatus(); // preview is already playing from when this album was peeked — just reflect its status
 
   // step 1: rise straight up, still in its place in the stack
   el.style.transform = riseTransform(idx);
