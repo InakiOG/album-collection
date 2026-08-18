@@ -85,41 +85,34 @@ body {
 }
 
 /* an empty bookcase frame standing against the wall, centered behind the
-   middle crate, hung just below the Colección title card — just the outer
-   frame and its 2 shelf boards (3 levels), background left transparent so
-   the wall photo shows through. Painted right after .posters (so it can
-   partly cover the two innermost ones, poster-5/6) but before the title
-   card and every table prop that follows in the markup, so those all still
-   read as in front of it. Furniture only — never a click target. */
+   middle crate, hung just below the Colección title card — the bookshelf.png
+   asset (transparent around the shelf, opaque wood everywhere else),
+   stretched to fill the same box the CSS-drawn frame used to occupy.
+   Painted right after .posters (so it can partly cover the two innermost
+   ones, poster-5/6) but before the title card and every table prop that
+   follows in the markup, so those all still read as in front of it.
+   Furniture only — never a click target. */
 .bookshelf {
   position: fixed;
   left: 50%;
   top: 13%;
   transform: translateX(-50%);
   z-index: 0;
-  width: min(50vw, 420px);
+  width: min(105vw, 882px);
   /* anchoring both edges instead of a fixed height keeps the top pinned
      below the title card while the bottom always lands right on the
-     table's front edge (see --table-edge, set in crate.js) */
+     table's front edge (see --table-edge, set in crate.js). bookshelf.png
+     has ~7.7% of its own height as transparent padding below the legs, so
+     the box's own (invisible) bottom edge has to sit well past the table
+     line for the actual visible wood to land just below it, instead of
+     looking like it's floating above the floor */
   height: auto;
-  bottom: calc(var(--table-edge, 28vh) - 20px);
-  display: flex;
-  flex-direction: column;
+  bottom: calc(var(--table-edge, 28vh) - 97px);
   box-sizing: border-box;
-  border: 8px solid #4a2f18;
-  border-radius: 3px;
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.4);
+  background-image: url("assets/bookshelf.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   pointer-events: none;
-}
-
-/* one of the shelf's 3 levels — the bottom border is the shelf board itself */
-.bookshelf-level {
-  flex: 1;
-  border-bottom: 8px solid #4a2f18;
-}
-
-.bookshelf-level:last-child {
-  border-bottom: none;
 }
 
 /* the fuggler, standing in the top compartment on the shelf board below it,
@@ -136,9 +129,11 @@ body {
    crate box image's real on-screen position, not a hardcoded CSS guess. */
 .fuggler-wrap {
   position: absolute;
-  left: 4%;
+  left: 44%;
   bottom: 66.5%;
-  width: 22%;
+  /* sized (rather than the old 22%) to actually fit inside the shelf's
+     top compartment now that .bookshelf is much wider than it is tall */
+  width: 12%;
   pointer-events: none;
   transition: transform 0.3s ease;
 }
@@ -148,6 +143,20 @@ body {
   width: 100%;
   cursor: pointer;
   pointer-events: auto;
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.4));
+}
+
+/* the magic 8-ball, sitting on the shelf board to the fuggler's right —
+   purely decorative and static: positioned directly against .bookshelf
+   (not nested in .fuggler-wrap), so it stays put on the shelf even while
+   the fuggler moves+tilts to the crate corner during playback. */
+.magic-ball {
+  display: block;
+  position: absolute;
+  left: 62%;
+  bottom: 66.5%;
+  width: 12%;
+  pointer-events: none;
   filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.4));
 }
 
@@ -278,6 +287,12 @@ body {
   .bookshelf {
     width: min(70vw, 320px);
   }
+
+  .fuggler-wrap,
+  .magic-ball {
+    width: 13.8%;
+    bottom: 76.5%;
+  }
 }
 
 /* CDs excluded from the crate, stacked into a vertical pile on the table —
@@ -357,7 +372,6 @@ body {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(4px);
 }
 
 .cd-browser-stack {
