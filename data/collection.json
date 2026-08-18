@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-17T07:16:01.914Z",
+  "updatedAt": "2026-08-18T07:02:56.286Z",
   "releases": [
     {
       "id": 31419368,
@@ -472,6 +472,28 @@
       "year": 1983
     },
     {
+      "id": 14297380,
+      "masterId": 1566145,
+      "title": "Black Pumas",
+      "artists": [
+        "Black Pumas"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "ATO Records",
+      "genres": [
+        "Funk / Soul"
+      ],
+      "styles": [
+        "Soul",
+        "Psychedelic"
+      ],
+      "cover": "https://i.discogs.com/tyY3e74gQcYRLwctm9OdzSkBlFKyacL8X-XVFXnxIMM/rs:fit/g:sm/q:90/h:600/w:582/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0Mjk3/MzgwLTE1NzQ0MTky/MTctMTkzMi5qcGVn.jpeg",
+      "dateAdded": "2026-08-17T10:00:45-07:00",
+      "year": 2019
+    },
+    {
       "id": 10748263,
       "masterId": 302,
       "title": "Paranoid",
@@ -522,7 +544,6 @@
       "id": 6406575,
       "masterId": 22457,
       "title": "Melody Of Certain Damaged Lemons",
-      "pressingYear": 2011,
       "artists": [
         "Blonde Redhead"
       ],
@@ -539,13 +560,12 @@
       ],
       "cover": "https://i.discogs.com/hqbiUuNaarB09OKPFlGW1N18LWD2kdcLPT1qfMSwM_c/rs:fit/g:sm/q:90/h:600/w:595/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY0MDY1/NzUtMTUyOTg4MTM4/Ni02ODYzLnBuZw.jpeg",
       "dateAdded": "2026-05-17T12:56:54-07:00",
-      "year": 2000
+      "year": 2011
     },
     {
       "id": 30781416,
       "masterId": 65863,
       "title": "Legend - The Best Of Bob Marley And The Wailers",
-      "pressingYear": 2024,
       "artists": [
         "Bob Marley & The Wailers"
       ],
@@ -559,13 +579,12 @@
       "styles": [],
       "cover": "https://i.discogs.com/5_0G86D2FkaxVIr2_00QfNxVCc152v836M3qHfwDrFA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNzgx/NDE2LTE3MTY3NDQy/MDQtNjcxOS5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:44:37-07:00",
-      "year": 1984
+      "year": 2024
     },
     {
       "id": 7631931,
       "masterId": 64210,
       "title": "Buena Vista Social Club",
-      "pressingYear": 2015,
       "artists": [
         "Buena Vista Social Club"
       ],
@@ -587,13 +606,39 @@
       ],
       "cover": "https://i.discogs.com/WEgG_TiRio-_tZWk09rhjhHSWOV4k8vLE26CEmYo4zc/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc2MzE5/MzEtMTcwNjQwNDQ3/MC00NzM1LmpwZWc.jpeg",
       "dateAdded": "2026-04-21T20:45:27-07:00",
-      "year": 1997
+      "year": 2015
+    },
+    {
+      "id": 15764805,
+      "masterId": 955222,
+      "title": "Minecraft Volume Beta",
+      "artists": [
+        "C418"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Ghostly International",
+      "genres": [
+        "Electronic",
+        "Stage & Screen"
+      ],
+      "styles": [
+        "Ambient",
+        "Soundtrack",
+        "Chiptune",
+        "Video Game Music",
+        "IDM",
+        "Score"
+      ],
+      "cover": "https://i.discogs.com/hec8cpuOL523rYHtFto_OWWv23qrH9lPOKhVLouZBo4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1NzY0/ODA1LTE2NzE3MzE3/MjgtMjY5NC5qcGVn.jpeg",
+      "dateAdded": "2026-05-09T11:59:52-07:00",
+      "year": 2020
     },
     {
       "id": 30580669,
       "masterId": 801496,
       "title": "Minecraft Volume Alpha",
-      "pressingYear": 2024,
       "artists": [
         "C418"
       ],
@@ -616,41 +661,12 @@
       ],
       "cover": "https://i.discogs.com/aHgCqQy6ke1HGXo8dD1y0aV2BA4zk_y5iozv1Y0-6AM/rs:fit/g:sm/q:90/h:600/w:586/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNTgw/NjY5LTE3MTYwNjgw/NDUtNTIwOS5qcGVn.jpeg",
       "dateAdded": "2025-01-17T19:27:11-08:00",
-      "year": 2011
+      "year": 2024
     },
     {
-      "id": 15764805,
-      "masterId": 955222,
-      "title": "Minecraft Volume Beta",
-      "pressingYear": 2020,
-      "artists": [
-        "C418"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Ghostly International",
-      "genres": [
-        "Electronic",
-        "Stage & Screen"
-      ],
-      "styles": [
-        "Ambient",
-        "Soundtrack",
-        "Chiptune",
-        "Video Game Music",
-        "IDM",
-        "Score"
-      ],
-      "cover": "https://i.discogs.com/hec8cpuOL523rYHtFto_OWWv23qrH9lPOKhVLouZBo4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1NzY0/ODA1LTE2NzE3MzE3/MjgtMjY5NC5qcGVn.jpeg",
-      "dateAdded": "2026-05-09T11:59:52-07:00",
-      "year": 2013
-    },
-    {
-      "id": 28952755,
-      "masterId": 605655,
-      "title": "Melophobia",
-      "pressingYear": 2023,
+      "id": 30712517,
+      "masterId": 1534634,
+      "title": "Social Cues",
       "artists": [
         "Cage The Elephant"
       ],
@@ -662,11 +678,12 @@
         "Rock"
       ],
       "styles": [
-        "Alternative Rock"
+        "Indie Rock",
+        "Post-Punk"
       ],
-      "cover": "https://i.discogs.com/FcA6dpAp0hZpRZWmOmHrgru2WIH__uQf5uIdYu6jCak/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4OTUy/NzU1LTE3MDAzMjYx/NTctMzc3NS5qcGVn.jpeg",
-      "dateAdded": "2025-01-02T23:02:36-08:00",
-      "year": 2013
+      "cover": "https://i.discogs.com/QTI_XLrahrDXOE6POlU2_J2eZL5pDs5eevre0mnmWaE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNzEy/NTE3LTE3MTYwNDIz/ODUtNDk5Ny5qcGVn.jpeg",
+      "dateAdded": "2026-08-13T18:58:35-07:00",
+      "year": 0
     },
     {
       "id": 7856486,
@@ -690,10 +707,9 @@
       "year": 2015
     },
     {
-      "id": 30712517,
-      "masterId": 1534634,
-      "title": "Social Cues",
-      "pressingYear": 0,
+      "id": 28952755,
+      "masterId": 605655,
+      "title": "Melophobia",
       "artists": [
         "Cage The Elephant"
       ],
@@ -705,12 +721,11 @@
         "Rock"
       ],
       "styles": [
-        "Indie Rock",
-        "Post-Punk"
+        "Alternative Rock"
       ],
-      "cover": "https://i.discogs.com/QTI_XLrahrDXOE6POlU2_J2eZL5pDs5eevre0mnmWaE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNzEy/NTE3LTE3MTYwNDIz/ODUtNDk5Ny5qcGVn.jpeg",
-      "dateAdded": "2026-08-13T18:58:35-07:00",
-      "year": 2019
+      "cover": "https://i.discogs.com/FcA6dpAp0hZpRZWmOmHrgru2WIH__uQf5uIdYu6jCak/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4OTUy/NzU1LTE3MDAzMjYx/NTctMzc3NS5qcGVn.jpeg",
+      "dateAdded": "2025-01-02T23:02:36-08:00",
+      "year": 2023
     },
     {
       "id": 13447300,
@@ -1859,6 +1874,33 @@
       ],
       "cover": "https://i.discogs.com/BySi07ON0tezzUi2DVSM1l8-Gerh8OfAmz75T0mJYUg/rs:fit/g:sm/q:90/h:550/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNjM1/Nzc2LTE1Mzk4ODY1/MjMtOTc5NC5qcGVn.jpeg",
       "dateAdded": "2025-01-03T00:24:18-08:00",
+      "year": 2010
+    },
+    {
+      "id": 15746346,
+      "masterId": 231219,
+      "title": "Plastic Beach",
+      "pressingYear": 2019,
+      "artists": [
+        "Gorillaz"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Warner Records",
+      "genres": [
+        "Electronic",
+        "Hip Hop",
+        "Pop"
+      ],
+      "styles": [
+        "Leftfield",
+        "Electro",
+        "Hip Hop",
+        "Synth-pop"
+      ],
+      "cover": "https://i.discogs.com/Ly4YfqnURaogx2ac4f86SFJDbaZr1EOEPfTcJaVjoa0/rs:fit/g:sm/q:90/h:592/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1NzQ2/MzQ2LTE1OTcwMjQ4/NjItMjUzOS5qcGVn.jpeg",
+      "dateAdded": "2026-08-17T10:01:29-07:00",
       "year": 2010
     },
     {
