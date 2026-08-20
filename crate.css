@@ -283,6 +283,26 @@ body {
   display: block;
 }
 
+/* invisible proxy for the real skip button above — see the HTML comment by
+   #fuggler-skip-hit and syncSkipHitRect in crate.js. Kept out of
+   .bookshelf's stacking context entirely (it's a direct child of body) so
+   it can sit above the crate's click-catchers without having to touch
+   .bookshelf's own z-index, which affects everything else on the shelf too. */
+.fuggler-skip-hit {
+  position: fixed;
+  z-index: 1001;
+  display: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.fuggler-skip-hit.visible {
+  display: block;
+}
+
 @media (max-width: 900px) {
   .bookshelf {
     width: min(70vw, 320px);

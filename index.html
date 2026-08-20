@@ -83,6 +83,14 @@
 
   <p id="status" class="status">Loading collection…</p>
 
+  <!-- invisible click-catcher for the fuggler bubble's skip button — a
+       direct child of body, not nested in .bookshelf, so it isn't limited
+       to .bookshelf's low stacking level like the real button is (which the
+       crate's own click-catcher/backdrop sits above). See syncSkipHitRect
+       in crate.js: kept positioned exactly over the real button, whenever
+       it's shown, so its clicks actually reach skipPreviewTrack(). -->
+  <button id="fuggler-skip-hit" class="fuggler-skip-hit" type="button" tabindex="-1" aria-hidden="true"></button>
+
   <script src="crate.js"></script>
 </body>
 </html>

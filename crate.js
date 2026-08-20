@@ -571,6 +571,37 @@ const fugglerBubbleEl = document.getElementById("fuggler-bubble");
 const fugglerBubbleTextEl = document.getElementById("fuggler-bubble-text");
 const fugglerSkipEl = document.getElementById("fuggler-skip");
 
+// #fuggler-skip-hit is a plain body-level button (see index.html) kept
+// stacked exactly over the real #fuggler-skip so it can be clicked from
+// above the crate's own click-catchers without touching .bookshelf's own
+// z-index (see syncSkipHitRect below, and the CSS comment by
+// .fuggler-skip-hit for why the real button alone isn't reliably clickable)
+const fugglerSkipHitEl = document.getElementById("fuggler-skip-hit");
+
+function syncSkipHitRect() {
+  if (!fugglerBubbleEl.classList.contains("has-skip") || !fugglerBubbleEl.classList.contains("visible")) {
+    fugglerSkipHitEl.classList.remove("visible");
+    return;
+  }
+  const rect = fugglerSkipEl.getBoundingClientRect();
+  fugglerSkipHitEl.style.left = `${rect.left}px`;
+  fugglerSkipHitEl.style.top = `${rect.top}px`;
+  fugglerSkipHitEl.style.width = `${rect.width}px`;
+  fugglerSkipHitEl.style.height = `${rect.height}px`;
+  fugglerSkipHitEl.classList.add("visible");
+}
+
+fugglerSkipHitEl.addEventListener("click", (e) => {
+  e.stopPropagation();
+  skipPreviewTrack();
+});
+
+// the real button's rect only settles once whatever's animating (the
+// bubble popping in, the fuggler-wrap moving to the crate corner) finishes,
+// so re-sync on both of those transitions ending, plus window resize
+fugglerBubbleEl.addEventListener("transitionend", syncSkipHitRect);
+window.addEventListener("resize", syncSkipHitRect);
+
 function showFugglerBubble(trackName) {
   fugglerBubbleTextEl.textContent = trackName;
   fugglerBubbleEl.classList.add("visible");
@@ -579,11 +610,13 @@ function showFugglerBubble(trackName) {
   // nothing sensible to "skip to" within
   fugglerBubbleEl.classList.toggle("has-skip", previewIsSelection);
   setFugglerPlaying(true);
+  syncSkipHitRect();
 }
 
 function hideFugglerBubble() {
   fugglerBubbleEl.classList.remove("visible", "has-skip");
   setFugglerPlaying(false);
+  syncSkipHitRect();
 }
 
 // whenever any preview is actually playing, move the fuggler (and its
@@ -774,6 +807,9 @@ async function playFugglerPick() {
 }
 
 const fugglerWrapEl = document.querySelector(".fuggler-wrap");
+// the bubble (and its skip button) rides along with this move — re-sync
+// the click-catcher's rect once it settles
+fugglerWrapEl.addEventListener("transitionend", syncSkipHitRect);
 const fugglerEl = document.getElementById("fuggler");
 fugglerEl.addEventListener("click", (e) => {
   e.stopPropagation();
