@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-23T07:00:37.959Z",
+  "updatedAt": "2026-08-24T07:19:19.227Z",
   "releases": [
     {
       "id": 31419368,
@@ -544,6 +544,7 @@
       "id": 6406575,
       "masterId": 22457,
       "title": "Melody Of Certain Damaged Lemons",
+      "pressingYear": 2011,
       "artists": [
         "Blonde Redhead"
       ],
@@ -560,12 +561,13 @@
       ],
       "cover": "https://i.discogs.com/hqbiUuNaarB09OKPFlGW1N18LWD2kdcLPT1qfMSwM_c/rs:fit/g:sm/q:90/h:600/w:595/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY0MDY1/NzUtMTUyOTg4MTM4/Ni02ODYzLnBuZw.jpeg",
       "dateAdded": "2026-05-17T12:56:54-07:00",
-      "year": 2011
+      "year": 2000
     },
     {
       "id": 30781416,
       "masterId": 65863,
       "title": "Legend - The Best Of Bob Marley And The Wailers",
+      "pressingYear": 2024,
       "artists": [
         "Bob Marley & The Wailers"
       ],
@@ -579,12 +581,13 @@
       "styles": [],
       "cover": "https://i.discogs.com/5_0G86D2FkaxVIr2_00QfNxVCc152v836M3qHfwDrFA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNzgx/NDE2LTE3MTY3NDQy/MDQtNjcxOS5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:44:37-07:00",
-      "year": 2024
+      "year": 1984
     },
     {
       "id": 7631931,
       "masterId": 64210,
       "title": "Buena Vista Social Club",
+      "pressingYear": 2015,
       "artists": [
         "Buena Vista Social Club"
       ],
@@ -606,39 +609,13 @@
       ],
       "cover": "https://i.discogs.com/WEgG_TiRio-_tZWk09rhjhHSWOV4k8vLE26CEmYo4zc/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc2MzE5/MzEtMTcwNjQwNDQ3/MC00NzM1LmpwZWc.jpeg",
       "dateAdded": "2026-04-21T20:45:27-07:00",
-      "year": 2015
-    },
-    {
-      "id": 15764805,
-      "masterId": 955222,
-      "title": "Minecraft Volume Beta",
-      "artists": [
-        "C418"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Ghostly International",
-      "genres": [
-        "Electronic",
-        "Stage & Screen"
-      ],
-      "styles": [
-        "Ambient",
-        "Soundtrack",
-        "Chiptune",
-        "Video Game Music",
-        "IDM",
-        "Score"
-      ],
-      "cover": "https://i.discogs.com/hec8cpuOL523rYHtFto_OWWv23qrH9lPOKhVLouZBo4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1NzY0/ODA1LTE2NzE3MzE3/MjgtMjY5NC5qcGVn.jpeg",
-      "dateAdded": "2026-05-09T11:59:52-07:00",
-      "year": 2020
+      "year": 1997
     },
     {
       "id": 30580669,
       "masterId": 801496,
       "title": "Minecraft Volume Alpha",
+      "pressingYear": 2024,
       "artists": [
         "C418"
       ],
@@ -661,7 +638,35 @@
       ],
       "cover": "https://i.discogs.com/aHgCqQy6ke1HGXo8dD1y0aV2BA4zk_y5iozv1Y0-6AM/rs:fit/g:sm/q:90/h:600/w:586/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNTgw/NjY5LTE3MTYwNjgw/NDUtNTIwOS5qcGVn.jpeg",
       "dateAdded": "2025-01-17T19:27:11-08:00",
-      "year": 2024
+      "year": 2011
+    },
+    {
+      "id": 15764805,
+      "masterId": 955222,
+      "title": "Minecraft Volume Beta",
+      "pressingYear": 2020,
+      "artists": [
+        "C418"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Ghostly International",
+      "genres": [
+        "Electronic",
+        "Stage & Screen"
+      ],
+      "styles": [
+        "Ambient",
+        "Soundtrack",
+        "Chiptune",
+        "Video Game Music",
+        "IDM",
+        "Score"
+      ],
+      "cover": "https://i.discogs.com/hec8cpuOL523rYHtFto_OWWv23qrH9lPOKhVLouZBo4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1NzY0/ODA1LTE2NzE3MzE3/MjgtMjY5NC5qcGVn.jpeg",
+      "dateAdded": "2026-05-09T11:59:52-07:00",
+      "year": 2013
     },
     {
       "id": 30712517,
@@ -686,6 +691,28 @@
       "year": 0
     },
     {
+      "id": 28952755,
+      "masterId": 605655,
+      "title": "Melophobia",
+      "pressingYear": 2023,
+      "artists": [
+        "Cage The Elephant"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "RCA",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Alternative Rock"
+      ],
+      "cover": "https://i.discogs.com/FcA6dpAp0hZpRZWmOmHrgru2WIH__uQf5uIdYu6jCak/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4OTUy/NzU1LTE3MDAzMjYx/NTctMzc3NS5qcGVn.jpeg",
+      "dateAdded": "2025-01-02T23:02:36-08:00",
+      "year": 2013
+    },
+    {
       "id": 7856486,
       "masterId": 929357,
       "title": "Tell Me I'm Pretty",
@@ -705,27 +732,6 @@
       "cover": "https://i.discogs.com/507xSZRyvQ3hUJLyeCUsf4zaAYjapDClvqhdUTuf58o/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc4NTY0/ODYtMTQ1MDI3MDM3/NS0xNTY0LmpwZWc.jpeg",
       "dateAdded": "2026-04-26T18:18:25-07:00",
       "year": 2015
-    },
-    {
-      "id": 28952755,
-      "masterId": 605655,
-      "title": "Melophobia",
-      "artists": [
-        "Cage The Elephant"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "RCA",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Alternative Rock"
-      ],
-      "cover": "https://i.discogs.com/FcA6dpAp0hZpRZWmOmHrgru2WIH__uQf5uIdYu6jCak/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4OTUy/NzU1LTE3MDAzMjYx/NTctMzc3NS5qcGVn.jpeg",
-      "dateAdded": "2025-01-02T23:02:36-08:00",
-      "year": 2023
     },
     {
       "id": 13447300,
@@ -1059,7 +1065,6 @@
       "id": 16170061,
       "masterId": 1561,
       "title": "The Rise And Fall Of Ziggy Stardust And The Spiders From Mars",
-      "pressingYear": 2020,
       "artists": [
         "David Bowie"
       ],
@@ -1076,7 +1081,7 @@
       ],
       "cover": "https://i.discogs.com/HI4C_20GA8PVmVrhpyEg6_WKE2DnhiP6F4ZIE7yU7dM/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2MTcw/MDYxLTE3MDIyNDU4/NzgtMzI1OS5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:57:32-07:00",
-      "year": 1972
+      "year": 2020
     },
     {
       "id": 23162180,
