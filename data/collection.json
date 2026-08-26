@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-25T07:06:41.036Z",
+  "updatedAt": "2026-08-26T07:07:40.545Z",
   "releases": [
     {
       "id": 31419368,
@@ -937,6 +937,55 @@
       "year": 2020
     },
     {
+      "id": 29277010,
+      "masterId": 26647,
+      "title": "Discovery",
+      "pressingYear": 2023,
+      "artists": [
+        "Daft Punk"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "ADA (6)",
+      "genres": [
+        "Electronic"
+      ],
+      "styles": [
+        "Disco",
+        "House",
+        "Electro",
+        "French House"
+      ],
+      "cover": "https://i.discogs.com/9omVF7Ur_lP25cJS_AUeKEXhSWncOr_VllpR1UdVHV4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5Mjc3/MDEwLTE3MzMwODAz/ODEtMzE5Ni5qcGVn.jpeg",
+      "dateAdded": "2025-01-02T23:11:44-08:00",
+      "year": 2001
+    },
+    {
+      "id": 6657381,
+      "masterId": 26647,
+      "title": "Discovery",
+      "pressingYear": 2014,
+      "artists": [
+        "Daft Punk"
+      ],
+      "formats": [
+        "CD"
+      ],
+      "label": "Warner Music Mexico",
+      "genres": [
+        "Electronic"
+      ],
+      "styles": [
+        "House",
+        "Electro",
+        "Downtempo"
+      ],
+      "cover": "https://i.discogs.com/74iGaX83nY-C2a4rAlkOikPSK_2fhY--ot2W8WxtgCg/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY2NTcz/ODEtMTQyNDAxNjUy/MS02OTc0LmpwZWc.jpeg",
+      "dateAdded": "2025-01-03T00:22:08-08:00",
+      "year": 2001
+    },
+    {
       "id": 21098977,
       "masterId": 291615,
       "title": "TRON: El Legado (Soundtrack Original)",
@@ -961,32 +1010,10 @@
       "year": 2010
     },
     {
-      "id": 6657381,
-      "masterId": 26647,
-      "title": "Discovery",
-      "artists": [
-        "Daft Punk"
-      ],
-      "formats": [
-        "CD"
-      ],
-      "label": "Warner Music Mexico",
-      "genres": [
-        "Electronic"
-      ],
-      "styles": [
-        "House",
-        "Electro",
-        "Downtempo"
-      ],
-      "cover": "https://i.discogs.com/74iGaX83nY-C2a4rAlkOikPSK_2fhY--ot2W8WxtgCg/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY2NTcz/ODEtMTQyNDAxNjUy/MS02OTc0LmpwZWc.jpeg",
-      "dateAdded": "2025-01-03T00:22:08-08:00",
-      "year": 2014
-    },
-    {
       "id": 26724584,
       "masterId": 556257,
       "title": "Random Access Memories",
+      "pressingYear": 2021,
       "artists": [
         "Daft Punk"
       ],
@@ -1007,31 +1034,7 @@
       ],
       "cover": "https://i.discogs.com/yqa-5yyG0qMNoiEuoIr3i826YpWl-NwUXwg0EZ_6Y3k/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2NzI0/NTg0LTE2ODEyMTcx/MTMtMzIwOC5qcGVn.jpeg",
       "dateAdded": "2025-01-02T23:14:14-08:00",
-      "year": 2021
-    },
-    {
-      "id": 29277010,
-      "masterId": 26647,
-      "title": "Discovery",
-      "artists": [
-        "Daft Punk"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "ADA (6)",
-      "genres": [
-        "Electronic"
-      ],
-      "styles": [
-        "Disco",
-        "House",
-        "Electro",
-        "French House"
-      ],
-      "cover": "https://i.discogs.com/9omVF7Ur_lP25cJS_AUeKEXhSWncOr_VllpR1UdVHV4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5Mjc3/MDEwLTE3MzMwODAz/ODEtMzE5Ni5qcGVn.jpeg",
-      "dateAdded": "2025-01-02T23:11:44-08:00",
-      "year": 2023
+      "year": 2013
     },
     {
       "id": 2383925,
