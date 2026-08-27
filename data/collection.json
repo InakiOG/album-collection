@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-26T07:07:40.545Z",
+  "updatedAt": "2026-08-27T17:41:11.714Z",
   "releases": [
     {
       "id": 31419368,
@@ -544,6 +544,7 @@
       "id": 6406575,
       "masterId": 22457,
       "title": "Melody Of Certain Damaged Lemons",
+      "pressingYear": 2011,
       "artists": [
         "Blonde Redhead"
       ],
@@ -560,12 +561,13 @@
       ],
       "cover": "https://i.discogs.com/hqbiUuNaarB09OKPFlGW1N18LWD2kdcLPT1qfMSwM_c/rs:fit/g:sm/q:90/h:600/w:595/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY0MDY1/NzUtMTUyOTg4MTM4/Ni02ODYzLnBuZw.jpeg",
       "dateAdded": "2026-05-17T12:56:54-07:00",
-      "year": 2011
+      "year": 2000
     },
     {
       "id": 30781416,
       "masterId": 65863,
       "title": "Legend - The Best Of Bob Marley And The Wailers",
+      "pressingYear": 2024,
       "artists": [
         "Bob Marley & The Wailers"
       ],
@@ -579,12 +581,13 @@
       "styles": [],
       "cover": "https://i.discogs.com/5_0G86D2FkaxVIr2_00QfNxVCc152v836M3qHfwDrFA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNzgx/NDE2LTE3MTY3NDQy/MDQtNjcxOS5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:44:37-07:00",
-      "year": 2024
+      "year": 1984
     },
     {
       "id": 7631931,
       "masterId": 64210,
       "title": "Buena Vista Social Club",
+      "pressingYear": 2015,
       "artists": [
         "Buena Vista Social Club"
       ],
@@ -606,39 +609,13 @@
       ],
       "cover": "https://i.discogs.com/WEgG_TiRio-_tZWk09rhjhHSWOV4k8vLE26CEmYo4zc/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc2MzE5/MzEtMTcwNjQwNDQ3/MC00NzM1LmpwZWc.jpeg",
       "dateAdded": "2026-04-21T20:45:27-07:00",
-      "year": 2015
-    },
-    {
-      "id": 15764805,
-      "masterId": 955222,
-      "title": "Minecraft Volume Beta",
-      "artists": [
-        "C418"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Ghostly International",
-      "genres": [
-        "Electronic",
-        "Stage & Screen"
-      ],
-      "styles": [
-        "Ambient",
-        "Soundtrack",
-        "Chiptune",
-        "Video Game Music",
-        "IDM",
-        "Score"
-      ],
-      "cover": "https://i.discogs.com/hec8cpuOL523rYHtFto_OWWv23qrH9lPOKhVLouZBo4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1NzY0/ODA1LTE2NzE3MzE3/MjgtMjY5NC5qcGVn.jpeg",
-      "dateAdded": "2026-05-09T11:59:52-07:00",
-      "year": 2020
+      "year": 1997
     },
     {
       "id": 30580669,
       "masterId": 801496,
       "title": "Minecraft Volume Alpha",
+      "pressingYear": 2024,
       "artists": [
         "C418"
       ],
@@ -661,12 +638,41 @@
       ],
       "cover": "https://i.discogs.com/aHgCqQy6ke1HGXo8dD1y0aV2BA4zk_y5iozv1Y0-6AM/rs:fit/g:sm/q:90/h:600/w:586/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNTgw/NjY5LTE3MTYwNjgw/NDUtNTIwOS5qcGVn.jpeg",
       "dateAdded": "2025-01-17T19:27:11-08:00",
-      "year": 2024
+      "year": 2011
     },
     {
-      "id": 30712517,
-      "masterId": 1534634,
-      "title": "Social Cues",
+      "id": 15764805,
+      "masterId": 955222,
+      "title": "Minecraft Volume Beta",
+      "pressingYear": 2020,
+      "artists": [
+        "C418"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Ghostly International",
+      "genres": [
+        "Electronic",
+        "Stage & Screen"
+      ],
+      "styles": [
+        "Ambient",
+        "Soundtrack",
+        "Chiptune",
+        "Video Game Music",
+        "IDM",
+        "Score"
+      ],
+      "cover": "https://i.discogs.com/hec8cpuOL523rYHtFto_OWWv23qrH9lPOKhVLouZBo4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1NzY0/ODA1LTE2NzE3MzE3/MjgtMjY5NC5qcGVn.jpeg",
+      "dateAdded": "2026-05-09T11:59:52-07:00",
+      "year": 2013
+    },
+    {
+      "id": 28952755,
+      "masterId": 605655,
+      "title": "Melophobia",
+      "pressingYear": 2023,
       "artists": [
         "Cage The Elephant"
       ],
@@ -678,12 +684,11 @@
         "Rock"
       ],
       "styles": [
-        "Indie Rock",
-        "Post-Punk"
+        "Alternative Rock"
       ],
-      "cover": "https://i.discogs.com/QTI_XLrahrDXOE6POlU2_J2eZL5pDs5eevre0mnmWaE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNzEy/NTE3LTE3MTYwNDIz/ODUtNDk5Ny5qcGVn.jpeg",
-      "dateAdded": "2026-08-13T18:58:35-07:00",
-      "year": 0
+      "cover": "https://i.discogs.com/FcA6dpAp0hZpRZWmOmHrgru2WIH__uQf5uIdYu6jCak/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4OTUy/NzU1LTE3MDAzMjYx/NTctMzc3NS5qcGVn.jpeg",
+      "dateAdded": "2025-01-02T23:02:36-08:00",
+      "year": 2013
     },
     {
       "id": 7856486,
@@ -707,9 +712,10 @@
       "year": 2015
     },
     {
-      "id": 28952755,
-      "masterId": 605655,
-      "title": "Melophobia",
+      "id": 30712517,
+      "masterId": 1534634,
+      "title": "Social Cues",
+      "pressingYear": 0,
       "artists": [
         "Cage The Elephant"
       ],
@@ -721,11 +727,12 @@
         "Rock"
       ],
       "styles": [
-        "Alternative Rock"
+        "Indie Rock",
+        "Post-Punk"
       ],
-      "cover": "https://i.discogs.com/FcA6dpAp0hZpRZWmOmHrgru2WIH__uQf5uIdYu6jCak/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4OTUy/NzU1LTE3MDAzMjYx/NTctMzc3NS5qcGVn.jpeg",
-      "dateAdded": "2025-01-02T23:02:36-08:00",
-      "year": 2023
+      "cover": "https://i.discogs.com/QTI_XLrahrDXOE6POlU2_J2eZL5pDs5eevre0mnmWaE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNzEy/NTE3LTE3MTYwNDIz/ODUtNDk5Ny5qcGVn.jpeg",
+      "dateAdded": "2026-08-13T18:58:35-07:00",
+      "year": 2019
     },
     {
       "id": 13447300,
@@ -753,6 +760,7 @@
       "id": 5876465,
       "masterId": 5104,
       "title": "Heaven Or Las Vegas",
+      "pressingYear": 2014,
       "artists": [
         "Cocteau Twins"
       ],
@@ -770,12 +778,13 @@
       ],
       "cover": "https://i.discogs.com/4aoOARpeUF-cbEjniCDG7t2BafKYFCNcEaVW5d05OO8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU4NzY0/NjUtMTQwNTk0NzIz/Mi0zMTY4LmpwZWc.jpeg",
       "dateAdded": "2026-04-21T20:46:13-07:00",
-      "year": 2014
+      "year": 1990
     },
     {
       "id": 29459938,
       "masterId": 5057,
       "title": "Four-Calendar Café",
+      "pressingYear": 2024,
       "artists": [
         "Cocteau Twins"
       ],
@@ -795,12 +804,13 @@
       ],
       "cover": "https://i.discogs.com/kXTUTgVrLHtGteZPHH18IuHxc_5q5_EhbTSe9Em3uzY/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5NDU5/OTM4LTE3MDUwMzQ4/MTEtNDY0MS5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:52:32-07:00",
-      "year": 2024
+      "year": 1993
     },
     {
       "id": 31728419,
       "masterId": 3334,
       "title": "Parachutes",
+      "pressingYear": 2024,
       "artists": [
         "Coldplay"
       ],
@@ -817,12 +827,13 @@
       ],
       "cover": "https://i.discogs.com/v2A5dL9aUz2GZ0QKvLp-xZ8ojWP4bhbiJrspDh7x1b8/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNzI4/NDE5LTE3Mjk3NTIy/NzQtNTU2OC5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:53:08-07:00",
-      "year": 2024
+      "year": 2000
     },
     {
       "id": 13839494,
       "masterId": 33450,
       "title": "Crystal Castles",
+      "pressingYear": 2017,
       "artists": [
         "Crystal Castles"
       ],
@@ -841,12 +852,13 @@
       ],
       "cover": "https://i.discogs.com/LORCuYj86enoIl9XwsSMACEu-NLaiTAhwe-i2E8CHHk/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzODM5/NDk0LTE1NjIyOTY4/MDItNTI1Ny5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:54:04-07:00",
-      "year": 2017
+      "year": 2008
     },
     {
       "id": 29889358,
       "masterId": 491967,
       "title": "(III)",
+      "pressingYear": 2024,
       "artists": [
         "Crystal Castles"
       ],
@@ -866,12 +878,36 @@
       ],
       "cover": "https://i.discogs.com/z5QsQV86uqiPivpOjNn2YZcNU6mIlcAEnGzhNanSxaU/rs:fit/g:sm/q:90/h:500/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5ODg5/MzU4LTE3MDg2Njg2/NTAtNjgxNi5qcGVn.jpeg",
       "dateAdded": "2025-01-02T23:09:07-08:00",
-      "year": 2024
+      "year": 2012
+    },
+    {
+      "id": 19377427,
+      "masterId": 20319,
+      "title": "Three Imaginary Boys",
+      "pressingYear": 2018,
+      "artists": [
+        "The Cure"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Fiction Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "New Wave",
+        "Post-Punk"
+      ],
+      "cover": "https://i.discogs.com/-bdUBW9Q79utQCXupoE16-jy329gksmQTQkBY0MVEkA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE5Mzc3/NDI3LTE2MjU0NDY3/NTYtMzM3Ny5qcGVn.jpeg",
+      "dateAdded": "2026-04-21T20:54:20-07:00",
+      "year": 1979
     },
     {
       "id": 9018165,
       "masterId": 20278,
       "title": "Seventeen Seconds",
+      "pressingYear": 2016,
       "artists": [
         "The Cure"
       ],
@@ -889,34 +925,13 @@
       ],
       "cover": "https://i.discogs.com/QBOejgZdZkSJO51Du-jhEw9dihcnB_GfKKhbRk1YXfg/rs:fit/g:sm/q:90/h:596/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTkwMTgx/NjUtMTUwNjY1Nzg1/Ny00MjE0LmpwZWc.jpeg",
       "dateAdded": "2026-06-10T19:42:27-07:00",
-      "year": 2016
-    },
-    {
-      "id": 19377427,
-      "masterId": 20319,
-      "title": "Three Imaginary Boys",
-      "artists": [
-        "The Cure"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Fiction Records",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "New Wave",
-        "Post-Punk"
-      ],
-      "cover": "https://i.discogs.com/-bdUBW9Q79utQCXupoE16-jy329gksmQTQkBY0MVEkA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE5Mzc3/NDI3LTE2MjU0NDY3/NTYtMzM3Ny5qcGVn.jpeg",
-      "dateAdded": "2026-04-21T20:54:20-07:00",
-      "year": 2018
+      "year": 1980
     },
     {
       "id": 17329675,
       "masterId": 31755,
       "title": "Disintegration ",
+      "pressingYear": 2020,
       "artists": [
         "The Cure"
       ],
@@ -934,7 +949,7 @@
       ],
       "cover": "https://i.discogs.com/zmwuiUsmx7qnpPpCxl8HKMQqbYpggr5f4KNK1lnbb3M/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE3MzI5/Njc1LTE2MzE5MTY0/MzItMzAwMC5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:54:36-07:00",
-      "year": 2020
+      "year": 1989
     },
     {
       "id": 29277010,
@@ -2166,29 +2181,6 @@
       "year": 2008
     },
     {
-      "id": 7132498,
-      "masterId": 4805,
-      "title": "Unknown Pleasures",
-      "pressingYear": 2015,
-      "artists": [
-        "Joy Division"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Factory",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "New Wave",
-        "Post-Punk"
-      ],
-      "cover": "https://i.discogs.com/tbxV7AJrDRFyeXBywKzNPABG40Gm7aLqEggPNpQ4it8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTcxMzI0/OTgtMTQ0MDU4OTM2/OC00OTcyLmpwZWc.jpeg",
-      "dateAdded": "2026-04-21T21:31:04-07:00",
-      "year": 1979
-    },
-    {
       "id": 30876984,
       "masterId": 177319,
       "title": "Love Will Tear Us Apart",
@@ -2210,6 +2202,28 @@
       "cover": "https://i.discogs.com/yWRPHKY1wWJsht4oSP0JM70w-vN4FcvEwvo3he_EZVk/rs:fit/g:sm/q:90/h:600/w:597/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwODc2/OTg0LTE3MjA2Njk5/NTAtNzI4My5qcGVn.jpeg",
       "dateAdded": "2026-04-21T21:35:04-07:00",
       "year": 2009
+    },
+    {
+      "id": 7132498,
+      "masterId": 4805,
+      "title": "Unknown Pleasures",
+      "artists": [
+        "Joy Division"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Factory",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "New Wave",
+        "Post-Punk"
+      ],
+      "cover": "https://i.discogs.com/tbxV7AJrDRFyeXBywKzNPABG40Gm7aLqEggPNpQ4it8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTcxMzI0/OTgtMTQ0MDU4OTM2/OC00OTcyLmpwZWc.jpeg",
+      "dateAdded": "2026-04-21T21:31:04-07:00",
+      "year": 2015
     },
     {
       "id": 14662264,
@@ -2280,29 +2294,6 @@
       "cover": "https://i.discogs.com/hd7IkodDF9qU1PKFNdCLEwAyVg-ijpl_eAkFgrbeiDo/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4NjQ0/NTQxLTE2OTc3NTY5/NjYtMzQxMC5qcGVn.jpeg",
       "dateAdded": "2026-05-26T11:33:19-07:00",
       "year": 2014
-    },
-    {
-      "id": 19887778,
-      "masterId": 4126,
-      "title": "Led Zeppelin",
-      "pressingYear": 2020,
-      "artists": [
-        "Led Zeppelin"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Atlantic",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Blues Rock",
-        "Hard Rock"
-      ],
-      "cover": "https://i.discogs.com/GlWm3wwaPFeBa78mFMN0-H-kNubJo5jYTs62FdSU_1w/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE5ODg3/Nzc4LTE2MjkxNzM0/NjktNTU1My5qcGVn.jpeg",
-      "dateAdded": "2026-04-21T21:41:20-07:00",
-      "year": 1969
     },
     {
       "id": 5734489,
@@ -2380,6 +2371,28 @@
       "year": 1971
     },
     {
+      "id": 19887778,
+      "masterId": 4126,
+      "title": "Led Zeppelin",
+      "artists": [
+        "Led Zeppelin"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Atlantic",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Blues Rock",
+        "Hard Rock"
+      ],
+      "cover": "https://i.discogs.com/GlWm3wwaPFeBa78mFMN0-H-kNubJo5jYTs62FdSU_1w/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE5ODg3/Nzc4LTE2MjkxNzM0/NjktNTU1My5qcGVn.jpeg",
+      "dateAdded": "2026-04-21T21:41:20-07:00",
+      "year": 2020
+    },
+    {
       "id": 5150478,
       "masterId": 74519,
       "title": "Hybrid Theory",
@@ -2442,7 +2455,7 @@
       "styles": [
         "Nu Metal"
       ],
-      "cover": "https://i.discogs.com/4xE9wjGzlOZl6PSD--2QoyAqY8pFFW3j1H5rOJSL7vg/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxMzEx/MTM4LTE3Nzk1MjUx/NDMtNjcxMC5qcGVn.jpeg",
+      "cover": "https://i.discogs.com/aH8SXtBgjHtfZcjcfJEtlid7h1gumro9PJWDN4Bcaoc/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxMzEx/MTM4LTE3ODc4NDU2/MjgtOTYxNS5qcGVn.jpeg",
       "dateAdded": "2025-01-02T23:50:52-08:00",
       "year": 2003
     },
