@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-27T17:41:11.714Z",
+  "updatedAt": "2026-08-28T18:37:59.008Z",
   "releases": [
     {
       "id": 31419368,
@@ -1303,7 +1303,9 @@
       "styles": [
         "Alternative Rock",
         "Experimental",
-        "Post-Metal"
+        "Post-Metal",
+        "New Wave",
+        "Alternative Metal"
       ],
       "cover": "https://i.discogs.com/bQs9UhkrPTuwz4Gqya8bfEkCU3mkDVYWPPk3qLCIowA/rs:fit/g:sm/q:90/h:592/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2NDQ0/NDk3LTE3NTg1NzYz/MzEtNjIyMC5qcGVn.jpeg",
       "dateAdded": "2026-06-30T21:15:32-07:00",
@@ -2181,6 +2183,29 @@
       "year": 2008
     },
     {
+      "id": 7132498,
+      "masterId": 4805,
+      "title": "Unknown Pleasures",
+      "pressingYear": 2015,
+      "artists": [
+        "Joy Division"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Factory",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "New Wave",
+        "Post-Punk"
+      ],
+      "cover": "https://i.discogs.com/tbxV7AJrDRFyeXBywKzNPABG40Gm7aLqEggPNpQ4it8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTcxMzI0/OTgtMTQ0MDU4OTM2/OC00OTcyLmpwZWc.jpeg",
+      "dateAdded": "2026-04-21T21:31:04-07:00",
+      "year": 1979
+    },
+    {
       "id": 30876984,
       "masterId": 177319,
       "title": "Love Will Tear Us Apart",
@@ -2202,28 +2227,6 @@
       "cover": "https://i.discogs.com/yWRPHKY1wWJsht4oSP0JM70w-vN4FcvEwvo3he_EZVk/rs:fit/g:sm/q:90/h:600/w:597/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwODc2/OTg0LTE3MjA2Njk5/NTAtNzI4My5qcGVn.jpeg",
       "dateAdded": "2026-04-21T21:35:04-07:00",
       "year": 2009
-    },
-    {
-      "id": 7132498,
-      "masterId": 4805,
-      "title": "Unknown Pleasures",
-      "artists": [
-        "Joy Division"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Factory",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "New Wave",
-        "Post-Punk"
-      ],
-      "cover": "https://i.discogs.com/tbxV7AJrDRFyeXBywKzNPABG40Gm7aLqEggPNpQ4it8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTcxMzI0/OTgtMTQ0MDU4OTM2/OC00OTcyLmpwZWc.jpeg",
-      "dateAdded": "2026-04-21T21:31:04-07:00",
-      "year": 2015
     },
     {
       "id": 14662264,
@@ -2294,6 +2297,29 @@
       "cover": "https://i.discogs.com/hd7IkodDF9qU1PKFNdCLEwAyVg-ijpl_eAkFgrbeiDo/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4NjQ0/NTQxLTE2OTc3NTY5/NjYtMzQxMC5qcGVn.jpeg",
       "dateAdded": "2026-05-26T11:33:19-07:00",
       "year": 2014
+    },
+    {
+      "id": 19887778,
+      "masterId": 4126,
+      "title": "Led Zeppelin",
+      "pressingYear": 2020,
+      "artists": [
+        "Led Zeppelin"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Atlantic",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Blues Rock",
+        "Hard Rock"
+      ],
+      "cover": "https://i.discogs.com/GlWm3wwaPFeBa78mFMN0-H-kNubJo5jYTs62FdSU_1w/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE5ODg3/Nzc4LTE2MjkxNzM0/NjktNTU1My5qcGVn.jpeg",
+      "dateAdded": "2026-04-21T21:41:20-07:00",
+      "year": 1969
     },
     {
       "id": 5734489,
@@ -2369,28 +2395,6 @@
       "cover": "https://i.discogs.com/ws5mrHtlAvVPt_DMeC8FVUHCXdZZsfdY9Io7mFhof04/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE4ODYx/ODY4LTE2MjE4NjQz/NjctNzE1NS5qcGVn.jpeg",
       "dateAdded": "2026-04-21T22:07:55-07:00",
       "year": 1971
-    },
-    {
-      "id": 19887778,
-      "masterId": 4126,
-      "title": "Led Zeppelin",
-      "artists": [
-        "Led Zeppelin"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Atlantic",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Blues Rock",
-        "Hard Rock"
-      ],
-      "cover": "https://i.discogs.com/GlWm3wwaPFeBa78mFMN0-H-kNubJo5jYTs62FdSU_1w/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE5ODg3/Nzc4LTE2MjkxNzM0/NjktNTU1My5qcGVn.jpeg",
-      "dateAdded": "2026-04-21T21:41:20-07:00",
-      "year": 2020
     },
     {
       "id": 5150478,
@@ -4253,6 +4257,31 @@
       "cover": "https://i.discogs.com/LzpslJ_xBF13zn0hAGS35kSBXoi0dmB9fUExJZmaylg/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg1MzQ0/NDgtMTQ4MjYzMjEw/MC04MTkyLmpwZWc.jpeg",
       "dateAdded": "2026-04-21T22:09:48-07:00",
       "year": 2006
+    },
+    {
+      "id": 16954041,
+      "masterId": 35276,
+      "title": "The Velvet Underground & Nico",
+      "pressingYear": 2020,
+      "artists": [
+        "The Velvet Underground",
+        "Nico"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Verve Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Art Rock",
+        "Experimental",
+        "Avantgarde"
+      ],
+      "cover": "https://i.discogs.com/8D4kLviuZTkuDi6XJ719JaEjeV4-7oTcKUgdOTvEX6E/rs:fit/g:sm/q:90/h:600/w:589/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTU0/MDQxLTE2MTQzOTEy/NDEtNjg3Ni5qcGVn.jpeg",
+      "dateAdded": "2026-08-27T15:42:32-07:00",
+      "year": 1967
     },
     {
       "id": 6895406,
