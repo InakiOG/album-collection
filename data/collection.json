@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-29T12:43:50.486Z",
+  "updatedAt": "2026-08-30T11:52:34.154Z",
   "releases": [
     {
       "id": 31419368,
@@ -544,6 +544,7 @@
       "id": 6406575,
       "masterId": 22457,
       "title": "Melody Of Certain Damaged Lemons",
+      "pressingYear": 2011,
       "artists": [
         "Blonde Redhead"
       ],
@@ -560,12 +561,13 @@
       ],
       "cover": "https://i.discogs.com/hqbiUuNaarB09OKPFlGW1N18LWD2kdcLPT1qfMSwM_c/rs:fit/g:sm/q:90/h:600/w:595/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY0MDY1/NzUtMTUyOTg4MTM4/Ni02ODYzLnBuZw.jpeg",
       "dateAdded": "2026-05-17T12:56:54-07:00",
-      "year": 2011
+      "year": 2000
     },
     {
       "id": 30781416,
       "masterId": 65863,
       "title": "Legend - The Best Of Bob Marley And The Wailers",
+      "pressingYear": 2024,
       "artists": [
         "Bob Marley & The Wailers"
       ],
@@ -579,12 +581,13 @@
       "styles": [],
       "cover": "https://i.discogs.com/5_0G86D2FkaxVIr2_00QfNxVCc152v836M3qHfwDrFA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNzgx/NDE2LTE3MTY3NDQy/MDQtNjcxOS5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:44:37-07:00",
-      "year": 2024
+      "year": 1984
     },
     {
       "id": 7631931,
       "masterId": 64210,
       "title": "Buena Vista Social Club",
+      "pressingYear": 2015,
       "artists": [
         "Buena Vista Social Club"
       ],
@@ -606,7 +609,7 @@
       ],
       "cover": "https://i.discogs.com/WEgG_TiRio-_tZWk09rhjhHSWOV4k8vLE26CEmYo4zc/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc2MzE5/MzEtMTcwNjQwNDQ3/MC00NzM1LmpwZWc.jpeg",
       "dateAdded": "2026-04-21T20:45:27-07:00",
-      "year": 2015
+      "year": 1997
     },
     {
       "id": 15764805,
@@ -869,33 +872,9 @@
       "year": 2024
     },
     {
-      "id": 19377427,
-      "masterId": 20319,
-      "title": "Three Imaginary Boys",
-      "pressingYear": 2018,
-      "artists": [
-        "The Cure"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Fiction Records",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "New Wave",
-        "Post-Punk"
-      ],
-      "cover": "https://i.discogs.com/-bdUBW9Q79utQCXupoE16-jy329gksmQTQkBY0MVEkA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE5Mzc3/NDI3LTE2MjU0NDY3/NTYtMzM3Ny5qcGVn.jpeg",
-      "dateAdded": "2026-04-21T20:54:20-07:00",
-      "year": 1979
-    },
-    {
       "id": 9018165,
       "masterId": 20278,
       "title": "Seventeen Seconds",
-      "pressingYear": 2016,
       "artists": [
         "The Cure"
       ],
@@ -913,13 +892,34 @@
       ],
       "cover": "https://i.discogs.com/QBOejgZdZkSJO51Du-jhEw9dihcnB_GfKKhbRk1YXfg/rs:fit/g:sm/q:90/h:596/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTkwMTgx/NjUtMTUwNjY1Nzg1/Ny00MjE0LmpwZWc.jpeg",
       "dateAdded": "2026-06-10T19:42:27-07:00",
-      "year": 1980
+      "year": 2016
+    },
+    {
+      "id": 19377427,
+      "masterId": 20319,
+      "title": "Three Imaginary Boys",
+      "artists": [
+        "The Cure"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Fiction Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "New Wave",
+        "Post-Punk"
+      ],
+      "cover": "https://i.discogs.com/-bdUBW9Q79utQCXupoE16-jy329gksmQTQkBY0MVEkA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE5Mzc3/NDI3LTE2MjU0NDY3/NTYtMzM3Ny5qcGVn.jpeg",
+      "dateAdded": "2026-04-21T20:54:20-07:00",
+      "year": 2018
     },
     {
       "id": 17329675,
       "masterId": 31755,
       "title": "Disintegration ",
-      "pressingYear": 2020,
       "artists": [
         "The Cure"
       ],
@@ -937,56 +937,7 @@
       ],
       "cover": "https://i.discogs.com/zmwuiUsmx7qnpPpCxl8HKMQqbYpggr5f4KNK1lnbb3M/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE3MzI5/Njc1LTE2MzE5MTY0/MzItMzAwMC5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:54:36-07:00",
-      "year": 1989
-    },
-    {
-      "id": 29277010,
-      "masterId": 26647,
-      "title": "Discovery",
-      "pressingYear": 2023,
-      "artists": [
-        "Daft Punk"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "ADA (6)",
-      "genres": [
-        "Electronic"
-      ],
-      "styles": [
-        "Disco",
-        "House",
-        "Electro",
-        "French House"
-      ],
-      "cover": "https://i.discogs.com/9omVF7Ur_lP25cJS_AUeKEXhSWncOr_VllpR1UdVHV4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5Mjc3/MDEwLTE3MzMwODAz/ODEtMzE5Ni5qcGVn.jpeg",
-      "dateAdded": "2025-01-02T23:11:44-08:00",
-      "year": 2001
-    },
-    {
-      "id": 6657381,
-      "masterId": 26647,
-      "title": "Discovery",
-      "pressingYear": 2014,
-      "artists": [
-        "Daft Punk"
-      ],
-      "formats": [
-        "CD"
-      ],
-      "label": "Warner Music Mexico",
-      "genres": [
-        "Electronic"
-      ],
-      "styles": [
-        "House",
-        "Electro",
-        "Downtempo"
-      ],
-      "cover": "https://i.discogs.com/74iGaX83nY-C2a4rAlkOikPSK_2fhY--ot2W8WxtgCg/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY2NTcz/ODEtMTQyNDAxNjUy/MS02OTc0LmpwZWc.jpeg",
-      "dateAdded": "2025-01-03T00:22:08-08:00",
-      "year": 2001
+      "year": 2020
     },
     {
       "id": 21098977,
@@ -1013,10 +964,32 @@
       "year": 2010
     },
     {
+      "id": 6657381,
+      "masterId": 26647,
+      "title": "Discovery",
+      "artists": [
+        "Daft Punk"
+      ],
+      "formats": [
+        "CD"
+      ],
+      "label": "Warner Music Mexico",
+      "genres": [
+        "Electronic"
+      ],
+      "styles": [
+        "House",
+        "Electro",
+        "Downtempo"
+      ],
+      "cover": "https://i.discogs.com/74iGaX83nY-C2a4rAlkOikPSK_2fhY--ot2W8WxtgCg/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY2NTcz/ODEtMTQyNDAxNjUy/MS02OTc0LmpwZWc.jpeg",
+      "dateAdded": "2025-01-03T00:22:08-08:00",
+      "year": 2014
+    },
+    {
       "id": 26724584,
       "masterId": 556257,
       "title": "Random Access Memories",
-      "pressingYear": 2021,
       "artists": [
         "Daft Punk"
       ],
@@ -1037,13 +1010,36 @@
       ],
       "cover": "https://i.discogs.com/yqa-5yyG0qMNoiEuoIr3i826YpWl-NwUXwg0EZ_6Y3k/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2NzI0/NTg0LTE2ODEyMTcx/MTMtMzIwOC5qcGVn.jpeg",
       "dateAdded": "2025-01-02T23:14:14-08:00",
-      "year": 2013
+      "year": 2021
+    },
+    {
+      "id": 29277010,
+      "masterId": 26647,
+      "title": "Discovery",
+      "artists": [
+        "Daft Punk"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "ADA (6)",
+      "genres": [
+        "Electronic"
+      ],
+      "styles": [
+        "Disco",
+        "House",
+        "Electro",
+        "French House"
+      ],
+      "cover": "https://i.discogs.com/9omVF7Ur_lP25cJS_AUeKEXhSWncOr_VllpR1UdVHV4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5Mjc3/MDEwLTE3MzMwODAz/ODEtMzE5Ni5qcGVn.jpeg",
+      "dateAdded": "2025-01-02T23:11:44-08:00",
+      "year": 2023
     },
     {
       "id": 2383925,
       "masterId": 34081,
       "title": "Time Out",
-      "pressingYear": 2010,
       "artists": [
         "The Dave Brubeck Quartet"
       ],
@@ -1060,13 +1056,12 @@
       ],
       "cover": "https://i.discogs.com/q9cKrtSlvGm61e0ekZ4anolEPScLsLyN2HaMbT18Mtk/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzODM5/MjUtMTU2NjIyNzQz/OC03MDc1LmpwZWc.jpeg",
       "dateAdded": "2026-04-21T20:55:08-07:00",
-      "year": 1959
+      "year": 2010
     },
     {
       "id": 16170061,
       "masterId": 1561,
       "title": "The Rise And Fall Of Ziggy Stardust And The Spiders From Mars",
-      "pressingYear": 2020,
       "artists": [
         "David Bowie"
       ],
@@ -1083,7 +1078,7 @@
       ],
       "cover": "https://i.discogs.com/HI4C_20GA8PVmVrhpyEg6_WKE2DnhiP6F4ZIE7yU7dM/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2MTcw/MDYxLTE3MDIyNDU4/NzgtMzI1OS5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:57:32-07:00",
-      "year": 1972
+      "year": 2020
     },
     {
       "id": 23162180,
