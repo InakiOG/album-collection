@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-08T11:11:48.213Z",
+  "updatedAt": "2026-09-09T11:16:50.867Z",
   "releases": [
     {
       "id": 31419368,
@@ -961,6 +961,33 @@
       "year": 2010
     },
     {
+      "id": 26724584,
+      "masterId": 556257,
+      "title": "Random Access Memories",
+      "pressingYear": 2021,
+      "artists": [
+        "Daft Punk"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Columbia",
+      "genres": [
+        "Electronic",
+        "Funk / Soul",
+        "Pop"
+      ],
+      "styles": [
+        "Disco",
+        "Funk",
+        "Synth-pop",
+        "Electro"
+      ],
+      "cover": "https://i.discogs.com/yqa-5yyG0qMNoiEuoIr3i826YpWl-NwUXwg0EZ_6Y3k/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2NzI0/NTg0LTE2ODEyMTcx/MTMtMzIwOC5qcGVn.jpeg",
+      "dateAdded": "2025-01-02T23:14:14-08:00",
+      "year": 2013
+    },
+    {
       "id": 6657381,
       "masterId": 26647,
       "title": "Discovery",
@@ -982,32 +1009,6 @@
       "cover": "https://i.discogs.com/74iGaX83nY-C2a4rAlkOikPSK_2fhY--ot2W8WxtgCg/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY2NTcz/ODEtMTQyNDAxNjUy/MS02OTc0LmpwZWc.jpeg",
       "dateAdded": "2025-01-03T00:22:08-08:00",
       "year": 2014
-    },
-    {
-      "id": 26724584,
-      "masterId": 556257,
-      "title": "Random Access Memories",
-      "artists": [
-        "Daft Punk"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Columbia",
-      "genres": [
-        "Electronic",
-        "Funk / Soul",
-        "Pop"
-      ],
-      "styles": [
-        "Disco",
-        "Funk",
-        "Synth-pop",
-        "Electro"
-      ],
-      "cover": "https://i.discogs.com/yqa-5yyG0qMNoiEuoIr3i826YpWl-NwUXwg0EZ_6Y3k/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2NzI0/NTg0LTE2ODEyMTcx/MTMtMzIwOC5qcGVn.jpeg",
-      "dateAdded": "2025-01-02T23:14:14-08:00",
-      "year": 2021
     },
     {
       "id": 29277010,
@@ -1037,6 +1038,7 @@
       "id": 2383925,
       "masterId": 34081,
       "title": "Time Out",
+      "pressingYear": 2010,
       "artists": [
         "The Dave Brubeck Quartet"
       ],
@@ -1053,12 +1055,13 @@
       ],
       "cover": "https://i.discogs.com/q9cKrtSlvGm61e0ekZ4anolEPScLsLyN2HaMbT18Mtk/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzODM5/MjUtMTU2NjIyNzQz/OC03MDc1LmpwZWc.jpeg",
       "dateAdded": "2026-04-21T20:55:08-07:00",
-      "year": 2010
+      "year": 1959
     },
     {
       "id": 16170061,
       "masterId": 1561,
       "title": "The Rise And Fall Of Ziggy Stardust And The Spiders From Mars",
+      "pressingYear": 2020,
       "artists": [
         "David Bowie"
       ],
@@ -1075,7 +1078,7 @@
       ],
       "cover": "https://i.discogs.com/HI4C_20GA8PVmVrhpyEg6_WKE2DnhiP6F4ZIE7yU7dM/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2MTcw/MDYxLTE3MDIyNDU4/NzgtMzI1OS5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:57:32-07:00",
-      "year": 2020
+      "year": 1972
     },
     {
       "id": 23162180,
