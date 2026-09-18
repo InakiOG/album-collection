@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-17T11:36:01.489Z",
+  "updatedAt": "2026-09-18T11:09:00.711Z",
   "releases": [
     {
       "id": 31419368,
@@ -801,6 +801,7 @@
       "id": 31728419,
       "masterId": 3334,
       "title": "Parachutes",
+      "pressingYear": 2024,
       "artists": [
         "Coldplay"
       ],
@@ -817,12 +818,13 @@
       ],
       "cover": "https://i.discogs.com/v2A5dL9aUz2GZ0QKvLp-xZ8ojWP4bhbiJrspDh7x1b8/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNzI4/NDE5LTE3Mjk3NTIy/NzQtNTU2OC5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:53:08-07:00",
-      "year": 2024
+      "year": 2000
     },
     {
       "id": 13839494,
       "masterId": 33450,
       "title": "Crystal Castles",
+      "pressingYear": 2017,
       "artists": [
         "Crystal Castles"
       ],
@@ -841,12 +843,13 @@
       ],
       "cover": "https://i.discogs.com/LORCuYj86enoIl9XwsSMACEu-NLaiTAhwe-i2E8CHHk/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzODM5/NDk0LTE1NjIyOTY4/MDItNTI1Ny5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:54:04-07:00",
-      "year": 2017
+      "year": 2008
     },
     {
       "id": 29889358,
       "masterId": 491967,
       "title": "(III)",
+      "pressingYear": 2024,
       "artists": [
         "Crystal Castles"
       ],
@@ -866,7 +869,7 @@
       ],
       "cover": "https://i.discogs.com/z5QsQV86uqiPivpOjNn2YZcNU6mIlcAEnGzhNanSxaU/rs:fit/g:sm/q:90/h:500/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5ODg5/MzU4LTE3MDg2Njg2/NTAtNjgxNi5qcGVn.jpeg",
       "dateAdded": "2025-01-02T23:09:07-08:00",
-      "year": 2024
+      "year": 2012
     },
     {
       "id": 19377427,
