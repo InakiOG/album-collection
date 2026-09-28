@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-27T11:59:40.676Z",
+  "updatedAt": "2026-09-28T13:44:37.629Z",
   "releases": [
     {
       "id": 31419368,
@@ -644,6 +644,7 @@
       "id": 15764805,
       "masterId": 955222,
       "title": "Minecraft Volume Beta",
+      "pressingYear": 2020,
       "artists": [
         "C418"
       ],
@@ -668,7 +669,7 @@
       ],
       "cover": "https://i.discogs.com/hec8cpuOL523rYHtFto_OWWv23qrH9lPOKhVLouZBo4/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1NzY0/ODA1LTE2NzE3MzE3/MjgtMjY5NC5qcGVn.jpeg",
       "dateAdded": "2026-05-09T11:59:52-07:00",
-      "year": 2020
+      "year": 2013
     },
     {
       "id": 30712517,
