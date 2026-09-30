@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-29T12:45:05.610Z",
+  "updatedAt": "2026-09-30T12:30:08.383Z",
   "releases": [
     {
       "id": 31419368,
@@ -667,9 +667,10 @@
       "year": 2024
     },
     {
-      "id": 30712517,
-      "masterId": 1534634,
-      "title": "Social Cues",
+      "id": 28952755,
+      "masterId": 605655,
+      "title": "Melophobia",
+      "pressingYear": 2023,
       "artists": [
         "Cage The Elephant"
       ],
@@ -681,12 +682,11 @@
         "Rock"
       ],
       "styles": [
-        "Indie Rock",
-        "Post-Punk"
+        "Alternative Rock"
       ],
-      "cover": "https://i.discogs.com/QTI_XLrahrDXOE6POlU2_J2eZL5pDs5eevre0mnmWaE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNzEy/NTE3LTE3MTYwNDIz/ODUtNDk5Ny5qcGVn.jpeg",
-      "dateAdded": "2026-08-13T18:58:35-07:00",
-      "year": 0
+      "cover": "https://i.discogs.com/FcA6dpAp0hZpRZWmOmHrgru2WIH__uQf5uIdYu6jCak/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4OTUy/NzU1LTE3MDAzMjYx/NTctMzc3NS5qcGVn.jpeg",
+      "dateAdded": "2025-01-02T23:02:36-08:00",
+      "year": 2013
     },
     {
       "id": 7856486,
@@ -710,9 +710,10 @@
       "year": 2015
     },
     {
-      "id": 28952755,
-      "masterId": 605655,
-      "title": "Melophobia",
+      "id": 30712517,
+      "masterId": 1534634,
+      "title": "Social Cues",
+      "pressingYear": 0,
       "artists": [
         "Cage The Elephant"
       ],
@@ -724,11 +725,12 @@
         "Rock"
       ],
       "styles": [
-        "Alternative Rock"
+        "Indie Rock",
+        "Post-Punk"
       ],
-      "cover": "https://i.discogs.com/FcA6dpAp0hZpRZWmOmHrgru2WIH__uQf5uIdYu6jCak/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4OTUy/NzU1LTE3MDAzMjYx/NTctMzc3NS5qcGVn.jpeg",
-      "dateAdded": "2025-01-02T23:02:36-08:00",
-      "year": 2023
+      "cover": "https://i.discogs.com/QTI_XLrahrDXOE6POlU2_J2eZL5pDs5eevre0mnmWaE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNzEy/NTE3LTE3MTYwNDIz/ODUtNDk5Ny5qcGVn.jpeg",
+      "dateAdded": "2026-08-13T18:58:35-07:00",
+      "year": 2019
     },
     {
       "id": 13447300,
@@ -756,6 +758,7 @@
       "id": 5876465,
       "masterId": 5104,
       "title": "Heaven Or Las Vegas",
+      "pressingYear": 2014,
       "artists": [
         "Cocteau Twins"
       ],
@@ -773,12 +776,13 @@
       ],
       "cover": "https://i.discogs.com/4aoOARpeUF-cbEjniCDG7t2BafKYFCNcEaVW5d05OO8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU4NzY0/NjUtMTQwNTk0NzIz/Mi0zMTY4LmpwZWc.jpeg",
       "dateAdded": "2026-04-21T20:46:13-07:00",
-      "year": 2014
+      "year": 1990
     },
     {
       "id": 29459938,
       "masterId": 5057,
       "title": "Four-Calendar Café",
+      "pressingYear": 2024,
       "artists": [
         "Cocteau Twins"
       ],
@@ -798,7 +802,7 @@
       ],
       "cover": "https://i.discogs.com/kXTUTgVrLHtGteZPHH18IuHxc_5q5_EhbTSe9Em3uzY/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5NDU5/OTM4LTE3MDUwMzQ4/MTEtNDY0MS5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:52:32-07:00",
-      "year": 2024
+      "year": 1993
     },
     {
       "id": 31728419,
