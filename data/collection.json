@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T12:18:43.463Z",
+  "updatedAt": "2026-10-05T14:28:48.851Z",
   "releases": [
     {
       "id": 31419368,
@@ -307,6 +307,27 @@
       ],
       "cover": "https://i.discogs.com/KnRR4MLVSePxIOjoA_b-ZA-L130XF4JqJXcm6Ngqp3M/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyODI3/MjQwLTE1NDMwNzAz/OTUtMzM4Ni5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:38:26-07:00",
+      "year": 2018
+    },
+    {
+      "id": 28117069,
+      "masterId": 1774102,
+      "title": "Clash The Truth + Demos",
+      "pressingYear": 2023,
+      "artists": [
+        "Beach Fossils"
+      ],
+      "formats": [
+        "Vinyl",
+        "Vinyl"
+      ],
+      "label": "Bayonet Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [],
+      "cover": "https://i.discogs.com/HIcd4l9vuYJAcUxZ9ghKN5U4iS3w7duczlg502wiIck/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4MTE3/MDY5LTE2OTM1ODUy/MTItMTE5Mi5qcGVn.jpeg",
+      "dateAdded": "2026-10-04T08:41:14-07:00",
       "year": 2018
     },
     {
@@ -3625,7 +3646,7 @@
         "Smooth Jazz",
         "Soul"
       ],
-      "cover": "https://i.discogs.com/AT-5QmxgN_dzeuigTUBzbWhT5MSrn23kYiXHvrlExt0/rs:fit/g:sm/q:90/h:599/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgxMzE0/NzUtMTczNTgzNTAz/OC05MTcwLnBuZw.jpeg",
+      "cover": "https://i.discogs.com/pNur-hVHlQMRr4njvR29KORsveDrkY7tHnSjJ8Fm8L4/rs:fit/g:sm/q:90/h:596/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgxMzE0/NzUtMTQ1NTczMTUw/OS05MTMxLmpwZWc.jpeg",
       "dateAdded": "2026-04-21T22:27:43-07:00",
       "year": 1994
     },
@@ -3652,6 +3673,30 @@
       "cover": "https://i.discogs.com/tuCdoTqCcRBXBCtBBjJv9Vl0QTFWOESh0WIq2Z2IBP8/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3MzE2/OTg2LTE3MjYzMDYz/NjUtMTY4MC5qcGVn.jpeg",
       "dateAdded": "2025-01-02T23:00:21-08:00",
       "year": 2022
+    },
+    {
+      "id": 36227230,
+      "masterId": 38099,
+      "title": "Spiderland",
+      "pressingYear": 2025,
+      "artists": [
+        "Slint"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Touch And Go",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Alternative Rock",
+        "Math Rock",
+        "Post Rock"
+      ],
+      "cover": "https://i.discogs.com/A6atgFYicKFRR7MQiH50dcLay04z9KxXNEbXLiZY-Vw/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM2MjI3/MjMwLTE3Njg1NTcw/NzAtNTM1MC5qcGVn.jpeg",
+      "dateAdded": "2026-10-04T08:43:25-07:00",
+      "year": 1991
     },
     {
       "id": 36238471,
