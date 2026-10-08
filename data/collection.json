@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-07T13:15:58.552Z",
+  "updatedAt": "2026-10-08T13:23:06.498Z",
   "releases": [
     {
       "id": 31419368,
@@ -984,6 +984,33 @@
       "year": 2010
     },
     {
+      "id": 26724584,
+      "masterId": 556257,
+      "title": "Random Access Memories",
+      "pressingYear": 2021,
+      "artists": [
+        "Daft Punk"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Columbia",
+      "genres": [
+        "Electronic",
+        "Funk / Soul",
+        "Pop"
+      ],
+      "styles": [
+        "Disco",
+        "Funk",
+        "Synth-pop",
+        "Electro"
+      ],
+      "cover": "https://i.discogs.com/yqa-5yyG0qMNoiEuoIr3i826YpWl-NwUXwg0EZ_6Y3k/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2NzI0/NTg0LTE2ODEyMTcx/MTMtMzIwOC5qcGVn.jpeg",
+      "dateAdded": "2025-01-02T23:14:14-08:00",
+      "year": 2013
+    },
+    {
       "id": 6657381,
       "masterId": 26647,
       "title": "Discovery",
@@ -1005,32 +1032,6 @@
       "cover": "https://i.discogs.com/74iGaX83nY-C2a4rAlkOikPSK_2fhY--ot2W8WxtgCg/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY2NTcz/ODEtMTQyNDAxNjUy/MS02OTc0LmpwZWc.jpeg",
       "dateAdded": "2025-01-03T00:22:08-08:00",
       "year": 2014
-    },
-    {
-      "id": 26724584,
-      "masterId": 556257,
-      "title": "Random Access Memories",
-      "artists": [
-        "Daft Punk"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Columbia",
-      "genres": [
-        "Electronic",
-        "Funk / Soul",
-        "Pop"
-      ],
-      "styles": [
-        "Disco",
-        "Funk",
-        "Synth-pop",
-        "Electro"
-      ],
-      "cover": "https://i.discogs.com/yqa-5yyG0qMNoiEuoIr3i826YpWl-NwUXwg0EZ_6Y3k/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2NzI0/NTg0LTE2ODEyMTcx/MTMtMzIwOC5qcGVn.jpeg",
-      "dateAdded": "2025-01-02T23:14:14-08:00",
-      "year": 2021
     },
     {
       "id": 29277010,
@@ -2300,6 +2301,28 @@
       "cover": "https://i.discogs.com/G--MBadiJr0oNtTRW1_8mARvu_iQ1u-4wDT8ef-er14/rs:fit/g:sm/q:90/h:583/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwNjU4/MTkyLTE1NDc3NTk4/MDItODk2OC5qcGVn.jpeg",
       "dateAdded": "2026-04-21T21:36:39-07:00",
       "year": 2004
+    },
+    {
+      "id": 2496819,
+      "masterId": 406634,
+      "title": "In The Court Of The Crimson King",
+      "pressingYear": 2010,
+      "artists": [
+        "King Crimson"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Discipline Global Mobile",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Prog Rock"
+      ],
+      "cover": "https://i.discogs.com/QfxeBejAVmPV0FnND_gRRFw5Wao_4JBZ-tS5y2ZK06E/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0OTY4/MTktMTc1ODQ2NDgz/My03OTIyLmpwZWc.jpeg",
+      "dateAdded": "2026-10-07T08:28:58-07:00",
+      "year": 1969
     },
     {
       "id": 28644541,
