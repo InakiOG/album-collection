@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-09T13:09:38.749Z",
+  "updatedAt": "2026-10-10T12:26:37.876Z",
   "releases": [
     {
       "id": 31419368,
@@ -854,6 +854,31 @@
       "year": 2000
     },
     {
+      "id": 13839494,
+      "masterId": 33450,
+      "title": "Crystal Castles",
+      "pressingYear": 2017,
+      "artists": [
+        "Crystal Castles"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Last Gang Records",
+      "genres": [
+        "Electronic"
+      ],
+      "styles": [
+        "Glitch",
+        "Chiptune",
+        "Synth-pop",
+        "Electro"
+      ],
+      "cover": "https://i.discogs.com/LORCuYj86enoIl9XwsSMACEu-NLaiTAhwe-i2E8CHHk/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzODM5/NDk0LTE1NjIyOTY4/MDItNTI1Ny5qcGVn.jpeg",
+      "dateAdded": "2026-04-21T20:54:04-07:00",
+      "year": 2008
+    },
+    {
       "id": 29889358,
       "masterId": 491967,
       "title": "(III)",
@@ -878,30 +903,6 @@
       "cover": "https://i.discogs.com/z5QsQV86uqiPivpOjNn2YZcNU6mIlcAEnGzhNanSxaU/rs:fit/g:sm/q:90/h:500/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5ODg5/MzU4LTE3MDg2Njg2/NTAtNjgxNi5qcGVn.jpeg",
       "dateAdded": "2025-01-02T23:09:07-08:00",
       "year": 2012
-    },
-    {
-      "id": 13839494,
-      "masterId": 33450,
-      "title": "Crystal Castles",
-      "artists": [
-        "Crystal Castles"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Last Gang Records",
-      "genres": [
-        "Electronic"
-      ],
-      "styles": [
-        "Glitch",
-        "Chiptune",
-        "Synth-pop",
-        "Electro"
-      ],
-      "cover": "https://i.discogs.com/LORCuYj86enoIl9XwsSMACEu-NLaiTAhwe-i2E8CHHk/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzODM5/NDk0LTE1NjIyOTY4/MDItNTI1Ny5qcGVn.jpeg",
-      "dateAdded": "2026-04-21T20:54:04-07:00",
-      "year": 2017
     },
     {
       "id": 19377427,
@@ -930,6 +931,7 @@
       "id": 9018165,
       "masterId": 20278,
       "title": "Seventeen Seconds",
+      "pressingYear": 2016,
       "artists": [
         "The Cure"
       ],
@@ -947,12 +949,13 @@
       ],
       "cover": "https://i.discogs.com/QBOejgZdZkSJO51Du-jhEw9dihcnB_GfKKhbRk1YXfg/rs:fit/g:sm/q:90/h:596/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTkwMTgx/NjUtMTUwNjY1Nzg1/Ny00MjE0LmpwZWc.jpeg",
       "dateAdded": "2026-06-10T19:42:27-07:00",
-      "year": 2016
+      "year": 1980
     },
     {
       "id": 17329675,
       "masterId": 31755,
       "title": "Disintegration ",
+      "pressingYear": 2020,
       "artists": [
         "The Cure"
       ],
@@ -970,7 +973,7 @@
       ],
       "cover": "https://i.discogs.com/zmwuiUsmx7qnpPpCxl8HKMQqbYpggr5f4KNK1lnbb3M/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE3MzI5/Njc1LTE2MzE5MTY0/MzItMzAwMC5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:54:36-07:00",
-      "year": 2020
+      "year": 1989
     },
     {
       "id": 29277010,
@@ -2550,6 +2553,30 @@
       "year": 2024
     },
     {
+      "id": 24900935,
+      "masterId": 70569,
+      "title": "(Pronounced 'Lĕh-'nérd 'Skin-'nérd)",
+      "pressingYear": 2022,
+      "artists": [
+        "Lynyrd Skynyrd"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Geffen Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Southern Rock",
+        "Blues Rock",
+        "Hard Rock"
+      ],
+      "cover": "https://i.discogs.com/HjlzPqYcxUDZUSJBCxp_nf2aWL3YSddKv94Gsu4isoY/rs:fit/g:sm/q:90/h:600/w:590/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0OTAw/OTM1LTE2Nzg2NjI0/MDQtNTkxNi5qcGVn.jpeg",
+      "dateAdded": "2026-10-09T15:55:48-07:00",
+      "year": 1973
+    },
+    {
       "id": 5552990,
       "masterId": 671443,
       "title": "Salad Days",
@@ -3051,6 +3078,36 @@
       "cover": "https://i.discogs.com/5h0ztWDpOxYgRnJ4pnVFkzndxqe9bHVaDpHL0yRN0_c/rs:fit/g:sm/q:90/h:577/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM1Mzc0/MzgxLTE3Nzk1OTk2/NTMtMjE2Ny5qcGVn.jpeg",
       "dateAdded": "2026-05-14T20:46:51-07:00",
       "year": 2025
+    },
+    {
+      "id": 23027066,
+      "masterId": 112521,
+      "title": "Samurai Champloo Music Record - Departure",
+      "pressingYear": 2022,
+      "artists": [
+        "Nujabes",
+        "Fat Jon"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Flying Dog",
+      "genres": [
+        "Electronic",
+        "Hip Hop",
+        "Stage & Screen"
+      ],
+      "styles": [
+        "Soundtrack",
+        "Jazzy Hip-Hop",
+        "Downtempo",
+        "Trip Hop",
+        "Instrumental",
+        "Anison"
+      ],
+      "cover": "https://i.discogs.com/T2o2aHEXGDr2Kejjv_TU6iu85mDwv7zKnJ9eWctWKpg/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzMDI3/MDY2LTE2NjczNTEy/ODctNTkwNS5qcGVn.jpeg",
+      "dateAdded": "2026-10-09T15:55:27-07:00",
+      "year": 2004
     },
     {
       "id": 6949202,
