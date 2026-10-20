@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-19T12:59:39.950Z",
+  "updatedAt": "2026-10-20T11:28:46.188Z",
   "releases": [
     {
       "id": 31419368,
@@ -798,6 +798,7 @@
       "id": 5876465,
       "masterId": 5104,
       "title": "Heaven Or Las Vegas",
+      "pressingYear": 2014,
       "artists": [
         "Cocteau Twins"
       ],
@@ -815,12 +816,13 @@
       ],
       "cover": "https://i.discogs.com/4aoOARpeUF-cbEjniCDG7t2BafKYFCNcEaVW5d05OO8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU4NzY0/NjUtMTQwNTk0NzIz/Mi0zMTY4LmpwZWc.jpeg",
       "dateAdded": "2026-04-21T20:46:13-07:00",
-      "year": 2014
+      "year": 1990
     },
     {
       "id": 29459938,
       "masterId": 5057,
       "title": "Four-Calendar Café",
+      "pressingYear": 2024,
       "artists": [
         "Cocteau Twins"
       ],
@@ -840,12 +842,13 @@
       ],
       "cover": "https://i.discogs.com/kXTUTgVrLHtGteZPHH18IuHxc_5q5_EhbTSe9Em3uzY/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5NDU5/OTM4LTE3MDUwMzQ4/MTEtNDY0MS5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:52:32-07:00",
-      "year": 2024
+      "year": 1993
     },
     {
       "id": 31728419,
       "masterId": 3334,
       "title": "Parachutes",
+      "pressingYear": 2024,
       "artists": [
         "Coldplay"
       ],
@@ -862,7 +865,7 @@
       ],
       "cover": "https://i.discogs.com/v2A5dL9aUz2GZ0QKvLp-xZ8ojWP4bhbiJrspDh7x1b8/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNzI4/NDE5LTE3Mjk3NTIy/NzQtNTU2OC5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:53:08-07:00",
-      "year": 2024
+      "year": 2000
     },
     {
       "id": 13839494,
