@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-25T11:18:00.942Z",
+  "updatedAt": "2026-10-26T12:51:58.556Z",
   "releases": [
     {
       "id": 31419368,
@@ -541,7 +541,6 @@
       "id": 10685243,
       "masterId": 4844,
       "title": "Master Of Reality",
-      "pressingYear": 2016,
       "artists": [
         "Black Sabbath"
       ],
@@ -559,7 +558,7 @@
       ],
       "cover": "https://i.discogs.com/9pAA9XtdRvVrZ2sVQRE7fRWM6MxwSm7_xTz78VDpobw/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwNjg1/MjQzLTE1MDIzNzAz/NTMtOTg4NC5qcGVn.jpeg",
       "dateAdded": "2026-04-21T20:43:55-07:00",
-      "year": 1971
+      "year": 2016
     },
     {
       "id": 6406575,
@@ -4297,6 +4296,28 @@
       "cover": "https://i.discogs.com/723lBprD9IuP8hzM06qJVjCy_EnyThnnNTcH8V4Srgs/rs:fit/g:sm/q:90/h:583/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1MDYz/NDc4LTE1OTI2ODcx/MzEtMTk5MS5qcGVn.jpeg",
       "dateAdded": "2025-01-03T00:05:56-08:00",
       "year": 2020
+    },
+    {
+      "id": 27024828,
+      "masterId": 107660,
+      "title": "Diary",
+      "pressingYear": 2023,
+      "artists": [
+        "Sunny Day Real Estate"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Sub Pop",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Emo"
+      ],
+      "cover": "https://i.discogs.com/oG2pggbs2AfcvGZiqPqS6iPVATjUAJ7c8IaLW687QWU/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3MDI0/ODI4LTE2ODM2NDIy/MzgtMzg2MC5qcGVn.jpeg",
+      "dateAdded": "2026-10-25T17:29:36-07:00",
+      "year": 1994
     },
     {
       "id": 36822979,
