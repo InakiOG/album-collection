@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T12:54:50.325Z",
+  "updatedAt": "2026-10-30T12:46:52.083Z",
   "releases": [
     {
       "id": 31419368,
@@ -2171,6 +2171,30 @@
       "cover": "https://i.discogs.com/NgucIcoHKdmrOb0KyDmNj5O8NM0iZmKU_oWirBbcHig/rs:fit/g:sm/q:90/h:587/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4MTQ0/OTQyLTE3NDAyNTIy/MjEtOTg0Ni5qcGVn.jpeg",
       "dateAdded": "2026-08-06T11:42:04-07:00",
       "year": 2001
+    },
+    {
+      "id": 31828580,
+      "masterId": 1364158,
+      "title": "Sun Transmission",
+      "pressingYear": 2024,
+      "artists": [
+        "Inner Wave"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Not On Label (Inner Wave Self-released)",
+      "genres": [
+        "Rock",
+        "Pop"
+      ],
+      "styles": [
+        "Psychedelic Rock",
+        "Pop Rock"
+      ],
+      "cover": "https://i.discogs.com/4bkXXwy1vb1IYfueHV4vCoqlG6AEuklWhvyhTuwf5xw/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxODI4/NTgwLTE3MjczMDkz/MTgtNzk3My5wbmc.jpeg",
+      "dateAdded": "2026-10-29T15:01:04-07:00",
+      "year": 2014
     },
     {
       "id": 10471965,
