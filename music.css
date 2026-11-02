@@ -14,9 +14,16 @@
   padding: 0 1.4rem 6rem;
 }
 
+.track-row {
+  display: flex;
+  gap: 0.5rem;
+  scroll-margin: 2rem 0 7rem;
+}
+
 .track {
   display: block;
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   text-align: left;
   background: var(--card);
   color: var(--fg);
@@ -32,9 +39,27 @@
   background: color-mix(in srgb, var(--fg) 8%, var(--card));
 }
 
-.track.playing {
+.track-row.playing .track {
   border-color: var(--fg);
   font-weight: 600;
+}
+
+.track-share {
+  flex: none;
+  background: var(--card);
+  color: var(--muted);
+  border: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
+  border-radius: 8px;
+  padding: 0 0.8rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.track-share:hover,
+.track-share.copied {
+  background: color-mix(in srgb, var(--fg) 8%, var(--card));
+  color: var(--fg);
 }
 
 .player-bar {
