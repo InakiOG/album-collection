@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T16:04:30.349Z",
+  "updatedAt": "2026-11-10T14:51:37.893Z",
   "releases": [
     {
       "id": 31419368,
@@ -515,29 +515,6 @@
       "year": 2019
     },
     {
-      "id": 10748263,
-      "masterId": 302,
-      "title": "Paranoid",
-      "pressingYear": 2016,
-      "artists": [
-        "Black Sabbath"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "Warner Bros. Records",
-      "genres": [
-        "Rock"
-      ],
-      "styles": [
-        "Hard Rock",
-        "Heavy Metal"
-      ],
-      "cover": "https://i.discogs.com/2VDvl3G3AdmGd7eEnSiJoSmpeRdTxXeKYJP-FnhDmLE/rs:fit/g:sm/q:90/h:592/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwNzQ4/MjYzLTE3NDgyNzc3/NjQtMTYxMS5qcGVn.jpeg",
-      "dateAdded": "2026-04-21T20:43:38-07:00",
-      "year": 1970
-    },
-    {
       "id": 10685243,
       "masterId": 4844,
       "title": "Master Of Reality",
@@ -562,10 +539,31 @@
       "year": 1971
     },
     {
+      "id": 10748263,
+      "masterId": 302,
+      "title": "Paranoid",
+      "artists": [
+        "Black Sabbath"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Warner Bros. Records",
+      "genres": [
+        "Rock"
+      ],
+      "styles": [
+        "Hard Rock",
+        "Heavy Metal"
+      ],
+      "cover": "https://i.discogs.com/2VDvl3G3AdmGd7eEnSiJoSmpeRdTxXeKYJP-FnhDmLE/rs:fit/g:sm/q:90/h:592/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwNzQ4/MjYzLTE3NDgyNzc3/NjQtMTYxMS5qcGVn.jpeg",
+      "dateAdded": "2026-04-21T20:43:38-07:00",
+      "year": 2016
+    },
+    {
       "id": 6406575,
       "masterId": 22457,
       "title": "Melody Of Certain Damaged Lemons",
-      "pressingYear": 2011,
       "artists": [
         "Blonde Redhead"
       ],
@@ -582,7 +580,7 @@
       ],
       "cover": "https://i.discogs.com/hqbiUuNaarB09OKPFlGW1N18LWD2kdcLPT1qfMSwM_c/rs:fit/g:sm/q:90/h:600/w:595/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY0MDY1/NzUtMTUyOTg4MTM4/Ni02ODYzLnBuZw.jpeg",
       "dateAdded": "2026-05-17T12:56:54-07:00",
-      "year": 2000
+      "year": 2011
     },
     {
       "id": 31861946,
