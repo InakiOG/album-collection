@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T15:24:40.434Z",
+  "updatedAt": "2026-11-21T14:38:39.791Z",
   "releases": [
     {
       "id": 31419368,
@@ -1012,55 +1012,6 @@
       "year": 2020
     },
     {
-      "id": 29277010,
-      "masterId": 26647,
-      "title": "Discovery",
-      "pressingYear": 2023,
-      "artists": [
-        "Daft Punk"
-      ],
-      "formats": [
-        "Vinyl"
-      ],
-      "label": "ADA (6)",
-      "genres": [
-        "Electronic"
-      ],
-      "styles": [
-        "Disco",
-        "House",
-        "Electro",
-        "French House"
-      ],
-      "cover": "https://i.discogs.com/v1VW0CSdWfF1OMU_Vc5t1pEn5h-s59Oqu8oUSfXdax8/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5Mjc3/MDEwLTE3OTQ0ODAz/MzAtMTE3NS5qcGVn.jpeg",
-      "dateAdded": "2025-01-02T23:11:44-08:00",
-      "year": 2001
-    },
-    {
-      "id": 6657381,
-      "masterId": 26647,
-      "title": "Discovery",
-      "pressingYear": 2014,
-      "artists": [
-        "Daft Punk"
-      ],
-      "formats": [
-        "CD"
-      ],
-      "label": "Warner Music Mexico",
-      "genres": [
-        "Electronic"
-      ],
-      "styles": [
-        "House",
-        "Electro",
-        "Downtempo"
-      ],
-      "cover": "https://i.discogs.com/74iGaX83nY-C2a4rAlkOikPSK_2fhY--ot2W8WxtgCg/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY2NTcz/ODEtMTQyNDAxNjUy/MS02OTc0LmpwZWc.jpeg",
-      "dateAdded": "2025-01-03T00:22:08-08:00",
-      "year": 2001
-    },
-    {
       "id": 21098977,
       "masterId": 291615,
       "title": "TRON: El Legado (Soundtrack Original)",
@@ -1110,6 +1061,53 @@
       "cover": "https://i.discogs.com/yqa-5yyG0qMNoiEuoIr3i826YpWl-NwUXwg0EZ_6Y3k/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2NzI0/NTg0LTE2ODEyMTcx/MTMtMzIwOC5qcGVn.jpeg",
       "dateAdded": "2025-01-02T23:14:14-08:00",
       "year": 2013
+    },
+    {
+      "id": 6657381,
+      "masterId": 26647,
+      "title": "Discovery",
+      "artists": [
+        "Daft Punk"
+      ],
+      "formats": [
+        "CD"
+      ],
+      "label": "Warner Music Mexico",
+      "genres": [
+        "Electronic"
+      ],
+      "styles": [
+        "House",
+        "Electro",
+        "Downtempo"
+      ],
+      "cover": "https://i.discogs.com/74iGaX83nY-C2a4rAlkOikPSK_2fhY--ot2W8WxtgCg/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY2NTcz/ODEtMTQyNDAxNjUy/MS02OTc0LmpwZWc.jpeg",
+      "dateAdded": "2025-01-03T00:22:08-08:00",
+      "year": 2014
+    },
+    {
+      "id": 29277010,
+      "masterId": 26647,
+      "title": "Discovery",
+      "artists": [
+        "Daft Punk"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "ADA (6)",
+      "genres": [
+        "Electronic"
+      ],
+      "styles": [
+        "Disco",
+        "House",
+        "Electro",
+        "French House"
+      ],
+      "cover": "https://i.discogs.com/v1VW0CSdWfF1OMU_Vc5t1pEn5h-s59Oqu8oUSfXdax8/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5Mjc3/MDEwLTE3OTQ0ODAz/MzAtMTE3NS5qcGVn.jpeg",
+      "dateAdded": "2025-01-02T23:11:44-08:00",
+      "year": 2023
     },
     {
       "id": 2383925,
@@ -1931,6 +1929,39 @@
       ],
       "cover": "https://i.discogs.com/O8cbeKl3X9vksRehHFiNJ8Ak0r-n8ntYe0eguyo7FrY/rs:fit/g:sm/q:90/h:580/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzcw/NjIwLTE1NDE2MTMy/NzgtMjgyMy5qcGVn.jpeg",
       "dateAdded": "2025-01-03T00:19:07-08:00",
+      "year": 2001
+    },
+    {
+      "id": 37747407,
+      "masterId": 57988,
+      "title": "Gorillaz",
+      "pressingYear": 2026,
+      "artists": [
+        "Gorillaz"
+      ],
+      "formats": [
+        "Vinyl"
+      ],
+      "label": "Parlophone",
+      "genres": [
+        "Electronic",
+        "Hip Hop",
+        "Rock",
+        "Latin",
+        "Funk / Soul",
+        "Pop"
+      ],
+      "styles": [
+        "Leftfield",
+        "Trip Hop",
+        "Lo-Fi",
+        "Experimental",
+        "UK Garage",
+        "Dub",
+        "Pop Rap"
+      ],
+      "cover": "https://i.discogs.com/30th9r4XGV_62dhSGBRDALb434erE1-K3OfaBC7hxRI/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM3NzQ3/NDA3LTE3ODUwNzY0/MjEtNzI1NS5qcGVn.jpeg",
+      "dateAdded": "2026-11-20T20:14:07-08:00",
       "year": 2001
     },
     {
